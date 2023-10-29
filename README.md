@@ -1,2 +1,2 @@
-# workshops
+# Workshops
 In this repo, you'll find a list of workshops that I've developed. 
