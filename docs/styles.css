@@ -1,0 +1,86 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Source+Code+Pro&display=swap');
+
+/* Global Styles */
+body {
+  font-family: 'Source Code Pro', sans-serif;
+  font-size: 1.1rem;
+  color: black;
+  background-color: #fffeff;
+}
+
+/* Navigation Bar */
+.navbar {
+  background: #010B12; /* Gradient from 400 to 100 */
+}
+
+.navbar-title {
+  font-weight: bold;
+  font-size: 2.7rem;
+  color: #39FF13;
+  font-family: 'Acme', sans-serif;
+}
+
+/* Links */
+a {
+  color: #041E42;
+}
+
+a:hover {
+  color: #0C8900;
+}
+
+/* Table of Contents */
+.sidebar nav[role=doc-toc] ul>li>a.active,
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  border-left: 1px solid #0C8900;
+  color: #0C8900 !important;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a:hover,
+.sidebar nav[role=doc-toc] ul>li>ul>li>a:hover {
+  color: #0C8900 !important;
+}
+
+/* Headings */
+h1 {
+  font-family: 'Acme', sans-serif;
+  color: black;
+  font-weight: 900;
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-family: 'Acme', sans-serif;
+  color: #060505;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-family: 'Acme', sans-serif;
+  color: #191f22;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #39FF13;
+}
+
+/* Appendix */
+.appendix {
+  font-family: 'Source Code Pro', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background-color: #fffeff;
+}
+
+.navbar-title:hover {
+  color:#d913ff;
+  font-size: 2.75rem;
+  transition: 0.8s;
+}
+

@@ -1,0 +1,667 @@
+[
+  {
+    "objectID": "COC/coc.html",
+    "href": "COC/coc.html",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Los asistentes a este taller estamos comprometidos con la creación de un entorno inclusivo, respetuoso y seguro para todas las personas involucradas. Este Código de Conducta establece nuestras expectativas sobre el comportamiento de todos los participantes.\n\n\n\n\nRespeto Mutuo: Trata a todos con respeto y cortesía.\nInclusividad: Promueve un ambiente inclusivo y acogedor para todos los participantes.\nColaboración: Fomenta la colaboración y el trabajo en equipo.\nEscucha Activa: Presta atención a las opiniones y preguntas de otros, y da retroalimentación constructiva.\n\n\n\n\n\nDiscriminación o Acoso: Cualquier forma de discriminación o acoso.\nLenguaje Ofensivo: El uso de lenguaje inapropiado, obsceno o insultante.\nIntimidación: Amenazas, acoso, o cualquier otra forma de intimidación.\n\n\n\n\nCualquier participante que viole este Código de Conducta podría enfrentar medidas que van desde advertencias hasta la expulsión del evento, a discreción de los organizadores.\n\n\n\nSi eres víctima o testigo de un comportamiento inaceptable, informa a los organizadores lo más pronto posible."
+  },
+  {
+    "objectID": "COC/coc.html#introducción",
+    "href": "COC/coc.html#introducción",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Los asistentes a este taller estamos comprometidos con la creación de un entorno inclusivo, respetuoso y seguro para todas las personas involucradas. Este Código de Conducta establece nuestras expectativas sobre el comportamiento de todos los participantes."
+  },
+  {
+    "objectID": "COC/coc.html#comportamiento-esperado",
+    "href": "COC/coc.html#comportamiento-esperado",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Respeto Mutuo: Trata a todos con respeto y cortesía.\nInclusividad: Promueve un ambiente inclusivo y acogedor para todos los participantes.\nColaboración: Fomenta la colaboración y el trabajo en equipo.\nEscucha Activa: Presta atención a las opiniones y preguntas de otros, y da retroalimentación constructiva."
+  },
+  {
+    "objectID": "COC/coc.html#comportamientos-inaceptables",
+    "href": "COC/coc.html#comportamientos-inaceptables",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Discriminación o Acoso: Cualquier forma de discriminación o acoso.\nLenguaje Ofensivo: El uso de lenguaje inapropiado, obsceno o insultante.\nIntimidación: Amenazas, acoso, o cualquier otra forma de intimidación."
+  },
+  {
+    "objectID": "COC/coc.html#medidas-disciplinarias",
+    "href": "COC/coc.html#medidas-disciplinarias",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Cualquier participante que viole este Código de Conducta podría enfrentar medidas que van desde advertencias hasta la expulsión del evento, a discreción de los organizadores."
+  },
+  {
+    "objectID": "COC/coc.html#informes",
+    "href": "COC/coc.html#informes",
+    "title": "Código de Conducta",
+    "section": "",
+    "text": "Si eres víctima o testigo de un comportamiento inaceptable, informa a los organizadores lo más pronto posible."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/7-regularizacion.html#usar-recetas",
+    "href": "archive/2023-03-Uniandes/7-regularizacion.html#usar-recetas",
+    "title": "7. Regularización",
+    "section": "Usar recetas",
+    "text": "Usar recetas\nConstruir la receta:\nrecipe(punt_matematicas_11 ~ ., data = datos_entrenamiento) crea un objeto recipe que especifica que se va a predecir la variable punt_matematicas_11 usando todas las otras variables (.) en los datos de entrenamiento datos_entrenamiento.\nstep_mutate(across(everything(), ~ if_else(.x == \"NA\", NA, .x))) reemplaza todos los valores de “NA” en todas las columnas con el valor NA. Esto se hace para asegurarse de que los datos faltantes estén representados correctamente en el conjunto de datos.\nstep_mutate(estu_cod_mcpio_presentacion_9 = as_factor(estu_cod_mcpio_presentacion_9)) convierte la columna estu_cod_mcpio_presentacion_9 a un factor. Esto es necesario porque esta columna representa códigos de municipios y no debería tratarse como una variable numérica continua.\nstep_mutate(estu_cod_depto_presentacion_9 = as_factor(estu_cod_depto_presentacion_9)) convierte la columna estu_cod_depto_presentacion_9 a un factor. Esto se hace por la misma razón que en el paso anterior.\nstep_mutate(estu_edad_9 = as.numeric(str_extract_all(estu_edad_9, \"\\\\d+\"))) extrae los números de la columna estu_edad_9 y los convierte a valores numéricos. Esto se hace para asegurarse de que la variable se trate como numérica en lugar de como un factor.\nstep_mutate(fami_cuartoshogar_9 = if_else(fami_cuartoshogar_9 == \"NA\", NA, fami_cuartoshogar_9)) reemplaza los valores “NA” en la columna fami_cuartoshogar_9 con el valor NA. Esto es necesario para asegurarse de que los datos faltantes estén representados correctamente.\nstep_mutate(fami_cuartoshogar_9 = as.numeric(fami_cuartoshogar_9)) convierte la columna fami_cuartoshogar_9 a valores numéricos. Esto se hace porque esta variable representa el número de habitaciones en el hogar y se espera que sea una variable numérica.\nstep_impute_mode(all_nominal_predictors()) imputa los valores faltantes en todas las variables nominales (factores) con el modo (valor más común) de cada columna.\nstep_impute_mean(all_double()) imputa los valores faltantes en todas las variables continuas con la media de cada columna.\nstep_zv(all_predictors()) elimina las variables que tienen una varianza cero. Esto se hace para asegurarse de que las variables que no cambian en todo el conjunto de datos no estén incluidas en el modelo.\nstep_normalize(all_double_predictors()) normaliza todas las variables continuas para que tengan media cero y varianza unitaria. Esto se hace para asegurarse de que las variables estén en la misma métrica\n\nset.seed(2231)\n\nmini_datos &lt;- data_icfes |&gt;\n  select(contains(\"fami\"), starts_with(\"estu\"), \"punt_matematicas_11\") |&gt;\n  select(contains(\"9\"), \"punt_matematicas_11\") |&gt; tidyREDCap::drop_labels()\n\ndatos_divididos &lt;- initial_split(mini_datos, prop = 0.8)\n\ndatos_entrenamiento &lt;- training(datos_divididos)\ndatos_prueba &lt;- testing(datos_divididos)\n\nmean(datos_entrenamiento$punt_matematicas_11, na.rm = T)\nmean(datos_prueba$punt_matematicas_11, na.rm = T)\n\n\nreceta_lasso_2 &lt;- \n  recipe(punt_matematicas_11 ~ ., data = datos_entrenamiento) |&gt;\n  step_mutate(across(everything(), ~ if_else(.x == \"NA\", NA, .x))) |&gt;\n  step_mutate(estu_cod_mcpio_presentacion_9 = as_factor(estu_cod_mcpio_presentacion_9)) |&gt;\n  step_mutate(estu_cod_depto_presentacion_9 = as_factor(estu_cod_depto_presentacion_9)) |&gt;\n  step_mutate(estu_edad_9 = as.numeric(str_extract_all(estu_edad_9, \"\\\\d+\"))) |&gt;\n  step_mutate(fami_cuartoshogar_9 = if_else(fami_cuartoshogar_9 == \"NA\", NA, \n                                            fami_cuartoshogar_9)) |&gt;\n  step_mutate(fami_cuartoshogar_9 = as.numeric(fami_cuartoshogar_9)) |&gt;\n  step_impute_mode(all_nominal_predictors()) |&gt;\n  step_impute_mean(all_double()) |&gt;\n  step_zv(all_predictors()) |&gt;\n  step_normalize(all_double_predictors()) |&gt;\n  step_dummy(all_factor_predictors())\n\nAplicar la receta y obtener los datos transformados.\n\ndespues_receta &lt;- prep(receta_lasso) |&gt; bake(new_data = datos_entrenamiento)\n\n\nspec_lasso &lt;-\n  linear_reg(penalty = 0.5, mixture = 1) |&gt;\n  # En glmnet, mixture = 1 es un modelo lasso. Mixture = 0 es ridge regression.\n  set_engine(\"glmnet\") |&gt;\n  set_mode(\"regression\")\n\nEl segundo paso es crear un workflow. A ese workflow le vamos añadir diferentes pasos. Agregamos el modelo.\n\nwf2 &lt;-\n  workflow() |&gt;\n  add_model(spec_lasso)\n\nDespués agregarmos las transformaciones que debemos realizar a las variables.\n\nDummy\nCentrar\nEscalar\n\nCentrar los datos significa restar la media de una variable de los datos. Escalar los datos significa dividir sobre la desviación estándar.\nAhora podemos agregar la receta al workflow, para que se aplique a los datos antes de estimar el modelo\n\nwf2 &lt;- wf2 |&gt;\n  add_recipe(receta_lasso_2)\n\nEstimar el error en el training\n\nlasso_fit &lt;- wf2 |&gt; \n  last_fit(datos_divididos)\n\ncollect_metrics(lasso_fit)\n\n\nwf2 %&gt;%\n  fit(datos_entrenamiento) %&gt;%\n  extract_fit_parsnip() %&gt;%\n  vip::vi() %&gt;%\n  mutate(\n    Importance = abs(Importance),\n    Variable = fct_reorder(Variable, Importance)\n  ) %&gt;%\n  head(20) |&gt;\n  ggplot(aes(x = Importance, y = Variable, fill = Sign)) +\n  geom_col() +\n  scale_x_continuous(expand = c(0, 0)) +\n  labs(y = NULL) +\n  facet_wrap(~Sign, scales = \"free_y\") +\n  theme(legend.position = \"none\")\n\nEl paquete usemodels propone una manera de hacer el recipe, el engine y el workflow\n\nusemodels::use_ranger(punt_matematicas_11 ~ ., data = datos_entrenamiento)\n\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/5-forest.html#validación-cruzada",
+    "href": "archive/2023-03-Uniandes/5-forest.html#validación-cruzada",
+    "title": "5. Random Forest",
+    "section": "Validación Cruzada",
+    "text": "Validación Cruzada\nSupongamos que estamos trabajando en un problema de clasificación binaria y disponemos de un conjunto de datos con 1000 registros. Queremos evaluar el rendimiento de un modelo de regresión logística utilizando la validación cruzada k-fold.\nPaso a paso del proceso de k-fold cross-validation:\nDividir el conjunto de datos: Primero, dividimos el conjunto de datos en k subconjuntos (folds) de igual tamaño. En este ejemplo, elegimos k=10, lo que significa que dividimos el conjunto de datos en 10 subconjuntos de 100 registros cada uno.\nEntrenar y evaluar el modelo: Luego, realizamos lo siguiente para cada uno de los k subconjuntos:\n\nTomamos un subconjunto como el conjunto de prueba (validación) y los k-1 subconjuntos restantes como el conjunto de entrenamiento. Por ejemplo, en la primera iteración, usamos el primer subconjunto como conjunto de prueba y los subconjuntos del 2 al 10 como conjunto de entrenamiento.\nEntrenamos el modelo de regresión logística utilizando el conjunto de entrenamiento.\nEvaluamos el rendimiento del modelo en el conjunto de prueba utilizando una métrica adecuada, como la precisión, la exhaustividad o el F1-score. Anotamos el resultado de la métrica para esta iteración.\n\nPromediar los resultados: Después de completar las k iteraciones, calculamos la media de los resultados de la métrica para todas las iteraciones. Esta media nos proporciona una estimación más robusta del rendimiento del modelo, ya que el modelo ha sido evaluado en diferentes subconjuntos del conjunto de datos.\nhttps://scikit-learn.org/stable/modules/cross_validation.html https://www.tmwr.org/resampling.html"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/5-forest.html#cart",
+    "href": "archive/2023-03-Uniandes/5-forest.html#cart",
+    "title": "5. Random Forest",
+    "section": "CART",
+    "text": "CART\nHay tres variables que están más relacionadas con no consumir alcohol.\n\ncrossvalidation &lt;-\n  vfold_cv(datos_entrenamiento, \n           v = 5,  # número de cajas\n           strata = \"PYALC\")\n\n\ntree_spec &lt;- \n  decision_tree(\n    cost_complexity = tune(), \n    tree_depth = tune(),\n    min_n = tune()\n  ) |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\nCost_complexity (tmedida de complejidad alfa o parámetro de poda alfa):\nCost_complexity es un parámetro de regularización. Es una medida de la penalización que se aplica al árbol en función de su complejidad. Un valor más alto de cost_complexity implica una penalización más fuerte en la complejidad del árbol, lo que lleva a un árbol más pequeño y menos profundo. La idea es encontrar un valor óptimo de cost_complexity que equilibre la precisión y la complejidad del árbol, reduciendo tanto el sesgo como la varianza.\nTree_depth (profundidad del árbol):\nTree_depth se refiere a la longitud máxima del camino más largo desde la raíz hasta una hoja en un árbol de decisión. Un árbol más profundo es más complejo y puede capturar relaciones más complicadas en los datos. Sin embargo, un árbol demasiado profundo también puede ser propenso al sobreajuste, ya que puede adaptarse demasiado a las peculiaridades de los datos de entrenamiento.\nMin_n (mínimo número de muestras para dividir un nodo):\nMin_n es un parámetro que controla el número mínimo de datos requeridas para dividir un nodo en un árbol de decisión. Un valor más alto de min_n implica que el árbol será menos profundo, ya que se requerirán más muestras para realizar una división en cada nodo. Un valor más bajo de min_n permite que el árbol se divida más fácilmente y, por lo tanto, puede resultar en un árbol más complejo y profundo.\n\ntree_grid &lt;- grid_regular(cost_complexity(range = c(-10L, -1L)), \n                          tree_depth (range = c(5L, 10L)), \n                          min_n(range = c(5L, 30L)))\n\n\ndoParallel::registerDoParallel()\n\nset.seed(345)\ntree_rs &lt;-\n  tune_grid(\n    tree_spec,\n    PYALC ~ .,\n    resamples = crossvalidation,\n    grid = tree_grid,\n    metrics = metric_set(accuracy, roc_auc, sensitivity, specificity)\n  )\n\ndoParallel::stopImplicitCluster()\n\n\nshow_best(tree_rs)\n\nautoplot(tree_rs)\n\n\nsimpler_tree &lt;- select_best(tree_rs, min_n, metric = \"accuracy\")\n\nfinal_tree &lt;- finalize_model(tree_spec, simpler_tree)\n\n\nfinal_fit &lt;- fit(final_tree, PYALC ~ ., datos_entrenamiento)\n\n\nfinal_cart &lt;- last_fit(final_tree, PYALC ~ ., datos_divididos,\n  metrics = metric_set(accuracy, roc_auc, sensitivity, specificity)\n)\n\n\ncollect_metrics(final_cart)\n\n\ncart_trained &lt;- \n  final_cart  |&gt; extract_fit_parsnip()\n\ncart_tree_fit &lt;- cart_trained$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint=FALSE)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/5-forest.html#random-forest",
+    "href": "archive/2023-03-Uniandes/5-forest.html#random-forest",
+    "title": "5. Random Forest",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nNúmero de predictores que se usan para cada árbol (mtry)\nNúmero de árboles (trees)\nProfundidad de los árboles (min_n)\n\nRandom Forest\n\nrf_spec &lt;- \n  rand_forest()  |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"ranger\", importance = \"permutation\")\n\n\nrf_results &lt;- rf_spec |&gt; \nfit(PYALC ~ ., data = datos_entrenamiento)\n\nlibrary(vip)\nimportance_plot_rf &lt;- \n  rf_results |&gt; \n  vip() +\n  ggtitle(\"Random Forest\")\n\n\nrf_predicciones &lt;- predict(rf_results, entrenamiento)\n\nresultados_rf &lt;- cbind(rf_predicciones,datos_entrenamiento) |&gt; \n  tibble()\n\nrf_metrics &lt;- custom_metrics(resultados_rf,\n               truth = PYALC,\n               estimate = .pred_class) |&gt;\n  mutate(model=\"rf\")\n\nrbind(rf_metrics, tree2_metrics, tree_metrics, lm_metrics) |&gt; \n  pivot_wider(names_from = model, values_from = .estimate)\n\n\nrf_predicciones &lt;- cbind(predict(rf_results, datos_prueba), datos_prueba2_out) |&gt;  mutate(model=\"rf\")\n\nall_models &lt;- \nrbind(lm_predicciones, rf_predicciones,tree_predicciones, tree2_predicciones) \n\n\nall_models2 &lt;- all_models |&gt; \n  group_split(model) %&gt;%\n   setNames(unique(all_models$model)) %&gt;%\n  map_dfr(., ~custom_metrics(.x,\n               truth = PYALC,\n               estimate = .pred_class), .id = \"names\")\nall_models2 |&gt; \n  pivot_wider(names_from = names, values_from = .estimate)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/5-forest.html#sesgo-y-varianza",
+    "href": "archive/2023-03-Uniandes/5-forest.html#sesgo-y-varianza",
+    "title": "5. Random Forest",
+    "section": "Sesgo y varianza",
+    "text": "Sesgo y varianza\nEstos dos conceptos son cruciales para entender el equilibrio entre la complejidad del modelo y su capacidad para generalizar a nuevos datos.\nSesgo (Bias): a. Definición: El sesgo es la diferencia entre la predicción promedio de nuestro modelo y el valor verdadero que intentamos predecir.El sesgo, en términos estadísticos, se refiere a la diferencia sistemática entre la esperanza (o promedio) de las estimaciones que produce un estimador y el valor real del parámetro que se desea estimar. Un modelo con alta varianza es muy sensible a pequeñas variaciones en los datos de entrenamiento, lo que puede resultar en un sobreajuste. Es decir, el modelo se ajusta muy bien a los datos de entrenamiento, pero tiene un rendimiento deficiente en datos no vistos o de prueba.\n\nEjemplo: Un modelo de regresión lineal simple podría tener un alto sesgo si los datos reales tienen una relación no lineal.\nImplicaciones: Un modelo con alto sesgo es demasiado simple y no captura la estructura subyacente de los datos. Esto conduce a un bajo rendimiento en el conjunto de entrenamiento y prueba.\n\nVarianza (Variance): a. Definición: La varianza es la cantidad de variabilidad en las predicciones del modelo para un punto de datos dado. b. Ejemplo: Un modelo de árbol de decisión muy profundo podría tener alta varianza, ya que es muy sensible a pequeñas variaciones en los datos de entrenamiento. c. Implicaciones: Un modelo con alta varianza tiende a sobreajustarse a los datos de entrenamiento, lo que resulta en un buen rendimiento en el conjunto de entrenamiento pero un bajo rendimiento en el conjunto de prueba.\nEl objetivo en Machine Learning es equilibrar el sesgo y la varianza para minimizar el error de predicción general en el modelo a. Objetivo: Encontrar un equilibrio entre sesgo y varianza que minimice el error total de predicción. b. Estrategias: Seleccionar un modelo con la complejidad adecuada, usar técnicas de regularización, y validar el modelo con conjuntos de datos de entrenamiento y prueba separados.\nFormas de disminur el sesgo\nAumentar la complejidad del modelo: Un modelo más complejo puede capturar mejor la estructura subyacente de los datos. Por ejemplo, en lugar de utilizar una regresión lineal simple, podrías probar una regresión polinomial o un modelo de árbol de decisión.\nAñadir más variables: A veces, el sesgo puede ser el resultado de no tener en cuenta variables importantes que influyen en la variable objetivo. Añadir más variables relevantes puede ayudar a reducir el sesgo del modelo.\nUtilizar técnicas de “ingeniería de predictores”: Transformar o combinar las variables existentes para crear nuevas características puede ayudar a capturar mejor la relación entre las variables de entrada y salida. Por ejemplo, si estás trabajando en un problema de predicción de precios de viviendas, podrías crear una nueva característica que represente la relación entre el tamaño de la casa y el número de habitaciones.\nAumentar el tamaño del conjunto de datos: Si tu conjunto de datos es pequeño o no es representativo de la población general, es posible que el modelo tenga un sesgo alto. Aumentar el tamaño del conjunto de datos y asegurarte de que es representativo puede ayudar a reducir el sesgo.\nUtilizar ensembles de modelos: Combinar varios modelos en un ensemble puede ayudar a reducir el sesgo, ya que cada modelo puede capturar diferentes aspectos de la relación entre las variables de entrada y salida. Por ejemplo, puedes utilizar métodos de ensemble como Bagging, Boosting o Stacking."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/5-forest.html#técnicas-para-reducir-la-varianza",
+    "href": "archive/2023-03-Uniandes/5-forest.html#técnicas-para-reducir-la-varianza",
+    "title": "5. Random Forest",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nReducir la complejidad del modelo: Un modelo más simple tiende a tener una menor varianza y es menos propenso al sobreajuste. Por ejemplo, podrías limitar la profundidad de un árbol de decisión.\nUtilizar regularización: La regularización es una técnica que añade una penalización a los coeficientes del modelo para evitar que se ajusten demasiado a los datos de entrenamiento.Por ejemplo, regularización L1 (Lasso) y L2 (Ridge).\nAumentar el tamaño del conjunto de datos: Si dispones de más datos, el modelo será menos sensible a pequeñas variaciones en los datos de entrenamiento y tendrá una menor varianza.\nEliminar características ruidosas: Si tu modelo incluye características que no están relacionadas con la variable objetivo o que contienen mucho ruido, estas pueden aumentar la varianza del modelo. Realizar un análisis de importancia de características y eliminar las características poco importantes puede ayudar a reducir la varianza.\nValidación cruzada (cross-validation): Utilizar la validación cruzada, como k-fold cross-validation, te permite evaluar el rendimiento del modelo en diferentes subconjuntos del conjunto de datos de entrenamiento. Esto puede ayudarte a identificar si el modelo está sobreajustando los datos y ajustar la complejidad del modelo en consecuencia.\nUtilizar diferentes modelos: Combinar varios modelos en un ensemble puede ayudar a reducir la varianza, ya que la variabilidad de cada modelo individual se promedia. Por ejemplo, puedes utilizar métodos de ensemble como Bagging (Bootstrap Aggregating) o Random Forest, que promedian las predicciones de múltiples árboles de decisión entrenados en subconjuntos aleatorios de los datos.\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#agenda",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#agenda",
+    "title": "3. Estimar un modelo",
+    "section": "Agenda",
+    "text": "Agenda\nParte I\n\nEspecificar un modelo\nEstimar un modelo\nVer los resultados del modelo\n\nParte II\n\nDividir los datos\nEspecificar un modelo\nEstimar un modelo\nEvaluar el modelo\nEstimar un modelo mejor"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#estimar-un-modelo",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#estimar-un-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "Estimar un modelo",
+    "text": "Estimar un modelo\n\nHay muchas formas de estimar modelos en R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\nlm(): Ajusta un modelo de regresión lineal a los datos.\nstan_glm(): Ajusta un modelo de regresión utilizando el paquete Stan.\nglmnet(): Ajusta un modelo de regresión utilizando la regularización Lasso o Ridge."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-en-tidymodels",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-en-tidymodels",
+    "title": "3. Estimar un modelo",
+    "section": "Especificar el modelo en tidymodels",
+    "text": "Especificar el modelo en tidymodels\nTidymodels ofrece una sintaxis general para estimar los modelos\nhttps://www.tidymodels.org/\n\nEspecificar el tipo de modelo\n\nlinear_reg(), logistic_reg(), decition_tree()\n\nEspecificar el tipo de outcome\n\nRegresión para outcomes continuos\nClasificación: multinomial, ordinal, binaria\n\n\n\n\nlibrary(tidymodels)\n\ntidymodels_prefer()\n\nlinear_reg() |&gt; \n  set_engine(\"lm\") \n\nlinear_reg() |&gt; \n    set_engine(\"glmnet\") \n    \nlinear_reg() |&gt;\n    set_engine(\"stan\")"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-en-tidymodels-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-en-tidymodels-1",
+    "title": "3. Estimar un modelo",
+    "section": "Especificar el modelo en tidymodels",
+    "text": "Especificar el modelo en tidymodels\n\n\n\n\n\n\nTip\n\n\nlibrary(): Carga el paquete tidymodels en R.\ntidymodels_prefer(): Establece el paquete tidymodels como el preferido para las funciones de modelado en R.\nlinear_reg(): Crea una especificación de modelo de regresión lineal en el marco de trabajo tidymodels.\nset_engine(): Establece el motor de cálculo para un objeto de especificación de modelo. Se establece en “lm” para la primera llamada a linear_reg(), “glmnet” para la segunda llamada y “stan” para la tercera."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#estimar-un-modelo-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#estimar-un-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "Estimar un modelo",
+    "text": "Estimar un modelo\nEstimar un modelo de regresión logistica para evaluar la asociación entre el consumo de alcohol y los factores de riesgo\n\nmini_datos |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    table1::table1( ~ ., data=_)\n\n\n\nmini_datos |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    filter(!is.na(PYALC)) |&gt; \n    table1::table1( ~ . | PYALC, data=_)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#explorar-los-datos-visualmente",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#explorar-los-datos-visualmente",
+    "title": "3. Estimar un modelo",
+    "section": "Explorar los datos visualmente",
+    "text": "Explorar los datos visualmente\n\nmini_datos |&gt; \n  group_by(PYALC) |&gt; \n  summarise(across(\"CRPAD\":\"SPRPI\", \\(x) mean(x, na.rm = TRUE))) |&gt; \n  pivot_longer(-PYALC) |&gt; \n  filter(!is.na(PYALC)) |&gt; \n  ggplot(aes(value, fct_reorder(name, value), fill = PYALC)) +\n  geom_col(alpha = 0.8, position = \"dodge\") +\n  scale_x_continuous() +\n  labs(x = \"Promedio\", y = NULL, fill = NULL)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "1. Especificar el modelo",
+    "text": "1. Especificar el modelo\n\nlm_model &lt;-\n    logistic_reg() %&gt;% \n    set_engine(\"glm\", family=\"binomial\") |&gt;\n    set_mode(\"classification\")\n\n\nEspecificar un modelo de regresión logística. Se establece el “paquete”, en este caso “glm” y opciones del paquete (la distribución de la variable de respuesta). Además, se establece el modo de modelado en “classification” para indicar que es una variable categórica. El resultado se almacena en el objeto lm_model."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#estimar-el-modelo",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#estimar-el-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "2. Estimar el modelo",
+    "text": "2. Estimar el modelo\n\nlm_results &lt;- lm_model |&gt;\n    fit(PYALC ~ ., data = mini_datos)\n\n\nAquí se ajusta-estima el modelo utilizando la función fit(). Se especifica la variable de respuesta (PYALC) y los predictores (.) y se utiliza el objeto mini_datos como base de datos."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#ver-los-resultados-del-modelo",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#ver-los-resultados-del-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "3. Ver los resultados del modelo",
+    "text": "3. Ver los resultados del modelo\n\nlm_results |&gt; tidy() \n\nlm_results |&gt; glance()\n\n\ntidy(): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente.\nglance(): Esta función se utiliza para resumir los resultados de un modelo como estadísticas globales del modelo, por ejemplo, R-cuadrado ajustado, el AIC y el BIC.\n\n\n\n\n\n\n\nTip\n\n\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)\n\ntidy(exp=TRUE, conf.int=TRUE): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente. Los argumentos exp y conf.int se utilizan para incluir los intervalos de confianza y los exponentes en los resultados"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#para-qué-necesitamos-los-datos",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#para-qué-necesitamos-los-datos",
+    "title": "3. Estimar un modelo",
+    "section": "Para qué necesitamos los datos?",
+    "text": "Para qué necesitamos los datos?\nNecesitamos:\n- Estimar parametros\n- Seleccionar modelos\n- Sintonizar los modelos (tunning)\n- Evaluar los modelos\n¿Cómo gastarnos los datos de una forma que sea eficiente para todos estos pasos? (validación empírica)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\n\nDividir los datos en dos conjuntos\n\nEntrenamiento\n\nLa mayoría de los datos (¿70%, 80%?)\nAquí se ajusta el modelo\n\nPrueba\n\nUn pequeño conjunto de datos\nAquí se evaluará el modelo final\n\n\n\nLos datos de prueba se utilizan una sola vez, si se utilizan más de una vez, se convierten en parte del proceso de entrenamiento.\n\nLa división de los datos se hace al nivel de unidad independiente de observación."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos-1",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nCrear dos bases: 80% y 20%\n\nset.seed(1234)\n\nmini_datos &lt;- mini_datos |&gt; drop_na()\n\ndatos_divididos &lt;- initial_split(mini_datos, prop = 0.8, strata = \"PYALC\")\n\ndatos_entrenamiento &lt;- training(datos_divididos)\ndatos_prueba &lt;- testing(datos_divididos)\n\n\nLa opción strata es para que los datos de entrenamiento y prueba tengan la misma distribución de la variable PYALC\n\nA veces la selección aleatoria de la muestra es problemática, por ejemplo cuando hay una componente de tiempo en los datos. En este caso, se puede usar la función initial_time_split()."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos-2",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#dividir-los-datos-2",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nset.seed(): se utiliza para establecer una semilla para la generación de números aleatorios en R. En este caso, se utiliza para establecer la semilla en 1234, lo que garantiza que los resultados sean reproducibles. Esto es especialmente importante cuando se trabaja con modelos de aprendizaje automático, ya que los resultados pueden variar según la semilla utilizada para la generación de números aleatorios.\ndrop_na(): Esta función se utiliza para eliminar filas con valores faltantes de un data frame o tibble. En este caso, se utiliza para eliminar filas con valores faltantes del objeto “mini_datos”.\ninitial_split(): Esta función se utiliza para dividir un data frame o tibble en conjuntos de entrenamiento y prueba. En este caso, se utiliza para dividir el objeto “mini_datos” en conjuntos de entrenamiento y prueba en una proporción de 80/20, y estratificando por la columna “PYALC”.\ntraining(): Esta función se utiliza para extraer el conjunto de entrenamiento de un objeto creado con la función initial_split(). En este caso, se utiliza para extraer el conjunto de entrenamiento del objeto “datos_divididos”.\ntesting(): Esta función se utiliza para extraer el conjunto de prueba de un objeto creado con la función initial_split(). En este caso, se utiliza para extraer el conjunto de prueba del objeto “datos_divididos”."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#especificar-el-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "1. Especificar el modelo",
+    "text": "1. Especificar el modelo\n\nlm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#estimar-el-modelo-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#estimar-el-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "2. Estimar el modelo",
+    "text": "2. Estimar el modelo\n\nlm_results &lt;- lm_model |&gt;\n    fit(PYALC ~ ., data = datos_entrenamiento)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#ver-los-resultados-del-modelo-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#ver-los-resultados-del-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "3. Ver los resultados del modelo",
+    "text": "3. Ver los resultados del modelo\n\nlm_results |&gt; tidy()\n\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#evaluar-el-modelo",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#evaluar-el-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "4. Evaluar el modelo",
+    "text": "4. Evaluar el modelo\n\npredecir_estos_valores &lt;- datos_entrenamiento %&gt;% \n    select(-PYALC) %&gt;% \n    slice(1:10)\n\npredict(lm_results, predecir_estos_valores)\n\n\npredict(lm_results, predecir_estos_valores, type=\"prob\")\n\n\nentrenamiento &lt;- datos_entrenamiento %&gt;% \n    select(-PYALC)\n\nprediccion &lt;- predict(lm_results, entrenamiento)\n\nresultados_prueba &lt;- cbind(prediccion, datos_entrenamiento) |&gt; \n  select(.pred_class, PYALC, everything()) |&gt; \n  tibble()"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\n\nconf_mat(resultados_prueba, truth = PYALC,\n         estimate = .pred_class)\n\naccuracy(resultados_prueba, truth = PYALC,\n         estimate = .pred_class)\n\nsens(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas-1",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas-1",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\n\nspec(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)\n\nprecision(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)\n\nrecall(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)\n\nkap(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas-2",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#calcular-las-métricas-2",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\n\ncustom_metrics &lt;- metric_set(accuracy, sens, spec, precision, recall, f_meas, kap, mcc)\n\ncustom_metrics(resultados_prueba,\n  truth = PYALC,\n  estimate = .pred_class\n)\n\nlm_metrics &lt;- custom_metrics(resultados_prueba,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt;\n  mutate(model = \"lm\")"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#tabla-de-métricas",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#tabla-de-métricas",
+    "title": "3. Estimar un modelo",
+    "section": "Tabla de Métricas",
+    "text": "Tabla de Métricas\n\nlibrary(gt)\n\ncustom_metrics(resultados_prueba,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt; gt()"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/3-modelos.html#área-bajo-la-curva",
+    "href": "archive/2023-03-Uniandes/3-modelos.html#área-bajo-la-curva",
+    "title": "3. Estimar un modelo",
+    "section": "Área bajo la curva",
+    "text": "Área bajo la curva\n\nprediccion_auc &lt;- predict(lm_results, entrenamiento, type = \"prob\")\n\nresultados_prueba_auc &lt;- cbind(prediccion_auc, datos_entrenamiento) |&gt;\n  tibble()\n\nroc_auc(resultados_prueba_auc,\n  truth = PYALC,\n  `.pred_No ha consumido`\n)\n\nroc_curve(resultados_prueba_auc,\n  truth = PYALC,\n  `.pred_No ha consumido`\n) |&gt; autoplot()"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#temas",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#temas",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Temas",
+    "text": "Temas\n\n\n\n\nTipos de modelos\n\nDescriptivo\nInferencial\nPredictivo\n\nMachine Learning - Supervised\n\nClasificación\nRegresión - Unsupervised\nClustering\n\nEquilibrio entre la varianza y el sesgo\nValidación Cruzada\n\n\n\nEvaluación de los Modelos - Separación entrenamiento y prueba - Remuestreo\n\nLeave One Out\nK-Fold\nBoostraping"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#tipos-de-modelos",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#tipos-de-modelos",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Tipos de modelos",
+    "text": "Tipos de modelos\n\nDescriptivosInferencialPredictivo\n\n\n\nDescribir las características de una base de datos\nVisualizar los datos\nResumir los datos\nGenerar hipótesis\n\n\n\n\nEstimar la probabilidad de que ocurra un evento\nProducir una estimación de un parámetro poblacional\nProbar una hipótesis\nIdea predeterminada y se prueba\nValor p, intervalo de confianza\n\n\n\n\nAnticipar el valor de una variable\nAplicar una regla a un evento que no ha ocurrido\nMayor interés en la predicción que en la inferencia\nPuede ser que no importe el mecanismo"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#otra-clasificación-es",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#otra-clasificación-es",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Otra clasificación es",
+    "text": "Otra clasificación es\n\nModelos explicativos\nModelos predictivos"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#machine-learning",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#machine-learning",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Machine Learning",
+    "text": "Machine Learning\nMuchos modelos de machine learning son predictivos por ejemplo:\n\nk-nearest neighbors\nÁrboles de decisión\nRandom Forests\nSupport Vector Machines"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#machine-learning-1",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#machine-learning-1",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nMachine LearningUnsupervisedSupervised\n\n\n\n\n\nNo hay una variable de resultado\n\nComponentes principales\n\n\n\n\nHay una variable de resultado\n\nRegresión: variable de resultado continua\nClasificación: variable de resultado categórica"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#cuál-es-el-proceso-del-análisis-de-datos",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#cuál-es-el-proceso-del-análisis-de-datos",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Cuál es el proceso del análisis de datos",
+    "text": "Cuál es el proceso del análisis de datos\n\n\n¿La creación del modelo es el primer paso?\n¿Limpiar los datos?\n¿Explorar los datos?\n¿Cómo se van a evaluar los modelos?"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#gráfico-del-proceso-de-análisis-de-datos",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#gráfico-del-proceso-de-análisis-de-datos",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Gráfico del proceso de análisis de datos",
+    "text": "Gráfico del proceso de análisis de datos"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#proceso-de-análisis-de-datos",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#proceso-de-análisis-de-datos",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Proceso de análisis de datos",
+    "text": "Proceso de análisis de datos\n\n\n\nExplorar los datos (EDA)\n“Ingeniería de variables”- crear nuevas variables\nAjustar-sintonizar los modelos\nEvaluar los modelos"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#tres-ideas-importantes",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#tres-ideas-importantes",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Tres ideas importantes",
+    "text": "Tres ideas importantes\n\n\nUtilizar la muestra para estimar el error de generalización\nDescomponer el error en tres fuentes: varianza, sesgo y ruido.\nUtilizar recursos computacionales"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "¿Cuál es el mejor sofware para hacer esto?",
+    "text": "¿Cuál es el mejor sofware para hacer esto?\n\n\n\nPython\nR\nJulia\nMatlab\nProgramas\n\nMplus\nStata\nSAS\nSPSS"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#tidyverse",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#tidyverse",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\nggplot2 - para visualización de gráficos\ndplyr - para el procesamiento de datos\ntidyr - para la transformación de datos en formato “tidy” (ordenado)\nreadr - para la lectura de datos en diferentes formatos (CSV, TSV, etc.)\npurrr - para la programación funcional\ntibble - para la creación de data frames en formato “tidy”\nstringr - para la manipulación de cadenas de texto\nforcats- para la manipulación de factores"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/1-introduccion.html#tidyverse-1",
+    "href": "archive/2023-03-Uniandes/1-introduccion.html#tidyverse-1",
+    "title": "1 - Introducción a Machine Learning in tidymodels",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\nEstilo\n\nPipe\nnombre_de_los_objetos\nuso de las comillas\nretorna un objeto de la misma clase\nprogramación funcional\n\n\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Taller en la Universidad Nacional",
+    "section": "",
+    "text": "Este taller se llevará a cabo en la Universidad Nacional de Colombia el día 30 de octubre. En esta página, hemos compilado todos los materiales necesarios, incluidas las diapositivas. Esperamos que estos recursos sean de su agrado."
+  },
+  {
+    "objectID": "index.html#organizadores",
+    "href": "index.html#organizadores",
+    "title": "Taller en la Universidad Nacional",
+    "section": "Organizadores",
+    "text": "Organizadores\nFrancisco Cardozo. Karen Forero. Universidad Nacional Roberto Posada. Universidad Nacional"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#documentar-el-análisis-de-datos",
+    "href": "slides/crear-tablas.html#documentar-el-análisis-de-datos",
+    "title": "Crear tablas en R",
+    "section": "1.1 Documentar el análisis de datos",
+    "text": "1.1 Documentar el análisis de datos\n\n\nReplicabilidad: Permite a otros investigadores o evaluadores replicar tus hallazgos.\nTransparencia: La documentación completa demuestra la integridad del proceso de investigación, lo que aumenta la confianza en los resultados.\nClaridad: Ayuda a clarificar los métodos y resultados.\nComunicación efectiva: Facilita la transferencia de conocimientos.\nRevisión por pares: Hace que el proceso de revisión por pares sea más eficiente.\n\nMejora continua: Te permite volver a visitar y refinar tu análisis en el futuro, o adaptarlo para abordar preguntas de investigación relacionadas.\nFormación y educación: Sirve como un recurso educativo para estudiantes o profesionales que estén aprendiendo cómo llevar a cabo análisis similares.\nResolución de problemas: Facilita la identificación y corrección de errores o inconsistencias en el análisis.\nEconomía de tiempo: Reduce el tiempo necesario para retomar o modificar el proyecto en fases posteriores de la investigación."
+  },
+  {
+    "objectID": "slides/crear-tablas.html#herramientas-para-documentar",
+    "href": "slides/crear-tablas.html#herramientas-para-documentar",
+    "title": "Crear tablas en R",
+    "section": "1.2. Herramientas para documentar",
+    "text": "1.2. Herramientas para documentar\n\nCódigo (Programas estadísticos)\nQuarto (Rmarkdown)\nGit (Github)\nR (También sintaxis en spss, stata, etc)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#quarto",
+    "href": "slides/crear-tablas.html#quarto",
+    "title": "Crear tablas en R",
+    "section": "1.2.1 Quarto",
+    "text": "1.2.1 Quarto\n\nQuarto permite crear documentos en varios formatos (PDF, HTML, Word).\nPermite integrar código de R, Python, etc.\nIntegrar tablas y gráficos.\nUnir código y texto."
+  },
+  {
+    "objectID": "slides/crear-tablas.html#descripción-de-la-base-de-datos",
+    "href": "slides/crear-tablas.html#descripción-de-la-base-de-datos",
+    "title": "Crear tablas en R",
+    "section": "2.1 Descripción de la base de datos",
+    "text": "2.1 Descripción de la base de datos\nDatos de 71 participantes sobre sus evaluaciones sociomorales en cuatro situaciones de transgresión legal: 1) daño ambiental por minería ilegal, 2) linchamiento en caso de robo, 3) tráfico de químicos para cocaína y 4) porte de armas en público. El estudio examina juicios y justificaciones sobre si hay transgresión, la gravedad de dichas transgresiones y el castigo merecido. También se evalúan las creencias sobre si las transgresiones se deben a características disposicionales de los involucrados."
+  },
+  {
+    "objectID": "slides/crear-tablas.html#variables",
+    "href": "slides/crear-tablas.html#variables",
+    "title": "Crear tablas en R",
+    "section": "Variables",
+    "text": "Variables\n\nlibrary(dataWorkshopUN)\nlibrary(gtsummary)\nlibrary(tidyverse)\nlibrary(gt)\n\ndata(datos_ley_moral)\n\n\n\nRows: 12,212\nColumns: 7\n$ ID          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ SITUACIONES &lt;chr&gt; \"Arma de fuego\", \"Arma de fuego\", \"Arma de fuego\", \"Arma d…\n$ EDAD        &lt;dbl&gt; 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24…\n$ SEXO        &lt;chr&gt; \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\"…\n$ CATEGORIAS  &lt;chr&gt; \"Expectativa de transgresón\", \"Justificación de los desenl…\n$ CODIGOS     &lt;chr&gt; \"Transgresión\", \"Desconfianza institucional\", \"Recursos bá…\n$ RESPUESTA   &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1…"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#información-en-la-base-de-datos",
+    "href": "slides/crear-tablas.html#información-en-la-base-de-datos",
+    "title": "Crear tablas en R",
+    "section": "Información en la base de datos",
+    "text": "Información en la base de datos"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#select",
+    "href": "slides/crear-tablas.html#select",
+    "title": "Crear tablas en R",
+    "section": "select()",
+    "text": "select()\nEsta función permite seleccionar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Arma de fuego\nTransgresión\n1\n    Arma de fuego\nDesconfianza institucional\n0\n    Arma de fuego\nRecursos básicos, necesidades y oportunidades\n0\n    Arma de fuego\nObjetivos personales y conveniencia\n1\n    Arma de fuego\nCreencias y prácticas culturales\n0\n    Arma de fuego\nJustificaciones morales\n0\n    Arma de fuego\nReferencia a la experiencia\n0\n    Arma de fuego\nAutoridad, reglas y consecuencias\n0\n    Arma de fuego\nPrudencial\n0\n    Arma de fuego\nOtros\n0"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#filter",
+    "href": "slides/crear-tablas.html#filter",
+    "title": "Crear tablas en R",
+    "section": "filter()",
+    "text": "filter()\nEsta función permite filtrar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nfilter(SITUACIONES == \"Linchamiento\")  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Linchamiento\nTransgresión\n1\n    Linchamiento\nDesconfianza institucional\n0\n    Linchamiento\nRecursos básicos, necesidades y oportunidades\n0\n    Linchamiento\nObjetivos personales y conveniencia\n0\n    Linchamiento\nCreencias y prácticas culturales\n1\n    Linchamiento\nJustificaciones morales\n0\n    Linchamiento\nReferencia a la experiencia\n0\n    Linchamiento\nAutoridad, reglas y consecuencias\n0\n    Linchamiento\nPrudencial\n0\n    Linchamiento\nOtros\n0"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#mutate",
+    "href": "slides/crear-tablas.html#mutate",
+    "title": "Crear tablas en R",
+    "section": "mutate()",
+    "text": "mutate()\nEsta función permite crear o modificar columnas\n\ndatos_ley_moral  |&gt; \nmutate(Edad_años = paste0(EDAD, \" años\"))  |&gt; \nselect(ID, Edad_años) |&gt; \nunique()  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      ID\n      Edad_años\n    \n  \n  \n    1\n24 años\n    2\n17 años\n    3\n22 años\n    4\n51 años\n    5\n52 años\n    6\n30 años\n    7\n30 años\n    8\n40 años\n    9\n17 años\n    10\n30 años"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary",
+    "href": "slides/crear-tablas.html#tbl_summary",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\ngtsummary es un paquete que permite crear tablas de resumen de datos. Algunas de sus ventajas son:\n\nPermite crear tablas de resumen de datos con una sintaxis sencilla.\nTablas de resumen para regresiones.\nExportar tablas a varios formatos (Word, PDF, HTML).\nPermite crear tablas con diferentes estilos.\nCalcula estadísticos y p-valores."
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary-1",
+    "href": "slides/crear-tablas.html#tbl_summary-1",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\n\nCalcular la frecuencia y el porcentajes de participantes hombres y mujeres.\n\ndatos_ley_moral  |&gt; \nselect(ID, SEXO)  |&gt; \nunique()  |&gt; \ntbl_summary(include=-ID)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 711\n    \n  \n  \n    SEXO\n\n        H\n43 (61%)\n        M\n28 (39%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary-2",
+    "href": "slides/crear-tablas.html#tbl_summary-2",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nCalcular medidas de tendencia y dispersión\n\n\n\ndatos_ley_moral  |&gt; \nselect(ID, EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(include=EDAD)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 261\n    \n  \n  \n    EDAD\n30 (23, 46)\n  \n  \n  \n    \n      1 Median (IQR)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary-3",
+    "href": "slides/crear-tablas.html#tbl_summary-3",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nElegir los estadísticos que se muestran en la tabla o el idioma.\n\n\n\ntheme_gtsummary_language(language = \"es\")\n\ndatos_ley_moral  |&gt; \nselect(EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(\nstatistic = EDAD ~ \"{mean} ({sd})\")\n\n\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 261\n    \n  \n  \n    EDAD\n34 (13)\n  \n  \n  \n    \n      1 Media (DE)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary-4",
+    "href": "slides/crear-tablas.html#tbl_summary-4",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(include=-c(ID, SITUACIONES, SEXO, EDAD))  \n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 2841\n    \n  \n  \n    Desconfianza institucional\n20 (7.0%)\n    Recursos básicos, necesidades y oportunidades\n31 (11%)\n    Objetivos personales y conveniencia\n101 (36%)\n    Creencias y prácticas culturales\n97 (34%)\n    Justificaciones morales\n30 (11%)\n    Referencia a la experiencia\n13 (4.6%)\n    Autoridad, reglas y consecuencias\n20 (7.0%)\n    Prudencial\n3 (1.1%)\n    Otros\n30 (11%)\n  \n  \n  \n    \n      1 n (%)\n    \n  \n\n\n\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \nselect(-c(ID, SITUACIONES, SEXO, EDAD)) |&gt; \ntbl_summary()   |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 2841\n    \n  \n  \n    Objetivos personales y conveniencia\n101 (36%)\n    Creencias y prácticas culturales\n97 (34%)\n    Recursos básicos, necesidades y oportunidades\n31 (11%)\n    Justificaciones morales\n30 (11%)\n    Otros\n30 (11%)\n    Desconfianza institucional\n20 (7.0%)\n    Autoridad, reglas y consecuencias\n20 (7.0%)\n    Referencia a la experiencia\n13 (4.6%)\n    Prudencial\n3 (1.1%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tbl_summary-5",
+    "href": "slides/crear-tablas.html#tbl_summary-5",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nLa opción by permite crear tablas por grupos.\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(by=SITUACIONES,\ninclude=-c(ID, SEXO, EDAD))  |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Arma de fuego, N = 711\n      Daño ambiental, N = 711\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n    \n  \n  \n    Objetivos personales y conveniencia\n32 (45%)\n33 (46%)\n1 (1.4%)\n35 (49%)\n    Creencias y prácticas culturales\n23 (32%)\n10 (14%)\n45 (63%)\n19 (27%)\n    Otros\n22 (31%)\n4 (5.6%)\n3 (4.2%)\n1 (1.4%)\n    Referencia a la experiencia\n4 (5.6%)\n6 (8.5%)\n2 (2.8%)\n1 (1.4%)\n    Desconfianza institucional\n1 (1.4%)\n0 (0%)\n19 (27%)\n0 (0%)\n    Justificaciones morales\n1 (1.4%)\n9 (13%)\n18 (25%)\n2 (2.8%)\n    Autoridad, reglas y consecuencias\n1 (1.4%)\n18 (25%)\n0 (0%)\n1 (1.4%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n1 (1.4%)\n0 (0%)\n30 (42%)\n    Prudencial\n0 (0%)\n1 (1.4%)\n0 (0%)\n2 (2.8%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla",
+    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-1",
+    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-1",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Arma de fuego, N = 711\n      Daño ambiental, N = 711\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n    \n  \n  \n    Justificaciones morales\n70 (99%)\n69 (97%)\n46 (65%)\n20 (28%)\n    Autoridad, reglas y consecuencias\n3 (4.2%)\n2 (2.8%)\n26 (37%)\n29 (41%)\n    Objetivos personales y conveniencia\n3 (4.2%)\n0 (0%)\n0 (0%)\n2 (2.8%)\n    Creencias y prácticas culturales\n2 (2.8%)\n0 (0%)\n0 (0%)\n0 (0%)\n    Otros\n1 (1.4%)\n2 (2.8%)\n0 (0%)\n5 (7.0%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n0 (0%)\n2 (2.8%)\n11 (15%)\n    Desconfianza institucional\n0 (0%)\n0 (0%)\n17 (24%)\n1 (1.4%)\n    Prudencial\n0 (0%)\n3 (4.2%)\n1 (1.4%)\n29 (41%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-2",
+    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-2",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )  \n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 2841\n      Arma de fuego, N = 711\n      Daño ambiental, N = 711\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n    \n  \n  \n    Justificaciones morales\n205 (72%)\n70 (99%)\n69 (97%)\n46 (65%)\n20 (28%)\n    Autoridad, reglas y consecuencias\n60 (21%)\n3 (4.2%)\n2 (2.8%)\n26 (37%)\n29 (41%)\n    Prudencial\n33 (12%)\n0 (0%)\n3 (4.2%)\n1 (1.4%)\n29 (41%)\n    Desconfianza institucional\n18 (6.3%)\n0 (0%)\n0 (0%)\n17 (24%)\n1 (1.4%)\n    Recursos básicos, necesidades y oportunidades\n13 (4.6%)\n0 (0%)\n0 (0%)\n2 (2.8%)\n11 (15%)\n    Otros\n8 (2.8%)\n1 (1.4%)\n2 (2.8%)\n0 (0%)\n5 (7.0%)\n    Objetivos personales y conveniencia\n5 (1.8%)\n3 (4.2%)\n0 (0%)\n0 (0%)\n2 (2.8%)\n    Creencias y prácticas culturales\n2 (0.7%)\n2 (2.8%)\n0 (0%)\n0 (0%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#add_p-value",
+    "href": "slides/crear-tablas.html#add_p-value",
+    "title": "Crear tablas en R",
+    "section": "Add_p value",
+    "text": "Add_p value\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )   |&gt; \n    add_p()\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 2841\n      Arma de fuego, N = 711\n      Daño ambiental, N = 711\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n      p-valor2\n    \n  \n  \n    Justificaciones morales\n205 (72%)\n70 (99%)\n69 (97%)\n46 (65%)\n20 (28%)\n&lt;0.001\n    Autoridad, reglas y consecuencias\n60 (21%)\n3 (4.2%)\n2 (2.8%)\n26 (37%)\n29 (41%)\n&lt;0.001\n    Prudencial\n33 (12%)\n0 (0%)\n3 (4.2%)\n1 (1.4%)\n29 (41%)\n&lt;0.001\n    Desconfianza institucional\n18 (6.3%)\n0 (0%)\n0 (0%)\n17 (24%)\n1 (1.4%)\n&lt;0.001\n    Recursos básicos, necesidades y oportunidades\n13 (4.6%)\n0 (0%)\n0 (0%)\n2 (2.8%)\n11 (15%)\n&lt;0.001\n    Otros\n8 (2.8%)\n1 (1.4%)\n2 (2.8%)\n0 (0%)\n5 (7.0%)\n0.088\n    Objetivos personales y conveniencia\n5 (1.8%)\n3 (4.2%)\n0 (0%)\n0 (0%)\n2 (2.8%)\n0.2\n    Creencias y prácticas culturales\n2 (0.7%)\n2 (2.8%)\n0 (0%)\n0 (0%)\n0 (0%)\n0.2\n  \n  \n  \n    \n      1 n (%)\n    \n    \n      2 prueba chi cuadrado de independencia; test exacto de Fisher"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#escalas-gravedad-y-castigo",
+    "href": "slides/crear-tablas.html#escalas-gravedad-y-castigo",
+    "title": "Crear tablas en R",
+    "section": "Escalas gravedad y castigo",
+    "text": "Escalas gravedad y castigo\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      Global, N = 2841\n      Arma de fuego, N = 711\n      Daño ambiental, N = 711\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n    \n  \n  \n    Escala de gravedad\n\n\n\n\n\n        1\n5 (1.8%)\n0 (0%)\n0 (0%)\n4 (5.6%)\n1 (1.4%)\n        2\n9 (3.2%)\n1 (1.4%)\n0 (0%)\n6 (8.5%)\n2 (2.8%)\n        3\n30 (11%)\n4 (5.6%)\n2 (2.8%)\n13 (18%)\n11 (15%)\n        4\n54 (19%)\n17 (24%)\n6 (8.5%)\n15 (21%)\n16 (23%)\n        5\n186 (65%)\n49 (69%)\n63 (89%)\n33 (46%)\n41 (58%)\n    Escala de castigo\n\n\n\n\n\n        1\n11 (3.9%)\n0 (0%)\n0 (0%)\n7 (9.9%)\n4 (5.6%)\n        2\n16 (5.6%)\n0 (0%)\n0 (0%)\n11 (15%)\n5 (7.0%)\n        3\n65 (23%)\n7 (9.9%)\n4 (5.6%)\n20 (28%)\n34 (48%)\n        4\n77 (27%)\n28 (39%)\n20 (28%)\n17 (24%)\n12 (17%)\n        5\n115 (40%)\n36 (51%)\n47 (66%)\n16 (23%)\n16 (23%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#escalas-gravedad-y-castigo-1",
+    "href": "slides/crear-tablas.html#escalas-gravedad-y-castigo-1",
+    "title": "Crear tablas en R",
+    "section": "Escalas gravedad y castigo",
+    "text": "Escalas gravedad y castigo\n\ndatos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Linchamiento, N = 711\n      Narcotráfico, N = 711\n      p-valor2\n    \n  \n  \n    Escala de gravedad\n3.94, (1.23)\n4.32, (0.94)\n0.026\n    Escala de castigo\n3.34, (1.26)\n3.44, (1.09)\n0.6\n  \n  \n  \n    \n      1 Media, (DE)\n    \n    \n      2 Wilcoxon signed rank test with continuity correction"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tablas-para-regresiones",
+    "href": "slides/crear-tablas.html#tablas-para-regresiones",
+    "title": "Crear tablas en R",
+    "section": "Tablas para regresiones",
+    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  \n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.774581                 0.001698                 0.309290  \nSITUACIONESNarcotráfico  \n               0.380282  \n\n\nLa función lm() genera un resultado como este:\n\n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.774581                 0.001698                 0.309290  \nSITUACIONESNarcotráfico  \n               0.380282"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#tablas-para-regresiones-1",
+    "href": "slides/crear-tablas.html#tablas-para-regresiones-1",
+    "title": "Crear tablas en R",
+    "section": "Tablas para regresiones",
+    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  |&gt; \n    tbl_regression()\n\n\n\n\n\n  \n    \n    \n      Característica\n      Beta\n      95% CI1\n      p-valor\n    \n  \n  \n    EDAD\n0.00\n-0.01, 0.02\n0.8\n    SEXO\n\n\n\n        H\n—\n—\n\n        M\n0.31\n-0.06, 0.68\n0.10\n    SITUACIONES\n\n\n\n        Linchamiento\n—\n—\n\n        Narcotráfico\n0.38\n0.02, 0.74\n0.040\n  \n  \n  \n    \n      1 CI = Intervalo de confianza"
+  },
+  {
+    "objectID": "slides/crear-tablas.html#exportar-a-tablas-a-word",
+    "href": "slides/crear-tablas.html#exportar-a-tablas-a-word",
+    "title": "Crear tablas en R",
+    "section": "Exportar a tablas a word",
+    "text": "Exportar a tablas a word\n\ntabla_gravedad_y_castigo &lt;- datos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)    |&gt; \n        as_gt()\n\ngt::gtsave(tabla_gravedad_y_castigo, \"tabla_gravedad_y_castigo.docx\")"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#nuevos-rumbos",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#nuevos-rumbos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Nuevos Rumbos",
+    "text": "Nuevos Rumbos\n::: {.r-fit-text}\nIntroducción\n\nOrganización sin ánimo de lucro: Enfocada en la investigación y prevención de problemas sociales.\nÁreas de Interés: Consumo de sustancias, delincuencia, y violencia.\nAlcance Geográfico: Colombia y América Latina.\n\nFundación y Trayectoria\n\nEstablecida en Bogotá: Octubre de 2002.\nTrayectoria: Más de dos décadas comprometidas con la prevención y la investigación.\n\nColaboraciones y Alianzas\n\nOrganizaciones Locales: Alcaldías y gobernaciones, Ministerios de Salud y de Justicia, Instituto Colombiano de Bienestar Familiar.\nOrganizaciones Internacionales: Organización Panamericana de la Salud, Comisión Europea, CICAD/OEA.\nInstituciones Académicas: Universidades de New Jersey, Washington, y Miami.\n\nMás información aquí\n:::"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#base-de-datos",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#base-de-datos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Base de datos",
+    "text": "Base de datos\n\nFactores de riesgo y de protección\n\nDisponibilidad percibida de drogas\nActitudes de la comunidad frente al consumo de drogas\nActitudes de los padres frente al consumo de drogas\nInvolucramiento en actividades comunitarias\n\nConsumo de alcohol y otras drogas\n\nConsumo de alcohol en la vida, 12 meses últimos 30 días\nHaber estado en una pelea\n\nCaracterísticas demográficas\n\nEdad\nSexo\nGrado"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#importar-la-base-de-datos",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#importar-la-base-de-datos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Importar la base de datos",
+    "text": "Importar la base de datos\n\nlibrary(tidyverse)\nlibrary()\nlos_datos &lt;- readRDS(\"DATA/base_NR.rds\") |&gt; \n             as_tibble()\n\n\n\n\n\n\n\n\nTip\n\n\n\nreadRDS(): esta función se utiliza para leer un archivo de datos en formato RDS. En este caso, se utiliza para leer el archivo “base_NR.rds” y almacenar los datos en un objeto llamado “los_datos”.\n|&gt;:se puede leer como “siguiente”. Este operador se utiliza para encadenar varias operaciones juntas en una sola línea de código. En este caso, se utiliza para encadenar la función readRDS() a la función as_tibble().\nas_tibble(): esta función se utiliza para convertir un objeto en un tibble, que es una versión mejorada de un data frame en R. En este caso, se utiliza para convertir el objeto “los_datos” en un tibble."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#explorar-los-datos",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#explorar-los-datos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Explorar los datos",
+    "text": "Explorar los datos\n\nlos_datos %&gt;% \n  glimpse()\n\n ::: {.callout-tip}\n\nglimpse(): Esta función se utiliza para imprimir una vista previa de los datos, incluyendo el tipo de datos de cada columna y las primeras filas de los datos. En este caso, se utiliza para explorar los datos almacenados en el objeto “los_datos”.\n\n:::"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#select",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#select",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "select()",
+    "text": "select()\nEsta función selecciona columnas de una base de datos.\nEn este ejemplo, quiero una nueva base de datos que tenga la variable NHPROUD (“Hay gente en mi barrio que se siente orgullosa de mí cuando hago algo bien”)\n\nlos_datos |&gt; \n  select(NHPROUD) |&gt;\n  distinct()\n\n ::: {.callout-tip}\n\nselect(): Esta función se utiliza para seleccionar columnas específicas de un data frame o tibble. En este caso, se utiliza para seleccionar la columna “NHPROUD” del objeto “los_datos”.\ndistinct(): Esta función se utiliza para eliminar filas duplicadas de un data frame o tibble. En este caso, se utiliza para eliminar filas duplicadas de la columna “NHPROUD” del objeto “los_datos”.\n\n:::"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#select-1",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#select-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "select()",
+    "text": "select()\nEn este ejemplo voy a seleccionar las variables GENDER, AWRMAR, AWRALC, AWRCIG\n\nGENDER: Sexo\n\n“Qué tan mal ven la mayoría de los adultos de tu barrio (aquellos más cercanos a ti) el que los jóvenes de tu edad…”\n\nAWRMAR = fumen marihuana\nAWRALC = Consuman alcohol\nAWRCIG = fumen cigarrillo\n\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#mutate",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#mutate",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\nEsta función crea una nueva variable -añade una nueva columna a la base de datos- o tranforma una variable que esté presente en la base de datos.\nPor ejemplo, si quiero transformar las tres variables del ejemplo anterior para asignar un puntaje de las percepciones de los estudiantes sobre las creencias de los adultos…\n¿Qué debo hacer?\n\nTransformar el texto que hay en la base por los valores: 1, 2, 3 y 4.\nCrear una nueva variable que calcule la media de los puntajes."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#mutate-1",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#mutate-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\n\nlos_datos |&gt; \n  select(AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(AWRMAR = case_when(\n    AWRMAR == \"Muy mal\" ~ 1,\n    AWRMAR == \"Mal\" ~ 2,\n    AWRMAR == \"Notan mal\" ~ 3,\n    AWRMAR == \"Para nada mal\" ~ 4,\n   TRUE ~ NA\n  ))\n\nlos_datos |&gt; \n  select(AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(across(everything(), transformar_respuesta)) |&gt; \n  mutate(TOTAL = (AWRMAR + AWRALC + AWRCIG)/3)\n\n\n\n\n\n\n\n\nTip\n\n\n\n## Pro\ntransformar_respuesta &lt;- function(x) {\n  case_when(\n    x == \"Muy mal\" ~ 1,\n    x == \"Mal\" ~ 2,\n    x == \"Notan mal\" ~ 3,\n    x == \"Para nada mal\" ~ 4,\n    TRUE ~ NA\n  )\n}\n\nlos_datos |&gt; \n  select(AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(across(everything(), transformar_respuesta)) |&gt; \n   mutate(TOTAL = (AWRMAR + AWRALC + AWRCIG)/3)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#mutate-2",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#mutate-2",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\n\n\n\n\n\n\nTip\n\n\n\ncase_when(): Esta función se utiliza para realizar una serie de comparaciones y asignar valores en función de las comparaciones. En este caso, se utiliza para asignar un valor numérico a la columna “AWRMAR” del objeto “los_datos” en función de los valores de texto que contiene.\nacross(): Esta función se utiliza para aplicar una función a varias columnas de un data frame o tibble. En este caso, se utiliza para aplicar la función transformar_respuesta() a todas las columnas del objeto “los_datos”.\neverything(): Esta función se utiliza para seleccionar todas las columnas de un data frame o tibble. En este caso, se utiliza para aplicar la función transformar_respuesta() a todas las columnas del objeto “los_datos”."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#filter",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#filter",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "filter()",
+    "text": "filter()\nfilter() es una función que permite seleccionar filas de la base de datos según una condición.\nAhora voy a utilizar un filtro para seleccionar solamente las filas en las que los adultos respondieron “No tan mal” para el consumo de marihuana (AWRMAR).\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  filter(AWRMAR == \"No tan mal\")\n\n\nCon este filtro puedo ver que en los primeros 10 casos, cuando un adulto juzga que no está tan mal fumar marihuana, el juicio de consumo de alcohol y cigarrillo parece seguir el mismo patrón."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#filter-1",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#filter-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "filter()",
+    "text": "filter()\nAhora miremos qué pasa si filtro por la opción “Muy mal”\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  filter(AWRMAR == \"Muy mal\")\n\n\nEs diferente al primer ejemplo, juzgar el consumo de marihuana como Muy mal parece también coincidir con el consumo de alcohol y cigarrillo.\n\n\n\n\n\n\nTip\n\n\n\nfilter(): Esta función se utiliza para seleccionar filas específicas de un data frame o tibble en función de una o varias condiciones. En este caso, se utiliza para seleccionar las filas del objeto “los_datos” en las que la columna “AWRMAR” es igual a “No tan mal”."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#summarise",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#summarise",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "summarise()",
+    "text": "summarise()\nEsta función permiten obtener medidas de resumen de la base de datos, como por ejemplo, la media, moda, frecuencias, desviación estándar, etc.\n\n# Para marihuana\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(across(starts_with(\"A\"),transformar_respuesta)) |&gt; \n  summarise(mean_AWRMAR = mean(AWRMAR, na.rm = TRUE),\n            sd_AWRMAR = sd(AWRMAR, na.rm = TRUE), \n            max_AWRMAR = max(AWRMAR, na.rm = TRUE), \n            min_AWRMAR = min(AWRMAR, na.rm = TRUE))\n\n\n\n\n\n\n\nTip\n\n\n\nsummarise(): Esta función se utiliza para obtener medidas de resumen de un data frame o tibble. En este caso, se utiliza para obtener la media, la desviación estándar, el valor máximo y el valor mínimo de la columna “AWRMAR” del objeto “los_datos”.\nstarts_with(): Esta función se utiliza para seleccionar columnas que comienzan con un determinado prefijo. En este caso, se utiliza para seleccionar las columnas que comienzan con “A” del objeto “los_datos”."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#explorar-los-datos-1-1",
+    "href": "archive/2023-03-Uniandes/2-procesamiento.html#explorar-los-datos-1-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Explorar los datos 1",
+    "text": "Explorar los datos 1\n\nfactores_de_riesgo &lt;- c(\"CRPAD\", \"CRLNFD\", \"FRPFD\", \"FRPFM\", \"SRLCS\", \"PRFAD\", \n                        \"PRATA\", \"PRFUD\", \"PRIAP\", \"FPOPI\", \"FPRPI\", \"SPRPI\")\ndemograficas &lt;- c(\"YEAR\", \"GRADE\", \"GENDER\", \"AGE\")\nconsumo_alcohol &lt;- c(\"PYALC\")\n\n\n\nlos_datos %&gt;% \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol)) %&gt;% \n  glimpse()\n\n\n\nmini_datos &lt;- los_datos %&gt;% \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol)) \n\n\n\nmini_datos |&gt; \n  skimr::skim()\n\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/4-arboles.html#árboles-de-decisión",
+    "href": "archive/2023-03-Uniandes/4-arboles.html#árboles-de-decisión",
+    "title": "4. Árboles de decisión",
+    "section": "Árboles de decisión",
+    "text": "Árboles de decisión\n(mejorar esto) El objetivo es tomar una serie de decisiones, basadas en las respuestas a cada pregunta, para llegar a una conclusión o predicción final. Cada nodo del árbol representa una característica de los datos que se están analizando y cada rama representa una posible respuesta a esa característica.\nLos árboles de decisión son útiles porque proporcionan una forma fácil de visualizar y entender cómo se toman las decisiones en un modelo"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/4-arboles.html#arbusto",
+    "href": "archive/2023-03-Uniandes/4-arboles.html#arbusto",
+    "title": "4. Árboles de decisión",
+    "section": "Arbusto",
+    "text": "Arbusto\n\nmi_primer_arbol &lt;- los_datos |&gt; \n  select(\"PYALC\", \"GETALC\", \"GENDER\", \"GRADE\")\n\n\ntree_spec &lt;- \n  decision_tree() |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\n\ntree_results &lt;- tree_spec |&gt;\n    fit(PYALC ~ ., data = mi_primer_arbol)\n\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)\n\nhttps://mlu-explain.github.io/decision-tree/\nÁrboles de clasificación y regresión (CART)\n\ntree_spec &lt;- \n  decision_tree() |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\n\ntree_results &lt;- tree_spec |&gt;\n  fit(PYALC ~ ., data = datos_entrenamiento)\n\n\npredict(tree_results, predecir_estos_valores)\n\nentrenamiento &lt;- datos_entrenamiento %&gt;%\n  select(-PYALC)\n\nprediccion_tree &lt;- predict(tree_results, entrenamiento)\n\nresultados_prueba_tree &lt;- cbind(prediccion_tree, datos_entrenamiento) |&gt;\n  tibble()\n\n\ncustom_metrics(resultados_prueba_tree,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt;\n  mutate(model = \"tree\")\n\ntree_metrics &lt;- custom_metrics(resultados_prueba_tree,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt;\n  mutate(model = \"tree\")\n\nrbind(tree_metrics, lm_metrics) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/4-arboles.html#por-qué-es-malo",
+    "href": "archive/2023-03-Uniandes/4-arboles.html#por-qué-es-malo",
+    "title": "4. Árboles de decisión",
+    "section": "¿Por qué es malo?",
+    "text": "¿Por qué es malo?\n\ndatos_prueba2_out &lt;- \n  datos_prueba |&gt; \n    select(PYALC) \n  \nlm_predicciones &lt;- cbind(predict(lm_results, datos_prueba), datos_prueba2_out)|&gt; mutate(model=\"lm\")\n\ntree_predicciones &lt;- cbind(predict(tree_results, datos_prueba), datos_prueba2_out)|&gt; mutate(model=\"tree\")\n\ntree2_predicciones &lt;- cbind(predict(tree2_results, datos_prueba), datos_prueba2_out) |&gt;  mutate(model=\"tree2\")\n\nall_models &lt;- \nrbind(lm_predicciones, tree_predicciones, tree2_predicciones) \n\nall_models\n\n\nall_models2 &lt;- all_models |&gt; \n  group_split(model) %&gt;%\n   setNames(unique(all_models$model)) %&gt;%\n  map_dfr(., ~custom_metrics(.x,\n               truth = PYALC,\n               estimate = .pred_class), .id = \"names\")\n\nall_models2 |&gt; \n  pivot_wider(names_from = names, values_from = .estimate)"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/6-regresion.html#sesgo-y-varianza",
+    "href": "archive/2023-03-Uniandes/6-regresion.html#sesgo-y-varianza",
+    "title": "6. Regresión",
+    "section": "Sesgo y varianza",
+    "text": "Sesgo y varianza\nEstos dos conceptos son cruciales para entender el equilibrio entre la complejidad del modelo y su capacidad para generalizar a nuevos datos.\nSesgo (Bias): a. Definición: El sesgo es la diferencia entre la predicción promedio de nuestro modelo y el valor verdadero que intentamos predecir.El sesgo, en términos estadísticos, se refiere a la diferencia sistemática entre la esperanza (o promedio) de las estimaciones que produce un estimador y el valor real del parámetro que se desea estimar. Un modelo con alta varianza es muy sensible a pequeñas variaciones en los datos de entrenamiento, lo que puede resultar en un sobreajuste. Es decir, el modelo se ajusta muy bien a los datos de entrenamiento, pero tiene un rendimiento deficiente en datos no vistos o de prueba.\n\nEjemplo: Un modelo de regresión lineal simple podría tener un alto sesgo si los datos reales tienen una relación no lineal.\nImplicaciones: Un modelo con alto sesgo es demasiado simple y no captura la estructura subyacente de los datos. Esto conduce a un bajo rendimiento en el conjunto de entrenamiento y prueba.\n\nVarianza (Variance): a. Definición: La varianza es la cantidad de variabilidad en las predicciones del modelo para un punto de datos dado. b. Ejemplo: Un modelo de árbol de decisión muy profundo podría tener alta varianza, ya que es muy sensible a pequeñas variaciones en los datos de entrenamiento. c. Implicaciones: Un modelo con alta varianza tiende a sobreajustarse a los datos de entrenamiento, lo que resulta en un buen rendimiento en el conjunto de entrenamiento pero un bajo rendimiento en el conjunto de prueba.\nEl objetivo en Machine Learning es equilibrar el sesgo y la varianza para minimizar el error de predicción general en el modelo\n\nObjetivo: Encontrar un equilibrio entre sesgo y varianza que minimice el error total de predicción.\nEstrategias: Seleccionar un modelo con la complejidad adecuada, usar técnicas de regularización, y validar el modelo con conjuntos de datos de entrenamiento y prueba separados.\n\nFormas de disminur el sesgo\nAumentar la complejidad del modelo: Un modelo más complejo puede capturar mejor la estructura subyacente de los datos. Por ejemplo, en lugar de utilizar una regresión lineal simple, podrías probar una regresión polinomial o un modelo de árbol de decisión.\nAñadir más variables: A veces, el sesgo puede ser el resultado de no tener en cuenta variables importantes que influyen en la variable objetivo. Añadir más variables relevantes puede ayudar a reducir el sesgo del modelo.\nUtilizar técnicas de “ingeniería de predictores”: Transformar o combinar las variables existentes para crear nuevas características puede ayudar a capturar mejor la relación entre las variables de entrada y salida. Por ejemplo, si estás trabajando en un problema de predicción de precios de viviendas, podrías crear una nueva característica que represente la relación entre el tamaño de la casa y el número de habitaciones.\nAumentar el tamaño del conjunto de datos: Si tu conjunto de datos es pequeño o no es representativo de la población general, es posible que el modelo tenga un sesgo alto. Aumentar el tamaño del conjunto de datos y asegurarte de que es representativo puede ayudar a reducir el sesgo.\nUtilizar ensembles de modelos: Combinar varios modelos en un ensemble puede ayudar a reducir el sesgo, ya que cada modelo puede capturar diferentes aspectos de la relación entre las variables de entrada y salida. Por ejemplo, puedes utilizar métodos de ensemble como Bagging, Boosting o Stacking."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/6-regresion.html#técnicas-para-reducir-la-varianza",
+    "href": "archive/2023-03-Uniandes/6-regresion.html#técnicas-para-reducir-la-varianza",
+    "title": "6. Regresión",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nReducir la complejidad del modelo: Un modelo más simple tiende a tener una menor varianza y es menos propenso al sobreajuste. Por ejemplo, podrías limitar la profundidad de un árbol de decisión.\nUtilizar regularización: La regularización es una técnica que añade una penalización a los coeficientes del modelo para evitar que se ajusten demasiado a los datos de entrenamiento.Por ejemplo, regularización L1 (Lasso) y L2 (Ridge).\nAumentar el tamaño del conjunto de datos: Si dispones de más datos, el modelo será menos sensible a pequeñas variaciones en los datos de entrenamiento y tendrá una menor varianza.\nEliminar características ruidosas: Si tu modelo incluye características que no están relacionadas con la variable objetivo o que contienen mucho ruido, estas pueden aumentar la varianza del modelo. Realizar un análisis de importancia de características y eliminar las características poco importantes puede ayudar a reducir la varianza.\n\nValidación cruzada (cross-validation): Utilizar la validación cruzada, como k-fold cross-validation, te permite evaluar el rendimiento del modelo en diferentes subconjuntos del conjunto de datos de entrenamiento. Esto puede ayudarte a identificar si el modelo está sobreajustando los datos y ajustar la complejidad del modelo en consecuencia.\nUtilizar diferentes modelos: Combinar varios modelos en un ensemble puede ayudar a reducir la varianza, ya que la variabilidad de cada modelo individual se promedia. Por ejemplo, puedes utilizar métodos de ensemble como Bagging (Bootstrap Aggregating) o Random Forest, que promedian las predicciones de múltiples árboles de decisión entrenados en subconjuntos aleatorios de los datos.\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/index.html",
+    "href": "archive/2023-03-Uniandes/index.html",
+    "title": "Bienvenidos",
+    "section": "",
+    "text": "Le damos la bienvenida a este taller que se llevará a cabo en la Universidad de los Andes los días 26 y 27 de marzo. En el taller nos enfocaremos en algunas de las técnicas de aprendizaje automático más utilizadas en la actualidad. En esta página, hemos compilado todos los materiales necesarios para cada sesión, incluidas las diapositivas. Esperamos que estos recursos diseñados especialmente para ustedes sean de su agrado.\nEn este taller vamos a trabajar sobre tres ideas principales:\n\nEstimar del error de generalización.\nSeparar el error entre sesgo y varianza.\nRegularización."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/index.html#pasos-previos-al-taller",
+    "href": "archive/2023-03-Uniandes/index.html#pasos-previos-al-taller",
+    "title": "Bienvenidos",
+    "section": "Pasos Previos al Taller",
+    "text": "Pasos Previos al Taller\nPara aprovechar al máximo este taller, es necesario completar las siguientes tareas antes de que inicie el evento:\n\nCreación de una cuenta en Posit Cloud: Si aún no tienes una, por favor, crea una cuenta gratuita en Posit Cloud.\n\nEsperamos que este taller sea una experiencia enriquecedora para todos. Si tienen preguntas o inquietudes previas al evento, no duden en contactarnos."
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/index.html#agenda-del-workshop",
+    "href": "archive/2023-03-Uniandes/index.html#agenda-del-workshop",
+    "title": "Bienvenidos",
+    "section": "Agenda del Workshop",
+    "text": "Agenda del Workshop\n\nDía 1\n\nIntroducción a Machine Learning\nProcesamiento de datos\nRegresión logística\nÁrboles de decisión\n\n\n\nDía 2\n\nRandom Forest\nRegresión lineal\nRegularización\n\n\n\nOrganizadores\n\nFrancisco Cardozo (foc9@miami.edu)\nMaría Fernanda Reyes\nEric C. Brown"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/index.html#día-1-1",
+    "href": "archive/2023-03-Uniandes/index.html#día-1-1",
+    "title": "Bienvenidos",
+    "section": "Día 1",
+    "text": "Día 1\n\n\nIntroducción\n\n\nPreprocesamiento de datos\n\n\nRegresión logística\n\n\nÁrboles de decisión"
+  },
+  {
+    "objectID": "archive/2023-03-Uniandes/index.html#día-2-1",
+    "href": "archive/2023-03-Uniandes/index.html#día-2-1",
+    "title": "Bienvenidos",
+    "section": "Día 2",
+    "text": "Día 2\n\n\nRandom Forest\n\n\nRegresión\n\n\nRegularización"
+  }
+]
