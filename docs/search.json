@@ -42,6 +42,174 @@
     "text": "Si eres víctima o testigo de un comportamiento inaceptable, informa a los organizadores lo más pronto posible."
   },
   {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#documentar-el-análisis-de-datos",
+    "href": "archive/2023-10-Unal/crear-tablas.html#documentar-el-análisis-de-datos",
+    "title": "Crear tablas en R",
+    "section": "1.1 Documentar el análisis de datos",
+    "text": "1.1 Documentar el análisis de datos\n\n\nReplicabilidad: Permite a otros investigadores o evaluadores replicar tus hallazgos.\nTransparencia: La documentación completa demuestra la integridad del proceso de investigación, lo que aumenta la confianza en los resultados.\nClaridad: Ayuda a clarificar los métodos y resultados.\nComunicación efectiva: Facilita la transferencia de conocimientos.\nRevisión por pares: Hace que el proceso de revisión por pares sea más eficiente.\n\nMejora continua: Te permite volver a visitar y refinar tu análisis en el futuro, o adaptarlo para abordar preguntas de investigación relacionadas.\nFormación y educación: Sirve como un recurso educativo para estudiantes o profesionales que estén aprendiendo cómo llevar a cabo análisis similares.\nResolución de problemas: Facilita la identificación y corrección de errores o inconsistencias en el análisis.\nEconomía de tiempo: Reduce el tiempo necesario para retomar o modificar el proyecto en fases posteriores de la investigación."
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#herramientas-para-documentar",
+    "href": "archive/2023-10-Unal/crear-tablas.html#herramientas-para-documentar",
+    "title": "Crear tablas en R",
+    "section": "1.2. Herramientas para documentar",
+    "text": "1.2. Herramientas para documentar\n\nCódigo (Programas estadísticos)\nQuarto (Rmarkdown)\nGit (Github)\nR (También sintaxis en spss, stata, etc)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#quarto",
+    "href": "archive/2023-10-Unal/crear-tablas.html#quarto",
+    "title": "Crear tablas en R",
+    "section": "1.2.1 Quarto",
+    "text": "1.2.1 Quarto\n\nQuarto permite crear documentos en varios formatos (PDF, HTML, Word).\nPermite integrar código de R, Python, etc.\nIntegrar tablas y gráficos.\nUnir código y texto."
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#descripción-de-la-base-de-datos",
+    "href": "archive/2023-10-Unal/crear-tablas.html#descripción-de-la-base-de-datos",
+    "title": "Crear tablas en R",
+    "section": "2.1 Descripción de la base de datos",
+    "text": "2.1 Descripción de la base de datos\nDatos de 71 participantes sobre sus evaluaciones sociomorales en cuatro situaciones de transgresión legal: 1) daño ambiental por minería ilegal, 2) linchamiento en caso de robo, 3) tráfico de químicos para cocaína y 4) porte de armas en público. El estudio examina juicios y justificaciones sobre si hay transgresión, la gravedad de dichas transgresiones y el castigo merecido. También se evalúan las creencias sobre si las transgresiones se deben a características disposicionales de los involucrados."
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#variables",
+    "href": "archive/2023-10-Unal/crear-tablas.html#variables",
+    "title": "Crear tablas en R",
+    "section": "Variables",
+    "text": "Variables\n\nlibrary(dataWorkshopUN)\nlibrary(gtsummary)\nlibrary(tidyverse)\nlibrary(gt)\n\ndata(datos_ley_moral)\n\n\n\nRows: 6,837\nColumns: 7\n$ ID          &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ SITUACIONES &lt;chr&gt; \"Daño ambiental\", \"Daño ambiental\", \"Daño ambiental\", \"Dañ…\n$ EDAD        &lt;dbl&gt; 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17…\n$ SEXO        &lt;chr&gt; \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\"…\n$ CATEGORIAS  &lt;chr&gt; \"Expectativa de transgresón\", \"Justificación de los desenl…\n$ CODIGOS     &lt;chr&gt; \"Transgresión\", \"Desconfianza institucional\", \"Recursos bá…\n$ RESPUESTA   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1…"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#información-en-la-base-de-datos",
+    "href": "archive/2023-10-Unal/crear-tablas.html#información-en-la-base-de-datos",
+    "title": "Crear tablas en R",
+    "section": "Información en la base de datos",
+    "text": "Información en la base de datos"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#select",
+    "href": "archive/2023-10-Unal/crear-tablas.html#select",
+    "title": "Crear tablas en R",
+    "section": "select()",
+    "text": "select()\nEsta función permite seleccionar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Daño ambiental\nTransgresión\n0\n    Daño ambiental\nDesconfianza institucional\n0\n    Daño ambiental\nRecursos básicos, necesidades y oportunidades\n0\n    Daño ambiental\nObjetivos personales y conveniencia\n0\n    Daño ambiental\nCreencias y prácticas culturales\n0\n    Daño ambiental\nJustificaciones morales\n0\n    Daño ambiental\nReferencia a la experiencia\n0\n    Daño ambiental\nAutoridad, reglas y consecuencias\n0\n    Daño ambiental\nPrudencial\n0\n    Daño ambiental\nOtros\n1"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#filter",
+    "href": "archive/2023-10-Unal/crear-tablas.html#filter",
+    "title": "Crear tablas en R",
+    "section": "filter()",
+    "text": "filter()\nEsta función permite filtrar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nfilter(SITUACIONES == \"Linchamiento\")  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Linchamiento\nTransgresión\n1\n    Linchamiento\nDesconfianza institucional\n0\n    Linchamiento\nRecursos básicos, necesidades y oportunidades\n0\n    Linchamiento\nObjetivos personales y conveniencia\n0\n    Linchamiento\nCreencias y prácticas culturales\n1\n    Linchamiento\nJustificaciones morales\n0\n    Linchamiento\nReferencia a la experiencia\n0\n    Linchamiento\nAutoridad, reglas y consecuencias\n0\n    Linchamiento\nPrudencial\n0\n    Linchamiento\nOtros\n0"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#mutate",
+    "href": "archive/2023-10-Unal/crear-tablas.html#mutate",
+    "title": "Crear tablas en R",
+    "section": "mutate()",
+    "text": "mutate()\nEsta función permite crear o modificar columnas\n\ndatos_ley_moral  |&gt; \nmutate(Edad_años = paste0(EDAD, \" años\"))  |&gt; \nselect(ID, Edad_años) |&gt; \nunique()  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      ID\n      Edad_años\n    \n  \n  \n    2\n17 años\n    3\n22 años\n    5\n52 años\n    7\n30 años\n    8\n40 años\n    10\n30 años\n    11\n16 años\n    13\n17 años\n    14\n15 años\n    15\n44 años"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\ngtsummary es un paquete que permite crear tablas de resumen de datos. Algunas de sus ventajas son:\n\nPermite crear tablas de resumen de datos con una sintaxis sencilla.\nTablas de resumen para regresiones.\nExportar tablas a varios formatos (Word, PDF, HTML).\nPermite crear tablas con diferentes estilos.\nCalcula estadísticos y p-valores."
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-1",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-1",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\n\nCalcular la frecuencia y el porcentajes de participantes hombres y mujeres.\n\ndatos_ley_moral  |&gt; \nselect(ID, SEXO)  |&gt; \nunique()  |&gt; \ntbl_summary(include=-ID)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 531\n    \n  \n  \n    SEXO\n\n        H\n35 (66%)\n        M\n18 (34%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-2",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-2",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nCalcular medidas de tendencia y dispersión\n\n\n\ndatos_ley_moral  |&gt; \nselect(ID, EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(include=EDAD)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 231\n    \n  \n  \n    EDAD\n29 (23, 45)\n  \n  \n  \n    \n      1 Median (IQR)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-3",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-3",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nElegir los estadísticos que se muestran en la tabla o el idioma.\n\n\n\ntheme_gtsummary_language(language = \"es\")\n\ndatos_ley_moral  |&gt; \nselect(EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(\nstatistic = EDAD ~ \"{mean} ({sd})\")\n\n\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 231\n    \n  \n  \n    EDAD\n33 (13)\n  \n  \n  \n    \n      1 Media (DE)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-4",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-4",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(include=-c(ID, SITUACIONES, SEXO, EDAD))  \n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Desconfianza institucional\n17 (11%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Creencias y prácticas culturales\n50 (31%)\n    Justificaciones morales\n25 (16%)\n    Referencia a la experiencia\n6 (3.8%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Prudencial\n2 (1.3%)\n    Otros\n7 (4.4%)\n  \n  \n  \n    \n      1 n (%)\n    \n  \n\n\n\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \nselect(-c(ID, SITUACIONES, SEXO, EDAD)) |&gt; \ntbl_summary()   |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Creencias y prácticas culturales\n50 (31%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Justificaciones morales\n25 (16%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Desconfianza institucional\n17 (11%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Otros\n7 (4.4%)\n    Referencia a la experiencia\n6 (3.8%)\n    Prudencial\n2 (1.3%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-5",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-5",
+    "title": "Crear tablas en R",
+    "section": "tbl_summary()",
+    "text": "tbl_summary()\nLa opción by permite crear tablas por grupos.\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(by=SITUACIONES,\ninclude=-c(ID, SEXO, EDAD))  |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Objetivos personales y conveniencia\n24 (45%)\n1 (1.9%)\n24 (45%)\n    Autoridad, reglas y consecuencias\n12 (23%)\n0 (0%)\n1 (1.9%)\n    Justificaciones morales\n7 (13%)\n16 (30%)\n2 (3.8%)\n    Creencias y prácticas culturales\n6 (11%)\n30 (57%)\n14 (26%)\n    Referencia a la experiencia\n4 (7.5%)\n1 (1.9%)\n1 (1.9%)\n    Otros\n4 (7.5%)\n2 (3.8%)\n1 (1.9%)\n    Desconfianza institucional\n0 (0%)\n17 (32%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n0 (0%)\n23 (43%)\n    Prudencial\n0 (0%)\n0 (0%)\n2 (3.8%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla",
+    "href": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-1",
+    "href": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-1",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Otros\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n    Desconfianza institucional\n0 (0%)\n12 (23%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-2",
+    "href": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-2",
+    "title": "Crear tablas en R",
+    "section": "Añadir detalles a las tabla",
+    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )  \n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#add_p-value",
+    "href": "archive/2023-10-Unal/crear-tablas.html#add_p-value",
+    "title": "Crear tablas en R",
+    "section": "Add_p value",
+    "text": "Add_p value\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )   |&gt; \n    add_p()\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n&lt;0.001\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n&lt;0.001\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n&lt;0.001\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n&lt;0.001\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n0.001\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n0.2\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n  \n  \n  \n    \n      1 n (%)\n    \n    \n      2 prueba chi cuadrado de independencia; test exacto de Fisher"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo",
+    "href": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo",
+    "title": "Crear tablas en R",
+    "section": "Escalas gravedad y castigo",
+    "text": "Escalas gravedad y castigo\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Escala de gravedad\n\n\n\n\n        1\n5 (3.1%)\n0 (0%)\n4 (7.5%)\n1 (1.9%)\n        2\n6 (3.8%)\n0 (0%)\n4 (7.5%)\n2 (3.8%)\n        3\n20 (13%)\n1 (1.9%)\n9 (17%)\n10 (19%)\n        4\n29 (18%)\n5 (9.4%)\n11 (21%)\n13 (25%)\n        5\n99 (62%)\n47 (89%)\n25 (47%)\n27 (51%)\n    Escala de castigo\n\n\n\n\n        1\n11 (6.9%)\n0 (0%)\n7 (13%)\n4 (7.5%)\n        2\n10 (6.3%)\n0 (0%)\n7 (13%)\n3 (5.7%)\n        3\n46 (29%)\n3 (5.7%)\n15 (28%)\n28 (53%)\n        4\n38 (24%)\n16 (30%)\n14 (26%)\n8 (15%)\n        5\n54 (34%)\n34 (64%)\n10 (19%)\n10 (19%)\n  \n  \n  \n    \n      1 n (%)"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo-1",
+    "href": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo-1",
+    "title": "Crear tablas en R",
+    "section": "Escalas gravedad y castigo",
+    "text": "Escalas gravedad y castigo\n\ndatos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Escala de gravedad\n3.92, (1.28)\n4.19, (1.00)\n0.2\n    Escala de castigo\n3.25, (1.28)\n3.32, (1.09)\n0.7\n  \n  \n  \n    \n      1 Media, (DE)\n    \n    \n      2 Wilcoxon signed rank test with continuity correction"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones",
+    "title": "Crear tablas en R",
+    "section": "Tablas para regresiones",
+    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  \n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.835985                 0.001162                 0.163164  \nSITUACIONESNarcotráfico  \n               0.264151  \n\n\nLa función lm() genera un resultado como este:\n\n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.835985                 0.001162                 0.163164  \nSITUACIONESNarcotráfico  \n               0.264151"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones-1",
+    "href": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones-1",
+    "title": "Crear tablas en R",
+    "section": "Tablas para regresiones",
+    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  |&gt; \n    tbl_regression()\n\n\n\n\n\n  \n    \n    \n      Característica\n      Beta\n      95% CI1\n      p-valor\n    \n  \n  \n    EDAD\n0.00\n-0.02, 0.02\n0.9\n    SEXO\n\n\n\n        H\n—\n—\n\n        M\n0.16\n-0.31, 0.64\n0.5\n    SITUACIONES\n\n\n\n        Linchamiento\n—\n—\n\n        Narcotráfico\n0.26\n-0.18, 0.71\n0.2\n  \n  \n  \n    \n      1 CI = Intervalo de confianza"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/crear-tablas.html#exportar-a-tablas-a-word",
+    "href": "archive/2023-10-Unal/crear-tablas.html#exportar-a-tablas-a-word",
+    "title": "Crear tablas en R",
+    "section": "Exportar a tablas a word",
+    "text": "Exportar a tablas a word\n\ntabla_gravedad_y_castigo &lt;- datos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)    |&gt; \n        as_gt()\n\ngt::gtsave(tabla_gravedad_y_castigo, \"tabla_gravedad_y_castigo.docx\")"
+  },
+  {
     "objectID": "archive/2023-03-Uniandes/7-regularizacion.html#usar-recetas",
     "href": "archive/2023-03-Uniandes/7-regularizacion.html#usar-recetas",
     "title": "7. Regularización",
@@ -322,186 +490,249 @@
     "text": "Tidyverse\n\nEstilo\n\nPipe\nnombre_de_los_objetos\nuso de las comillas\nretorna un objeto de la misma clase\nprogramación funcional\n\n\n\n\n\nMachine Learning"
   },
   {
+    "objectID": "slides/1-introduccion.html#temas",
+    "href": "slides/1-introduccion.html#temas",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Temas",
+    "text": "Temas\n\n\n\nTipos de modelos\n\nDescriptivo\nInferencial\nPredictivo\n\nMachine Learning - Supervised\n\nClasificación\nRegresión - Unsupervised\nClustering\n\nEquilibrio entre la varianza y el sesgo\nValidación Cruzada\n\n\n\nEvaluación de los Modelos - Separación entrenamiento y prueba - Remuestreo\n\nLeave One Out\nK-Fold\nBoostraping"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tipos-de-modelos",
+    "href": "slides/1-introduccion.html#tipos-de-modelos",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Tipos de modelos",
+    "text": "Tipos de modelos\n\nDescriptivosInferencialPredictivo\n\n\n\nDescribir las características de unos datos\nVisualizar los datos\nResumir los datos\nGenerar hipótesis\n\n\n\n\nEstimar la probabilidad de que ocurra un evento\nProducir una estimación de un parámetro poblacional\nProbar una hipótesis\nIdea predeterminada y se prueba\nValor p, intervalo de confianza\n\n\n\n\nAnticipar el valor de una variable\nAplicar una regla a un evento que no ha ocurrido\nMayor interés en la predicción que en la inferencia\nPuede ser que no importe el mecanismo"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#machine-learning",
+    "href": "slides/1-introduccion.html#machine-learning",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Machine Learning",
+    "text": "Machine Learning\nAlgunos de los modelos que se pueden construir con Machine Learning, van a ser fundamentalmente modelos para predecir. Por ejemplo:\n\nk-Nearest Neighbors\nRandom Forests\nSupport Vector Machines"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#machine-learning-1",
+    "href": "slides/1-introduccion.html#machine-learning-1",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nMachine LearningUnsupervisedSupervised\n\n\n\n\n\nNo hay una variable de resultado\n\nComponentes principales\n\n\n\n\nHay una variable de resultado\n\nRegresión: variable de resultado continua\nClasificación: variable de resultado categórica"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#el-proceso-del-análisis-de-datos-en-machine-learning",
+    "href": "slides/1-introduccion.html#el-proceso-del-análisis-de-datos-en-machine-learning",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "El proceso del análisis de datos en Machine Learning",
+    "text": "El proceso del análisis de datos en Machine Learning"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#proceso-de-análisis-de-datos",
+    "href": "slides/1-introduccion.html#proceso-de-análisis-de-datos",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Proceso de análisis de datos",
+    "text": "Proceso de análisis de datos\n\n\n\nExplorar los datos (EDA)\n“Ingeniería de variables”- crear nuevas variables\nAjustar-sintonizar los modelos\nEvaluar los modelos"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tres-ideas-importantes-de-machine-learning",
+    "href": "slides/1-introduccion.html#tres-ideas-importantes-de-machine-learning",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Tres ideas importantes de Machine Learning",
+    "text": "Tres ideas importantes de Machine Learning\n\n\nUtilizar la muestra para estimar el error de generalización\nDescomponer el error en tres fuentes: varianza, sesgo y ruido.\nRegularización para controlar la varianza y el sesgo"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "href": "slides/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "¿Cuál es el mejor sofware para hacer esto?",
+    "text": "¿Cuál es el mejor sofware para hacer esto?\n\n\n\nPython\nR\nJulia\nMatlab\nProgramas\n\nMplus\nStata\nSAS\nSPSS"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tidyverse",
+    "href": "slides/1-introduccion.html#tidyverse",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\nggplot2 - para visualización de gráficos\ndplyr - para el procesamiento de datos\ntidyr - para la transformación de datos en formato “tidy” (ordenado)\nreadr - para la lectura de datos en diferentes formatos (CSV, TSV, etc.)\npurrr - para la programación funcional\ntibble - para la creación de data frames en formato “tidy”\nstringr - para la manipulación de cadenas de texto\nforcats- para la manipulación de factores"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tidyverse-1",
+    "href": "slides/1-introduccion.html#tidyverse-1",
+    "title": "1 - Introducción a Machine Learning",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\nEstilo\n\nPipe\nnombre_de_los_objetos\nUso de las comillas\nRetorna un objeto de la misma clase\nProgramación funcional\n\n\n\n\n\nMachine Learning"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Taller en la Universidad Nacional",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
     "section": "",
-    "text": "Este taller se llevará a cabo en la Universidad Nacional de Colombia el día 30 de octubre. En esta página, hemos compilado todos los materiales necesarios, incluidas las diapositivas. Esperamos que estos recursos sean de su agrado."
+    "text": "Este taller se llevará a cabo durante el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE. En este taller se presentarán los conceptos básicos de Machine Learning y se realizarán ejercicios prácticos en R. El taller está dirigido a investigadores y estudiantes interesados en aprender sobre Machine Learning y su aplicación en la investigación educativa."
   },
   {
     "objectID": "index.html#organizadores",
     "href": "index.html#organizadores",
-    "title": "Taller en la Universidad Nacional",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
     "section": "Organizadores",
-    "text": "Organizadores\nFrancisco Cardozo.\nKaren Forero. Universidad Nacional.\nRoberto Posada. Universidad Nacional."
+    "text": "Organizadores\nFrancisco Cardozo. Universidad de Miami. Eric C. Brown. Universidad de Miami."
   },
   {
-    "objectID": "slides/crear-tablas.html#documentar-el-análisis-de-datos",
-    "href": "slides/crear-tablas.html#documentar-el-análisis-de-datos",
-    "title": "Crear tablas en R",
-    "section": "1.1 Documentar el análisis de datos",
-    "text": "1.1 Documentar el análisis de datos\n\n\nReplicabilidad: Permite a otros investigadores o evaluadores replicar tus hallazgos.\nTransparencia: La documentación completa demuestra la integridad del proceso de investigación, lo que aumenta la confianza en los resultados.\nClaridad: Ayuda a clarificar los métodos y resultados.\nComunicación efectiva: Facilita la transferencia de conocimientos.\nRevisión por pares: Hace que el proceso de revisión por pares sea más eficiente.\n\nMejora continua: Te permite volver a visitar y refinar tu análisis en el futuro, o adaptarlo para abordar preguntas de investigación relacionadas.\nFormación y educación: Sirve como un recurso educativo para estudiantes o profesionales que estén aprendiendo cómo llevar a cabo análisis similares.\nResolución de problemas: Facilita la identificación y corrección de errores o inconsistencias en el análisis.\nEconomía de tiempo: Reduce el tiempo necesario para retomar o modificar el proyecto en fases posteriores de la investigación."
+    "objectID": "slides/2-taller-icfes.html",
+    "href": "slides/2-taller-icfes.html",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "",
+    "text": "Hay muchas formas de estimar modelos en R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlm(): Ajusta un modelo de regresión lineal a los datos.\nstan_glm(): Ajusta un modelo de regresión utilizando el paquete Stan.\nglmnet(): Ajusta un modelo de regresión utilizando la regularización Lasso o Ridge.\n\n\n\nTidymodels ofrece una sintaxis general para estimar los modelos\n\nEspecificar el tipo de modelo\n\nlinear_reg(), logistic_reg(), decition_tree()\n\nEspecificar el tipo de outcome\n\nRegresión para outcomes continuos\nClasificación: multinomial, ordinal, binaria\n\n\n\nlinear_reg() |&gt; \n  set_engine(\"lm\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm \n\nlinear_reg() |&gt; \n    set_engine(\"glmnet\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: glmnet \n\nlinear_reg() |&gt;\n    set_engine(\"stan\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: stan \n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Carga el paquete tidymodels en R.\ntidymodels_prefer(): Establece el paquete tidymodels como el preferido para las funciones de modelado en R.\nlinear_reg(): Crea una especificación de modelo de regresión lineal en el marco de trabajo tidymodels.\nset_engine(): Establece el motor de cálculo para un objeto de especificación de modelo. Se establece en “lm” para la primera llamada a linear_reg(), “glmnet” para la segunda llamada y “stan” para la tercera.\n\n\n\nPara estimar un modelo hay que hacer los siguientes pasos:\n\n\n\nlm_model &lt;-\n    logistic_reg() %&gt;% \n    set_engine(\"glm\", family=\"binomial\") |&gt;\n    set_mode(\"classification\")\n\nEspecificar un modelo de regresión logística. Se establece el “paquete”, en este caso “glm” y opciones del paquete (la distribución de la variable de respuesta). Además, se establece el modo de modelado en “classification” para indicar que es una variable categórica. El resultado se almacena en el objeto lm_model.\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n    fit(puntaje ~ ., data = taller_icfes)\n\nAquí se ajusta-estima el modelo utilizando la función fit(). Se especifica la variable de respuesta (puntaje) y los predictores (.) y se utiliza el objeto taller_icfes como base de datos.\n\n\n\n\nlm_results |&gt; tidy() \n\n# A tibble: 49 × 5\n   term                                     estimate std.error statistic p.value\n   &lt;chr&gt;                                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n 1 (Intercept)                              -1.64       0.500    -3.28   1.03e-3\n 2 fami_personashogar_9                     -0.243      0.0418   -5.82   5.73e-9\n 3 fami_cuartoshogar_92                      0.100      0.161     0.622  5.34e-1\n 4 fami_cuartoshogar_93                      0.230      0.162     1.42   1.56e-1\n 5 fami_cuartoshogar_94                      0.209      0.178     1.18   2.38e-1\n 6 fami_cuartoshogar_95                      0.287      0.224     1.28   1.99e-1\n 7 fami_cuartoshogar_96                      0.0285     0.253     0.113  9.10e-1\n 8 fami_educacionpadre_9No aplica            0.00678    0.158     0.0428 9.66e-1\n 9 fami_educacionpadre_9Primaria            -0.149      0.0894   -1.67   9.57e-2\n10 fami_educacionpadre_9Técnico o Tecnólogo  0.555      0.0921    6.02   1.70e-9\n# ℹ 39 more rows\n\nlm_results |&gt; glance()\n\n# A tibble: 1 × 8\n  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs\n          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;\n1         7781.    5888 -3420. 6938. 7265.    6840.        5840  5889\n\n\n\n\ntidy(): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente.\nglance(): Esta función se utiliza para resumir los resultados de un modelo como estadísticas globales del modelo, por ejemplo, R-cuadrado ajustado, el AIC y el BIC.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)\n\n# A tibble: 49 × 7\n   term                  estimate std.error statistic p.value conf.low conf.high\n   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n 1 (Intercept)              0.194    0.500    -3.28   1.03e-3   0.0684     0.494\n 2 fami_personashogar_9     0.784    0.0418   -5.82   5.73e-9   0.722      0.851\n 3 fami_cuartoshogar_92     1.11     0.161     0.622  5.34e-1   0.809      1.52 \n 4 fami_cuartoshogar_93     1.26     0.162     1.42   1.56e-1   0.919      1.74 \n 5 fami_cuartoshogar_94     1.23     0.178     1.18   2.38e-1   0.873      1.75 \n 6 fami_cuartoshogar_95     1.33     0.224     1.28   1.99e-1   0.860      2.07 \n 7 fami_cuartoshogar_96     1.03     0.253     0.113  9.10e-1   0.626      1.69 \n 8 fami_educacionpadre_…    1.01     0.158     0.0428 9.66e-1   0.736      1.37 \n 9 fami_educacionpadre_…    0.862    0.0894   -1.67   9.57e-2   0.722      1.03 \n10 fami_educacionpadre_…    1.74     0.0921    6.02   1.70e-9   1.45       2.09 \n# ℹ 39 more rows\n\n\ntidy(exp=TRUE, conf.int=TRUE): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente. Los argumentos exp y conf.int se utilizan para incluir los intervalos de confianza y los exponentes en los resultados"
   },
   {
-    "objectID": "slides/crear-tablas.html#herramientas-para-documentar",
-    "href": "slides/crear-tablas.html#herramientas-para-documentar",
-    "title": "Crear tablas en R",
-    "section": "1.2. Herramientas para documentar",
-    "text": "1.2. Herramientas para documentar\n\nCódigo (Programas estadísticos)\nQuarto (Rmarkdown)\nGit (Github)\nR (También sintaxis en spss, stata, etc)"
+    "objectID": "slides/2-taller-icfes.html#estimar-un-modelo",
+    "href": "slides/2-taller-icfes.html#estimar-un-modelo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "",
+    "text": "Hay muchas formas de estimar modelos en R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlm(): Ajusta un modelo de regresión lineal a los datos.\nstan_glm(): Ajusta un modelo de regresión utilizando el paquete Stan.\nglmnet(): Ajusta un modelo de regresión utilizando la regularización Lasso o Ridge.\n\n\n\nTidymodels ofrece una sintaxis general para estimar los modelos\n\nEspecificar el tipo de modelo\n\nlinear_reg(), logistic_reg(), decition_tree()\n\nEspecificar el tipo de outcome\n\nRegresión para outcomes continuos\nClasificación: multinomial, ordinal, binaria\n\n\n\nlinear_reg() |&gt; \n  set_engine(\"lm\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm \n\nlinear_reg() |&gt; \n    set_engine(\"glmnet\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: glmnet \n\nlinear_reg() |&gt;\n    set_engine(\"stan\") \n\nLinear Regression Model Specification (regression)\n\nComputational engine: stan \n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Carga el paquete tidymodels en R.\ntidymodels_prefer(): Establece el paquete tidymodels como el preferido para las funciones de modelado en R.\nlinear_reg(): Crea una especificación de modelo de regresión lineal en el marco de trabajo tidymodels.\nset_engine(): Establece el motor de cálculo para un objeto de especificación de modelo. Se establece en “lm” para la primera llamada a linear_reg(), “glmnet” para la segunda llamada y “stan” para la tercera.\n\n\n\nPara estimar un modelo hay que hacer los siguientes pasos:\n\n\n\nlm_model &lt;-\n    logistic_reg() %&gt;% \n    set_engine(\"glm\", family=\"binomial\") |&gt;\n    set_mode(\"classification\")\n\nEspecificar un modelo de regresión logística. Se establece el “paquete”, en este caso “glm” y opciones del paquete (la distribución de la variable de respuesta). Además, se establece el modo de modelado en “classification” para indicar que es una variable categórica. El resultado se almacena en el objeto lm_model.\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n    fit(puntaje ~ ., data = taller_icfes)\n\nAquí se ajusta-estima el modelo utilizando la función fit(). Se especifica la variable de respuesta (puntaje) y los predictores (.) y se utiliza el objeto taller_icfes como base de datos.\n\n\n\n\nlm_results |&gt; tidy() \n\n# A tibble: 49 × 5\n   term                                     estimate std.error statistic p.value\n   &lt;chr&gt;                                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n 1 (Intercept)                              -1.64       0.500    -3.28   1.03e-3\n 2 fami_personashogar_9                     -0.243      0.0418   -5.82   5.73e-9\n 3 fami_cuartoshogar_92                      0.100      0.161     0.622  5.34e-1\n 4 fami_cuartoshogar_93                      0.230      0.162     1.42   1.56e-1\n 5 fami_cuartoshogar_94                      0.209      0.178     1.18   2.38e-1\n 6 fami_cuartoshogar_95                      0.287      0.224     1.28   1.99e-1\n 7 fami_cuartoshogar_96                      0.0285     0.253     0.113  9.10e-1\n 8 fami_educacionpadre_9No aplica            0.00678    0.158     0.0428 9.66e-1\n 9 fami_educacionpadre_9Primaria            -0.149      0.0894   -1.67   9.57e-2\n10 fami_educacionpadre_9Técnico o Tecnólogo  0.555      0.0921    6.02   1.70e-9\n# ℹ 39 more rows\n\nlm_results |&gt; glance()\n\n# A tibble: 1 × 8\n  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs\n          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;\n1         7781.    5888 -3420. 6938. 7265.    6840.        5840  5889\n\n\n\n\ntidy(): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente.\nglance(): Esta función se utiliza para resumir los resultados de un modelo como estadísticas globales del modelo, por ejemplo, R-cuadrado ajustado, el AIC y el BIC.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)\n\n# A tibble: 49 × 7\n   term                  estimate std.error statistic p.value conf.low conf.high\n   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n 1 (Intercept)              0.194    0.500    -3.28   1.03e-3   0.0684     0.494\n 2 fami_personashogar_9     0.784    0.0418   -5.82   5.73e-9   0.722      0.851\n 3 fami_cuartoshogar_92     1.11     0.161     0.622  5.34e-1   0.809      1.52 \n 4 fami_cuartoshogar_93     1.26     0.162     1.42   1.56e-1   0.919      1.74 \n 5 fami_cuartoshogar_94     1.23     0.178     1.18   2.38e-1   0.873      1.75 \n 6 fami_cuartoshogar_95     1.33     0.224     1.28   1.99e-1   0.860      2.07 \n 7 fami_cuartoshogar_96     1.03     0.253     0.113  9.10e-1   0.626      1.69 \n 8 fami_educacionpadre_…    1.01     0.158     0.0428 9.66e-1   0.736      1.37 \n 9 fami_educacionpadre_…    0.862    0.0894   -1.67   9.57e-2   0.722      1.03 \n10 fami_educacionpadre_…    1.74     0.0921    6.02   1.70e-9   1.45       2.09 \n# ℹ 39 more rows\n\n\ntidy(exp=TRUE, conf.int=TRUE): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente. Los argumentos exp y conf.int se utilizan para incluir los intervalos de confianza y los exponentes en los resultados"
   },
   {
-    "objectID": "slides/crear-tablas.html#quarto",
-    "href": "slides/crear-tablas.html#quarto",
-    "title": "Crear tablas en R",
-    "section": "1.2.1 Quarto",
-    "text": "1.2.1 Quarto\n\nQuarto permite crear documentos en varios formatos (PDF, HTML, Word).\nPermite integrar código de R, Python, etc.\nIntegrar tablas y gráficos.\nUnir código y texto."
+    "objectID": "slides/2-taller-icfes.html#dividir-los-datos",
+    "href": "slides/2-taller-icfes.html#dividir-los-datos",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\n\nDividir los datos en dos conjuntos\n\nEntrenamiento\n\nLa mayoría de los datos (¿70%, 80%?)\nAquí se ajusta el modelo\n\nPrueba\n\nUn pequeño conjunto de datos\nAquí se evaluará el modelo final\n\n\n\nLos datos de prueba se utilizan una sola vez, si se utilizan más de una vez, se convierten en parte del proceso de entrenamiento.\n\n\n\n\n\n\nWarning\n\n\n\nLa división de los datos se hace al nivel de unidad independiente de observación.\nEvitar a toda costa la contaminación del los datos de prueba (information leakage), es decir, no se puede filtrar la información de una base a la otra.\n\n\nEntonces, uno puede crear dos bases de datos con por ejemplo 80% y 20% de los datos. Pero, ¿cómo se hace esto en R?\n\nset.seed(1234)\n\ndatos_divididos &lt;- initial_split(taller_icfes, prop = 0.8, strata = \"puntaje\")\n\ndatos_entrenamiento &lt;- training(datos_divididos)\ndatos_prueba &lt;- testing(datos_divididos)\n\nLa opción strata es para que los datos de entrenamiento y prueba tengan la misma distribución de la variable puntaje\nA veces la selección aleatoria de la muestra es problemática, por ejemplo cuando hay una componente de tiempo en los datos. En este caso, se puede usar la función initial_time_split().\n\n\n\n\n\n\nTip\n\n\n\nset.seed(): se utiliza para establecer una semilla para la generación de números aleatorios en R. En este caso, se utiliza para establecer la semilla en 1234, lo que garantiza que los resultados sean reproducibles. Esto es especialmente importante cuando se trabaja con modelos de aprendizaje automático, ya que los resultados pueden variar según la semilla utilizada para la generación de números aleatorios.\ninitial_split(): Esta función se utiliza para dividir un data frame o tibble en conjuntos de entrenamiento y prueba. En este caso, se utiliza para dividir el objeto “taller_icfes” en conjuntos de entrenamiento y prueba en una proporción de 80/20, y estratificando por la columna “puntaje”.\ntraining(): Esta función se utiliza para extraer el conjunto de entrenamiento de un objeto creado con la función initial_split(). En este caso, se utiliza para extraer el conjunto de entrenamiento del objeto “datos_divididos”.\ntesting(): Esta función se utiliza para extraer el conjunto de prueba de un objeto creado con la función initial_split(). En este caso, se utiliza para extraer el conjunto de prueba del objeto “datos_divididos”.\n\n\nAhora, podemos repetir la estimación del modelo anterior, pero solo vamos a necesitar los pasos 2 y 3."
   },
   {
-    "objectID": "slides/crear-tablas.html#descripción-de-la-base-de-datos",
-    "href": "slides/crear-tablas.html#descripción-de-la-base-de-datos",
-    "title": "Crear tablas en R",
-    "section": "2.1 Descripción de la base de datos",
-    "text": "2.1 Descripción de la base de datos\nDatos de 71 participantes sobre sus evaluaciones sociomorales en cuatro situaciones de transgresión legal: 1) daño ambiental por minería ilegal, 2) linchamiento en caso de robo, 3) tráfico de químicos para cocaína y 4) porte de armas en público. El estudio examina juicios y justificaciones sobre si hay transgresión, la gravedad de dichas transgresiones y el castigo merecido. También se evalúan las creencias sobre si las transgresiones se deben a características disposicionales de los involucrados."
+    "objectID": "slides/2-taller-icfes.html#estimar-el-modelo-1",
+    "href": "slides/2-taller-icfes.html#estimar-el-modelo-1",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "2. Estimar el modelo",
+    "text": "2. Estimar el modelo\nEstimación del modelo: Se utiliza la función lm_model() y fit() para ajustar un modelo de regresión lineal. La fórmula puntaje ~ . indica que se está modelando la variable puntaje como una función de todas las otras variables en el dataframe “datos_entrenamiento”.\n\nlm_results &lt;- lm_model |&gt;\n    fit(puntaje ~ ., data = datos_entrenamiento)"
   },
   {
-    "objectID": "slides/crear-tablas.html#variables",
-    "href": "slides/crear-tablas.html#variables",
-    "title": "Crear tablas en R",
-    "section": "Variables",
-    "text": "Variables\n\nlibrary(dataWorkshopUN)\nlibrary(gtsummary)\nlibrary(tidyverse)\nlibrary(gt)\n\ndata(datos_ley_moral)\n\n\n\nRows: 6,837\nColumns: 7\n$ ID          &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ SITUACIONES &lt;chr&gt; \"Daño ambiental\", \"Daño ambiental\", \"Daño ambiental\", \"Dañ…\n$ EDAD        &lt;dbl&gt; 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17…\n$ SEXO        &lt;chr&gt; \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\", \"H\"…\n$ CATEGORIAS  &lt;chr&gt; \"Expectativa de transgresón\", \"Justificación de los desenl…\n$ CODIGOS     &lt;chr&gt; \"Transgresión\", \"Desconfianza institucional\", \"Recursos bá…\n$ RESPUESTA   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1…"
+    "objectID": "slides/2-taller-icfes.html#visualizar-los-resultados-del-modelo",
+    "href": "slides/2-taller-icfes.html#visualizar-los-resultados-del-modelo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "3. Visualizar los resultados del modelo",
+    "text": "3. Visualizar los resultados del modelo\nVisualizar los resultados del modelo: Se utiliza la función tidy para obtener un resumen limpio y ordenado de los resultados del modelo. En el segundo uso de tidy, se exponencian los coeficientes y los intervalos de confianza.\n\nlm_results |&gt; tidy()\n\n# A tibble: 49 × 5\n   term                                     estimate std.error statistic p.value\n   &lt;chr&gt;                                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n 1 (Intercept)                               -1.68      0.524    -3.21   1.31e-3\n 2 fami_personashogar_9                      -0.261     0.0474   -5.50   3.76e-8\n 3 fami_cuartoshogar_92                       0.197     0.186     1.06   2.90e-1\n 4 fami_cuartoshogar_93                       0.358     0.187     1.91   5.62e-2\n 5 fami_cuartoshogar_94                       0.332     0.205     1.62   1.05e-1\n 6 fami_cuartoshogar_95                       0.485     0.255     1.90   5.74e-2\n 7 fami_cuartoshogar_96                       0.117     0.286     0.411  6.81e-1\n 8 fami_educacionpadre_9No aplica             0.0173    0.177     0.0979 9.22e-1\n 9 fami_educacionpadre_9Primaria             -0.0868    0.0992   -0.875  3.81e-1\n10 fami_educacionpadre_9Técnico o Tecnólogo   0.574     0.103     5.57   2.54e-8\n# ℹ 39 more rows\n\n\nPero,\n¿Cómo sabemos que el modelo es bueno?"
   },
   {
-    "objectID": "slides/crear-tablas.html#información-en-la-base-de-datos",
-    "href": "slides/crear-tablas.html#información-en-la-base-de-datos",
-    "title": "Crear tablas en R",
-    "section": "Información en la base de datos",
-    "text": "Información en la base de datos"
+    "objectID": "slides/2-taller-icfes.html#evaluar-el-modelo",
+    "href": "slides/2-taller-icfes.html#evaluar-el-modelo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "4. Evaluar el modelo",
+    "text": "4. Evaluar el modelo\nEvaluación del modelo: se hace una “predicción” utilizando el modelo ajustado. Primero, se seleccionan algunos valores de datos_entrenamiento para predecir. Luego, se utiliza la función predict para obtener las predicciones del modelo. En el segundo uso de predict, se solicita la probabilidad de las predicciones.\n\npredecir_estos_valores &lt;- datos_entrenamiento %&gt;% \n    select(-puntaje) %&gt;% \n    slice(1:10)\n\npredict(lm_results, predecir_estos_valores)\n\n# A tibble: 10 × 1\n   .pred_class\n   &lt;fct&gt;      \n 1 0          \n 2 0          \n 3 0          \n 4 0          \n 5 0          \n 6 0          \n 7 1          \n 8 0          \n 9 0          \n10 0          \n\n\n\npredict(lm_results, predecir_estos_valores, type=\"prob\")\n\n# A tibble: 10 × 2\n   .pred_0 .pred_1\n     &lt;dbl&gt;   &lt;dbl&gt;\n 1   0.923  0.0766\n 2   0.633  0.367 \n 3   0.772  0.228 \n 4   0.849  0.151 \n 5   0.703  0.297 \n 6   0.676  0.324 \n 7   0.475  0.525 \n 8   0.537  0.463 \n 9   0.700  0.300 \n10   0.788  0.212"
   },
   {
-    "objectID": "slides/crear-tablas.html#select",
-    "href": "slides/crear-tablas.html#select",
-    "title": "Crear tablas en R",
-    "section": "select()",
-    "text": "select()\nEsta función permite seleccionar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Daño ambiental\nTransgresión\n0\n    Daño ambiental\nDesconfianza institucional\n0\n    Daño ambiental\nRecursos básicos, necesidades y oportunidades\n0\n    Daño ambiental\nObjetivos personales y conveniencia\n0\n    Daño ambiental\nCreencias y prácticas culturales\n0\n    Daño ambiental\nJustificaciones morales\n0\n    Daño ambiental\nReferencia a la experiencia\n0\n    Daño ambiental\nAutoridad, reglas y consecuencias\n0\n    Daño ambiental\nPrudencial\n0\n    Daño ambiental\nOtros\n1"
+    "objectID": "slides/2-taller-icfes.html#predicción-en-el-conjunto-completo-de-datos",
+    "href": "slides/2-taller-icfes.html#predicción-en-el-conjunto-completo-de-datos",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Predicción en el conjunto completo de datos",
+    "text": "Predicción en el conjunto completo de datos\nAhora vamos a realizar una predicción en todo el conjunto de datos de entrenamiento y los vamos a unir con los datos de entrenamiento originales. Luego, vamos a seleccionar y reordenar las columnas.\n\nentrenamiento &lt;- datos_entrenamiento %&gt;% \n    select(-puntaje)\n\nprediccion &lt;- predict(lm_results, entrenamiento)\n\nresultados_prueba &lt;- cbind(prediccion, datos_entrenamiento) |&gt; \n  select(.pred_class, puntaje, everything()) |&gt; \n  tibble()\n\nresultados_prueba  |&gt;  head(10)\n\n# A tibble: 10 × 16\n   .pred_class puntaje fami_personashogar_9 fami_cuartoshogar_9\n   &lt;fct&gt;       &lt;fct&gt;                  &lt;dbl&gt; &lt;chr&gt;              \n 1 0           0                          5 4                  \n 2 0           0                          3 3                  \n 3 0           0                          4 4                  \n 4 0           0                          4 3                  \n 5 0           0                          5 5                  \n 6 0           0                          5 3                  \n 7 1           0                          3 3                  \n 8 0           0                          4 4                  \n 9 0           0                          3 2                  \n10 0           0                          3 3                  \n# ℹ 12 more variables: fami_educacionpadre_9 &lt;chr&gt;,\n#   fami_educacionmadre_9 &lt;chr&gt;, fami_tienecomputador_9 &lt;chr&gt;,\n#   fami_tienelavadora_9 &lt;chr&gt;, fami_tienehornomicroogas_9 &lt;chr&gt;,\n#   fami_tieneautomovil_9 &lt;chr&gt;, fami_tieneconsolavideojuegos_9 &lt;chr&gt;,\n#   fami_tieneinternet_9 &lt;chr&gt;, fami_tieneserviciotv_9 &lt;chr&gt;,\n#   fami_trabajolaborpadre_9 &lt;chr&gt;, fami_trabajolabormadre_9 &lt;chr&gt;,\n#   fami_numlibros_9 &lt;chr&gt;"
   },
   {
-    "objectID": "slides/crear-tablas.html#filter",
-    "href": "slides/crear-tablas.html#filter",
-    "title": "Crear tablas en R",
-    "section": "filter()",
-    "text": "filter()\nEsta función permite filtrar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nfilter(SITUACIONES == \"Linchamiento\")  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Linchamiento\nTransgresión\n1\n    Linchamiento\nDesconfianza institucional\n0\n    Linchamiento\nRecursos básicos, necesidades y oportunidades\n0\n    Linchamiento\nObjetivos personales y conveniencia\n0\n    Linchamiento\nCreencias y prácticas culturales\n1\n    Linchamiento\nJustificaciones morales\n0\n    Linchamiento\nReferencia a la experiencia\n0\n    Linchamiento\nAutoridad, reglas y consecuencias\n0\n    Linchamiento\nPrudencial\n0\n    Linchamiento\nOtros\n0"
+    "objectID": "slides/2-taller-icfes.html#métricas-para-evaluar-el-modelo",
+    "href": "slides/2-taller-icfes.html#métricas-para-evaluar-el-modelo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Métricas para evaluar el modelo",
+    "text": "Métricas para evaluar el modelo\nAccuracy (Exactitud): Es una métrica que mide la proporción de predicciones correctas realizadas por un modelo en comparación con el total de predicciones realizadas. Es decir, la cantidad de veces que el modelo acertó sobre el total de datos que se le presentaron.\nSensitivity (Sensibilidad): Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos negativos (FN). La sensibilidad mide la capacidad del modelo para detectar correctamente los casos positivos.\nSpecificity (Especificidad): Es la proporción de verdaderos negativos (TN) que son identificados correctamente por el modelo en relación con el total de verdaderos negativos y falsos positivos (FP). La especificidad mide la capacidad del modelo para detectar correctamente los casos negativos.\nPrecision (Precisión): Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos positivos (FP). La precisión mide la capacidad del modelo para no identificar falsamente un caso como positivo.\nRecall (Recuperación): Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos negativos (FN). El recall mide la capacidad del modelo para identificar todos los casos positivos.\nF-measure (Puntuación F): Es una métrica que combina la precisión y el recall en una sola puntuación. El valor de la F-measure oscila entre 0 y 1, siendo 1 el valor óptimo.\nKappa (Coeficiente Kappa): Es una medida de concordancia que compara la cantidad de acuerdos observados entre el modelo y las observaciones reales con la cantidad de acuerdos que se esperarían por casualidad. Un valor de kappa cercano a 1 indica una concordancia casi perfecta entre el modelo y las observaciones reales.\nMatthews Correlation Coefficient (Coeficiente de Correlación de Matthews): Es una medida que se utiliza para evaluar la calidad de la clasificación binaria. El coeficiente de correlación de Matthews oscila entre -1 y 1, siendo 1 el valor óptimo. Un valor cercano a 1 indica una clasificación perfecta, mientras que un valor cercano a -1 indica una clasificación completamente incorrecta."
   },
   {
-    "objectID": "slides/crear-tablas.html#mutate",
-    "href": "slides/crear-tablas.html#mutate",
-    "title": "Crear tablas en R",
-    "section": "mutate()",
-    "text": "mutate()\nEsta función permite crear o modificar columnas\n\ndatos_ley_moral  |&gt; \nmutate(Edad_años = paste0(EDAD, \" años\"))  |&gt; \nselect(ID, Edad_años) |&gt; \nunique()  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      ID\n      Edad_años\n    \n  \n  \n    2\n17 años\n    3\n22 años\n    5\n52 años\n    7\n30 años\n    8\n40 años\n    10\n30 años\n    11\n16 años\n    13\n17 años\n    14\n15 años\n    15\n44 años"
+    "objectID": "slides/2-taller-icfes.html#calcular-las-métricas",
+    "href": "slides/2-taller-icfes.html#calcular-las-métricas",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\n\nconf_mat(resultados_prueba, truth = puntaje,\n         estimate = .pred_class)\n\n          Truth\nPrediction    0    1\n         0 2522  990\n         1  430  768\n\naccuracy(resultados_prueba, truth = puntaje,\n         estimate = .pred_class)\n\n# A tibble: 1 × 3\n  .metric  .estimator .estimate\n  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n1 accuracy binary         0.699\n\nsens(resultados_prueba, truth = puntaje,\n    estimate = .pred_class, \n    event_level = \"second\")\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 sens    binary         0.437\n\nspec(resultados_prueba, truth = puntaje,\n    estimate = .pred_class, \n    event_level = \"second\")\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 spec    binary         0.854\n\nprecision(resultados_prueba, truth = puntaje,\n    estimate = .pred_class,\n    event_level = \"second\")\n\n# A tibble: 1 × 3\n  .metric   .estimator .estimate\n  &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;\n1 precision binary         0.641\n\nrecall(resultados_prueba, truth = puntaje,\n    estimate = .pred_class,\n    event_level = \"second\")\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 recall  binary         0.437\n\nkap(resultados_prueba, truth = puntaje,\n    estimate = .pred_class,\n    event_level = \"second\")\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 kap     binary         0.311\n\n\nTambién se pueden calcular con menos repetición del código\n\ncustom_metrics &lt;- metric_set(accuracy, sens, spec, precision, recall, f_meas, kap, mcc)\n\ncustom_metrics(resultados_prueba,\n  truth = puntaje,\n  estimate = .pred_class,\n  event_level = \"second\"\n)\n\n# A tibble: 8 × 3\n  .metric   .estimator .estimate\n  &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;\n1 accuracy  binary         0.699\n2 sens      binary         0.437\n3 spec      binary         0.854\n4 precision binary         0.641\n5 recall    binary         0.437\n6 f_meas    binary         0.520\n7 kap       binary         0.311\n8 mcc       binary         0.323\n\n\nY las podemos guardar en una tabla.\n\nlm_metrics &lt;- custom_metrics(resultados_prueba,\n  truth = puntaje,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt;\n  mutate(model = \"lm\")"
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary",
-    "href": "slides/crear-tablas.html#tbl_summary",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\ngtsummary es un paquete que permite crear tablas de resumen de datos. Algunas de sus ventajas son:\n\nPermite crear tablas de resumen de datos con una sintaxis sencilla.\nTablas de resumen para regresiones.\nExportar tablas a varios formatos (Word, PDF, HTML).\nPermite crear tablas con diferentes estilos.\nCalcula estadísticos y p-valores."
+    "objectID": "slides/2-taller-icfes.html#área-bajo-la-curva",
+    "href": "slides/2-taller-icfes.html#área-bajo-la-curva",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Área bajo la curva",
+    "text": "Área bajo la curva\nLa función roc_auc() se utiliza para calcular el área bajo la curva (AUC) de la curva (ROC).\nLa curva ROC es una representación gráfica de la sensibilidad frente a la especificidad para un sistema clasificador binario.\nEl AUC es una métrica de rendimiento para los modelos de clasificación. Su valor varía de 0 a 1, donde un valor de 1 indica que el modelo tiene una capacidad de clasificación perfecta, mientras que un valor de 0.5 indica que el modelo no tiene capacidad de clasificación, es decir, clasifica al azar.\nEn general, un modelo se considera bueno si el AUC es 0.7 o superior. Sin embargo, esto puede variar dependiendo del contexto y del problema específico que se esté abordando.\n\nprediccion_auc &lt;- predict(lm_results, entrenamiento, type = \"prob\")\n\nresultados_prueba_auc &lt;- cbind(prediccion_auc, datos_entrenamiento) |&gt;\n  tibble()\n\nroc_auc(resultados_prueba_auc,\n  truth = puntaje,\n  `.pred_1`,\n  event_level = \"second\"\n)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 roc_auc binary         0.728\n\n\nY se puede crear una gráfica\n\nroc_curve(resultados_prueba_auc,\nevent_level = \"second\",\n  truth = puntaje,\n  .pred_1\n) |&gt; autoplot()\n\n\n\n\nAhora, ¿cómo podemos mejorar el modelo?"
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary-1",
-    "href": "slides/crear-tablas.html#tbl_summary-1",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\n\nCalcular la frecuencia y el porcentajes de participantes hombres y mujeres.\n\ndatos_ley_moral  |&gt; \nselect(ID, SEXO)  |&gt; \nunique()  |&gt; \ntbl_summary(include=-ID)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 531\n    \n  \n  \n    SEXO\n\n        H\n35 (66%)\n        M\n18 (34%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#árboles-de-decisión",
+    "href": "slides/2-taller-icfes.html#árboles-de-decisión",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Árboles de decisión",
+    "text": "Árboles de decisión\nLos árboles de decisión son un tipo de modelo de aprendizaje automático que se utiliza para resolver problemas de clasificación y regresión. El objetivo es tomar decisiones basadas en preguntas y respuestas que se hacen a los datos para llegar a una conclusión o predicción. En un árbol de decisión, cada punto o “nodo” representa una característica de los datos que estamos estudiando. Cada “rama” del árbol muestra una respuesta posible a esa característica."
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary-2",
-    "href": "slides/crear-tablas.html#tbl_summary-2",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\nCalcular medidas de tendencia y dispersión\n\n\n\ndatos_ley_moral  |&gt; \nselect(ID, EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(include=EDAD)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 231\n    \n  \n  \n    EDAD\n29 (23, 45)\n  \n  \n  \n    \n      1 Median (IQR)"
+    "objectID": "slides/2-taller-icfes.html#arbusto",
+    "href": "slides/2-taller-icfes.html#arbusto",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Arbusto",
+    "text": "Arbusto\nPara estimar un árbol pequeño, hay que seguir los mismos pasos que para estimar un modelo de regresión logística, como hicimos anteriormente.\n\nEspecificación del modelo: Se especifica un modelo de árbol de decisión con un parámetro de complejidad de 0. Se utiliza el paquete rpart y se establece el modo en classification.\n\n\ntree_spec &lt;- \n  decision_tree(cost_complexity= 0.01) |&gt; \n  set_engine(\"rpart\") |&gt; \n  set_mode(\"classification\") \n\n\nAjuste del modelo: Se ajusta el modelo de árbol de decisión utilizando la fórmula puntaje ~ ., lo que significa que se está modelando puntaje como una función de todas las otras variables en el dataframe taller_icfes.\n\n\ntree_results &lt;- tree_spec |&gt;\n    fit(puntaje ~ ., data = taller_icfes)\n\n\nVisualización del árbol de decisión: Se extrae el modelo ajustado del resultado del ajuste y se visualiza utilizando la función tree_diagram del paquete treemisc.\n\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)\n\n\n\n\n¿Cómo se decide por dónde cortar los datos en un árbol de decisión? ver esto"
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary-3",
-    "href": "slides/crear-tablas.html#tbl_summary-3",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\nElegir los estadísticos que se muestran en la tabla o el idioma.\n\n\n\ntheme_gtsummary_language(language = \"es\")\n\ndatos_ley_moral  |&gt; \nselect(EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(\nstatistic = EDAD ~ \"{mean} ({sd})\")\n\n\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 231\n    \n  \n  \n    EDAD\n33 (13)\n  \n  \n  \n    \n      1 Media (DE)"
+    "objectID": "slides/2-taller-icfes.html#árboles-de-clasificación-y-regresión-cart",
+    "href": "slides/2-taller-icfes.html#árboles-de-clasificación-y-regresión-cart",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Árboles de clasificación y regresión (CART)",
+    "text": "Árboles de clasificación y regresión (CART)\nAhora, que ya sabemos cómo se construye el árbol, utilicemos todos los datos.\nPaso 1. Especificar el modelo\n\ntree_spec &lt;- \n  decision_tree() |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\nPaso 2. Estimar el modelo\n\ntree_results &lt;- tree_spec |&gt;\n  fit(puntaje ~ ., data = datos_entrenamiento)\n\nAhora, vamos a pasar a evaluar el model.\n\nentrenamiento &lt;- datos_entrenamiento %&gt;%\n  select(-puntaje)\n\nprediccion_tree &lt;- predict(tree_results, entrenamiento)\n\nresultados_prueba_tree &lt;- cbind(prediccion_tree, datos_entrenamiento) |&gt;\n  tibble()\n\nY calculemos las métricas\n\ntree_metrics &lt;- custom_metrics(resultados_prueba_tree,\n  truth = puntaje,\n  estimate = .pred_class, \n  event_level= \"second\"\n) |&gt;\n  mutate(model = \"tree\")\n\nrbind(tree_metrics, lm_metrics) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)\n\n# A tibble: 8 × 4\n  .metric   .estimator  tree    lm\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 accuracy  binary     0.678 0.699\n2 sens      binary     0.296 0.437\n3 spec      binary     0.906 0.854\n4 precision binary     0.652 0.641\n5 recall    binary     0.296 0.437\n6 f_meas    binary     0.408 0.520\n7 kap       binary     0.227 0.311\n8 mcc       binary     0.261 0.323"
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary-4",
-    "href": "slides/crear-tablas.html#tbl_summary-4",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(include=-c(ID, SITUACIONES, SEXO, EDAD))  \n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Desconfianza institucional\n17 (11%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Creencias y prácticas culturales\n50 (31%)\n    Justificaciones morales\n25 (16%)\n    Referencia a la experiencia\n6 (3.8%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Prudencial\n2 (1.3%)\n    Otros\n7 (4.4%)\n  \n  \n  \n    \n      1 n (%)\n    \n  \n\n\n\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \nselect(-c(ID, SITUACIONES, SEXO, EDAD)) |&gt; \ntbl_summary()   |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Creencias y prácticas culturales\n50 (31%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Justificaciones morales\n25 (16%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Desconfianza institucional\n17 (11%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Otros\n7 (4.4%)\n    Referencia a la experiencia\n6 (3.8%)\n    Prudencial\n2 (1.3%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#cart-con-hiperparámetros",
+    "href": "slides/2-taller-icfes.html#cart-con-hiperparámetros",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "CART con hiperparámetros",
+    "text": "CART con hiperparámetros\nLos hiperparámetros son valores específicos para los modelos que se pueden ajustar y que permiten controlar el proceso de entrenamiento de un modelo.\n\ntree_spec &lt;- \n  decision_tree(min_n = 5, cost_complexity = 0.001) |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\nEn este caso, se están indicando dos hiperparámetros para el modelo de árbol de decisión:\n\nmin_n: Es el número mínimo de observaciones que se requieren para dividir un nodo en un árbol de decisión. Un valor más alto de min_n implica que el árbol será menos profundo, ya que se requerirán más muestras para realizar una división en cada nodo.\ncost_complexity: Es un parámetro de regularización. Es una medida de la penalización que se aplica al árbol en función de su complejidad. Un valor más alto de cost_complexity implica una penalización más fuerte en la complejidad del árbol, lo que lleva a un árbol más pequeño y menos profundo.\n\nAhora, a estimar el modelo\n\ntree2_results &lt;- tree_spec |&gt;\n    fit(puntaje ~ ., data = datos_entrenamiento)\n\nPodemos obtener las predicciones\n\ntree2_predicciones &lt;- predict(tree2_results, entrenamiento)\n\nresultados_prueba_tree2 &lt;- cbind(tree2_predicciones, datos_entrenamiento) |&gt;\n  tibble()\n\ntree2_metrics &lt;- custom_metrics(resultados_prueba_tree2,\n  truth = puntaje,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt;\n  mutate(model = \"tree2\")\n\nY finalmente, podemos comparar los modelos\n\nrbind(tree2_metrics, tree_metrics, lm_metrics) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)\n\n# A tibble: 8 × 5\n  .metric   .estimator tree2  tree    lm\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 accuracy  binary     0.773 0.678 0.699\n2 sens      binary     0.572 0.296 0.437\n3 spec      binary     0.892 0.906 0.854\n4 precision binary     0.760 0.652 0.641\n5 recall    binary     0.572 0.296 0.437\n6 f_meas    binary     0.653 0.408 0.520\n7 kap       binary     0.489 0.227 0.311\n8 mcc       binary     0.500 0.261 0.323"
   },
   {
-    "objectID": "slides/crear-tablas.html#tbl_summary-5",
-    "href": "slides/crear-tablas.html#tbl_summary-5",
-    "title": "Crear tablas en R",
-    "section": "tbl_summary()",
-    "text": "tbl_summary()\nLa opción by permite crear tablas por grupos.\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(by=SITUACIONES,\ninclude=-c(ID, SEXO, EDAD))  |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Objetivos personales y conveniencia\n24 (45%)\n1 (1.9%)\n24 (45%)\n    Autoridad, reglas y consecuencias\n12 (23%)\n0 (0%)\n1 (1.9%)\n    Justificaciones morales\n7 (13%)\n16 (30%)\n2 (3.8%)\n    Creencias y prácticas culturales\n6 (11%)\n30 (57%)\n14 (26%)\n    Referencia a la experiencia\n4 (7.5%)\n1 (1.9%)\n1 (1.9%)\n    Otros\n4 (7.5%)\n2 (3.8%)\n1 (1.9%)\n    Desconfianza institucional\n0 (0%)\n17 (32%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n0 (0%)\n23 (43%)\n    Prudencial\n0 (0%)\n0 (0%)\n2 (3.8%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#pero-todo-esto-pasa-en-los-datos-de-prueba",
+    "href": "slides/2-taller-icfes.html#pero-todo-esto-pasa-en-los-datos-de-prueba",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "¡Pero todo esto pasa en los datos de prueba!",
+    "text": "¡Pero todo esto pasa en los datos de prueba!"
   },
   {
-    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla",
-    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla",
-    "title": "Crear tablas en R",
-    "section": "Añadir detalles a las tabla",
-    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )"
+    "objectID": "slides/2-taller-icfes.html#por-qué-es-malo",
+    "href": "slides/2-taller-icfes.html#por-qué-es-malo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "¿Por qué es malo?",
+    "text": "¿Por qué es malo?\nUno puede crear un modelo que tenga cerro error en los datos de prueba. Pero, ¿cómo sabemos que el modelo es bueno?\n\n# Seleccionar el valor del puntaje\ndatos_prueba2_out &lt;- \n  datos_prueba |&gt; \n    select(puntaje) \n\n# Utilizar los datos de prueba para predecir el puntaje utilizando el modelo de regresión logística  \nlm_predicciones &lt;- cbind(predict(lm_results, datos_prueba), datos_prueba2_out)|&gt; mutate(model=\"lm\")\n\n# Utilizar los datos de prueba para predecir el puntaje utilizando el modelo de árbol de decisión\ntree_predicciones &lt;- cbind(predict(tree_results, datos_prueba), datos_prueba2_out)|&gt; mutate(model=\"tree\")\n\n\n# Utilizar los datos de prueba para predecir el puntaje utilizando el modelo de árbol de decisión con hiperparámetros\ntree2_predicciones &lt;- cbind(predict(tree2_results, datos_prueba), datos_prueba2_out) |&gt;  mutate(model=\"tree2\")\n\n# Unir los resultados\nall_models &lt;- \nrbind(lm_predicciones, tree_predicciones, tree2_predicciones) \n\n# all_models\n\nFinalmente, podemos comparar las métricas de los modelos.\n\nall_models2 &lt;- all_models |&gt; \n  group_split(model) %&gt;%\n   setNames(unique(all_models$model)) %&gt;%\n  map_dfr(., ~custom_metrics(.x,\n               truth = puntaje,\n               estimate = .pred_class), .id = \"names\")\n\nall_models2 |&gt; \n  pivot_wider(names_from = names, values_from = .estimate)\n\n# A tibble: 8 × 5\n  .metric   .estimator    lm  tree tree2\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 accuracy  binary     0.703 0.686 0.681\n2 sens      binary     0.869 0.926 0.827\n3 spec      binary     0.425 0.284 0.436\n4 precision binary     0.717 0.685 0.711\n5 recall    binary     0.869 0.926 0.827\n6 f_meas    binary     0.786 0.787 0.765\n7 kap       binary     0.316 0.238 0.279\n8 mcc       binary     0.332 0.282 0.286"
   },
   {
-    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-1",
-    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-1",
-    "title": "Crear tablas en R",
-    "section": "Añadir detalles a las tabla",
-    "text": "Añadir detalles a las tabla\n\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Otros\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n    Desconfianza institucional\n0 (0%)\n12 (23%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#cómo-vamos-a-elegir-el-mejor-modelo-si-solo-podemos-evaluar-un-modelo-en-los-datos-de-prueba",
+    "href": "slides/2-taller-icfes.html#cómo-vamos-a-elegir-el-mejor-modelo-si-solo-podemos-evaluar-un-modelo-en-los-datos-de-prueba",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "¿Cómo vamos a elegir el mejor modelo si solo podemos evaluar un modelo en los datos de prueba?",
+    "text": "¿Cómo vamos a elegir el mejor modelo si solo podemos evaluar un modelo en los datos de prueba?\n\nSegunda idea: dividir los datos de entrenamiento en dos grupos, uno para entrenar y otro para validar, de tal manera que podamos estimar el error del modelo en los datos de prueba."
   },
   {
-    "objectID": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-2",
-    "href": "slides/crear-tablas.html#añadir-detalles-a-las-tabla-2",
-    "title": "Crear tablas en R",
-    "section": "Añadir detalles a las tabla",
-    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )  \n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#validación-cruzada",
+    "href": "slides/2-taller-icfes.html#validación-cruzada",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Validación Cruzada",
+    "text": "Validación Cruzada\nSupongamos que estamos trabajando en un problema de clasificación y disponemos de un conjunto de datos con 1000 observaciones. Queremos evaluar el rendimiento de un modelo de regresión logística utilizando la validación cruzada k-fold.\nPaso a paso del proceso de k-fold cross-validation:\nDividir el conjunto de datos: Primero, dividimos el conjunto de datos en k subconjuntos (folds) de igual tamaño. En este ejemplo, elegimos k=10, lo que significa que dividimos el conjunto de datos en 10 subconjuntos de 100 registros cada uno.\nEntrenar y evaluar el modelo: Luego, realizamos lo siguiente para cada uno de los k subconjuntos:\n\nTomamos un subconjunto como el conjunto de prueba (validación) y los k-1 subconjuntos restantes como el conjunto de entrenamiento. Por ejemplo, en la primera iteración, usamos el primer subconjunto como conjunto de prueba y los subconjuntos del 2 al 10 como conjunto de entrenamiento.\nEntrenamos el modelo de regresión logística utilizando el conjunto de entrenamiento.\nEvaluamos el rendimiento del modelo en el conjunto de prueba utilizando una métrica adecuada, como la precisión, la exhaustividad o el F1-score. Anotamos el resultado de la métrica para esta iteración.\n\nPromediar los resultados: Después de completar las k iteraciones, calculamos la media de los resultados de la métrica para todas las iteraciones. Esta media nos proporciona una estimación más robusta del rendimiento del modelo, ya que el modelo ha sido evaluado en diferentes subconjuntos del conjunto de datos.\nMás información aquí y aquí"
   },
   {
-    "objectID": "slides/crear-tablas.html#add_p-value",
-    "href": "slides/crear-tablas.html#add_p-value",
-    "title": "Crear tablas en R",
-    "section": "Add_p value",
-    "text": "Add_p value\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )   |&gt; \n    add_p()\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n&lt;0.001\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n&lt;0.001\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n&lt;0.001\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n&lt;0.001\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n0.001\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n0.2\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n  \n  \n  \n    \n      1 n (%)\n    \n    \n      2 prueba chi cuadrado de independencia; test exacto de Fisher"
+    "objectID": "slides/2-taller-icfes.html#cart-con-hiperparametros-y-validación-cruzada",
+    "href": "slides/2-taller-icfes.html#cart-con-hiperparametros-y-validación-cruzada",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "CART con hiperparametros y validación cruzada",
+    "text": "CART con hiperparametros y validación cruzada\nLo primero que vamos a necesitar es crear un objecto en R que contenga los datos organizados de tal manera que podamos implementar la validación cruzada. Para esto, vamos a utilizar la función vfold_cv() del paquete rsample.\n\ncrossvalidation &lt;-\n  vfold_cv(datos_entrenamiento, \n           v = 5,  # número de cajas\n           strata = \"puntaje\")\n\nAhora, vamos a especificar el modelo. Cuando se especifica un modelo de árbol de decisión, vamos a indicar que queremos que se prueben diferentes valores de los hiperparámetros “min_n” y “cost_complexity”. Para eso, vamos a utilizar el paquete tune.\n\ntree_spec &lt;- \n  decision_tree(\n    cost_complexity = tune(), \n    tree_depth = tune(),\n    min_n = tune()\n  ) |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nCost_complexity: Cost_complexity es un parámetro de regularización. Es una medida de la penalización que se aplica al árbol en función de su complejidad. Un valor más alto de cost_complexity implica una penalización más fuerte en la complejidad del árbol, lo que lleva a un árbol más pequeño y menos profundo. La idea es encontrar un valor óptimo de cost_complexity que equilibre la precisión y la complejidad del árbol, reduciendo tanto el sesgo como la varianza.\nTree_depth (profundidad del árbol): Tree_depth se refiere a la longitud máxima del camino más largo desde la raíz hasta una hoja en un árbol de decisión. Un árbol más profundo es más complejo y puede capturar relaciones más complicadas en los datos. Sin embargo, un árbol demasiado profundo también puede ser propenso al sobreajuste, ya que puede adaptarse demasiado a las peculiaridades de los datos de entrenamiento.\nmin_n (mínimo número de muestras para dividir un nodo): Min_n es un parámetro que controla el número mínimo de datos requeridas para dividir un nodo en un árbol de decisión. Un valor más alto de min_n implica que el árbol será menos profundo, ya que se requerirán más muestras para realizar una división en cada nodo. Un valor más bajo de min_n permite que el árbol se divida más fácilmente y, por lo tanto, puede resultar en un árbol más complejo y profundo.\n\n\n\nAhora, vamos a especificar la rejilla de búsqueda. La rejilla de búsqueda es una tabla que contiene los valores que se van a probar para cada combinación de hiperparámetros.\n\ntree_grid &lt;- grid_regular(\n    cost_complexity(range = c(-10L, -1L)), \n    tree_depth (range = c(4L, 7L)), \n    min_n(range = c(10L, 30L)))\n\nEl siguiente paso es estimar el desempeño de los modelos en los datos de validación, utilizando los modelos creados con las diferentes combinaciones de hiperparámetros. Para esto, vamos a utilizar la función tune_grid() del paquete tune.\n\ndoParallel::registerDoParallel()\n\nset.seed(345)\ntree_rs &lt;-\n  tune_grid(\n    tree_spec,\n    puntaje ~ .,\n    resamples = crossvalidation,\n    grid = tree_grid,\n    metrics = metric_set(accuracy, roc_auc, sensitivity, specificity)\n  )\n\ndoParallel::stopImplicitCluster()\n\n\n\n\n\n\n\nTip\n\n\n\n\n\ndoParallel es un excelente paquete creado para facilitar la programación paralela en R. Utilizar R en “paralelo” permite aprovechar la potencia de los computadores para ahorrar tiempo.\n\n\n\nEsto nos va a dar una tabla con los resultados de cada modelo, y podemos pedir que nos muestre la combinación de hiperparámetros que tuvo el mejor desempeño.\n\nshow_best(tree_rs)\n\nWarning: No value of `metric` was given; metric 'accuracy' will be used.\n\n\n# A tibble: 5 × 9\n  cost_complexity tree_depth min_n .metric  .estimator  mean     n std_err\n            &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;\n1    0.0000000001          4    10 accuracy binary     0.673     5 0.00434\n2    0.00000316            4    10 accuracy binary     0.673     5 0.00434\n3    0.0000000001          4    20 accuracy binary     0.673     5 0.00434\n4    0.00000316            4    20 accuracy binary     0.673     5 0.00434\n5    0.0000000001          4    30 accuracy binary     0.673     5 0.00434\n# ℹ 1 more variable: .config &lt;chr&gt;\n\n\nY podemos visualizar los resultados\n\nautoplot(tree_rs)\n\n\n\n\nFinalmente, podemos seleccionar el mejor modelo y estimarlo con los datos de entrenamiento.\n\nsimpler_tree &lt;- select_best(tree_rs, min_n, metric = \"accuracy\")\n\nfinal_tree &lt;- finalize_model(tree_spec, simpler_tree)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nLa función finalize_model permite actualizar la especificación del modelo con los hiperparámetros seleccionados.\n\n\n\nAhora, volvemos a hacer lo que hemos estado haciendo: estimar el modelo con los datos de entrenamiento.\n\nfinal_fit &lt;- fit(final_tree, puntaje ~ ., datos_entrenamiento)\n\nYa sabemos cómo evaluar el modelo, así que vamos a hacerlo. Para eso, vamos a utilizar la función last_fit(), que va a hacer un montón de trabajo por nosotros. Esta función va a estimar el modelo con los datos de entrenamiento y va a calcular las métricas de evaluación en los datos de entrenamiento y prueba.\n\nfinal_cart &lt;- last_fit(final_tree, puntaje ~ ., datos_divididos,\n  metrics = metric_set(accuracy, roc_auc, sensitivity, specificity),\n  control = control_grid(event_level = \"second\")\n)\n\nWarning: Unknown or uninitialised column: `.extracts`.\n\n\nY podemos recolectar las métricas\n\ncollect_metrics(final_cart)\n\n# A tibble: 4 × 4\n  .metric     .estimator .estimate .config             \n  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 accuracy    binary         0.683 Preprocessor1_Model1\n2 sensitivity binary         0.332 Preprocessor1_Model1\n3 specificity binary         0.892 Preprocessor1_Model1\n4 roc_auc     binary         0.632 Preprocessor1_Model1\n\n\n¿Y podemos visualizar el árbol?\n\nfinal_cart &lt;- last_fit(final_tree, puntaje ~ ., datos_divididos,\n  metrics = metric_set(accuracy, roc_auc, sensitivity, specificity))\n\ncart_trained &lt;- \n  final_cart  |&gt; extract_fit_parsnip()\n\ncart_tree_fit &lt;- cart_trained$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint=FALSE)\n\nWarning: labs do not fit even at cex 0.15, there may be some overplotting\n\n\n\n\n\n\nExtra idea: los árboles son muy buenos para aprender la distribuación de los datos de prueba, pero a veces, tienden a sobre especializarse en los datos en los que son entrenados. Una forma de solucionar esto, es hacer muchos árboles, que podamos después promediar."
   },
   {
-    "objectID": "slides/crear-tablas.html#escalas-gravedad-y-castigo",
-    "href": "slides/crear-tablas.html#escalas-gravedad-y-castigo",
-    "title": "Crear tablas en R",
-    "section": "Escalas gravedad y castigo",
-    "text": "Escalas gravedad y castigo\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Escala de gravedad\n\n\n\n\n        1\n5 (3.1%)\n0 (0%)\n4 (7.5%)\n1 (1.9%)\n        2\n6 (3.8%)\n0 (0%)\n4 (7.5%)\n2 (3.8%)\n        3\n20 (13%)\n1 (1.9%)\n9 (17%)\n10 (19%)\n        4\n29 (18%)\n5 (9.4%)\n11 (21%)\n13 (25%)\n        5\n99 (62%)\n47 (89%)\n25 (47%)\n27 (51%)\n    Escala de castigo\n\n\n\n\n        1\n11 (6.9%)\n0 (0%)\n7 (13%)\n4 (7.5%)\n        2\n10 (6.3%)\n0 (0%)\n7 (13%)\n3 (5.7%)\n        3\n46 (29%)\n3 (5.7%)\n15 (28%)\n28 (53%)\n        4\n38 (24%)\n16 (30%)\n14 (26%)\n8 (15%)\n        5\n54 (34%)\n34 (64%)\n10 (19%)\n10 (19%)\n  \n  \n  \n    \n      1 n (%)"
+    "objectID": "slides/2-taller-icfes.html#random-forest",
+    "href": "slides/2-taller-icfes.html#random-forest",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Random Forest",
+    "text": "Random Forest\nYa sabemos por qué es Forest, pero ¿por qué es random?\n\nNúmero de predictores que se usan para cada árbol (mtry)\nNúmero de observaciones por árbol\n\n\nRandom Forest\nLos pasos son los mismo, solo cambia la especificación del modelo.\n\nrf_spec &lt;- \n  rand_forest()  |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"ranger\", importance = \"permutation\")\n\nHay algunos métodos para tratar de identificar cuáles fueron las variables más relevantes en el momento de hacer las mejores predicciones.\n\nrf_results &lt;- rf_spec |&gt; \nfit(puntaje ~ ., data = datos_entrenamiento)\n\nlibrary(vip)\nimportance_plot_rf &lt;- \n  rf_results |&gt; \n  vip() +\n  ggtitle(\"Random Forest\") +\n  theme_minimal() +\n  geom_bar(stat=\"identity\", \n  color=\"green\", fill=\"green\", alpha=0.2)\n\nAhora, a recolectar métricas.\n\nrf_predicciones &lt;- predict(rf_results, entrenamiento)\n\nresultados_rf &lt;- cbind(rf_predicciones,datos_entrenamiento) |&gt; \n  tibble()\n\nrf_metrics &lt;- custom_metrics(resultados_rf,\n               truth = puntaje,\n               estimate = .pred_class,\n               event_level= \"second\") |&gt;\n  mutate(model=\"rf\")\n\nY a comparar los modelos\n\nrbind(rf_metrics, tree2_metrics, tree_metrics, lm_metrics) |&gt; \n  pivot_wider(names_from = model, values_from = .estimate)\n\n# A tibble: 8 × 6\n  .metric   .estimator    rf tree2  tree    lm\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 accuracy  binary     0.868 0.773 0.678 0.699\n2 sens      binary     0.711 0.572 0.296 0.437\n3 spec      binary     0.962 0.892 0.906 0.854\n4 precision binary     0.918 0.760 0.652 0.641\n5 recall    binary     0.711 0.572 0.296 0.437\n6 f_meas    binary     0.801 0.653 0.408 0.520\n7 kap       binary     0.705 0.489 0.227 0.311\n8 mcc       binary     0.718 0.500 0.261 0.323\n\n\nLa ley es que los datos de prueba se utilizan solo una vez, pero los hemos utilizado muchas veces. Veamos por última vez, cómo se comportaron los modelos en la base de prueba.\n\nrf_predicciones &lt;- cbind(predict(rf_results, datos_prueba), datos_prueba2_out) |&gt;  mutate(model=\"rf\")\n\nall_models &lt;- \nrbind(lm_predicciones, rf_predicciones,tree_predicciones, tree2_predicciones) \n\n\nall_models2 &lt;- all_models |&gt; \n  group_split(model) %&gt;%\n   setNames(unique(all_models$model)) %&gt;%\n  map_dfr(., ~custom_metrics(.x,\n               truth = puntaje,\n               estimate = .pred_class,\n               event_level= \"second\"), .id = \"names\")\nall_models2 |&gt; \n  pivot_wider(names_from = names, values_from = .estimate)\n\n# A tibble: 8 × 6\n  .metric   .estimator    lm    rf  tree tree2\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 accuracy  binary     0.703 0.684 0.686 0.681\n2 sens      binary     0.425 0.386 0.284 0.436\n3 spec      binary     0.869 0.861 0.926 0.827\n4 precision binary     0.658 0.623 0.694 0.6  \n5 recall    binary     0.425 0.386 0.284 0.436\n6 f_meas    binary     0.517 0.477 0.403 0.505\n7 kap       binary     0.316 0.268 0.238 0.279\n8 mcc       binary     0.332 0.283 0.282 0.286"
   },
   {
-    "objectID": "slides/crear-tablas.html#escalas-gravedad-y-castigo-1",
-    "href": "slides/crear-tablas.html#escalas-gravedad-y-castigo-1",
-    "title": "Crear tablas en R",
-    "section": "Escalas gravedad y castigo",
-    "text": "Escalas gravedad y castigo\n\ndatos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Escala de gravedad\n3.92, (1.28)\n4.19, (1.00)\n0.2\n    Escala de castigo\n3.25, (1.28)\n3.32, (1.09)\n0.7\n  \n  \n  \n    \n      1 Media, (DE)\n    \n    \n      2 Wilcoxon signed rank test with continuity correction"
+    "objectID": "slides/2-taller-icfes.html#sesgo-y-varianza",
+    "href": "slides/2-taller-icfes.html#sesgo-y-varianza",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Sesgo y varianza",
+    "text": "Sesgo y varianza\nEstos dos conceptos son cruciales para entender el equilibrio entre la complejidad del modelo y su capacidad para generalizar a nuevos datos.\nSesgo (Bias): a. Definición: El sesgo es la diferencia entre la predicción promedio de nuestro modelo y el valor verdadero que intentamos predecir.El sesgo, en términos estadísticos, se refiere a la diferencia sistemática entre la esperanza (o promedio) de las estimaciones que produce un estimador y el valor real del parámetro que se desea estimar. Un modelo con alta varianza es muy sensible a pequeñas variaciones en los datos de entrenamiento, lo que puede resultar en un sobreajuste. Es decir, el modelo se ajusta muy bien a los datos de entrenamiento, pero tiene un rendimiento deficiente en datos no vistos o de prueba.\n\nEjemplo: Un modelo de regresión lineal simple podría tener un alto sesgo si los datos reales tienen una relación no lineal.\nImplicaciones: Un modelo con alto sesgo es demasiado simple y no captura la estructura subyacente de los datos. Esto conduce a un bajo rendimiento en el conjunto de entrenamiento y prueba.\n\nVarianza (Variance): a. Definición: La varianza es la cantidad de variabilidad en las predicciones del modelo para un dato. b. Ejemplo: Un modelo de árbol de decisión muy profundo podría tener alta varianza, ya que es muy sensible a pequeñas variaciones en los datos de entrenamiento. c. Implicaciones: Un modelo con alta varianza tiende a sobreajustarse a los datos de entrenamiento, lo que resulta en un buen rendimiento en el conjunto de entrenamiento pero un bajo rendimiento en el conjunto de prueba.\nEl objetivo en Machine Learning es equilibrar el sesgo y la varianza para minimizar el error de predicción general en el modelo a. Objetivo: Encontrar un equilibrio entre sesgo y varianza que minimice el error total de predicción. b. Estrategias: Seleccionar un modelo con la complejidad adecuada, usar técnicas de regularización, y validar el modelo con conjuntos de datos de entrenamiento y prueba separados.\n\nTercera idea: en Machine Learning todo se trata de encontrar el mejor balance entre el sesgo y la varianza del modelo."
   },
   {
-    "objectID": "slides/crear-tablas.html#tablas-para-regresiones",
-    "href": "slides/crear-tablas.html#tablas-para-regresiones",
-    "title": "Crear tablas en R",
-    "section": "Tablas para regresiones",
-    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  \n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.835985                 0.001162                 0.163164  \nSITUACIONESNarcotráfico  \n               0.264151  \n\n\nLa función lm() genera un resultado como este:\n\n\n\nCall:\nlm(formula = `Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, \n    data = .)\n\nCoefficients:\n            (Intercept)                     EDAD                    SEXOM  \n               3.835985                 0.001162                 0.163164  \nSITUACIONESNarcotráfico  \n               0.264151"
+    "objectID": "slides/2-taller-icfes.html#formas-de-disminur-el-sesgo",
+    "href": "slides/2-taller-icfes.html#formas-de-disminur-el-sesgo",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Formas de disminur el sesgo",
+    "text": "Formas de disminur el sesgo\nAumentar la complejidad del modelo: Un modelo más complejo puede capturar mejor la estructura subyacente de los datos. Por ejemplo, en lugar de utilizar una regresión lineal simple, podrías probar una regresión polinomial o un modelo de árbol de decisión.\nAñadir más variables: A veces, el sesgo puede ser el resultado de no tener en cuenta variables importantes que influyen en la variable objetivo. Añadir más variables relevantes puede ayudar a reducir el sesgo del modelo.\nUtilizar técnicas de “ingeniería de predictores”: Transformar o combinar las variables existentes para crear nuevas características puede ayudar a capturar mejor la relación entre las variables de entrada y salida. Por ejemplo, si estás trabajando en un problema de predicción de precios de viviendas, podrías crear una nueva característica que represente la relación entre el tamaño de la casa y el número de habitaciones.\nAumentar el tamaño del conjunto de datos: Si tu conjunto de datos es pequeño o no es representativo de la población general, es posible que el modelo tenga un sesgo alto. Aumentar el tamaño del conjunto de datos y asegurarte de que es representativo puede ayudar a reducir el sesgo.\nUtilizar ensembles de modelos: Combinar varios modelos en un ensemble puede ayudar a reducir el sesgo, ya que cada modelo puede capturar diferentes aspectos de la relación entre las variables de entrada y salida. Por ejemplo, puedes utilizar métodos de ensemble como Bagging, Boosting o Stacking."
   },
   {
-    "objectID": "slides/crear-tablas.html#tablas-para-regresiones-1",
-    "href": "slides/crear-tablas.html#tablas-para-regresiones-1",
-    "title": "Crear tablas en R",
-    "section": "Tablas para regresiones",
-    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  |&gt; \n    tbl_regression()\n\n\n\n\n\n  \n    \n    \n      Característica\n      Beta\n      95% CI1\n      p-valor\n    \n  \n  \n    EDAD\n0.00\n-0.02, 0.02\n0.9\n    SEXO\n\n\n\n        H\n—\n—\n\n        M\n0.16\n-0.31, 0.64\n0.5\n    SITUACIONES\n\n\n\n        Linchamiento\n—\n—\n\n        Narcotráfico\n0.26\n-0.18, 0.71\n0.2\n  \n  \n  \n    \n      1 CI = Intervalo de confianza"
-  },
-  {
-    "objectID": "slides/crear-tablas.html#exportar-a-tablas-a-word",
-    "href": "slides/crear-tablas.html#exportar-a-tablas-a-word",
-    "title": "Crear tablas en R",
-    "section": "Exportar a tablas a word",
-    "text": "Exportar a tablas a word\n\ntabla_gravedad_y_castigo &lt;- datos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)    |&gt; \n        as_gt()\n\ngt::gtsave(tabla_gravedad_y_castigo, \"tabla_gravedad_y_castigo.docx\")"
+    "objectID": "slides/2-taller-icfes.html#técnicas-para-reducir-la-varianza",
+    "href": "slides/2-taller-icfes.html#técnicas-para-reducir-la-varianza",
+    "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nReducir la complejidad del modelo: Un modelo más simple tiende a tener una menor varianza y es menos propenso al sobreajuste. Por ejemplo, podrías limitar la profundidad de un árbol de decisión.\nUtilizar regularización: La regularización es una técnica que añade una penalización a los coeficientes del modelo para evitar que se ajusten demasiado a los datos de entrenamiento.Por ejemplo, regularización L1 (Lasso) y L2 (Ridge).\nAumentar el tamaño del conjunto de datos: Si dispones de más datos, el modelo será menos sensible a pequeñas variaciones en los datos de entrenamiento y tendrá una menor varianza.\nEliminar características ruidosas: Si tu modelo incluye características que no están relacionadas con la variable objetivo o que contienen mucho ruido, estas pueden aumentar la varianza del modelo. Realizar un análisis de importancia de características y eliminar las características poco importantes puede ayudar a reducir la varianza.\nValidación cruzada (cross-validation): Utilizar la validación cruzada, como k-fold cross-validation, te permite evaluar el rendimiento del modelo en diferentes subconjuntos del conjunto de datos de entrenamiento. Esto puede ayudarte a identificar si el modelo está sobreajustando los datos y ajustar la complejidad del modelo en consecuencia.\nUtilizar diferentes modelos: Combinar varios modelos en un ensemble puede ayudar a reducir la varianza, ya que la variabilidad de cada modelo individual se promedia. Por ejemplo, puedes utilizar métodos de ensemble como Bagging (Bootstrap Aggregating) o Random Forest, que promedian las predicciones de múltiples árboles de decisión entrenados en subconjuntos aleatorios de los datos."
   },
   {
     "objectID": "archive/2023-03-Uniandes/2-procesamiento.html#nuevos-rumbos",
@@ -663,5 +894,19 @@
     "title": "Bienvenidos",
     "section": "Día 2",
     "text": "Día 2\n\n\nRandom Forest\n\n\nRegresión\n\n\nRegularización"
+  },
+  {
+    "objectID": "archive/2023-10-Unal/index.html",
+    "href": "archive/2023-10-Unal/index.html",
+    "title": "Taller en la Universidad Nacional",
+    "section": "",
+    "text": "Este taller se llevará a cabo en la Universidad Nacional de Colombia el día 30 de octubre. En esta página pueden encontrar las diapositivas y otra información relevante para el taller."
+  },
+  {
+    "objectID": "archive/2023-10-Unal/index.html#organizadores",
+    "href": "archive/2023-10-Unal/index.html#organizadores",
+    "title": "Taller en la Universidad Nacional",
+    "section": "Organizadores",
+    "text": "Organizadores\nFrancisco Cardozo.\nKaren Forero. Universidad Nacional.\nRoberto Posada. Universidad Nacional."
   }
 ]

@@ -1,64 +1,79 @@
-/**
- * A simple theme for myfanwy.github.io
- *
- * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
- */
 
- @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
- @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&display=swap');
- /*********************************************
-     * GLOBAL STYLES
-     *********************************************/
- 
-     :root {
-         --elephant-50: #eefaff;
-         --elephant-100: #dcf5ff;
-         --elephant-200: #b2edff;
-         --elephant-300: #6de1ff;
-         --elephant-400: #20d3ff;
-         --elephant-500: #00beff;
-         --elephant-600: #0099df;
-         --elephant-700: #0079b4;
-         --elephant-800: #006795;
-         --elephant-900: #00547a;
-         --elephant-950: #003049;
-     }
-     
- .slide {
-      text-align: left;
-      
-  }
-  
- .reveal {
-      font-size: 1.5em;
-      color: var(--elephant-900);
-      background-color: var(--elephant-50);
- }
-  /*********************************************
-   * HEADERS
-   *********************************************/ 
- 
- .reveal .title-slide h1 {
-      font-family: "Inconsolata";
-      color:var(--elephant-50);
-      font-size: 5rem;
-  }
- 
- .reveal h1 {
-     font-family: "Inconsolata";
-     color:var(--elephant-950);
-     font-size: 5rem;
- }
-  
- .reveal h2 {
-      font-family: "Inconsolata";
-      color:var(--elephant-950);
-      font-size:3.5rem;
-  }
- 
- .reveal code {
-     color:var(--elephant-500);
-   }
-  
-  
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
+h1 {
+    font-family: "Bellefair";
+    font-size: 3em;
+    color: #1D594E;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1.title {
+    font-family: 'Roboto';
+    font-size: 1.5em;
+    color: #191F40;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+h2 {
+    font-family: 'Roboto';
+    font-size: 1.3em;
+    color: #277365;
+}
+
+p {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #333333e6;
+}
+
+code {
+    font-size: 1em;
+    color: #F29F05;
+}
+
+a {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #F28705;
+}
+
+a:hover {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #F23D3D;
+}
+
+code.sourceCode  {
+    font-size: 1em;
+    color: 1D594E;
+}
+
+code span.fu {
+    font-size: 1em;
+    color: #277365;
+}
+
+ul {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #333333e6;
+}
+
+li {
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #333333e6;
+}
+
+.blockquote>:last-child {
+    font-family: 'Bellefair';
+    font-size: 2em;
+    color: #F2CB05;
+    background-color: #277365;
+}
