@@ -111,20 +111,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#taller-introducción-a-machine-learning-en-el-14-seminario-internacional-de-investigación-sobre-la-calidad-de-la-educación---siice" id="toc-taller-introducción-a-machine-learning-en-el-14-seminario-internacional-de-investigación-sobre-la-calidad-de-la-educación---siice" class="nav-link active" data-scroll-target="#taller-introducción-a-machine-learning-en-el-14-seminario-internacional-de-investigación-sobre-la-calidad-de-la-educación---siice">Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE</a></li>
-  <li><a href="#machine-learning-en-r" id="toc-machine-learning-en-r" class="nav-link" data-scroll-target="#machine-learning-en-r">Machine Learning en R</a></li>
-  <li><a href="#contenido" id="toc-contenido" class="nav-link" data-scroll-target="#contenido">Contenido</a></li>
-  <li><a href="#diapositivas" id="toc-diapositivas" class="nav-link" data-scroll-target="#diapositivas">Diapositivas</a>
+  <li><a href="#unbalanced-data-in-machine-learning-modeling." id="toc-unbalanced-data-in-machine-learning-modeling." class="nav-link active" data-scroll-target="#unbalanced-data-in-machine-learning-modeling.">Unbalanced data in Machine Learning Modeling.</a>
   <ul class="collapse">
-  <li><a href="#organizadores" id="toc-organizadores" class="nav-link" data-scroll-target="#organizadores">Organizadores</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   </ul></li>
-  <li><a href="#preparación" id="toc-preparación" class="nav-link" data-scroll-target="#preparación">Preparación</a></li>
-  <li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link" data-scroll-target="#base-de-datos">Base de datos</a></li>
-  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos adicionales</a></li>
-  <li><a href="#código-de-comportamiento" id="toc-código-de-comportamiento" class="nav-link" data-scroll-target="#código-de-comportamiento">Código de Comportamiento</a></li>
+  <li><a href="#workshop-content" id="toc-workshop-content" class="nav-link" data-scroll-target="#workshop-content">Workshop content</a>
+  <ul class="collapse">
+  <li><a href="#organizers" id="toc-organizers" class="nav-link" data-scroll-target="#organizers">Organizers</a></li>
+  </ul></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#the-mission." id="toc-the-mission." class="nav-link" data-scroll-target="#the-mission.">The mission.</a>
+  <ul class="collapse">
+  <li><a href="#first-ring---the-two-paths-of-destiny" id="toc-first-ring---the-two-paths-of-destiny" class="nav-link" data-scroll-target="#first-ring---the-two-paths-of-destiny">First Ring - The Two Paths of Destiny</a></li>
+  <li><a href="#second-ring---the-mirror-of-fates" id="toc-second-ring---the-mirror-of-fates" class="nav-link" data-scroll-target="#second-ring---the-mirror-of-fates">Second Ring - The Mirror of Fates</a></li>
+  <li><a href="#third-ring---the-balance-of-light-and-shadow" id="toc-third-ring---the-balance-of-light-and-shadow" class="nav-link" data-scroll-target="#third-ring---the-balance-of-light-and-shadow">Third Ring - The Balance of Light and Shadow</a></li>
+  </ul></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of Conduct</a></li>
   
-  <li><a href="#talleres-pasados" id="toc-talleres-pasados" class="nav-link" data-scroll-target="#talleres-pasados">Talleres pasados</a></li>
-  <li><a href="#próximos-talleres" id="toc-próximos-talleres" class="nav-link" data-scroll-target="#próximos-talleres">Próximos talleres</a></li>
+  <li><a href="#past-workshops" id="toc-past-workshops" class="nav-link" data-scroll-target="#past-workshops">Past workshops</a></li>
+  <li><a href="#future-workshops" id="toc-future-workshops" class="nav-link" data-scroll-target="#future-workshops">Future workshops</a></li>
   
   </ul>
 </nav>
@@ -134,86 +141,99 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="taller-introducción-a-machine-learning-en-el-14-seminario-internacional-de-investigación-sobre-la-calidad-de-la-educación---siice" class="level1">
-<h1>Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE</h1>
-<p>Este taller se llevará a cabo durante el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE. En este taller se presentarán los conceptos básicos de Machine Learning y se realizarán ejercicios prácticos en R. El taller está dirigido a investigadores y estudiantes interesados en aprender sobre Machine Learning y su aplicación en la investigación educativa.</p>
+<section id="unbalanced-data-in-machine-learning-modeling." class="level1">
+<h1>Unbalanced data in Machine Learning Modeling.</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Unbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Unbalanced datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.</p>
+<p>In this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling unbalanced datasets effectively.</p>
+<p>This workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at <a href="https://umiamihealth.org/locations/don-soffer-clinical-research-center" target="_blank">Don Soffer Clinical Research Center</a>.</p>
+<p>We will utilize the R programming language along with the <a href="https://www.tidymodels.org">tidymodel</a> package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis.</p>
 </section>
-<section id="machine-learning-en-r" class="level1">
-<h1>Machine Learning en R</h1>
-<p>La innovación metodológicamente usualmente viene acompañada de promesas sobre la superación de barreras actuales de la investigación. En esta presentación, se discutiran algunas de las ideas innovadoras de las técnicas de análisis de Machine Learning, se mostrarán las ventajas y limitaciones y se harán unas demostraciones prácticas de su aplicación en R.</p>
 </section>
-<section id="contenido" class="level1">
-<h1>Contenido</h1>
+<section id="workshop-content" class="level1">
+<h1>Workshop content</h1>
 <ol type="1">
-<li>¿Qué es Machine Learning?
+<li><a href="" target="_blank"></a>.</li>
+<li></li>
+</ol>
+<section id="organizers" class="level2">
+<h2 class="anchored" data-anchor-id="organizers">Organizers</h2>
+<p>Francisco Cardozo. Universidad de Miami.<br>
+Eric C. Brown. Universidad de Miami.</p>
+</section>
+</section>
+<section id="preparation" class="level1">
+<h1>Preparation</h1>
 <ol type="1">
-<li>Tipos de análisis estadísticos</li>
-<li>Software para estimar modelos utilizando Machine Learning.</li>
-</ol></li>
-<li>Tres ideas fundamentales en Machine Learning.
-<ol type="1">
-<li>Estimar del error de generalización.</li>
-<li>Separar el error entre sesgo y varianza.</li>
-<li>Regularización.</li>
-</ol></li>
-<li>Cómo implementar un Análisis Machine Learning en R
-<ol type="1">
-<li>Regresión Logística</li>
-<li>Árboles de decisión</li>
-</ol></li>
+<li>Open an account in <a href="https://login.posit.cloud/login?redirect=%2F" target="_blank">Posit Cloud</a>.</li>
 </ol>
 </section>
-<section id="diapositivas" class="level1">
-<h1>Diapositivas</h1>
-<ol type="1">
-<li><a href="slides/1-introduccion.html" target="_blank">Introducción a Machine Learning</a>.</li>
-<li><a href="slides/2-taller-icfes.html" target="_blank">Utilizar modelos de Machine Learning en R</a>.</li>
-</ol>
-<section id="organizadores" class="level2">
-<h2 class="anchored" data-anchor-id="organizadores">Organizadores</h2>
-<p>Francisco Cardozo. Universidad de Miami. Eric C. Brown. Universidad de Miami.</p>
+<section id="dataset" class="level1">
+<h1>Dataset</h1>
+<p>we will be utilizing a database that features elderly individuals from various regions across Colombia. This unique dataset is the result of extensive interviews conducted to assess each individual’s exposure to various forms of violence, including economic, sexual, psychological, and physical violence. In addition, the database records each participant’s overall well-being, mental health status, and functional abilities. The richness of this dataset lies in its detailed description of the participants, encompassing a wide range of demographic characteristics.</p>
+<p>Our goal is to identify key variables that may be associated with the experience of any form of violence within the last three years. This exploration aims to provide deeper insights into the factors influencing violence exposure among the elderly in Colombia, offering a unique opportunity for attendees to apply machine learning techniques to real-world, socially relevant data.</p>
+<p>This dataset not only represents a significant resource for understanding the dynamics of violence among the elderly in Colombia but also serves as a valuable tool for developing predictive models that can aid in identifying at-risk individuals and inform targeted interventions.</p>
+</section>
+<section id="the-mission." class="level1">
+<h1>The mission.</h1>
+<p>In this workshop, we will embark on a Tolkien-inspired journey to introduce the concepts and tools necessary for working with unbalanced data. The central quest for participants will be to collect three mythical rings, each symbolizing a key area of knowledge. To acquire these rings, participants must complete a series of tasks, each designed to provide practical experience and deepen understanding of the critical concepts required to effectively manage unbalanced datasets.</p>
+<section id="first-ring---the-two-paths-of-destiny" class="level2">
+<h2 class="anchored" data-anchor-id="first-ring---the-two-paths-of-destiny">First Ring - The Two Paths of Destiny</h2>
+<blockquote class="blockquote">
+<p>Divide the data into two groups, some data to train the model and another to test it.</p>
+</blockquote>
+<p>In an age long past, when the world was still uncharted, the First Ring emerged, gleaming with the promise of unexplored knowledge. It was said to hold the power to split the fabric of reality into two distinct paths: one leading through the verdant forests of Training, lush with learning and growth, and the other winding into the misty valleys of Testing, where truth is revealed in the shadows. Those who embark on this journey, much like the brave heroes of old, are fated to traverse these paths, each step a new chapter in their quest for wisdom.</p>
+</section>
+<section id="second-ring---the-mirror-of-fates" class="level2">
+<h2 class="anchored" data-anchor-id="second-ring---the-mirror-of-fates">Second Ring - The Mirror of Fates</h2>
+<blockquote class="blockquote">
+<p>Validate the model with the data that was not used to train it.</p>
+</blockquote>
+<p>The Second Ring was forged in the hidden realms, where magic and mystery intertwine. It was no ordinary artifact, for it held a mirror reflecting not just images but destinies. In the hands of the learned, this ring divided the waters of Training, creating a silent pool of Validation, serene yet profound. Here, seers and sages could gaze into the depths, discerning the hidden strengths and weaknesses of their creations, much like the ancient oracles who, in their sacred groves, saw truths beyond the ken of mortals.</p>
+</section>
+<section id="third-ring---the-balance-of-light-and-shadow" class="level2">
+<h2 class="anchored" data-anchor-id="third-ring---the-balance-of-light-and-shadow">Third Ring - The Balance of Light and Shadow</h2>
+<blockquote class="blockquote">
+<p>The balance between bias and variance is the key to the power of the model.</p>
+</blockquote>
+<p>In the great halls of knowledge, the Third Ring was revered as the most elusive and powerful. It was the embodiment of the eternal struggle between Light and Shadow, an artifact that sought the perfect equilibrium. In the hands of a master, it could weave together the threads of Variance and Bias, creating a tapestry as balanced and harmonious as the cycle of day and night. The quest for this balance was akin to a legendary saga, where heroes journeyed through realms of dazzling brilliance and profound darkness, seeking the ancient wisdom that would bring peace to the land.</p>
+<blockquote class="blockquote">
+<p>Secret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average.</p>
+</blockquote>
 </section>
 </section>
-<section id="preparación" class="level1">
-<h1>Preparación</h1>
-<ol type="1">
-<li>Abrir una cuenta gratuita en <a href="https://login.posit.cloud/login?redirect=%2F" target="_blank">Posit Cloud</a>.</li>
-</ol>
-</section>
-<section id="base-de-datos" class="level1">
-<h1>Base de datos</h1>
-<p>Durante el taller, nos centraremos en una base de datos compuesta por los resultados de las pruebas ‘Saber 11’ y por información relacionada con las familias de los estudiantes. Esta base de datos está estructurada de forma que nos permitirá desarrollar un modelo predictivo. El objetivo será pronosticar los resultados que los estudiantes obtendrán en las pruebas ‘Saber 11’, utilizando los datos de las variables recogidas cuando cursaban el noveno grado.</p>
-</section>
-<section id="recursos-adicionales" class="level1">
-<h1>Recursos adicionales</h1>
+<section id="additional-resources" class="level1">
+<h1>Additional Resources</h1>
 <p><a href="https://www.tidyverse.org" target="_blank"><code>tidyverse</code></a> <a href="https://www.tidymodels.org"><code>tidymodels</code></a></p>
 </section>
-<section id="código-de-comportamiento" class="level1">
-<h1>Código de Comportamiento</h1>
-<p>Este es nuestro <a href="COC/coc.html" target="_blank">Código de Comportamiento</a>. En resumen los asistentes al workshop se compromenten a generar y respetar un entorno inclusivo y seguro para todos los participantes. No se esperan comportamientos inaceptables como la discriminación y el acoso. Cualquier violación a estas normas puede resultar en medidas que van desde advertencias hasta la expulsión del evento.</p>
+<section id="code-of-conduct" class="level1">
+<h1>Code of Conduct</h1>
+<p>This is our Code of Conduct(COC/coc.html){target=“_blank”}. In summary, attendees of the workshop commit to creating and respecting an inclusive and safe environment for all participants. Unacceptable behaviors such as discrimination and harassment are not expected. Any violation of these rules may result in actions ranging from warnings to expulsion from the event.</p>
 </section>
 
-<section id="talleres-pasados" class="level1">
-<h1>Talleres pasados</h1>
+<section id="past-workshops" class="level1">
+<h1>Past workshops</h1>
 <ul>
-<li><p><a href="archive/2023-10-Unal/">Crear tablas en R</a>. Universidad Nacional de Colombia. Octubre, 2023.</p></li>
-<li><p><a href="archive/2023-03-Uniandes/" target="_blank">Técnicas de regresión en R</a>. Universidad de los Andes. Marzo, 2023.</p></li>
+<li><a href="archive/2023-03-Uniandes/" target="_blank">Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE</a>. Bogotá. Noviembre, 2023.</li>
+<li><a href="archive/2023-10-Unal/">Crear tablas en R</a>. Universidad Nacional de Colombia. Octubre, 2023.</li>
+<li><a href="archive/2023-03-Uniandes/" target="_blank">Técnicas de regresión en R</a>. Universidad de los Andes. Marzo, 2023.</li>
 </ul>
 </section>
-<section id="próximos-talleres" class="level1">
-<h1>Próximos talleres</h1>
+<section id="future-workshops" class="level1">
+<h1>Future workshops</h1>
 <ul>
-<li>Workshop in workflows for Machine Learning in R. Universidad de Miami December, 2023.</li>
+<li>Mastering Effective Data Visualization with ggplot2 in R: A Hands-on Workshop for Social Work Researchers.</li>
 </ul>
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="licencia" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">Licencia</h2><div class="quarto-appendix-contents">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="license" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">License</h2><div class="quarto-appendix-contents">
 
-<p>Estos materiales han sido desarrollados bajo la siguiente licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-SA 4.0 DEED</a>.</p>
-</div></section><section id="agradecimiento" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">Agradecimiento</h2><div class="quarto-appendix-contents">
+<p>This materials has been developed under the license <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-SA 4.0 DEED</a>.</p>
+</div></section><section id="aknowledgment" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">Aknowledgment</h2><div class="quarto-appendix-contents">
 
-<p>Este workshop es posible gracias la Universidad de Miami, especialmente al grupo <a href="https://www.publichealth.med.miami.edu/research/research-labs/perla-lab/index.html">PERLA</a>, el <a href="https://idsc.miami.edu">Frost Institute for Data Science and Computing</a> y el <a href="https://www.icfes.gov.co/en/">El Instituto Colombiano para la Evaluación de la Educación (ICFES)</a>. Si encuentras algún aspecto que pueda ser mejorado, por favor envíe un issue en nuestro repositorio de <a href="https://github.com/focardozom/machine-learning-latin-america">GitHub</a>.</p>
+<p>This workshop is possible thanks to University of Miami, specially <a href="https://www.publichealth.med.miami.edu/research/research-labs/perla-lab/index.html" target="_blank">PERLA</a>, the <a href="https://idsc.miami.edu" target="_blank">Frost Institute for Data Science and Computing</a> and the <a href="https://uniandes.edu.co" target="_blank">Universidad de los Andes</a>. If you want to improve this workshop or have fix something, please do at <a href="https://github.com/focardozom/workshops" target="_blank">GitHub</a>.</p>
 
 
 </div></section></div></main> <!-- /main -->

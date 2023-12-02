@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&family=Roboto:wght@400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Bilbo&display=swap');
 
 h1 {
     font-family: "Bellefair";
@@ -72,30 +71,9 @@ li {
     color: #333333e6;
 }
 
-.ring p {
-    font-family: 'Bilbo';
-    font-size: 1.3em;
-    color: hsl(0, 2%, 69%);
-}
-
-.tocenter h1 {
-    
-    font-size: 1.3em;
-    color: #277365;
-    text-align: center; 
-}
-
-
 .blockquote>:last-child {
     font-family: 'Bellefair';
     font-size: 2em;
     color: #F2CB05;
     background-color: #277365;
-    border-radius: 5px; 
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    transition: opacity 2s ease-in-out; /* Smooth transition for opacity change */
-}
-
-.fade-in {
-    opacity: 1; /* Fully visible when .fade-in class is added */
 }
