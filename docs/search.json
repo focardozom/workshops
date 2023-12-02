@@ -492,42 +492,42 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "",
     "text": "Unbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Unbalanced datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling unbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
   },
   {
     "objectID": "index.html#overview",
     "href": "index.html#overview",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "",
     "text": "Unbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Unbalanced datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling unbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
   },
   {
     "objectID": "index.html#organizers",
     "href": "index.html#organizers",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "Organizers",
-    "text": "Organizers\nFrancisco Cardozo. Universidad de Miami.\nEric C. Brown. Universidad de Miami."
+    "text": "Organizers\nFrancisco Cardozo. University of Miami.\nEric C. Brown.. University of Miami. María Fernanda Reyes, Universidad de los Andes."
   },
   {
     "objectID": "index.html#first-ring---the-two-paths-of-destiny",
     "href": "index.html#first-ring---the-two-paths-of-destiny",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "First Ring - The Two Paths of Destiny",
     "text": "First Ring - The Two Paths of Destiny\n\nDivide the data into two groups, some data to train the model and another to test it.\n\nIn an age long past, when the world was still uncharted, the First Ring emerged, gleaming with the promise of unexplored knowledge. It was said to hold the power to split the fabric of reality into two distinct paths: one leading through the verdant forests of Training, lush with learning and growth, and the other winding into the misty valleys of Testing, where truth is revealed in the shadows. Those who embark on this journey, much like the brave heroes of old, are fated to traverse these paths, each step a new chapter in their quest for wisdom."
   },
   {
     "objectID": "index.html#second-ring---the-mirror-of-fates",
     "href": "index.html#second-ring---the-mirror-of-fates",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "Second Ring - The Mirror of Fates",
     "text": "Second Ring - The Mirror of Fates\n\nValidate the model with the data that was not used to train it.\n\nThe Second Ring was forged in the hidden realms, where magic and mystery intertwine. It was no ordinary artifact, for it held a mirror reflecting not just images but destinies. In the hands of the learned, this ring divided the waters of Training, creating a silent pool of Validation, serene yet profound. Here, seers and sages could gaze into the depths, discerning the hidden strengths and weaknesses of their creations, much like the ancient oracles who, in their sacred groves, saw truths beyond the ken of mortals."
   },
   {
     "objectID": "index.html#third-ring---the-balance-of-light-and-shadow",
     "href": "index.html#third-ring---the-balance-of-light-and-shadow",
-    "title": "Unbalanced data in Machine Learning Modeling.",
+    "title": "Unbalanced data in Machine Learning Modeling",
     "section": "Third Ring - The Balance of Light and Shadow",
     "text": "Third Ring - The Balance of Light and Shadow\n\nThe balance between bias and variance is the key to the power of the model.\n\nIn the great halls of knowledge, the Third Ring was revered as the most elusive and powerful. It was the embodiment of the eternal struggle between Light and Shadow, an artifact that sought the perfect equilibrium. In the hands of a master, it could weave together the threads of Variance and Bias, creating a tapestry as balanced and harmonious as the cycle of day and night. The quest for this balance was akin to a legendary saga, where heroes journeyed through realms of dazzling brilliance and profound darkness, seeking the ancient wisdom that would bring peace to the land.\n\nSecret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average."
   },
