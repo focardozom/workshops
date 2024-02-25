@@ -42,6 +42,48 @@
     "text": "Si eres víctima o testigo de un comportamiento inaceptable, informa a los organizadores lo más pronto posible."
   },
   {
+    "objectID": "archive/2023-12-um/index.html",
+    "href": "archive/2023-12-um/index.html",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "Imbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Imbalance datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling imbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
+  },
+  {
+    "objectID": "archive/2023-12-um/index.html#overview",
+    "href": "archive/2023-12-um/index.html#overview",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "Imbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Imbalance datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling imbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
+  },
+  {
+    "objectID": "archive/2023-12-um/index.html#organizers",
+    "href": "archive/2023-12-um/index.html#organizers",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Organizers",
+    "text": "Organizers\nFrancisco Cardozo. University of Miami.\nEric C. Brown.. University of Miami. María Fernanda Reyes, Universidad de los Andes."
+  },
+  {
+    "objectID": "archive/2023-12-um/index.html#first-ring---the-two-paths-of-destiny",
+    "href": "archive/2023-12-um/index.html#first-ring---the-two-paths-of-destiny",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "First Ring - The Two Paths of Destiny",
+    "text": "First Ring - The Two Paths of Destiny\n\nDivide the data into two groups, some data to train the model and another to test it.\n\nIn an age long past, when the world was still uncharted, the First Ring emerged, gleaming with the promise of unexplored knowledge. It was said to hold the power to split the fabric of reality into two distinct paths: one leading through the verdant forests of Training, lush with learning and growth, and the other winding into the misty valleys of Testing, where truth is revealed in the shadows. Those who embark on this journey, much like the brave heroes of old, are fated to traverse these paths, each step a new chapter in their quest for wisdom."
+  },
+  {
+    "objectID": "archive/2023-12-um/index.html#second-ring---the-mirror-of-fates",
+    "href": "archive/2023-12-um/index.html#second-ring---the-mirror-of-fates",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Second Ring - The Mirror of Fates",
+    "text": "Second Ring - The Mirror of Fates\n\nValidate the model with the data that was not used to train it.\n\nThe Second Ring was forged in the hidden realms, where magic and mystery intertwine. It was no ordinary artifact, for it held a mirror reflecting not just images but destinies. In the hands of the learned, this ring divided the waters of Training, creating a silent pool of Validation, serene yet profound. Here, seers and sages could gaze into the depths, discerning the hidden strengths and weaknesses of their creations, much like the ancient oracles who, in their sacred groves, saw truths beyond the ken of mortals."
+  },
+  {
+    "objectID": "archive/2023-12-um/index.html#third-ring---the-balance-of-light-and-shadow",
+    "href": "archive/2023-12-um/index.html#third-ring---the-balance-of-light-and-shadow",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Third Ring - The Balance of Light and Shadow",
+    "text": "Third Ring - The Balance of Light and Shadow\n\nThe balance between bias and variance is the key to the power of the model.\n\nIn the great halls of knowledge, the Third Ring was revered as the most elusive and powerful. It was the embodiment of the eternal struggle between Light and Shadow, an artifact that sought the perfect equilibrium. In the hands of a master, it could weave together the threads of Variance and Bias, creating a tapestry as balanced and harmonious as the cycle of day and night. The quest for this balance was akin to a legendary saga, where heroes journeyed through realms of dazzling brilliance and profound darkness, seeking the ancient wisdom that would bring peace to the land.\n\nSecret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average."
+  },
+  {
     "objectID": "archive/2023-11-icfes/2-taller-icfes.html",
     "href": "archive/2023-11-icfes/2-taller-icfes.html",
     "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
@@ -378,179 +420,711 @@
     "text": "Explorar los datos 1\n\nfactores_de_riesgo &lt;- c(\"CRPAD\", \"CRLNFD\", \"FRPFD\", \"FRPFM\", \"SRLCS\", \"PRFAD\", \n                        \"PRATA\", \"PRFUD\", \"PRIAP\", \"FPOPI\", \"FPRPI\", \"SPRPI\")\ndemograficas &lt;- c(\"YEAR\", \"GRADE\", \"GENDER\", \"AGE\")\nconsumo_alcohol &lt;- c(\"PYALC\")\n\n\n\nlos_datos %&gt;% \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol)) %&gt;% \n  glimpse()\n\n\n\nmini_datos &lt;- los_datos %&gt;% \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol)) \n\n\n\nmini_datos |&gt; \n  skimr::skim()\n\n\n\n\nMachine Learning"
   },
   {
-    "objectID": "slides/workshop_document.html",
-    "href": "slides/workshop_document.html",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "library(tidymodels)\nlibrary(gt)\nlibrary(dataUMworkshop)\ntidymodels_prefer()\n\n\n\nThere are many ways to estimate models in R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Load the tidymodels package into R.\ntidymodels_prefer(): Sets the tidymodels package as the preferred one for modeling functions in R.\nlm(): Fits a linear regression model to the data.\nstan_glm(): Fits a regression model using the stan package.\nglmnet(): Fits a regression model using Lasso or Ridge regularization.\n\n\n\nTidymodels provides a general syntax for estimating models\n\nSpecify the type of model\n\nlinear_reg(), logistic_reg(), decision_tree()\n\nSpecify the type of outcome\n\nRegression for continuous outcomes\nClassification: multinomial, ordinal, binary\n\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\")\n\nlinear_reg() |&gt;\n  set_engine(\"glmnet\")\n\nlinear_reg() |&gt;\n  set_engine(\"stan\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlinear_reg(): Creates a linear regression model specification in the tidymodels framework.\nset_engine(): Sets the calculation engine for a model specification object. It is set to “lm” for the first call to linear_reg(), “glmnet” for the second call, and “stan” for the third.\n\n\n\nTo estimate a model:\n\n\n\n\nlm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")\n\nSpecify a logistic regression model. Additionally, the modeling mode is set to “classification” to indicate that it is a categorical variable. The result is stored in the lm_model object.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ndata(dataUMworkshop)\n# The outcome variable is specified as a factor\nthe_data &lt;- dataUMworkshop |&gt;\n  select(-outcome_count) |&gt;\n  mutate(outcome = factor(outcome)) |&gt;\n  rename(P200 = P2)\n\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = the_data)\n\nHere the model is fitted-estimated using the fit() function. The response variable (outcome) and the predictors (.) are specified and the the_data object is used as a database.\n\n\n\n\nlm_results |&gt; tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic    p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 (Intercept)  -0.851     1.10      -0.773 0.440     \n 2 P2001        -2.08      0.546     -3.81  0.000141  \n 3 P2002         0.754     0.272      2.77  0.00553   \n 4 P2003        -1.44      0.320     -4.49  0.00000707\n 5 P2004        -0.142     0.281     -0.507 0.612     \n 6 P2005        -0.0850    0.445     -0.191 0.849     \n 7 P3           -0.0153    0.0118    -1.30  0.192     \n 8 P4            0.0137    0.0205     0.670 0.503     \n 9 P13          -0.388     0.186     -2.08  0.0374    \n10 P142         -0.209     0.382     -0.546 0.585     \n# ℹ 31 more rows\n\nlm_results |&gt;\n  glance() |&gt;\n  gt()\n\n\n\n\n\n\n\nnull.deviance\ndf.null\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n1356.908\n1375\n-573.3018\n1228.604\n1442.908\n1146.604\n1335\n1376\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ntidy(): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and p-values for each independent variable.\nglance(): This function is used to summarize the results of a model as global model statistics, for example, adjusted R-squared, the AIC, and the BIC.\n\n\nlm_results |&gt; tidy(exp = TRUE, conf.int = TRUE)\n\ntidy(exp=TRUE, conf.int=TRUE): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and t-values. p for each independent variable. The exp and conf.int arguments are used to include confidence intervals and exponents in the results\n\n\n\n\n\n\nAccuracy: This is how often the model makes correct predictions. It’s a simple ratio of the number of correct predictions to the total number of predictions.\nSensitivity: Also known as “True Positive Rate.” It measures how well the model identifies positive outcomes. In other words, it’s the percentage of actual positives that the model correctly predicts.\nSpecificity: Also known as “True Negative Rate.” This is about how well the model identifies negative outcomes. It tells us the percentage of actual negatives that the model correctly predicts.\nPrecision: This tells us how many of the model’s positive predictions are actually correct. It’s a ratio of true positive predictions to all positive predictions (including false positives).\nRecall: This is the same as sensitivity. It’s about how many of the actual positive cases the model can correctly identify.\nF-measure: This score combines precision and recall into a single number. It helps balance the trade-off between these two metrics. A higher F-measure means better model performance.\nKappa Coefficient: Kappa is about how much better the model is than random guessing. It compares the model’s accuracy with what would be expected by chance. A higher Kappa means the model is much better than just guessing.\n\n\naugmented_results &lt;- lm_results |&gt;\n  augment(the_data)\n\naccuracy(augmented_results,\n  truth = outcome,\n  estimate = .pred_class\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nAccuracy\n0.818\n\n\n\n\n\n\nsens(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nSensitivity\n0.179\n\n\n\n\n\n\nspec(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nSpecificity\n0.972\n\n\n\n\n\n\nf_meas(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nF1\n0.277"
+    "objectID": "slides/5-forest.html#re-muestreo-y-validación-cruzada",
+    "href": "slides/5-forest.html#re-muestreo-y-validación-cruzada",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Re-muestreo y Validación Cruzada",
+    "text": "Re-muestreo y Validación Cruzada\nPaso a paso del proceso de k-fold cross-validation:\nPrimero: duplicar el conjunto de datos en subconjuntos de igual tamaño. Por ejemplo, si k=10, dividimos el conjunto de datos en 10 subconjuntos.\nSegundo: tomar cada subconjunto y dividirlo en dos, unos datos para entrenamiento y otros para validación. Tomar el segundo subconjunto y hacer lo mismo, pero ahora, todos los datos que se utilizaron como validación en el cojunto previo deben ser para entrenamiento, y los de validación, deben ser para entrenamiento. Este proceso se repite hasta que todos los subconjuntos hayan sido divididos en entrenamiento y validación, y los datos de validación, nunca se repiten entre los diferentes subconjuntos.\nTercero: estimamos el modelo en los datos de entrenamiento y lo evaluamos utilizando los datos de validación."
   },
   {
-    "objectID": "slides/workshop_document.html#estimating-a-model-in-r",
-    "href": "slides/workshop_document.html#estimating-a-model-in-r",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "There are many ways to estimate models in R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Load the tidymodels package into R.\ntidymodels_prefer(): Sets the tidymodels package as the preferred one for modeling functions in R.\nlm(): Fits a linear regression model to the data.\nstan_glm(): Fits a regression model using the stan package.\nglmnet(): Fits a regression model using Lasso or Ridge regularization.\n\n\n\nTidymodels provides a general syntax for estimating models\n\nSpecify the type of model\n\nlinear_reg(), logistic_reg(), decision_tree()\n\nSpecify the type of outcome\n\nRegression for continuous outcomes\nClassification: multinomial, ordinal, binary\n\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\")\n\nlinear_reg() |&gt;\n  set_engine(\"glmnet\")\n\nlinear_reg() |&gt;\n  set_engine(\"stan\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlinear_reg(): Creates a linear regression model specification in the tidymodels framework.\nset_engine(): Sets the calculation engine for a model specification object. It is set to “lm” for the first call to linear_reg(), “glmnet” for the second call, and “stan” for the third.\n\n\n\nTo estimate a model:"
+    "objectID": "slides/5-forest.html#re-muestreo-y-validación-cruzada-1",
+    "href": "slides/5-forest.html#re-muestreo-y-validación-cruzada-1",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Re-muestreo y Validación Cruzada",
+    "text": "Re-muestreo y Validación Cruzada\nFialmente: se obtiene un valor promedio del desempeño del modelo en los datos de validación. Esta media nos proporciona una mejor aproximación del rendimiento del modelo, ya que el modelo ha sido evaluado en diferentes subconjuntos del conjunto de datos, en datos que no fueron utilizados para entrenamiento.\nhttps://scikit-learn.org/stable/modules/cross_validation.html\nhttps://www.tmwr.org/resampling.html"
   },
   {
-    "objectID": "slides/workshop_document.html#specify-the-model",
-    "href": "slides/workshop_document.html#specify-the-model",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "lm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")\n\nSpecify a logistic regression model. Additionally, the modeling mode is set to “classification” to indicate that it is a categorical variable. The result is stored in the lm_model object."
+    "objectID": "slides/5-forest.html#validación-cruzada",
+    "href": "slides/5-forest.html#validación-cruzada",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Validación Cruzada",
+    "text": "Validación Cruzada\nPara hacer validación cruzada necesitamos utilizar un objeto que contenga la información separada en diferentes cajas.\n\ncrossvalidation &lt;-\n  vfold_cv(datos_entrenamiento, \n           v = 5,  # número de cajas\n           strata = \"PYALC\")"
   },
   {
-    "objectID": "slides/workshop_document.html#estimate-the-model",
-    "href": "slides/workshop_document.html#estimate-the-model",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "Tip\n\n\n\n\n\n\ndata(dataUMworkshop)\n# The outcome variable is specified as a factor\nthe_data &lt;- dataUMworkshop |&gt;\n  select(-outcome_count) |&gt;\n  mutate(outcome = factor(outcome)) |&gt;\n  rename(P200 = P2)\n\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = the_data)\n\nHere the model is fitted-estimated using the fit() function. The response variable (outcome) and the predictors (.) are specified and the the_data object is used as a database."
+    "objectID": "slides/5-forest.html#cart-con-hiperparámetros",
+    "href": "slides/5-forest.html#cart-con-hiperparámetros",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "CART con hiperparámetros",
+    "text": "CART con hiperparámetros\n\ntree_spec &lt;- \n  decision_tree(\n    cost_complexity = tune(), \n    tree_depth = tune()\n  ) |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")\n\n\n\n\n\n\n\nTip\n\n\n\nCost_complexity: es una medida de la penalización que se aplica al árbol en función de su complejidad. Un valor más alto de cost_complexity implica una penalización más fuerte, lo que lleva a un árbol más pequeño y menos profundo.\nTree_depth (profundidad del árbol): se refiere a la longitud máxima del camino más largo desde la raíz hasta una hoja en un árbol de decisión.\nMin_n (mínimo número de muestras para dividir un nodo): Min_n es un parámetro que controla el número mínimo de datos requeridas para dividir un nodo en un árbol de decisión."
   },
   {
-    "objectID": "slides/workshop_document.html#check-the-model-results",
-    "href": "slides/workshop_document.html#check-the-model-results",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "lm_results |&gt; tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic    p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 (Intercept)  -0.851     1.10      -0.773 0.440     \n 2 P2001        -2.08      0.546     -3.81  0.000141  \n 3 P2002         0.754     0.272      2.77  0.00553   \n 4 P2003        -1.44      0.320     -4.49  0.00000707\n 5 P2004        -0.142     0.281     -0.507 0.612     \n 6 P2005        -0.0850    0.445     -0.191 0.849     \n 7 P3           -0.0153    0.0118    -1.30  0.192     \n 8 P4            0.0137    0.0205     0.670 0.503     \n 9 P13          -0.388     0.186     -2.08  0.0374    \n10 P142         -0.209     0.382     -0.546 0.585     \n# ℹ 31 more rows\n\nlm_results |&gt;\n  glance() |&gt;\n  gt()\n\n\n\n\n\n\n\nnull.deviance\ndf.null\nlogLik\nAIC\nBIC\ndeviance\ndf.residual\nnobs\n\n\n\n\n1356.908\n1375\n-573.3018\n1228.604\n1442.908\n1146.604\n1335\n1376\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ntidy(): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and p-values for each independent variable.\nglance(): This function is used to summarize the results of a model as global model statistics, for example, adjusted R-squared, the AIC, and the BIC.\n\n\nlm_results |&gt; tidy(exp = TRUE, conf.int = TRUE)\n\ntidy(exp=TRUE, conf.int=TRUE): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and t-values. p for each independent variable. The exp and conf.int arguments are used to include confidence intervals and exponents in the results"
+    "objectID": "slides/5-forest.html#cart-con-hiperparámetros-1",
+    "href": "slides/5-forest.html#cart-con-hiperparámetros-1",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "CART con hiperparámetros",
+    "text": "CART con hiperparámetros\nDebemos especificar valors para los hiperparámetros que queremos ajustar.\n\ntree_grid &lt;- grid_regular(\n  cost_complexity(range = c(-5L, -1L)),\n  tree_depth (range = c(5L, 10L)))"
   },
   {
-    "objectID": "slides/workshop_document.html#metrics-to-evaluate-the-model",
-    "href": "slides/workshop_document.html#metrics-to-evaluate-the-model",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "Accuracy: This is how often the model makes correct predictions. It’s a simple ratio of the number of correct predictions to the total number of predictions.\nSensitivity: Also known as “True Positive Rate.” It measures how well the model identifies positive outcomes. In other words, it’s the percentage of actual positives that the model correctly predicts.\nSpecificity: Also known as “True Negative Rate.” This is about how well the model identifies negative outcomes. It tells us the percentage of actual negatives that the model correctly predicts.\nPrecision: This tells us how many of the model’s positive predictions are actually correct. It’s a ratio of true positive predictions to all positive predictions (including false positives).\nRecall: This is the same as sensitivity. It’s about how many of the actual positive cases the model can correctly identify.\nF-measure: This score combines precision and recall into a single number. It helps balance the trade-off between these two metrics. A higher F-measure means better model performance.\nKappa Coefficient: Kappa is about how much better the model is than random guessing. It compares the model’s accuracy with what would be expected by chance. A higher Kappa means the model is much better than just guessing.\n\n\naugmented_results &lt;- lm_results |&gt;\n  augment(the_data)\n\naccuracy(augmented_results,\n  truth = outcome,\n  estimate = .pred_class\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nAccuracy\n0.818\n\n\n\n\n\n\nsens(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nSensitivity\n0.179\n\n\n\n\n\n\nspec(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nSpecificity\n0.972\n\n\n\n\n\n\nf_meas(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nF1\n0.277"
+    "objectID": "slides/5-forest.html#cart-con-hiperparámetros-2",
+    "href": "slides/5-forest.html#cart-con-hiperparámetros-2",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "CART con hiperparámetros",
+    "text": "CART con hiperparámetros\nUna vez se ha definido cuáles son los valores que queremos probar, se estima el modelo en los diferetes conjuntos de datos.\n\ndoParallel::registerDoParallel()\n\nset.seed(345)\ntree_rs &lt;-\n  tune_grid(\n    tree_spec,\n    PYALC ~ .,\n    resamples = crossvalidation,\n    grid = tree_grid,\n    metrics = metric_set(accuracy)\n  )\n\ndoParallel::stopImplicitCluster()"
   },
   {
-    "objectID": "slides/workshop_document.html#split-the-data",
-    "href": "slides/workshop_document.html#split-the-data",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Split the data",
-    "text": "Split the data\n\nSplit the data into two sets\n\nTraining\n\nMost of the data (70%, 80%?)\nHere the model is adjusted\n\nTest\n\nA small data set\nHere the final model will be evaluated\n\n\n\nTest data is used only once, if it is used more than once it becomes part of the training process.\n\n\n\n\n\n\nWarning\n\n\n\nThe division of the data is done at the level of the independent unit of observation.\nAvoid contamination of test data (information leakage) at all costs, that is, information cannot be leaked from one database to the other.\n\n\nSo, one can create two databases with for example 80% and 20% of the data. But how do you do this in R?\n\nset.seed(193945)\n\nsplit_data &lt;- initial_split(the_data, prop = 0.8, strata = \"outcome\")\n\ntraining_data &lt;- training(split_data)\ntest_data &lt;- testing(split_data)\n\nThe strata option is so that the training and test data have the same distribution of the variable score\nSometimes random sample selection is not simple, for example when there is a time component to the data.\n\n\n\n\n\n\nTip\n\n\n\n\n\nset.seed() - Used to set a seed for random number generation in R. In this case, it is used to set the seed to 193945, ensuring that the results are reproducible. This is especially important when working with machine learning models, as results can vary depending on the seed used for random number generation.\ninitial_split(): This function is used to split a data frame into training and test sets. In this case, it is used to split the “the_data” object into training and test sets in an 80/20 ratio, and stratifying by the “outcome” column.\ntraining(): This function is used to extract the training set from an object created with the initial_split() function. In this case, it is used to extract the training set from the “split_data” object.\ntesting(): This function is used to extract the test set from an object created with the initial_split() function. In this case, it is used to extract the test set from the “split_data” object.\n\n\n\nNow, we can repeat the previous model estimation steps, but we will use the training data."
+    "objectID": "slides/5-forest.html#desempeño-hiperparámetros",
+    "href": "slides/5-forest.html#desempeño-hiperparámetros",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Desempeño hiperparámetros",
+    "text": "Desempeño hiperparámetros\nFiltrar los rultados para utilizar la combinación de hiperparámetros que mejor desempeño tuvo, y estimar el modelo.\n\nshow_best(tree_rs, metric = \"accuracy\")\n\nautoplot(tree_rs)\n\nsimpler_tree &lt;- select_best(tree_rs,metric = \"accuracy\")\n\nfinal_tree &lt;- finalize_model(tree_spec, simpler_tree)\n\nfinal_fit &lt;- fit(final_tree, PYALC ~ ., datos_entrenamiento)"
   },
   {
-    "objectID": "slides/workshop_document.html#estimate-the-model-1",
-    "href": "slides/workshop_document.html#estimate-the-model-1",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "2. Estimate the model",
-    "text": "2. Estimate the model\nModel Estimation: The lm_model() and fit() function is used to fit a linear regression model. The outcome ~ . indicates that the score variable is being modeled as a function of all the other variables in the “training_data” dataframe.\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = training_data)"
+    "objectID": "slides/5-forest.html#visualización-del-árbol",
+    "href": "slides/5-forest.html#visualización-del-árbol",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Visualización del árbol",
+    "text": "Visualización del árbol\n\ncart_trained &lt;- \n  final_fit  |&gt; extract_fit_parsnip()\n\ncart_tree_fit &lt;- final_fit$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint=FALSE)"
   },
   {
-    "objectID": "slides/workshop_document.html#model-results",
-    "href": "slides/workshop_document.html#model-results",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "3. Model results",
-    "text": "3. Model results\nView model results: The tidy function is used to obtain a clean and tidy summary of the model results.\n\nlm_results |&gt;\n  tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic     p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n 1 (Intercept) -0.244      1.22      -0.199 0.842      \n 2 P2001       -1.98       0.555     -3.56  0.000368   \n 3 P2002        0.696      0.300      2.32  0.0204     \n 4 P2003       -2.02       0.390     -5.19  0.000000208\n 5 P2004       -0.189      0.308     -0.613 0.540      \n 6 P2005       -0.378      0.502     -0.752 0.452      \n 7 P3          -0.0243     0.0132    -1.84  0.0664     \n 8 P4           0.00650    0.0228     0.285 0.776      \n 9 P13         -0.257      0.210     -1.22  0.221      \n10 P142        -0.482      0.449     -1.07  0.283      \n# ℹ 31 more rows\n\n\nPredictions: The augment function is used to obtain the predictions of the model on the training data.\n\nlm_augmented_results &lt;- lm_results |&gt;\n  augment(training_data)\n\nMetrics: The custom_metrics function is used to calculate the accuracy, sensitivity, specificity, and F-measure of the model on the training data. The results are stored in the “lm_metrics” object.\n\ncustom_metrics &lt;- metric_set(accuracy, sens, spec, f_meas)\n\ncustom_metrics(lm_augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nEstimate\n\n\n\n\nAccuracy\n0.817\n\n\nSensitivity\n0.168\n\n\nSpecificity\n0.974\n\n\nF1\n0.264\n\n\n\n\n\n\n\nWe can save them on a table. The results are stored in the “lm_results” object.\n\nlm_metrics_training &lt;- custom_metrics(lm_augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt;\n  mutate(model = \"lm\")\n\nCan we improve the model?"
+    "objectID": "slides/5-forest.html#obtener-el-desempeño-del-modelo-en-datos-de-validación",
+    "href": "slides/5-forest.html#obtener-el-desempeño-del-modelo-en-datos-de-validación",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Obtener el desempeño del modelo en datos de validación",
+    "text": "Obtener el desempeño del modelo en datos de validación\n\ntree_val &lt;- fit_resamples(\n  final_tree, PYALC ~ ., \n  crossvalidation, \n  metrics= metric_set(accuracy))\n\ntree_results_h  &lt;- tree_val  |&gt; \n  collect_metrics()  |&gt; \n  mutate(model=\"Árbol Sintonizado\")\n\nlm_model_val &lt;- fit_resamples(\n  lm_model, PYALC ~ ., \n  crossvalidation, \n  metrics= metric_set(accuracy))\n\nlm_results  &lt;- lm_model_val  |&gt; \n  collect_metrics()  |&gt; \n  mutate(model=\"Regresión lineal\")\n\ntree_spec_val  &lt;- fit_resamples(\n  tree_spec, PYALC ~ ., \n  crossvalidation, \n  metrics= metric_set(accuracy))\n\ntree_results  &lt;- tree_spec_val|&gt; \n  collect_metrics()   |&gt; \n  mutate(model=\"Árbol\")\n  \n\nrbind(lm_results, tree_results, tree_results_h) |&gt; \nselect(model, mean)"
   },
   {
-    "objectID": "slides/workshop_document.html#decision-trees",
-    "href": "slides/workshop_document.html#decision-trees",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Decision trees",
-    "text": "Decision trees\nDecision trees are a type of machine learning model used to solve classification and regression problems. The goal is to make decisions based on questions and answers asked of the data to reach a conclusion or prediction. In a decision tree, each point or “node” represents a characteristic of the data we are studying. Each “branch” of the tree shows a possible response to that characteristic.\n\nModel specification: A decision tree model is specified. The rpart package is used and the mode is set to classification.\n\n\ntree_spec &lt;-\n  decision_tree() |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\n\nModel fitting: The decision tree model is fitted using the formula outcome ~ ., which means that score is being modeled as a function of all the other variables in the training_data dataframe.\n\n\ntree_results &lt;- tree_spec |&gt;\n  fit(outcome ~ ., data = training_data)\n\n\nDecision tree display: The fitted model is extracted from the fitting result and displayed using the tree_diagram() function of the treemisc package.\n\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)\n\n\n\n\nHow do you decide where to cut data in a decision tree? see this\nLet’s calculate the metrics\n\ntree_metrics_training &lt;- tree_results |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"tree\")\n\nrbind(tree_metrics_training, lm_metrics_training) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate) |&gt;\n  pretty_table()\n\n\n\n\n\n\n\nMetric\nTree\nLm\n\n\n\n\nAccuracy\n0.843\n0.817\n\n\nSensitivity\n0.290\n0.168\n\n\nSpecificity\n0.976\n0.974\n\n\nF1\n0.418\n0.264"
-  },
-  {
-    "objectID": "slides/workshop_document.html#cart-with-hyperparameters",
-    "href": "slides/workshop_document.html#cart-with-hyperparameters",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "CART with hyperparameters",
-    "text": "CART with hyperparameters\nHyperparameters are model-specific values that can be adjusted and that allow you to control the training process of a model.\n\ntree_spec_hyp_manual &lt;-\n  decision_tree(min_n = 5, cost_complexity = 0.001) |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"rpart\")\n\nIn this case, two hyperparameters are being indicated for the decision tree:\n\nmin_n: It is the minimum number of observations required to divide a node in a decision tree. A higher value of min_n implies that the tree will be shallower, since more samples will be required to perform a split at each node.\ncost_complexity: It is a regularization parameter. It is a measure of the penalty that is applied to the tree based on its complexity. A higher value of cost_complexity implies a stronger penalty on the complexity of the tree, leading to a smaller and shallower tree.\n\nNow to estimate the model\n\ntree_spec_hyp_manual_results &lt;- tree_spec_hyp_manual |&gt;\n  fit(outcome ~ ., data = training_data)\n\nWe can get the predictions\n\ntree_spec_hyp_manual_training &lt;- tree_spec_hyp_manual_results |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(,\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"Tree hyp manual\")\n\nAnd finally, we can compare the models\n\nrbind(\n  lm_metrics_training,\n  tree_metrics_training,\n  tree_spec_hyp_manual_training\n) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate) |&gt;\n  pretty_table()\n\n\n\n\n\n\n\nMetric\nLm\nTree\nTree_hyp_manual\n\n\n\n\nAccuracy\n0.817\n0.843\n0.939\n\n\nSensitivity\n0.168\n0.290\n0.818\n\n\nSpecificity\n0.974\n0.976\n0.968\n\n\nF1\n0.264\n0.418\n0.839"
-  },
-  {
-    "objectID": "slides/workshop_document.html#but-all-this-happens-in-the-training-data",
-    "href": "slides/workshop_document.html#but-all-this-happens-in-the-training-data",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "But all this happens in the training data!",
-    "text": "But all this happens in the training data!"
-  },
-  {
-    "objectID": "slides/workshop_document.html#why-is-it-bad",
-    "href": "slides/workshop_document.html#why-is-it-bad",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Why is it bad?",
-    "text": "Why is it bad?\nWe can create a model that has zero errors in the training data. But how do we know that the model is good?\nWe could evaluate the model in unseen data, but we only have one test data set.\n\n# Use the test data to predict the score using the logistic regression model\nlm_predictions_test &lt;- lm_model |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"lm\")\n\n# Use the test data to predict the score using the decision tree model\ntree_prediction_test &lt;- tree_spec |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree\")\n\n\n# Use the test data to predict the score using the hyperparameter decision tree model\ntree_hyp_predictions_test &lt;- tree_spec_hyp_manual |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree Hype\")\n\n# Join the results\nall_models_test &lt;-\n  rbind(lm_predictions_test, tree_prediction_test, tree_hyp_predictions_test) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)\n\nall_models_test |&gt;\n  pretty_table()\n\n\n\n\n\n\n\nMetric\nLm\nTree\nTree_hype\n\n\n\n\nAccuracy\n0.815\n0.801\n0.674\n\n\nSensitivity\n0.222\n0.167\n0.259\n\n\nSpecificity\n0.959\n0.955\n0.775\n\n\nF1\n0.320\n0.247\n0.237"
-  },
-  {
-    "objectID": "slides/workshop_document.html#cross-validation",
-    "href": "slides/workshop_document.html#cross-validation",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Cross Validation",
-    "text": "Cross Validation\nSuppose we are working on a classification problem and we have a data set with 1000 observations. We want to evaluate the performance of a logistic regression model using k-fold cross-validation.\nStep-by-step k-fold cross-validation process:\nDivide the data set: First, we divide the data set into k subsets (folds) of equal size. In this example, we choose k=10, which means we divide the data set into 10 subsets of 100 records each.\nTrain and evaluate the model: Then, we do the following for each of the k subsets:\nto. We take one subset as the test (validation) set and the remaining k-1 subsets as the training set. For example, in the first iteration, we use the first subset as the test set and subsets 2 to 10 as the training set.\n\nWe train the logistic regression model using the training set.\nWe evaluate the performance of the model on the test set using an appropriate metric, such as precision, completeness, or F1-score. We write down the result of the metric for this iteration.\n\nAveraging results: After completing k iterations, we average the metric results for all iterations. This means providing us with a more robust estimate of the model’s performance since the model has been evaluated on different subsets of the data set.\nMore information here and here"
-  },
-  {
-    "objectID": "slides/workshop_document.html#first-path-cross-validation-object-to-estimate-performance",
-    "href": "slides/workshop_document.html#first-path-cross-validation-object-to-estimate-performance",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "First path: cross-validation object to estimate performance",
-    "text": "First path: cross-validation object to estimate performance\nThe first thing we are going to need is to create an object in R that contains the data organized in such a way that we can implement cross-validation. For this, we are going to use the vfold_cv() function from the rsample package.\n\ncrossvalidation &lt;-\n  vfold_cv(training_data,\n    v = 5, # number of boxes\n    strata = \"outcome\"\n  ) # variable to stratify\n\n\nlm_model_resamples &lt;- lm_model |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"lm_resamples\")\n\ntree_spec_resamples &lt;- tree_spec |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"tree_resamples\")\n\ntree_spec_hyp_resamples &lt;- tree_spec_hyp_manual |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"tree_hyp_resamples\")\n\nall_models_resamples &lt;-\n  rbind(lm_model_resamples, tree_spec_resamples, tree_spec_hyp_resamples) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt;\n  pretty_table()\n\n\n\n\n\n\n\nMetric\nLm_resamples\nTree_resamples\nTree_hyp_resamples\n\n\n\n\nAccuracy\n0.795\n0.776\n0.736\n\n\nF1\n0.219\n0.202\n0.298\n\n\nSensitivity\n0.150\n0.145\n0.289\n\n\nSpecificity\n0.951\n0.929\n0.844"
-  },
-  {
-    "objectID": "slides/workshop_document.html#second-path-cross-validation-object-to-identify-the-best-model",
-    "href": "slides/workshop_document.html#second-path-cross-validation-object-to-identify-the-best-model",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Second path: cross-validation object to identify the best model",
-    "text": "Second path: cross-validation object to identify the best model\nWhen specifying a decision tree model, we will indicate that we want different values of the “min_n” and “cost_complexity” hyperparameters to be tested. For that, we are going to use the tune package.\n\ntree_spe_tune &lt;-\n  decision_tree(\n    cost_complexity = tune(),\n    tree_depth = tune(),\n    min_n = tune()\n  ) |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"rpart\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nCost_complexity: Cost_complexity is a regularization parameter. It is a measure of the penalty that is applied to the tree based on its complexity. A higher value of cost_complexity implies a stronger penalty on the complexity of the tree, leading to a smaller and shallower tree. The idea is to find an optimal value of cost_complexity that balances the precision and complexity of the tree, reducing both bias and variance.\nTree_depth (tree depth): Tree_depth refers to the maximum length of the longest path from the root to a leaf in a decision tree. A deeper tree is more complex and can capture more complicated relationships in the data.\n\n\n\nNow, let’s specify the search grid. The lookup grid is a table that contains the values to test for each combination of hyperparameters.\n\ntree_grid &lt;- grid_regular(\n  cost_complexity(range = c(-3, -2)),\n  tree_depth(range = c(4L, 10L)),\n  min_n(range = c(10L, 40L))\n)\n\nThe next step is to estimate the performance of the models on the validation data, using the models created with the different combinations of hyperparameters. For this, we are going to use the tune_grid() function from the tune package.\n\ndoParallel::registerDoParallel()\n\nset.seed(345)\ntree_rs &lt;-\n  tune_grid(\n    tree_spe_tune,\n    outcome ~ .,\n    resamples = crossvalidation,\n    control = control_resamples(event_level = \"second\"),\n    grid = tree_grid,\n    metrics = custom_metrics\n  )\n\ndoParallel::stopImplicitCluster()\n\n\n\n\n\n\n\nTip\n\n\n\n\n\ndoParallel is an excellent package created to facilitate parallel programming in R. Using R in “parallel” allows you to take advantage of the power of computers to save time.\n\n\n\nThis will give us a table with the results of each model, and we can ask it to show us the combination of hyperparameters that had the best performance.\n\nautoplot(tree_rs)\n\n\n\n\n\nshow_best(tree_rs, metric = \"sens\")\n\n# A tibble: 5 × 9\n  cost_complexity tree_depth min_n .metric .estimator  mean     n std_err\n            &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;\n1         0.001           10    10 sens    binary     0.294     5  0.0471\n2         0.00316         10    10 sens    binary     0.285     5  0.0422\n3         0.00316         10    25 sens    binary     0.238     5  0.0482\n4         0.001            7    10 sens    binary     0.233     5  0.0325\n5         0.001           10    25 sens    binary     0.233     5  0.0474\n# ℹ 1 more variable: .config &lt;chr&gt;\n\n\nFinally, we can select the best model and estimate it with the training data.\n\nbest_hyp_tree &lt;- select_best(tree_rs, min_n, metric = \"sens\")\n\ntree_tuned_final &lt;- finalize_model(tree_spe_tune, best_hyp_tree)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nThe finalize_model function allows updating the model specification with the selected hyperparameters.\n\n\n\nNow, we go back to doing what we have been doing: estimating the model with the training data.\nWe already know how to evaluate the model, so let’s do it. For that, we’re going to use the fit_resamples() function, which is going to do a lot of work for us. This function will estimate the model with the training data and calculate the evaluation metrics on the validation data.\n\n# We will need this later to compare the models in the table metrics from training, which is not very useful, but fun.\ntree_tuned_training &lt;- tree_tuned_final |&gt;\n  fit(outcome ~ ., data = training_data) |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(,\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"Tree tunned\")\n\n\ntree_tuned_resample &lt;- tree_tuned_final |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree tunned\")\n\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nLm_resamples\nTree_resamples\nTree_hyp_resamples\nTree_tunned\n\n\n\n\nAccuracy\n0.795\n0.776\n0.736\n0.752\n\n\nF1\n0.219\n0.202\n0.298\n0.314\n\n\nSensitivity\n0.150\n0.145\n0.289\n0.294\n\n\nSpecificity\n0.951\n0.929\n0.844\n0.862\n\n\n\n\n\n\n\n\nSecret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average."
-  },
-  {
-    "objectID": "slides/workshop_document.html#random-forest",
-    "href": "slides/workshop_document.html#random-forest",
-    "title": "Imbalanced data in Machine Learning Modeling",
+    "objectID": "slides/5-forest.html#random-forest-1",
+    "href": "slides/5-forest.html#random-forest-1",
+    "title": "5. Re-muestreo y Validación Cruzada",
     "section": "Random Forest",
-    "text": "Random Forest\nWe already know why it is Forest, but why is it random?\n\nNumber of predictors used for each tree (mtry)\nNumber of observations per tree\n\nThe steps are the same, only the model specification changes.\n\nrf_spec &lt;-\n  rand_forest() |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"ranger\", importance = \"permutation\")\n\nThere are some methods to try to identify which variables were most relevant when making the best predictions.\n\nrf_results_training &lt;- rf_spec |&gt;\n  fit(outcome ~ ., data = training_data)\n\nlibrary(vip)\nimportance_plot_rf &lt;-\n  rf_results_training |&gt;\n  vip() +\n  ggtitle(\"Random Forest\") +\n  theme_minimal() +\n  geom_bar(\n    stat = \"identity\",\n    color = \"green\", fill = \"green\", alpha = 0.2\n  )\nimportance_plot_rf\n\n\n\n\nNow, fit in resamples and collect metrics.\n\nrf_spec_resamples &lt;- rf_spec |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Random Forest\")\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample,\n    rf_spec_resamples\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric) |&gt;\n  pretty_table()\n\nall_models_resamples\n\n\n\n\n\n\n\nMetric\nLm_resamples\nTree_resamples\nTree_hyp_resamples\nTree_tunned\nRandom_forest\n\n\n\n\nAccuracy\n0.795\n0.776\n0.736\n0.752\n0.803\n\n\nF1\n0.219\n0.202\n0.298\n0.314\n0.055\n\n\nSensitivity\n0.150\n0.145\n0.289\n0.294\n0.023\n\n\nSpecificity\n0.951\n0.929\n0.844\n0.862\n0.991"
+    "text": "Random Forest\nLos árboles de decisión sufren de muchos problemas, en especial de sobreajuste. Esto se puede entender como un problema de varianza, y por lo tanto se pueden hacer cosas para minimizarlo. Por ejemplo, podríamos construir muchos árboles de decisión y promediar sus predicciones. Este es el concepto detrás de los Random Forests."
   },
   {
-    "objectID": "slides/workshop_document.html#bias-and-variance",
-    "href": "slides/workshop_document.html#bias-and-variance",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Bias and variance",
-    "text": "Bias and variance\nThese two concepts are crucial to understanding the balance between model complexity and its ability to generalize to new data.\nBias: Bias is the difference between the average prediction of our model and the true value we are trying to predict. Bias, in statistical terms, refers to the systematic difference between the expectation (or average) of the estimates produced by an estimator and the real value of the parameter to be estimated.\n\nExample: A linear regression model could have high bias if the actual data has a nonlinear relationship.\nImplications: A model with high bias is too simple and does not capture the underlying structure of the data. This leads to poor performance on the training and test set.\n\nVariance: Variance is the amount of variability in the model’s predictions for a piece of data. A model with high variance is very sensitive to small variations in the training data, which can result in overfitting. That is, the model fits the training data very well but performs poorly on unseen or test data.\n\nExample: A very deep decision tree model could have high variance since it is very sensitive to small variations in the training data.\nImplications: A model with high variance tends to overfit the training data, resulting in good performance on the training set but poor performance on the test set."
+    "objectID": "slides/5-forest.html#random-forest-2",
+    "href": "slides/5-forest.html#random-forest-2",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Random Forest",
+    "text": "Random Forest\nEspecificar un modelo\n\nrf_spec &lt;- \n  rand_forest()  |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"ranger\", importance = \"permutation\")\n\nEstimar un modelo\n\nrf_results &lt;- rf_spec |&gt; \nfit_resamples(PYALC ~ ., \ncrossvalidation, metrics = metric_set(accuracy))\n\nObtener sus predicciones\n\nrf_results_val  &lt;- rf_results  |&gt; \ncollect_metrics()  |&gt; \n  mutate(model=\"RF\")\n  \n\nrbind(lm_results, tree_results, tree_results_h, rf_results_val) |&gt; \nselect(model, mean) \n\n\nlibrary(vip)\nrf_spec |&gt; \n  fit(PYALC ~ ., datos_entrenamiento) |&gt; \n  vip() +\n  ggtitle(\"Random Forest\")"
   },
   {
-    "objectID": "slides/workshop_document.html#upsampling",
-    "href": "slides/workshop_document.html#upsampling",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Upsampling",
-    "text": "Upsampling\nUpsampling is a method that consists of increasing the number of observations in the minority class to match the number of observations in the majority class. This is done by randomly selecting observations from the minority class with replacement. This method is used when the data set is small and the minority class is very small.\n\nupsampling_rec &lt;-\n  recipe(outcome ~ ., training_data) |&gt;\n  step_upsample(outcome)\n\nupsampling_rec |&gt;\n  prep(retain = TRUE) |&gt;\n  bake(new_data = NULL) |&gt;\n  count(outcome)\n\n# A tibble: 2 × 2\n  outcome     n\n  &lt;fct&gt;   &lt;int&gt;\n1 0         886\n2 1         886\n\nupsampling_workflow &lt;-\n  workflow() |&gt;\n  add_recipe(upsampling_rec) |&gt;\n  add_model(lm_model)\n\nlet’s fit the model\n\nupsample_fit &lt;- upsampling_workflow |&gt;\n  fit(data = training_data)\n\nFinally, let’s evaluate the model in the validation data\n\nupsample_fit_resamples &lt;- upsampling_workflow |&gt;\n  fit_resamples(\n    resamples = crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  )\n\nupsample_resamples &lt;- collect_metrics(upsample_fit_resamples) |&gt;\n  mutate(model = \"upsampling\")\n\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    downsample_resamples,\n    upsample_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample,\n    rf_spec_resamples\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt; pretty_table()\n\n\n\n\n\n\n\nMetric\nLm_resamples\nDownsample\nUpsampling\nTree_resamples\nTree_hyp_resamples\nTree_tunned\nRandom_forest\n\n\n\n\nAccuracy\n0.795\n0.631\n0.658\n0.776\n0.736\n0.752\n0.803\n\n\nF1\n0.219\n0.409\n0.419\n0.202\n0.298\n0.314\n0.055\n\n\nSensitivity\n0.150\n0.654\n0.626\n0.145\n0.289\n0.294\n0.023\n\n\nSpecificity\n0.951\n0.625\n0.666\n0.929\n0.844\n0.862\n0.991"
+    "objectID": "slides/5-forest.html#sesgo-y-varianza",
+    "href": "slides/5-forest.html#sesgo-y-varianza",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Sesgo y varianza",
+    "text": "Sesgo y varianza\nEstos dos conceptos son cruciales para entender el equilibrio entre la complejidad del modelo y su capacidad para generalizar a nuevos datos.\nSesgo (Bias): a. Definición: El sesgo es la diferencia entre la predicción promedio de nuestro modelo y el valor verdadero que intentamos predecir.El sesgo, en términos estadísticos, se refiere a la diferencia sistemática entre la esperanza (o promedio) de las estimaciones que produce un estimador y el valor real del parámetro que se desea estimar. Un modelo con alta varianza es muy sensible a pequeñas variaciones en los datos de entrenamiento, lo que puede resultar en un sobreajuste. Es decir, el modelo se ajusta muy bien a los datos de entrenamiento, pero tiene un rendimiento deficiente en datos no vistos o de prueba.\n\nEjemplo: Un modelo de regresión lineal simple podría tener un alto sesgo si los datos reales tienen una relación no lineal.\nImplicaciones: Un modelo con alto sesgo es demasiado simple y no captura la estructura subyacente de los datos. Esto conduce a un bajo rendimiento en el conjunto de entrenamiento y prueba.\n\nVarianza (Variance): a. Definición: La varianza es la cantidad de variabilidad en las predicciones del modelo para un punto de datos dado. b. Ejemplo: Un modelo de árbol de decisión muy profundo podría tener alta varianza, ya que es muy sensible a pequeñas variaciones en los datos de entrenamiento. c. Implicaciones: Un modelo con alta varianza tiende a sobreajustarse a los datos de entrenamiento, lo que resulta en un buen rendimiento en el conjunto de entrenamiento pero un bajo rendimiento en el conjunto de prueba.\nEl objetivo en Machine Learning es equilibrar el sesgo y la varianza para minimizar el error de predicción general en el modelo a. Objetivo: Encontrar un equilibrio entre sesgo y varianza que minimice el error total de predicción. b. Estrategias: Seleccionar un modelo con la complejidad adecuada, usar técnicas de regularización, y validar el modelo con conjuntos de datos de entrenamiento y prueba separados.\nFormas de disminur el sesgo\nAumentar la complejidad del modelo: Un modelo más complejo puede capturar mejor la estructura subyacente de los datos. Por ejemplo, en lugar de utilizar una regresión lineal simple, podrías probar una regresión polinomial o un modelo de árbol de decisión.\nAñadir más variables: A veces, el sesgo puede ser el resultado de no tener en cuenta variables importantes que influyen en la variable objetivo. Añadir más variables relevantes puede ayudar a reducir el sesgo del modelo.\nUtilizar técnicas de “ingeniería de predictores”: Transformar o combinar las variables existentes para crear nuevas características puede ayudar a capturar mejor la relación entre las variables de entrada y salida. Por ejemplo, si estás trabajando en un problema de predicción de precios de viviendas, podrías crear una nueva característica que represente la relación entre el tamaño de la casa y el número de habitaciones.\nAumentar el tamaño del conjunto de datos: Si tu conjunto de datos es pequeño o no es representativo de la población general, es posible que el modelo tenga un sesgo alto. Aumentar el tamaño del conjunto de datos y asegurarte de que es representativo puede ayudar a reducir el sesgo.\nUtilizar ensembles de modelos: Combinar varios modelos en un ensemble puede ayudar a reducir el sesgo, ya que cada modelo puede capturar diferentes aspectos de la relación entre las variables de entrada y salida. Por ejemplo, puedes utilizar métodos de ensemble como Bagging, Boosting o Stacking."
+  },
+  {
+    "objectID": "slides/5-forest.html#técnicas-para-reducir-la-varianza",
+    "href": "slides/5-forest.html#técnicas-para-reducir-la-varianza",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nReducir la complejidad del modelo: Un modelo más simple tiende a tener una menor varianza y es menos propenso al sobreajuste. Por ejemplo, se puede limitar la profundidad de un árbol de decisión.\nUtilizar regularización: La regularización es una técnica que añade una penalización a los coeficientes del modelo para evitar que se ajusten demasiado a los datos de entrenamiento.Por ejemplo, regularización L1 (Lasso) y L2 (Ridge).\nAumentar el tamaño del conjunto de datos: Si dispones de más datos, el modelo será menos sensible a pequeñas variaciones en los datos de entrenamiento y tendrá una menor varianza."
+  },
+  {
+    "objectID": "slides/5-forest.html#técnicas-para-reducir-la-varianza-1",
+    "href": "slides/5-forest.html#técnicas-para-reducir-la-varianza-1",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nEliminar características ruidosas: Si el modelo incluye características que no están relacionadas con la variable objetivo o que contienen mucho ruido, estas pueden aumentar la varianza del modelo. Realizar un análisis de importancia de características y eliminar las características poco importantes puede ayudar a reducir la varianza.\nValidación cruzada (cross-validation): Utilizar la validación cruzada, como k-fold cross-validation, te permite evaluar el rendimiento del modelo en diferentes subconjuntos del conjunto de datos de entrenamiento. Esto puede ayudarte a identificar si el modelo está sobreajustando los datos y ajustar la complejidad del modelo en consecuencia."
+  },
+  {
+    "objectID": "slides/5-forest.html#técnicas-para-reducir-la-varianza-2",
+    "href": "slides/5-forest.html#técnicas-para-reducir-la-varianza-2",
+    "title": "5. Re-muestreo y Validación Cruzada",
+    "section": "Técnicas para reducir la varianza",
+    "text": "Técnicas para reducir la varianza\nUtilizar diferentes modelos: Combinar varios modelos en un ensemble puede ayudar a reducir la varianza, ya que la variabilidad de cada modelo individual se promedia. Por ejemplo, puedes utilizar métodos de ensemble como Bagging (Bootstrap Aggregating) o Random Forest, que promedian las predicciones de múltiples árboles de decisión entrenados en subconjuntos aleatorios de los datos."
+  },
+  {
+    "objectID": "slides/3-modelos.html#agenda",
+    "href": "slides/3-modelos.html#agenda",
+    "title": "3. Estimar un modelo",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nParte I\n\nEspecificar un modelo\nEstimar un modelo\nVer los resultados del modelo\n\n\nParte II\n\nDividir los datos\nEspecificar un modelo\nEstimar un modelo\nEvaluar el modelo\nEstimar un modelo mejor"
+  },
+  {
+    "objectID": "slides/3-modelos.html#estimar-un-modelo",
+    "href": "slides/3-modelos.html#estimar-un-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "Estimar un modelo",
+    "text": "Estimar un modelo\n\nHay muchas formas de estimar modelos en R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\nlm(): Estimar un modelo de regresión lineal.\nstan_glm(): Estimar un modelo de regresión utilizando el paquete Stan.\nglmnet(): Estimar un modelo de regresión utilizando la regularización Lasso o Ridge."
+  },
+  {
+    "objectID": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels",
+    "href": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels",
+    "title": "3. Estimar un modelo",
+    "section": "Especificar el modelo en tidymodels",
+    "text": "Especificar el modelo en tidymodels\nTidymodels ofrece una sintaxis general para estimar los modelos\nhttps://www.tidymodels.org/\n\nEspecificar el tipo de modelo\n\nlinear_reg(), logistic_reg(), decision_tree()\n\nEspecificar el tipo de outcome\n\nRegresión: variables continuas\nClasificación: categórica,multinomial, ordinal"
+  },
+  {
+    "objectID": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels-1",
+    "href": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels-1",
+    "title": "3. Estimar un modelo",
+    "section": "Especificar el modelo en tidymodels",
+    "text": "Especificar el modelo en tidymodels\n\nlibrary(tidymodels)\n\ntidymodels_prefer()\n\nlinear_reg() |&gt; \n  set_engine(\"lm\") |&gt; \n  set_mode(\"regression\")\n\nlogistic_reg() |&gt; \n    set_engine(\"glmnet\") |&gt; \n    set_mode(\"classification\")\n\nlinear_reg() |&gt;\n    set_engine(\"stan\")  |&gt; \n    set_mode(\"regression\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels-2",
+    "href": "slides/3-modelos.html#especificar-el-modelo-en-tidymodels-2",
+    "title": "3. Estimar un modelo",
+    "section": "Especificar el modelo en tidymodels",
+    "text": "Especificar el modelo en tidymodels\n\n\n\n\n\n\nTip\n\n\nlibrary(): cargar el paquete tidymodels.\ntidymodels_prefer(): establecer el paquete tidymodels como el preferido.\nlinear_reg(): Crear una especificación de modelo de regresión lineal en el marco de tidymodels.\nlogistic_reg() : Crear una especificación de modelo de regresión logística en el marco de tidymodels.\nset_engine(): establecer el motor (paquete) de cálculo del modelo. Se utilizará “lm” para el primer modelo, “glmnet” para el segundo y “stan” para el tercero."
+  },
+  {
+    "objectID": "slides/3-modelos.html#estimar-un-modelo-1",
+    "href": "slides/3-modelos.html#estimar-un-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "Estimar un modelo",
+    "text": "Estimar un modelo\n\nEstimar un modelo de regresión logística para evaluar la asociación entre el consumo de alcohol y los factores de riesgo"
+  },
+  {
+    "objectID": "slides/3-modelos.html#descriptivos",
+    "href": "slides/3-modelos.html#descriptivos",
+    "title": "3. Estimar un modelo",
+    "section": "Descriptivos",
+    "text": "Descriptivos\n Calcular la tabla de descriptivos\n\nmini_datos |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    table1::table1( ~ ., data=_)\n\nCalcular la tabla de descriptivos por grupo (Sí y No ha consumido)\n\nmini_datos |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    filter(!is.na(PYALC)) |&gt; \n    table1::table1( ~ . | PYALC, data=_)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#explorar-los-datos-visualmente",
+    "href": "slides/3-modelos.html#explorar-los-datos-visualmente",
+    "title": "3. Estimar un modelo",
+    "section": "Explorar los datos visualmente",
+    "text": "Explorar los datos visualmente\nHacer un gráfico para ver tendencias en los factores de riesgo\n\nmini_datos |&gt; \n select(PYALC,factores_de_riesgo) |&gt;\n  pivot_longer(-PYALC) |&gt; \n  ggplot(aes(value, fct_reorder(name, value), fill = PYALC)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-modelos.html#especificar-el-modelo-1",
+    "href": "slides/3-modelos.html#especificar-el-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "1. Especificar el modelo",
+    "text": "1. Especificar el modelo\nEspecificar un modelo de regresión logística. Se establece el “paquete”, en este caso “glm” y opciones del paquete (la distribución de la variable de respuesta). Además, se especifica que es un problema de “classification”, debido a que la variable dependiente es categórica. Todo esto se almacena en el objeto lm_model.\n\n\nlm_model &lt;-\n    logistic_reg() %&gt;% \n    set_engine(\"glm\", family=\"binomial\") |&gt;\n    set_mode(\"classification\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#estimar-el-modelo",
+    "href": "slides/3-modelos.html#estimar-el-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "2. Estimar el modelo",
+    "text": "2. Estimar el modelo\nAquí se estima el modelo con la función fit(). Se especifica la variable de resultado (PYALC) y los predictores (.). Se utiliza el objeto mini_datos como base de datos.\n\n\nlm_results &lt;- lm_model |&gt;\n    fit(PYALC ~ ., data = mini_datos)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#obtener-los-resultados-del-modelo",
+    "href": "slides/3-modelos.html#obtener-los-resultados-del-modelo",
+    "title": "3. Estimar un modelo",
+    "section": "3. Obtener los resultados del modelo",
+    "text": "3. Obtener los resultados del modelo\nObtener los coeficientes (betas) del modelo\n\nlm_results |&gt; tidy() \n\nObtener los índices de ajuste del modelo\n\nlm_results |&gt; glance()"
+  },
+  {
+    "objectID": "slides/3-modelos.html#obtener-los-resultados-del-modelo-1",
+    "href": "slides/3-modelos.html#obtener-los-resultados-del-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "3. Obtener los resultados del modelo",
+    "text": "3. Obtener los resultados del modelo\n\n\n\n\n\n\nTip\n\n\ntidy(): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente.\nglance(): Esta función se utiliza para resumir los resultados de un modelo como estadísticas globales del modelo, por ejemplo, R-cuadrado ajustado, el AIC y el BIC.\ntidy(exp=TRUE, conf.int=TRUE): Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente. Los argumentos exp y conf.int se utilizan para incluir los intervalos de confianza y los exponentes en los resultados\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#para-qué-necesitamos-los-datos",
+    "href": "slides/3-modelos.html#para-qué-necesitamos-los-datos",
+    "title": "3. Estimar un modelo",
+    "section": "Para qué necesitamos los datos?",
+    "text": "Para qué necesitamos los datos?\nNecesitamos:\n- Estimar parametros\n- Seleccionar modelos\n- Sintonizar los modelos (tunning)\n- Evaluar los modelos\n¿Cómo gastarnos los datos de una forma que sea eficiente para todos estos pasos? (validación empírica)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#dividir-los-datos",
+    "href": "slides/3-modelos.html#dividir-los-datos",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nDividir los datos en dos conjuntos\nEntrenamiento:\n\nLa mayoría de los datos (¿70%, 80%?)\nAquí se ajusta el modelo\n\nPrueba:\n\nUn pequeño conjunto de datos\nAquí se evaluará el modelo final\n\n\nLos datos de prueba se utilizan una sola vez, si se utilizan más de una vez, se convierten en parte del proceso de entrenamiento.\n\n\n\n\n\n\n\nNote\n\n\nLa división de los datos se hace al nivel de unidad independiente de observación."
+  },
+  {
+    "objectID": "slides/3-modelos.html#dividir-los-datos-1",
+    "href": "slides/3-modelos.html#dividir-los-datos-1",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nCrear dos bases: entrenamiento 80% y prueba 20%\n\nset.seed(1234)\n\ndatos_divididos &lt;- initial_split(mini_datos, prop = 0.8, strata = \"PYALC\")\n\ndatos_entrenamiento &lt;- training(datos_divididos)\ndatos_prueba &lt;- testing(datos_divididos)\n\n\nLa opción strata es para que los datos de entrenamiento y prueba tengan la misma distribución de la variable PYALC\n\nA veces la selección aleatoria de la muestra es problemática, por ejemplo cuando hay una componente de tiempo en los datos. En este caso, se puede usar la función initial_time_split()."
+  },
+  {
+    "objectID": "slides/3-modelos.html#dividir-los-datos-2",
+    "href": "slides/3-modelos.html#dividir-los-datos-2",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nset.seed(): establecer una semilla para la generación de números aleatorios en R. En este caso, se utiliza para establecer la semilla en 1234, lo que garantiza que los resultados sean reproducibles. Esto es especialmente importante cuando se trabaja con modelos de aprendizaje automático, ya que los resultados pueden variar según la semilla utilizada para la generación de números aleatorios.\ninitial_split(): dividir los datos en conjuntos de entrenamiento y prueba. Divide el objeto “mini_datos” en conjuntos de entrenamiento y prueba en una proporción de 80/20, y estratificando por la columna “PYALC”.\ntraining(): extraer el conjunto de entrenamiento de un objeto creado con la función initial_split(). Se utiliza para extraer el conjunto de entrenamiento del objeto “datos_divididos”.\ntesting(): extraer el conjunto de prueba de un objeto creado con la función initial_split(). Se utiliza para extraer el conjunto de prueba del objeto “datos_divididos”."
+  },
+  {
+    "objectID": "slides/3-modelos.html#dividir-los-datos-3",
+    "href": "slides/3-modelos.html#dividir-los-datos-3",
+    "title": "3. Estimar un modelo",
+    "section": "Dividir los datos",
+    "text": "Dividir los datos\nDescripivos de los datos de entrenamiento\n\ndatos_entrenamiento |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    table1::table1( ~ ., data=_)\n\ndatos_prueba |&gt;\n    select(PYALC,factores_de_riesgo) |&gt;\n    table1::table1( ~ ., data=_)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#especificar-el-modelo-2",
+    "href": "slides/3-modelos.html#especificar-el-modelo-2",
+    "title": "3. Estimar un modelo",
+    "section": "1. Especificar el modelo",
+    "text": "1. Especificar el modelo\nNo es necesario volver a especificar el modelo, ya que ya lo hicimos en la parte I. Pero si lo hiciéramos, sería de la siguiente manera:\n\nlm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#estimar-el-modelo-1",
+    "href": "slides/3-modelos.html#estimar-el-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "2. Estimar el modelo",
+    "text": "2. Estimar el modelo\nEstimar el modelo con la función fit(). Se especifica la variable de resultado (PYALC) y los predictores (.). Se utiliza el objeto datos_entrenamiento como base de datos.\n\nlm_results &lt;- lm_model |&gt;\n    fit(PYALC ~ ., data = datos_entrenamiento)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#obtener-los-resultados-del-modelo-2",
+    "href": "slides/3-modelos.html#obtener-los-resultados-del-modelo-2",
+    "title": "3. Estimar un modelo",
+    "section": "3. Obtener los resultados del modelo",
+    "text": "3. Obtener los resultados del modelo\nObtener los coeficientes (betas) del modelo en OR con sus intervalos de confianza.\n\nlm_results |&gt; tidy(exp=TRUE, conf.int=TRUE)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#evaluar-el-modelo-1",
+    "href": "slides/3-modelos.html#evaluar-el-modelo-1",
+    "title": "3. Estimar un modelo",
+    "section": "4. Evaluar el modelo",
+    "text": "4. Evaluar el modelo\nHay varias formas de evaluar un modelo. Algunas de las más comunes son: - Métricas de ajuste - Área bajo la curva (AUC) - Sensibilidad y especificidad - Matrices de confusión …\nDado que nuestro objevito es predecir el consumo de alcohol, vamos a utilizar las métricas que evaluen el modelo según su desempeño en la clasificación de observaciones (accuracy o exactitud)."
+  },
+  {
+    "objectID": "slides/3-modelos.html#evaluar-el-modelo-2",
+    "href": "slides/3-modelos.html#evaluar-el-modelo-2",
+    "title": "3. Estimar un modelo",
+    "section": "4. Evaluar el modelo",
+    "text": "4. Evaluar el modelo\nUtilizar el modelo para predecir los valores de la variable dependiente en los datos de entrenamiento.\n\npredecir_estos_valores &lt;- datos_entrenamiento  |&gt;  \n    select(-PYALC)  |&gt; \n    slice(1:10)\n\npredict(lm_results, predecir_estos_valores)\n\nObtener las predicciones en forma de probabilidades\n\npredict(lm_results, predecir_estos_valores, type=\"prob\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#evaluar-el-modelo-3",
+    "href": "slides/3-modelos.html#evaluar-el-modelo-3",
+    "title": "3. Estimar un modelo",
+    "section": "4. Evaluar el modelo",
+    "text": "4. Evaluar el modelo\nObtener las predicciones y los valores observadods para calcular algunas métricas.\n\nentrenamiento &lt;- datos_entrenamiento %&gt;% \n    select(-PYALC)\n\nprediccion &lt;- predict(lm_results, entrenamiento)\n\nresultados_prueba &lt;- cbind(prediccion, datos_entrenamiento) |&gt; \n  select(.pred_class, PYALC, everything()) |&gt; \n  tibble()\n\nresultados_prueba"
+  },
+  {
+    "objectID": "slides/3-modelos.html#métricas-1",
+    "href": "slides/3-modelos.html#métricas-1",
+    "title": "3. Estimar un modelo",
+    "section": "Métricas",
+    "text": "Métricas\nExactitud (accuracy): Es una métrica que mide la proporción de predicciones correctas realizadas por un modelo en comparación con el total de predicciones realizadas. Es decir, la cantidad de veces que el modelo acertó sobre el total de datos que se le presentaron.\nSensibilidad (sensitivity/recall): Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos negativos (FN). La sensibilidad mide la capacidad del modelo para detectar correctamente los casos positivos.\nEspecificidad (Specificity): Es la proporción de verdaderos negativos (TN) que son identificados correctamente por el modelo en relación con el total de verdaderos negativos y falsos positivos (FP). La especificidad mide la capacidad del modelo para detectar correctamente los casos negativos."
+  },
+  {
+    "objectID": "slides/3-modelos.html#métricas-2",
+    "href": "slides/3-modelos.html#métricas-2",
+    "title": "3. Estimar un modelo",
+    "section": "Métricas",
+    "text": "Métricas\nPrecision (Precisión): Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos positivos (FP). La precisión mide la capacidad del modelo para no identificar falsamente un caso como positivo.\nF-measure (Puntuación F): Es una métrica que combina la precisión y el recall en una sola puntuación. El valor de la F-measure oscila entre 0 y 1, siendo 1 el valor óptimo.\nKappa (Coeficiente Kappa): Es una medida de concordancia que compara la cantidad de acuerdos observados entre el modelo y las observaciones reales con la cantidad de acuerdos que se esperarían por casualidad. Un valor de kappa cercano a 1 indica una concordancia casi perfecta entre el modelo y las observaciones reales."
+  },
+  {
+    "objectID": "slides/3-modelos.html#métricas-3",
+    "href": "slides/3-modelos.html#métricas-3",
+    "title": "3. Estimar un modelo",
+    "section": "Métricas",
+    "text": "Métricas"
+  },
+  {
+    "objectID": "slides/3-modelos.html#calcular-las-métricas",
+    "href": "slides/3-modelos.html#calcular-las-métricas",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\nCon los datos observados y los predichos, se pueden calcular las métricas del modelo.\n\nconf_mat(resultados_prueba, truth = PYALC,\n         estimate = .pred_class)\n\naccuracy(resultados_prueba, truth = PYALC,\n         estimate = .pred_class)\n\nsens(resultados_prueba, truth = PYALC,\n    estimate = .pred_class, event_level = \"second\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#calcular-las-métricas-1",
+    "href": "slides/3-modelos.html#calcular-las-métricas-1",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\nMás métricas\n\nspec(resultados_prueba, truth = PYALC,\n    estimate = .pred_class, event_level = \"second\")\n\nprecision(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)\n\nrecall(resultados_prueba, truth = PYALC,\n    estimate = .pred_class, event_level=\"second\")\n\nkap(resultados_prueba, truth = PYALC,\n    estimate = .pred_class)"
+  },
+  {
+    "objectID": "slides/3-modelos.html#calcular-las-métricas-2",
+    "href": "slides/3-modelos.html#calcular-las-métricas-2",
+    "title": "3. Estimar un modelo",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\nCalcular todas las métricas y guardarlas en una base de datos\n\ncustom_metrics &lt;- metric_set(accuracy, sens, spec, precision, recall, f_meas, kap, mcc)\n\nlm_metrics  &lt;- custom_metrics(resultados_prueba,\n  truth = PYALC,\n  estimate = .pred_class, \n  event_level = \"second\"\n)  |&gt; \nmutate(model= \"Regresión Logística\")"
+  },
+  {
+    "objectID": "slides/3-modelos.html#tabla-de-métricas",
+    "href": "slides/3-modelos.html#tabla-de-métricas",
+    "title": "3. Estimar un modelo",
+    "section": "Tabla de Métricas",
+    "text": "Tabla de Métricas\n\nlibrary(gt)\n\ncustom_metrics(resultados_prueba,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt; gt()"
+  },
+  {
+    "objectID": "slides/3-modelos.html#área-bajo-la-curva",
+    "href": "slides/3-modelos.html#área-bajo-la-curva",
+    "title": "3. Estimar un modelo",
+    "section": "Área bajo la curva",
+    "text": "Área bajo la curva\nEl área bajo la curva (AUC) es una métrica que mide la capacidad de un modelo para distinguir entre dos clases. En el caso de un modelo de regresión logística, el AUC mide la capacidad del modelo para distinguir entre los que han consumido alcohol y los que no.\n\nprediccion_auc &lt;- predict(lm_results, entrenamiento, type = \"prob\")\n\nresultados_prueba_auc &lt;- cbind(prediccion_auc, datos_entrenamiento) |&gt;\n  tibble()\n\nroc_auc(resultados_prueba_auc,\n  truth = PYALC,\n  `.pred_Sí ha consumido`,\n  event_level = \"second\"\n)\n\nroc_curve(resultados_prueba_auc,\n  truth = PYALC,\n   `.pred_Sí ha consumido`,\n  event_level = \"second\"\n) |&gt; autoplot()"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#agradecimientos",
+    "href": "slides/1-introduccion.html#agradecimientos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\nEste workshop es posible gracias a la colaboración de la Fundación Universitaria Konrad Lorenz, la Universidad de Miami, a través del Frost Institute for Data Science and Computing y el Department of Public Health Sciences, y la Corporación Nuevos Rumbos."
+  },
+  {
+    "objectID": "slides/1-introduccion.html#temas",
+    "href": "slides/1-introduccion.html#temas",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Temas",
+    "text": "Temas\n\n\n\nTipos de modelos\n\nDescriptivo\nInferencial\nPredictivo\n\nMachine Learning\n\nSupervised\n\nClasificación\nRegresión\n\nUnsupervised\n\nClustering\n\nReinforcement Learning\n\n\n\n\nIdeas principales\n\nError de generalización\nEquilibrio entre la varianza y el sesgo\nRegularización"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tipos-de-modelos",
+    "href": "slides/1-introduccion.html#tipos-de-modelos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Tipos de modelos",
+    "text": "Tipos de modelos\n\n\n\nDescriptivos\n\nDescribir las características de una base de datos\nVisualizar los datos\nResumir los datos\nGenerar hipótesis\n\n\n\nInferencial\n\nEstimar la probabilidad de que ocurra un evento\nProducir una estimación de un parámetro poblacional\nProbar una hipótesis\nIdea predeterminada y se prueba\nValor p, intervalo de confianza\n\n\n\nPredictivo\n\nAnticipar el valor de una variable\nAplicar una regla a un evento que no ha ocurrido\nMayor interés en la predicción que en la inferencia\nPuede ser que no importe el mecanismo"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#otra-clasificación-es",
+    "href": "slides/1-introduccion.html#otra-clasificación-es",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Otra clasificación es",
+    "text": "Otra clasificación es\n\nModelos explicativos\n\nInferencia Causal\nTeoría\nEfectos\nDAGs\n\nModelos predictivos\n\nMachine Learning\nBlack box\nNo énfasis en el mecanismo\nDesarrollado con métrica de predicción\nSesgo y varianza"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#machine-learning",
+    "href": "slides/1-introduccion.html#machine-learning",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\n\nNo-supervisado\nNo hay una variable de resultado\n\nPor ejemplo\n\nComponentes principales\nReducción de dimensionalidad\n\n\n\n\nSupervisado\nHay una variable de resultado\n\nRegresión: variable de resultado continua\n\nClasificación: variable de resultado categórica"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#en-qué-consiste-el-análisis-de-datos",
+    "href": "slides/1-introduccion.html#en-qué-consiste-el-análisis-de-datos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "¿En qué consiste el análisis de datos?",
+    "text": "¿En qué consiste el análisis de datos?\n¿Cuál es el inicio y el final del análisis de datos?\n\n¿La creación del modelo es el primer paso?\n¿Limpiar los datos?\n¿Explorar los datos?\n¿Cómo se van a evaluar los modelos?"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#gráfico-del-proceso-de-análisis-de-datos",
+    "href": "slides/1-introduccion.html#gráfico-del-proceso-de-análisis-de-datos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Gráfico del proceso de análisis de datos",
+    "text": "Gráfico del proceso de análisis de datos\nSe inicia con importar los datos, seguido por la organización-limpieza de los datos, la exploración, la creación de modelos y finalmente la comunicación de los resultados.\n\nimagen de R4DS"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#proceso-de-análisis-de-datos",
+    "href": "slides/1-introduccion.html#proceso-de-análisis-de-datos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Proceso de análisis de datos",
+    "text": "Proceso de análisis de datos\n\nExplorar los datos (EDA)\nModelos iniciales\nEvaluación de los modelos\n“Ingeniería de variables”- crear nuevas variables\nAjustar-sintonizar los modelos\nEvaluación final de los modelos\nModelo Final\n\n imagen de Tidymodels"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "href": "slides/1-introduccion.html#cuál-es-el-mejor-sofware-para-hacer-esto",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "¿Cuál es el mejor sofware para hacer esto?",
+    "text": "¿Cuál es el mejor sofware para hacer esto?\n\n\n\nPython\nR\nMatlab\nJulia\nStata\nSAS\nSPSS\nMplus"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#en-este-workshop-utilizaremos",
+    "href": "slides/1-introduccion.html#en-este-workshop-utilizaremos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "En este workshop utilizaremos",
+    "text": "En este workshop utilizaremos"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#analizar-datos-en-r",
+    "href": "slides/1-introduccion.html#analizar-datos-en-r",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Analizar datos en R",
+    "text": "Analizar datos en R\n\n\n\nUsar base R\nUsar tidyverse"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tidyverse",
+    "href": "slides/1-introduccion.html#tidyverse",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\nggplot2 - para visualización de gráficos dplyr - para el procesamiento de datos tidyr - para la transformación de datos en formato “tidy” (ordenado) readr - para la lectura de datos en diferentes formatos (CSV, TSV, etc.) purrr - para la programación funcional tibble - para la creación de data frames en formato “tidy” stringr - para la manipulación de cadenas de texto forcats- para la manipulación de factores más"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tidyverse-1",
+    "href": "slides/1-introduccion.html#tidyverse-1",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\nPipe\nnombre_de_los_objetos\nUso de las comillas\nRetorna un objeto de la misma clase\nProgramación funcional"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#tidymodels",
+    "href": "slides/1-introduccion.html#tidymodels",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Tidymodels",
+    "text": "Tidymodels\n\n\nparsnip - para la especificación de modelos recipes - para la preparación de datos rsample - para la validación de modelos tune - para la sintonización de hiperparámetros workflows - para la creación de flujos de trabajo dials - para la selección de hiperparámetros yardstick - para la evaluación de modelos más"
+  },
+  {
+    "objectID": "slides/1-introduccion.html#este-workshop",
+    "href": "slides/1-introduccion.html#este-workshop",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Este workshop",
+    "text": "Este workshop\nEn este workshop vamos a utilizar tidymodels para desarrollar los models.\nUtilizaremos una base de datos que contiene información sobre factores de riesgo asociados al consumo de drogas en adolescentes. Vamos a desarrollar en primer lugar un modelo descriptivo que nos permita entender la relación entre las variables. Luego vamos a desarrollar un modelo predictivo que nos permita predecir el consumo de drogas en adolescentes basados en los factores de riesgo."
+  },
+  {
+    "objectID": "slides/1-introduccion.html#objetivos",
+    "href": "slides/1-introduccion.html#objetivos",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Objetivos",
+    "text": "Objetivos\n\nIdeas principales\n\nCalcular el error de un modelo en nuevos datos.\nBuscar el equilibrio entre la varianza y el sesgo de un modelo.\nAplicar regularización para evitar el sobreajuste."
+  },
+  {
+    "objectID": "slides/1-introduccion.html#resumen",
+    "href": "slides/1-introduccion.html#resumen",
+    "title": "1. Introducción a Machine Learning con tidymodels",
+    "section": "Resumen",
+    "text": "Resumen\n\nModelos descriptivos, inferenciales y predictivos\nMachine Learning\nProceso de análisis de datos\nTidyverse\nTidymodels"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Imbalanced data in Machine Learning Modeling",
+    "title": "Bienvenidos",
     "section": "",
-    "text": "Imbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Imbalance datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling imbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
+    "text": "Le damos la bienvenida a este taller que se llevará a cabo en la Fundación Universitaria Konrad Lorenz. los días 26 y 27 de febrero. En el taller nos enfocaremos en algunas de las técnicas de aprendizaje automático más utilizadas en la actualidad. En esta página, hemos compilado todos los materiales necesarios para cada sesión. Esperamos que estos recursos diseñados especialmente para ustedes sean de su agrado.\nEn este taller vamos a trabajar sobre tres ideas principales:\n\nError de generalización\nEquilibrio entre la varianza y el sesgo\nRegularización"
   },
   {
-    "objectID": "index.html#overview",
-    "href": "index.html#overview",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "",
-    "text": "Imbalanced data is a term used to describe datasets where there’s an uneven representation of target outcomes across different categories. In such cases, one category often has a significantly higher frequency compared to others. A classic example can be seen in binary classification problems, where one class may have a disproportionate number of observations relative to its counterpart. This imbalance presents a unique challenge in modeling: standard algorithms, which are usually designed for more evenly distributed data, may inherently favor the more common class. This bias can result in suboptimal performance, particularly in accurately predicting the outcomes for the minority class. Imbalance datasets are a practical concern in various fields, including research on adolescent health issues and drug use, where some outcomes or behaviors might be notably less common but are crucial to identify correctly.\nIn this workshop, we will explore various modeling techniques and resampling methods tailored to this specific challenge. Key topics include cross-validation, estimation of empirical error, and the identification of model hyperparameters. This comprehensive approach will provide participants with a deep understanding of handling imbalanced datasets effectively.\nThis workshop will be held at the University of Miami on Tuesday, December 5, 2023. We will meet in room 1080A at Don Soffer Clinical Research Center.\nWe will utilize the R programming language along with the tidymodel package to implement our models. The workshop will include a range of practical exercises and illustrative examples. Participants are expected to have a basic understanding of R and familiarity with regression analysis."
+    "objectID": "index.html#pasos-previos-al-taller",
+    "href": "index.html#pasos-previos-al-taller",
+    "title": "Bienvenidos",
+    "section": "Pasos previos al taller",
+    "text": "Pasos previos al taller\nPara aprovechar al máximo este taller, es necesario completar las siguientes tareas antes de que inicie el evento:\n\nCreación de una cuenta en Posit Cloud: Si aún no tienes una, por favor, crea una cuenta gratuita en Posit Cloud."
   },
   {
-    "objectID": "index.html#organizers",
-    "href": "index.html#organizers",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Organizers",
-    "text": "Organizers\nFrancisco Cardozo. University of Miami.\nEric C. Brown.. University of Miami. María Fernanda Reyes, Universidad de los Andes."
+    "objectID": "index.html#agenda-del-workshop",
+    "href": "index.html#agenda-del-workshop",
+    "title": "Bienvenidos",
+    "section": "Agenda del Workshop",
+    "text": "Agenda del Workshop\n\nDía 1\n\nIntroducción a Machine Learning\nProcesamiento de datos\nModelos\nÁrboles de decisión\n\n\n\nDía 2\n\nValidación Cruzada\nRandom Forest\nRegularización\n\n\n\nOrganizadores\n\nFrancisco Cardozo (foc9@miami.edu)\nEric C. Brown\nCarlos Eduardo Montoya\nRafael Cendales"
   },
   {
-    "objectID": "index.html#first-ring---the-two-paths-of-destiny",
-    "href": "index.html#first-ring---the-two-paths-of-destiny",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "First Ring - The Two Paths of Destiny",
-    "text": "First Ring - The Two Paths of Destiny\n\nDivide the data into two groups, some data to train the model and another to test it.\n\nIn an age long past, when the world was still uncharted, the First Ring emerged, gleaming with the promise of unexplored knowledge. It was said to hold the power to split the fabric of reality into two distinct paths: one leading through the verdant forests of Training, lush with learning and growth, and the other winding into the misty valleys of Testing, where truth is revealed in the shadows. Those who embark on this journey, much like the brave heroes of old, are fated to traverse these paths, each step a new chapter in their quest for wisdom."
+    "objectID": "index.html#día-1-1",
+    "href": "index.html#día-1-1",
+    "title": "Bienvenidos",
+    "section": "Día 1",
+    "text": "Día 1\n\n\nIntroducción a Machine Learning\n\n\nProcesamiento de datos\n\n\nRegresión logística"
   },
   {
-    "objectID": "index.html#second-ring---the-mirror-of-fates",
-    "href": "index.html#second-ring---the-mirror-of-fates",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Second Ring - The Mirror of Fates",
-    "text": "Second Ring - The Mirror of Fates\n\nValidate the model with the data that was not used to train it.\n\nThe Second Ring was forged in the hidden realms, where magic and mystery intertwine. It was no ordinary artifact, for it held a mirror reflecting not just images but destinies. In the hands of the learned, this ring divided the waters of Training, creating a silent pool of Validation, serene yet profound. Here, seers and sages could gaze into the depths, discerning the hidden strengths and weaknesses of their creations, much like the ancient oracles who, in their sacred groves, saw truths beyond the ken of mortals."
+    "objectID": "index.html#día-2-1",
+    "href": "index.html#día-2-1",
+    "title": "Bienvenidos",
+    "section": "Día 2",
+    "text": "Día 2\n\n\nÁrboles de decisión\n\n\nRandom Forest"
   },
   {
-    "objectID": "index.html#third-ring---the-balance-of-light-and-shadow",
-    "href": "index.html#third-ring---the-balance-of-light-and-shadow",
-    "title": "Imbalanced data in Machine Learning Modeling",
-    "section": "Third Ring - The Balance of Light and Shadow",
-    "text": "Third Ring - The Balance of Light and Shadow\n\nThe balance between bias and variance is the key to the power of the model.\n\nIn the great halls of knowledge, the Third Ring was revered as the most elusive and powerful. It was the embodiment of the eternal struggle between Light and Shadow, an artifact that sought the perfect equilibrium. In the hands of a master, it could weave together the threads of Variance and Bias, creating a tapestry as balanced and harmonious as the cycle of day and night. The quest for this balance was akin to a legendary saga, where heroes journeyed through realms of dazzling brilliance and profound darkness, seeking the ancient wisdom that would bring peace to the land.\n\nSecret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average."
+    "objectID": "slides/2-procesamiento.html#agenda",
+    "href": "slides/2-procesamiento.html#agenda",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Agenda",
+    "text": "Agenda\n\nBase de datos de La Corporación Nuevos Rumbos\nTidyverse\nExplorar los datos\nEstimar un modelo\nPráctica"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#base-de-datos-corporación-nuevos-rumbos",
+    "href": "slides/2-procesamiento.html#base-de-datos-corporación-nuevos-rumbos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Base de datos Corporación Nuevos Rumbos",
+    "text": "Base de datos Corporación Nuevos Rumbos\n\n\nOrganización sin ánimo de lucro: Enfocada en la investigación y prevención de problemas sociales.\nÁreas de Interés: Consumo de sustancias, delincuencia, y violencia.\nAlcance Geográfico: Colombia y América Latina.\n\nFundación y Trayectoria\n\nEstablecida en Bogotá: Octubre de 2002.\nTrayectoria: Más de dos décadas comprometidas con la prevención y la investigación.\n\nColaboraciones y Alianzas\n\nOrganizaciones Locales: Alcaldías y gobernaciones, Ministerios de Salud y de Justicia, Instituto Colombiano de Bienestar Familiar.\nOrganizaciones Internacionales: Organización Panamericana de la Salud, Comisión Europea, CICAD/OEA.\nInstituciones Académicas: Universidades de New Jersey, Washington, y Miami.\n\nMás información aquí"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#base-de-datos",
+    "href": "slides/2-procesamiento.html#base-de-datos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Base de datos",
+    "text": "Base de datos\n\nFactores de riesgo y de protección\n\nDisponibilidad percibida de drogas\nActitudes de la comunidad frente al consumo de drogas\nActitudes de los padres frente al consumo de drogas\nInvolucramiento en actividades comunitarias\n\nConsumo de alcohol y otras drogas\n\nConsumo de alcohol en la vida, 12 meses últimos 30 días\nHaber estado en una pelea\n\nCaracterísticas demográficas\n\nEdad\nSexo\nGrado"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#importar-la-base-de-datos",
+    "href": "slides/2-procesamiento.html#importar-la-base-de-datos",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Importar la base de datos",
+    "text": "Importar la base de datos\n\nlibrary(tidyverse)\nlibrary(DataWorkshopKL)\nlos_datos &lt;- DataWorkshopKL::base_NR\n\nlos_datos  |&gt; \n  glimpse()\n\n\n\n\n\n\n\n\nTip\n\n\n\n|&gt;: se puede leer como “siguiente”. Este operador se utiliza para encadenar varias operaciones juntas en una sola línea de código. En este caso, se utiliza para encadenar los datos los_datos a la función glimpse().\nglimpse(): imprimir una vista previa de los datos, incluyendo el tipo de datos de cada columna y algunos valores. En este caso, se utiliza para explorar los datos almacenados en el objeto “los_datos”."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#select",
+    "href": "slides/2-procesamiento.html#select",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "select()",
+    "text": "select()\nEsta función selecciona columnas de una base de datos.\nEn este ejemplo, quiero una nueva base de datos que tenga la variable NHPROUD (“Hay gente en mi barrio que se siente orgullosa de mí cuando hago algo bien”)\n\n\nlos_datos |&gt; \n  select(NHPROUD) |&gt;\n  distinct()\n\n\n\n\n\n\n\n\nTip\n\n\n\nselect(): seleccionar columnas específicas de un data frame. En este caso, se utiliza para seleccionar la columna “NHPROUD” del objeto “los_datos”.\ndistinct(): eliminar filas duplicadas de un data frame. En este caso, se utiliza para eliminar filas duplicadas de la columna “NHPROUD” del objeto “los_datos”."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#select-1",
+    "href": "slides/2-procesamiento.html#select-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "select()",
+    "text": "select()\nSeleccionar las variables GENDER, AWRMAR, AWRALC, AWRCIG\n\nGENDER: Sexo\n\n“Qué tan mal ven la mayoría de los adultos de tu barrio (aquellos más cercanos a ti) el que los jóvenes de tu edad…”\n\nAWRMAR = fumen marihuana\nAWRALC = Consuman alcohol\nAWRCIG = fumen cigarrillo\n\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG)"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#mutate",
+    "href": "slides/2-procesamiento.html#mutate",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\nEsta función crea una nueva variable -añade una nueva columna a la base de datos- o tranforma una variable que esté presente en la base de datos.\nPor ejemplo, si quiero transformar las tres variables del ejemplo anterior para asignar un puntaje de las percepciones de los estudiantes sobre las creencias de los adultos…\n¿Qué debo hacer?\n\nTransformar el valor que hay en la base por los valores: 1, 2, 3 y 4.\nCrear una nueva variable que calcule la media de los puntajes."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#mutate-1",
+    "href": "slides/2-procesamiento.html#mutate-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\nLas funciones en R son sus mejores amigas y pueden hacer mucho por usted. En este caso, la función transformar_respuesta toma un argumento x y devuelve un valor numérico en función de la comparación de x con los valores de mi diccionario.\n\n\ntransformar_respuesta &lt;- function(x) {\n  case_when(\n    x == \"Muy mal\" ~ 1,\n    x == \"Mal\" ~ 2,\n    x == \"Notan mal\" ~ 3,\n    x == \"Para nada mal\" ~ 4,\n    TRUE ~ NA_real_\n  )\n}"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#mutate-2",
+    "href": "slides/2-procesamiento.html#mutate-2",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "mutate()",
+    "text": "mutate()\nCalcular el promedio de las tres variables\n\nlos_datos |&gt; \n  select(AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(across(everything(), transformar_respuesta)) |&gt; \n  mutate(TOTAL = (AWRMAR + AWRALC + AWRCIG)/3)\n\n\n\n\n\n\n\n\nTip\n\n\n\ncase_when(): realizar una serie de comparaciones y asignar valores en función de las comparaciones. En este caso, se utiliza para asignar un valor numérico a la columna “AWRMAR” del objeto “los_datos” en función de los valores del diccionario.\nacross(): aplicar una función a varias columnas de un data frame. En este caso, se utiliza para aplicar la función transformar_respuesta() a todas las columnas del objeto “los_datos”.\neverything(): seleccionar todas las columnas de un data frame o tibble. En este caso, se utiliza para aplicar la función transformar_respuesta() a todas las columnas del objeto “los_datos”."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#filter",
+    "href": "slides/2-procesamiento.html#filter",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "filter()",
+    "text": "filter()\nPermite seleccionar filas de la base de datos según una condición.\nVoy a utilizar un filtro para seleccionar solamente las filas en las que los adultos respondieron “No tan mal” cuando preguntaron por sus actitudes frente al consumo de marihuana (AWRMAR).\n\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  filter(AWRMAR == \"No tan mal\")\n\n\nCon este filtro puedo ver que en los primeros 10 casos, cuando un adulto seleccionó que no está tan mal fumar marihuana, sus respuestas sobre el consumo de alcohol y cigarrillo parecen seguir un patrón similar."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#filter-1",
+    "href": "slides/2-procesamiento.html#filter-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "filter()",
+    "text": "filter()\nAhora, miremos qué pasa si filtro por la opción “Muy mal”\n\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  filter(AWRMAR == \"Muy mal\")\n\n\nComo en el ejemplo anterior, se observa que el patrón de respuestas es más o menos consistente.\n\n\n\n\n\n\nTip\n\n\n\nfilter(): seleccionar filas específicas de un data frame en función de una o varias condiciones. En este caso, se utiliza para seleccionar las filas del objeto “los_datos” en las que la columna “AWRMAR” es igual a “No tan mal”."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#summarize",
+    "href": "slides/2-procesamiento.html#summarize",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "summarize()",
+    "text": "summarize()\nEsta función permiten obtener medidas de resumen de la base de datos, como por ejemplo, la media, moda, frecuencias, desviación estándar, etc.\n\n\n# Para marihuana\n\nlos_datos |&gt; \n  select(GENDER, AWRMAR, AWRALC, AWRCIG) |&gt; \n  mutate(across(starts_with(\"A\"),transformar_respuesta)) |&gt; \n  summarise(mean_AWRMAR = mean(AWRMAR, na.rm = TRUE),\n            sd_AWRMAR = sd(AWRMAR, na.rm = TRUE), \n            max_AWRMAR = max(AWRMAR, na.rm = TRUE), \n            min_AWRMAR = min(AWRMAR, na.rm = TRUE))\n\n\n\n\n\n\n\n\nTip\n\n\n\nsummarise(): calcular medidas de resumen de un data frame. En este caso, se utiliza para obtener la media, la desviación estándar, el valor máximo y el valor mínimo de la columna “AWRMAR” del objeto “los_datos”.\nstarts_with(): seleccionar columnas que comienzan con un determinado prefijo. En este caso, se utiliza para seleccionar las columnas que comienzan con “A” del objeto “los_datos”."
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#explorar-los-datos-1",
+    "href": "slides/2-procesamiento.html#explorar-los-datos-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Explorar los datos 1",
+    "text": "Explorar los datos 1\n\nCrear un subset con las variables de interés\n\n\nfactores_de_riesgo &lt;- c(\"CRPAD\", \"CRLNFD\", \"FRPFD\", \"FRPFM\", \"SRLCS\", \"PRFAD\", \"PRATA\", \"PRFUD\", \"PRIAP\", \"FPOPI\", \"FPRPI\", \"SPRPI\")\ndemograficas &lt;- c(\"YEAR\", \"GRADE\", \"GENDER\", \"AGE\")\nconsumo_alcohol &lt;- c(\"PYALC\")\n\n\nObservar las variables de interés\n\n\nlos_datos  |&gt; \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol))  |&gt; \n  glimpse()"
+  },
+  {
+    "objectID": "slides/2-procesamiento.html#explorar-los-datos-1-1",
+    "href": "slides/2-procesamiento.html#explorar-los-datos-1-1",
+    "title": "2. Procesamiento de datos con tidyverse",
+    "section": "Explorar los datos 1",
+    "text": "Explorar los datos 1\n\nGuardo las variables de interés en un nuevo objeto\n\n\nmini_datos &lt;- los_datos %&gt;% \n  select(all_of(factores_de_riesgo), \n         all_of(demograficas), \n         all_of(consumo_alcohol)) \n\n\nDoy una mirada más general de los datos\n\n\nmini_datos |&gt; \n  skimr::skim()\n\n\n\n\nMachine Learning"
+  },
+  {
+    "objectID": "slides/4-arboles.html#agenda",
+    "href": "slides/4-arboles.html#agenda",
+    "title": "4. Árboles de decisión",
+    "section": "Agenda",
+    "text": "Agenda\n\n¿Qué es un árbol de decisión?\n¿Cómo se construye un árbol de decisión?\n¿Cómo se evalúa un árbol de decisión?\n¿Cómo se elige un árbol de decisión?"
+  },
+  {
+    "objectID": "slides/4-arboles.html#árboles-de-decisión",
+    "href": "slides/4-arboles.html#árboles-de-decisión",
+    "title": "4. Árboles de decisión",
+    "section": "Árboles de decisión",
+    "text": "Árboles de decisión\nLos árboles de decisión son estructuras parecidas a los diagramas de flujo que utilizan nodos y ramas. Los caminos en el árbol separan los datos de tal manera que se pueda llegar a una separación precisa de un conjunto de datos.\nLos árboles de decisión son útiles porque proporcionan una forma fácil de visualizar y entender cómo se toman las decisiones en un modelo.\n\nNodos: grupo de observaciones que comparten una característica.\nRamas: separación de los nodos.\nHojas: resultado final de la separación."
+  },
+  {
+    "objectID": "slides/4-arboles.html#árboles-de-decisión-1",
+    "href": "slides/4-arboles.html#árboles-de-decisión-1",
+    "title": "4. Árboles de decisión",
+    "section": "Árboles de decisión",
+    "text": "Árboles de decisión"
+  },
+  {
+    "objectID": "slides/4-arboles.html#qué-es-un-buen-árbol-de-decisión",
+    "href": "slides/4-arboles.html#qué-es-un-buen-árbol-de-decisión",
+    "title": "4. Árboles de decisión",
+    "section": "¿Qué es un buen árbol de decisión?",
+    "text": "¿Qué es un buen árbol de decisión?\nEfectivamente separa las observaciones en grupos homogéneos."
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\n\n\n\nColor\nTamaño (m)\nAnimal\n\n\n\n\nGris oscuro\n5\nTiburón\n\n\nGris oscuro\n6\nTiburón\n\n\nGris claro\n7\nBallena\n\n\nGris oscuro\n15\nTiburón\n\n\nAzul\n20\nBallena\n\n\nGris claro\n25\nBallena"
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-1",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-1",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\nHay que identificar la variable que mejor separa las ballenas de los tiburones. Comencemos con el color."
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-2",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-2",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\nSi la variable es continua, se pueden tratar todos los valores posibles como puntos de corte."
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-3",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-3",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\nAhora, que tenemos todas las posibles separaciones, ¿cómo elegimos la mejor?\nNecessitamos una métrica para evaluar la calidad de la separación.\n\nEntropía\nGanancia de información\nPureza de Gini\nlog loss\n\nPureza de Gini es una medida para evaluar qué tan mezclados están los datos (pureza). Toma valores desde 0 (perfectamente separados) a 0.5 (completamente revueltos).\nhttps://mlu-explain.github.io/decision-tree/"
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-4",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-4",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\nCrear la base de datos.\n\nanimales_marinos &lt;- tibble(\n  Color = c(\"Gris oscuro\", \"Gris oscuro\", \"Gris claro\", \"Gris oscuro\", \"Azul\", \"Gris claro\"),\n  Tamano = c(5, 6, 7, 15, 20, 25),\n  Animal = factor(c(\"Tiburón\", \"Tiburón\", \"Ballena\", \"Tiburón\", \"Ballena\", \"Ballena\"))\n)\n\nEspecificar el modelo.\n\ntree_spec &lt;- \n  decision_tree(cost_complexity=0, \n  min_n=0) |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")"
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-5",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-5",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\nEstimar el modelo.\n\ntree_results &lt;- tree_spec |&gt;\n    fit(Animal ~ ., data = animales_marinos)\n\nVisualizar los resultados.\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-6",
+    "href": "slides/4-arboles.html#cómo-se-construye-un-árbol-de-decisión-6",
+    "title": "4. Árboles de decisión",
+    "section": "¿Cómo se construye un árbol de decisión?",
+    "text": "¿Cómo se construye un árbol de decisión?\n\ntree_results &lt;- tree_spec |&gt;\n    fit(Animal ~ Tamano, data = animales_marinos)\n\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#arbusto",
+    "href": "slides/4-arboles.html#arbusto",
+    "title": "4. Árboles de decisión",
+    "section": "Arbusto",
+    "text": "Arbusto\nCrear un árbol de decisión con algunos predictores.\nSeleccionar los predictores.\n\nlos_datos &lt;- DataWorkshopKL::base_NR\n\nmi_primer_arbol &lt;- los_datos |&gt; \n  select(\"PYALC\", \"GETALC\", \"GENDER\", \"GRADE\") \n\nEspecificar el modelo.\n\ntree_spec &lt;- \n  decision_tree() |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"rpart\")"
+  },
+  {
+    "objectID": "slides/4-arboles.html#estimar-el-modelo",
+    "href": "slides/4-arboles.html#estimar-el-modelo",
+    "title": "4. Árboles de decisión",
+    "section": "Estimar el modelo",
+    "text": "Estimar el modelo\nEstimar el modelo\n\ntree_results &lt;- tree_spec |&gt;\n    fit(PYALC ~ ., data = mi_primer_arbol)\n\nVisualizar el árbol.\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#árboles-de-clasificación-y-regresión-cart",
+    "href": "slides/4-arboles.html#árboles-de-clasificación-y-regresión-cart",
+    "title": "4. Árboles de decisión",
+    "section": "Árboles de clasificación y regresión (CART)",
+    "text": "Árboles de clasificación y regresión (CART)\nAhora, utilicemos todos los datos de la base de entrenamiento.\n\ntree_results &lt;- tree_spec |&gt;\n  fit(PYALC ~ ., data = datos_entrenamiento)\n\nCalcular las métricas de desempeño del modelo.\n\npredict(tree_results, predecir_estos_valores)\n\nentrenamiento &lt;- datos_entrenamiento %&gt;%\n  select(-PYALC)\n\nprediccion_tree &lt;- predict(tree_results, entrenamiento)\n\nresultados_prueba_tree &lt;- cbind(prediccion_tree, datos_entrenamiento) |&gt;\nselect(PYALC, .pred_class) |&gt;\n  tibble()"
+  },
+  {
+    "objectID": "slides/4-arboles.html#calcular-las-métrcias",
+    "href": "slides/4-arboles.html#calcular-las-métrcias",
+    "title": "4. Árboles de decisión",
+    "section": "Calcular las métrcias",
+    "text": "Calcular las métrcias\nCalcular las metricas que nos interesan.\n\ntree_metrics &lt;- custom_metrics(resultados_prueba_tree,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt;\n  mutate(model = \"Árbol\")\n\nPoner las métricas en un formato más fácil de comparar.\n\nrbind(tree_metrics, lm_metrics) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#qué-es-un-hiperparámetro",
+    "href": "slides/4-arboles.html#qué-es-un-hiperparámetro",
+    "title": "4. Árboles de decisión",
+    "section": "¿Qué es un hiperparámetro?",
+    "text": "¿Qué es un hiperparámetro?\nLos hiperparámetros son valores para los modelos que se pueden ajustar y que permiten controlar el proceso de entrenamiento de un modelo.\nEl proceso de selección de los hiperparámetros se llama ajuste de hiperparámetros (tunning) y se puede hacer de forma manual o automática.\nPor ahora, vamos a hacerlo de forma manual.\n\ntree_spec &lt;- \n  decision_tree(min_n = 3, cost_complexity = 0.001) |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"rpart\")\n\nEstimar el modelo.\n\ntree_h_results &lt;- tree_spec |&gt;\n    fit(PYALC ~ ., data = datos_entrenamiento)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#calcular-las-métricas",
+    "href": "slides/4-arboles.html#calcular-las-métricas",
+    "title": "4. Árboles de decisión",
+    "section": "Calcular las métricas",
+    "text": "Calcular las métricas\nCalcular las métricas que nos interesan.\n\ntree_h_predicciones &lt;- predict(tree_h_results, entrenamiento)\n\nresultados_tree_h &lt;- cbind(tree_h_predicciones, datos_entrenamiento) |&gt;\n  tibble()\n\ntree_h_metrics &lt;- custom_metrics(\n  resultados_tree_h,\n  truth = PYALC,\n  estimate = .pred_class\n) |&gt;\n  mutate(model = \"Árbol hiperparámetros\")\n\nTabla de métricas\n\nrbind(lm_metrics, tree_metrics, tree_h_metrics) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)"
+  },
+  {
+    "objectID": "slides/4-arboles.html#por-qué-es-malo",
+    "href": "slides/4-arboles.html#por-qué-es-malo",
+    "title": "4. Árboles de decisión",
+    "section": "¿Por qué es malo?",
+    "text": "¿Por qué es malo?\nEl objetivo es encontrar un modelo que no solo sea buena en los datos de prueba, sino que también sea bueno en datos futuros. Si solo evaluamos el modelo en los datos de prueba, no sabemos si el modelo es bueno en datos futuros.\n\ndatos_prueba_out &lt;- \n  datos_prueba |&gt; \n    select(PYALC) \n\nlm_predicciones &lt;- cbind(predict(lm_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"lm\")\n\ntree_predicciones &lt;- cbind(predict(tree_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"Árbol\")\n\ntree_h_predicciones &lt;- cbind(predict(tree_h_results, datos_prueba), datos_prueba_out) |&gt;  mutate(model=\"Árbol hiperparámetros\")"
+  },
+  {
+    "objectID": "slides/4-arboles.html#desempeño-de-los-modelos",
+    "href": "slides/4-arboles.html#desempeño-de-los-modelos",
+    "title": "4. Árboles de decisión",
+    "section": "Desempeño de los modelos",
+    "text": "Desempeño de los modelos\n\nall_models &lt;- \nrbind(lm_predicciones, tree_predicciones, tree_h_predicciones) \n\nall_models\n\nTabla con todos los modelos\n\nall_models_prueba &lt;- all_models |&gt; \n  group_split(model) %&gt;%\n   setNames(unique(all_models$model)) %&gt;%\n  map_dfr(., ~custom_metrics(.x,\n               truth = PYALC,\n               estimate = .pred_class), .id = \"names\")\n\nall_models_prueba |&gt; \n  pivot_wider(names_from = names, values_from = .estimate)"
   },
   {
     "objectID": "archive/2023-03-Uniandes/1-introduccion.html#temas",
@@ -879,21 +1453,21 @@
     "href": "archive/2023-10-Unal/crear-tablas.html#select",
     "title": "Crear tablas en R",
     "section": "select()",
-    "text": "select()\nEsta función permite seleccionar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n\n\nSITUACIONES\nCODIGOS\nRESPUESTA\n\n\n\n\nDaño ambiental\nTransgresión\n0\n\n\nDaño ambiental\nDesconfianza institucional\n0\n\n\nDaño ambiental\nRecursos básicos, necesidades y oportunidades\n0\n\n\nDaño ambiental\nObjetivos personales y conveniencia\n0\n\n\nDaño ambiental\nCreencias y prácticas culturales\n0\n\n\nDaño ambiental\nJustificaciones morales\n0\n\n\nDaño ambiental\nReferencia a la experiencia\n0\n\n\nDaño ambiental\nAutoridad, reglas y consecuencias\n0\n\n\nDaño ambiental\nPrudencial\n0\n\n\nDaño ambiental\nOtros\n1"
+    "text": "select()\nEsta función permite seleccionar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Daño ambiental\nTransgresión\n0\n    Daño ambiental\nDesconfianza institucional\n0\n    Daño ambiental\nRecursos básicos, necesidades y oportunidades\n0\n    Daño ambiental\nObjetivos personales y conveniencia\n0\n    Daño ambiental\nCreencias y prácticas culturales\n0\n    Daño ambiental\nJustificaciones morales\n0\n    Daño ambiental\nReferencia a la experiencia\n0\n    Daño ambiental\nAutoridad, reglas y consecuencias\n0\n    Daño ambiental\nPrudencial\n0\n    Daño ambiental\nOtros\n1"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#filter",
     "href": "archive/2023-10-Unal/crear-tablas.html#filter",
     "title": "Crear tablas en R",
     "section": "filter()",
-    "text": "filter()\nEsta función permite filtrar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nfilter(SITUACIONES == \"Linchamiento\")  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n\n\nSITUACIONES\nCODIGOS\nRESPUESTA\n\n\n\n\nLinchamiento\nTransgresión\n1\n\n\nLinchamiento\nDesconfianza institucional\n0\n\n\nLinchamiento\nRecursos básicos, necesidades y oportunidades\n0\n\n\nLinchamiento\nObjetivos personales y conveniencia\n0\n\n\nLinchamiento\nCreencias y prácticas culturales\n1\n\n\nLinchamiento\nJustificaciones morales\n0\n\n\nLinchamiento\nReferencia a la experiencia\n0\n\n\nLinchamiento\nAutoridad, reglas y consecuencias\n0\n\n\nLinchamiento\nPrudencial\n0\n\n\nLinchamiento\nOtros\n0"
+    "text": "filter()\nEsta función permite filtrar columnas.\n\ndatos_ley_moral  |&gt; \nselect(SITUACIONES, CODIGOS, RESPUESTA)  |&gt; \nfilter(SITUACIONES == \"Linchamiento\")  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      SITUACIONES\n      CODIGOS\n      RESPUESTA\n    \n  \n  \n    Linchamiento\nTransgresión\n1\n    Linchamiento\nDesconfianza institucional\n0\n    Linchamiento\nRecursos básicos, necesidades y oportunidades\n0\n    Linchamiento\nObjetivos personales y conveniencia\n0\n    Linchamiento\nCreencias y prácticas culturales\n1\n    Linchamiento\nJustificaciones morales\n0\n    Linchamiento\nReferencia a la experiencia\n0\n    Linchamiento\nAutoridad, reglas y consecuencias\n0\n    Linchamiento\nPrudencial\n0\n    Linchamiento\nOtros\n0"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#mutate",
     "href": "archive/2023-10-Unal/crear-tablas.html#mutate",
     "title": "Crear tablas en R",
     "section": "mutate()",
-    "text": "mutate()\nEsta función permite crear o modificar columnas\n\ndatos_ley_moral  |&gt; \nmutate(Edad_años = paste0(EDAD, \" años\"))  |&gt; \nselect(ID, Edad_años) |&gt; \nunique()  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n\n\nID\nEdad_años\n\n\n\n\n2\n17 años\n\n\n3\n22 años\n\n\n5\n52 años\n\n\n7\n30 años\n\n\n8\n40 años\n\n\n10\n30 años\n\n\n11\n16 años\n\n\n13\n17 años\n\n\n14\n15 años\n\n\n15\n44 años"
+    "text": "mutate()\nEsta función permite crear o modificar columnas\n\ndatos_ley_moral  |&gt; \nmutate(Edad_años = paste0(EDAD, \" años\"))  |&gt; \nselect(ID, Edad_años) |&gt; \nunique()  |&gt; \nhead(10)  |&gt; \ngt()\n\n\n\n\n\n  \n    \n    \n      ID\n      Edad_años\n    \n  \n  \n    2\n17 años\n    3\n22 años\n    5\n52 años\n    7\n30 años\n    8\n40 años\n    10\n30 años\n    11\n16 años\n    13\n17 años\n    14\n15 años\n    15\n44 años"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary",
@@ -907,35 +1481,35 @@
     "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-1",
     "title": "Crear tablas en R",
     "section": "tbl_summary()",
-    "text": "tbl_summary()\n\nCalcular la frecuencia y el porcentajes de participantes hombres y mujeres.\n\ndatos_ley_moral  |&gt; \nselect(ID, SEXO)  |&gt; \nunique()  |&gt; \ntbl_summary(include=-ID)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 531\n\n\n\n\nSEXO\n\n\n\n\n    H\n35 (66%)\n\n\n    M\n18 (34%)\n\n\n\n1 n (%)"
+    "text": "tbl_summary()\n\nCalcular la frecuencia y el porcentajes de participantes hombres y mujeres.\n\ndatos_ley_moral  |&gt; \nselect(ID, SEXO)  |&gt; \nunique()  |&gt; \ntbl_summary(include=-ID)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 531\n    \n  \n  \n    SEXO\n\n        H\n35 (66%)\n        M\n18 (34%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-2",
     "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-2",
     "title": "Crear tablas en R",
     "section": "tbl_summary()",
-    "text": "tbl_summary()\nCalcular medidas de tendencia y dispersión\n\n\n\ndatos_ley_moral  |&gt; \nselect(ID, EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(include=EDAD)\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 231\n\n\n\n\nEDAD\n29 (23, 45)\n\n\n\n1 Median (IQR)"
+    "text": "tbl_summary()\nCalcular medidas de tendencia y dispersión\n\n\n\ndatos_ley_moral  |&gt; \nselect(ID, EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(include=EDAD)\n\n\n\n\n\n\n\n\n  \n    \n    \n      Characteristic\n      N = 231\n    \n  \n  \n    EDAD\n29 (23, 45)\n  \n  \n  \n    \n      1 Median (IQR)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-3",
     "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-3",
     "title": "Crear tablas en R",
     "section": "tbl_summary()",
-    "text": "tbl_summary()\nElegir los estadísticos que se muestran en la tabla o el idioma.\n\n\n\ntheme_gtsummary_language(language = \"es\")\n\ndatos_ley_moral  |&gt; \nselect(EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(\nstatistic = EDAD ~ \"{mean} ({sd})\")\n\n\n\n\n\n\n\n\n\n\nCaracterística\nN = 231\n\n\n\n\nEDAD\n33 (13)\n\n\n\n1 Media (DE)"
+    "text": "tbl_summary()\nElegir los estadísticos que se muestran en la tabla o el idioma.\n\n\n\ntheme_gtsummary_language(language = \"es\")\n\ndatos_ley_moral  |&gt; \nselect(EDAD)  |&gt; \nunique()  |&gt; \ntbl_summary(\nstatistic = EDAD ~ \"{mean} ({sd})\")\n\n\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 231\n    \n  \n  \n    EDAD\n33 (13)\n  \n  \n  \n    \n      1 Media (DE)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-4",
     "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-4",
     "title": "Crear tablas en R",
     "section": "tbl_summary()",
-    "text": "tbl_summary()\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(include=-c(ID, SITUACIONES, SEXO, EDAD))  \n\n\n\n\n\n\n\nCaracterística\nN = 1591\n\n\n\n\nDesconfianza institucional\n17 (11%)\n\n\nRecursos básicos, necesidades y oportunidades\n23 (14%)\n\n\nObjetivos personales y conveniencia\n49 (31%)\n\n\nCreencias y prácticas culturales\n50 (31%)\n\n\nJustificaciones morales\n25 (16%)\n\n\nReferencia a la experiencia\n6 (3.8%)\n\n\nAutoridad, reglas y consecuencias\n13 (8.2%)\n\n\nPrudencial\n2 (1.3%)\n\n\nOtros\n7 (4.4%)\n\n\n\n1 n (%)\n\n\n\n\n\n\n\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \nselect(-c(ID, SITUACIONES, SEXO, EDAD)) |&gt; \ntbl_summary()   |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )\n\n\n\n\n\n\n\nCaracterística\nN = 1591\n\n\n\n\nCreencias y prácticas culturales\n50 (31%)\n\n\nObjetivos personales y conveniencia\n49 (31%)\n\n\nJustificaciones morales\n25 (16%)\n\n\nRecursos básicos, necesidades y oportunidades\n23 (14%)\n\n\nDesconfianza institucional\n17 (11%)\n\n\nAutoridad, reglas y consecuencias\n13 (8.2%)\n\n\nOtros\n7 (4.4%)\n\n\nReferencia a la experiencia\n6 (3.8%)\n\n\nPrudencial\n2 (1.3%)\n\n\n\n1 n (%)"
+    "text": "tbl_summary()\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(include=-c(ID, SITUACIONES, SEXO, EDAD))  \n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Desconfianza institucional\n17 (11%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Creencias y prácticas culturales\n50 (31%)\n    Justificaciones morales\n25 (16%)\n    Referencia a la experiencia\n6 (3.8%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Prudencial\n2 (1.3%)\n    Otros\n7 (4.4%)\n  \n  \n  \n    \n      1 n (%)\n    \n  \n\n\n\n\n\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \nselect(-c(ID, SITUACIONES, SEXO, EDAD)) |&gt; \ntbl_summary()   |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )\n\n\n\n\n\n  \n    \n    \n      Característica\n      N = 1591\n    \n  \n  \n    Creencias y prácticas culturales\n50 (31%)\n    Objetivos personales y conveniencia\n49 (31%)\n    Justificaciones morales\n25 (16%)\n    Recursos básicos, necesidades y oportunidades\n23 (14%)\n    Desconfianza institucional\n17 (11%)\n    Autoridad, reglas y consecuencias\n13 (8.2%)\n    Otros\n7 (4.4%)\n    Referencia a la experiencia\n6 (3.8%)\n    Prudencial\n2 (1.3%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-5",
     "href": "archive/2023-10-Unal/crear-tablas.html#tbl_summary-5",
     "title": "Crear tablas en R",
     "section": "tbl_summary()",
-    "text": "tbl_summary()\nLa opción by permite crear tablas por grupos.\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(by=SITUACIONES,\ninclude=-c(ID, SEXO, EDAD))  |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  \n\n\n\n\n\n\n\nCaracterística\nDaño ambiental, N = 531\nLinchamiento, N = 531\nNarcotráfico, N = 531\n\n\n\n\nObjetivos personales y conveniencia\n24 (45%)\n1 (1.9%)\n24 (45%)\n\n\nAutoridad, reglas y consecuencias\n12 (23%)\n0 (0%)\n1 (1.9%)\n\n\nJustificaciones morales\n7 (13%)\n16 (30%)\n2 (3.8%)\n\n\nCreencias y prácticas culturales\n6 (11%)\n30 (57%)\n14 (26%)\n\n\nReferencia a la experiencia\n4 (7.5%)\n1 (1.9%)\n1 (1.9%)\n\n\nOtros\n4 (7.5%)\n2 (3.8%)\n1 (1.9%)\n\n\nDesconfianza institucional\n0 (0%)\n17 (32%)\n0 (0%)\n\n\nRecursos básicos, necesidades y oportunidades\n0 (0%)\n0 (0%)\n23 (43%)\n\n\nPrudencial\n0 (0%)\n0 (0%)\n2 (3.8%)\n\n\n\n1 n (%)"
+    "text": "tbl_summary()\nLa opción by permite crear tablas por grupos.\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los desenlaces\")  |&gt; \ntbl_summary(by=SITUACIONES,\ninclude=-c(ID, SEXO, EDAD))  |&gt; \nmodify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_1)))\n  )  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Objetivos personales y conveniencia\n24 (45%)\n1 (1.9%)\n24 (45%)\n    Autoridad, reglas y consecuencias\n12 (23%)\n0 (0%)\n1 (1.9%)\n    Justificaciones morales\n7 (13%)\n16 (30%)\n2 (3.8%)\n    Creencias y prácticas culturales\n6 (11%)\n30 (57%)\n14 (26%)\n    Referencia a la experiencia\n4 (7.5%)\n1 (1.9%)\n1 (1.9%)\n    Otros\n4 (7.5%)\n2 (3.8%)\n1 (1.9%)\n    Desconfianza institucional\n0 (0%)\n17 (32%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n0 (0%)\n23 (43%)\n    Prudencial\n0 (0%)\n0 (0%)\n2 (3.8%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla",
@@ -949,35 +1523,35 @@
     "href": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-1",
     "title": "Crear tablas en R",
     "section": "Añadir detalles a las tabla",
-    "text": "Añadir detalles a las tabla\n\n\n\n\n\n\n\n\nJustificación de los juicios\nDaño ambiental, N = 531\nLinchamiento, N = 531\nNarcotráfico, N = 531\n\n\n\n\nJustificaciones morales\n51 (96%)\n33 (62%)\n16 (30%)\n\n\nAutoridad, reglas y consecuencias\n2 (3.8%)\n22 (42%)\n23 (43%)\n\n\nPrudencial\n2 (3.8%)\n0 (0%)\n23 (43%)\n\n\nOtros\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n\n\nRecursos básicos, necesidades y oportunidades\n0 (0%)\n2 (3.8%)\n9 (17%)\n\n\nObjetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n\n\nCreencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n\n\nDesconfianza institucional\n0 (0%)\n12 (23%)\n0 (0%)\n\n\n\n1 n (%)"
+    "text": "Añadir detalles a las tabla\n\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Otros\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Recursos básicos, necesidades y oportunidades\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n    Desconfianza institucional\n0 (0%)\n12 (23%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-2",
     "href": "archive/2023-10-Unal/crear-tablas.html#añadir-detalles-a-las-tabla-2",
     "title": "Crear tablas en R",
     "section": "Añadir detalles a las tabla",
-    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )  \n\n\n\n\n\n\n\nJustificación de los juicios\nGlobal, N = 1591\nDaño ambiental, N = 531\nLinchamiento, N = 531\nNarcotráfico, N = 531\n\n\n\n\nJustificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n\n\nAutoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n\n\nPrudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n\n\nDesconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n\n\nRecursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n\n\nOtros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n\n\nObjetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n\nCreencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n\n\n1 n (%)"
+    "text": "Añadir detalles a las tabla\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )  \n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#add_p-value",
     "href": "archive/2023-10-Unal/crear-tablas.html#add_p-value",
     "title": "Crear tablas en R",
     "section": "Add_p value",
-    "text": "Add_p value\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )   |&gt; \n    add_p()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJustificación de los juicios\nGlobal, N = 1591\nDaño ambiental, N = 531\nLinchamiento, N = 531\nNarcotráfico, N = 531\np-valor2\n\n\n\n\nJustificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n&lt;0.001\n\n\nAutoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n&lt;0.001\n\n\nPrudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n&lt;0.001\n\n\nDesconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n&lt;0.001\n\n\nRecursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n0.001\n\n\nOtros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n0.2\n\n\nObjetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n\n\n\nCreencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n\n\n\n\n1 n (%)\n\n\n2 prueba chi cuadrado de independencia; test exacto de Fisher"
+    "text": "Add_p value\n\ndatos_ley_moral  |&gt;\ndatos_organizados(\"Justificación de los juicios\")  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD))   |&gt; \n     add_overall()  |&gt; \n     modify_table_body(\n    fun = ~ dplyr::arrange(.x, desc(readr::parse_number(stat_0)))\n  )  |&gt;\n    modify_header(\n        label= \"**Justificación de los juicios**\"\n    )   |&gt; \n    add_p()\n\n\n\n\n\n  \n    \n    \n      Justificación de los juicios\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Justificaciones morales\n100 (63%)\n51 (96%)\n33 (62%)\n16 (30%)\n&lt;0.001\n    Autoridad, reglas y consecuencias\n47 (30%)\n2 (3.8%)\n22 (42%)\n23 (43%)\n&lt;0.001\n    Prudencial\n25 (16%)\n2 (3.8%)\n0 (0%)\n23 (43%)\n&lt;0.001\n    Desconfianza institucional\n12 (7.5%)\n0 (0%)\n12 (23%)\n0 (0%)\n&lt;0.001\n    Recursos básicos, necesidades y oportunidades\n11 (6.9%)\n0 (0%)\n2 (3.8%)\n9 (17%)\n0.001\n    Otros\n6 (3.8%)\n2 (3.8%)\n0 (0%)\n4 (7.5%)\n0.2\n    Objetivos personales y conveniencia\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n    Creencias y prácticas culturales\n0 (0%)\n0 (0%)\n0 (0%)\n0 (0%)\n\n  \n  \n  \n    \n      1 n (%)\n    \n    \n      2 prueba chi cuadrado de independencia; test exacto de Fisher"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo",
     "href": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo",
     "title": "Crear tablas en R",
     "section": "Escalas gravedad y castigo",
-    "text": "Escalas gravedad y castigo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaracterística\nGlobal, N = 1591\nDaño ambiental, N = 531\nLinchamiento, N = 531\nNarcotráfico, N = 531\n\n\n\n\nEscala de gravedad\n\n\n\n\n\n\n\n\n\n\n    1\n5 (3.1%)\n0 (0%)\n4 (7.5%)\n1 (1.9%)\n\n\n    2\n6 (3.8%)\n0 (0%)\n4 (7.5%)\n2 (3.8%)\n\n\n    3\n20 (13%)\n1 (1.9%)\n9 (17%)\n10 (19%)\n\n\n    4\n29 (18%)\n5 (9.4%)\n11 (21%)\n13 (25%)\n\n\n    5\n99 (62%)\n47 (89%)\n25 (47%)\n27 (51%)\n\n\nEscala de castigo\n\n\n\n\n\n\n\n\n\n\n    1\n11 (6.9%)\n0 (0%)\n7 (13%)\n4 (7.5%)\n\n\n    2\n10 (6.3%)\n0 (0%)\n7 (13%)\n3 (5.7%)\n\n\n    3\n46 (29%)\n3 (5.7%)\n15 (28%)\n28 (53%)\n\n\n    4\n38 (24%)\n16 (30%)\n14 (26%)\n8 (15%)\n\n\n    5\n54 (34%)\n34 (64%)\n10 (19%)\n10 (19%)\n\n\n\n1 n (%)"
+    "text": "Escalas gravedad y castigo\n\n\n\n\n\n\n  \n    \n    \n      Característica\n      Global, N = 1591\n      Daño ambiental, N = 531\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n    \n  \n  \n    Escala de gravedad\n\n\n\n\n        1\n5 (3.1%)\n0 (0%)\n4 (7.5%)\n1 (1.9%)\n        2\n6 (3.8%)\n0 (0%)\n4 (7.5%)\n2 (3.8%)\n        3\n20 (13%)\n1 (1.9%)\n9 (17%)\n10 (19%)\n        4\n29 (18%)\n5 (9.4%)\n11 (21%)\n13 (25%)\n        5\n99 (62%)\n47 (89%)\n25 (47%)\n27 (51%)\n    Escala de castigo\n\n\n\n\n        1\n11 (6.9%)\n0 (0%)\n7 (13%)\n4 (7.5%)\n        2\n10 (6.3%)\n0 (0%)\n7 (13%)\n3 (5.7%)\n        3\n46 (29%)\n3 (5.7%)\n15 (28%)\n28 (53%)\n        4\n38 (24%)\n16 (30%)\n14 (26%)\n8 (15%)\n        5\n54 (34%)\n34 (64%)\n10 (19%)\n10 (19%)\n  \n  \n  \n    \n      1 n (%)"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo-1",
     "href": "archive/2023-10-Unal/crear-tablas.html#escalas-gravedad-y-castigo-1",
     "title": "Crear tablas en R",
     "section": "Escalas gravedad y castigo",
-    "text": "Escalas gravedad y castigo\n\ndatos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)  \n\n\n\n\n\n\n\nCaracterística\nLinchamiento, N = 531\nNarcotráfico, N = 531\np-valor2\n\n\n\n\nEscala de gravedad\n3.92, (1.28)\n4.19, (1.00)\n0.2\n\n\nEscala de castigo\n3.25, (1.28)\n3.32, (1.09)\n0.7\n\n\n\n1 Media, (DE)\n\n\n2 Wilcoxon signed rank test with continuity correction"
+    "text": "Escalas gravedad y castigo\n\ndatos_ley_moral  |&gt; \ndatos_organizados(\"Escalas gravedad y castigo\")   |&gt; \nfilter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  |&gt; \ntbl_summary(\n    by = SITUACIONES,\n    include=-c(ID, SEXO, EDAD),\n    type= list(`Escala de gravedad` ~ \"continuous\", \n    `Escala de castigo` ~ \"continuous\"), \n    statistic = all_continuous() ~ \"{mean}, ({sd})\")   |&gt; \n    add_p(test = list(\n          all_continuous() ~ \"paired.wilcox.test\"),\n        group = ID)  \n\n\n\n\n\n  \n    \n    \n      Característica\n      Linchamiento, N = 531\n      Narcotráfico, N = 531\n      p-valor2\n    \n  \n  \n    Escala de gravedad\n3.92, (1.28)\n4.19, (1.00)\n0.2\n    Escala de castigo\n3.25, (1.28)\n3.32, (1.09)\n0.7\n  \n  \n  \n    \n      1 Media, (DE)\n    \n    \n      2 Wilcoxon signed rank test with continuity correction"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones",
@@ -991,7 +1565,7 @@
     "href": "archive/2023-10-Unal/crear-tablas.html#tablas-para-regresiones-1",
     "title": "Crear tablas en R",
     "section": "Tablas para regresiones",
-    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  |&gt; \n    tbl_regression()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaracterística\nBeta\n95% CI1\np-valor\n\n\n\n\nEDAD\n0.00\n-0.02, 0.02\n0.9\n\n\nSEXO\n\n\n\n\n\n\n\n\n    H\n—\n—\n\n\n\n\n    M\n0.16\n-0.31, 0.64\n0.5\n\n\nSITUACIONES\n\n\n\n\n\n\n\n\n    Linchamiento\n—\n—\n\n\n\n\n    Narcotráfico\n0.26\n-0.18, 0.71\n0.2\n\n\n\n1 CI = Intervalo de confianza"
+    "text": "Tablas para regresiones\n\ndatos_ley_moral  |&gt; \n    datos_organizados(\"Escalas gravedad y castigo\")   |&gt; \n    filter(SITUACIONES %in% c(\"Linchamiento\", \"Narcotráfico\"))  %&gt;% \n    lm(`Escala de gravedad` ~ EDAD + SEXO + SITUACIONES, data = .)  |&gt; \n    tbl_regression()\n\n\n\n\n\n  \n    \n    \n      Característica\n      Beta\n      95% CI1\n      p-valor\n    \n  \n  \n    EDAD\n0.00\n-0.02, 0.02\n0.9\n    SEXO\n\n\n\n        H\n—\n—\n\n        M\n0.16\n-0.31, 0.64\n0.5\n    SITUACIONES\n\n\n\n        Linchamiento\n—\n—\n\n        Narcotráfico\n0.26\n-0.18, 0.71\n0.2\n  \n  \n  \n    \n      1 CI = Intervalo de confianza"
   },
   {
     "objectID": "archive/2023-10-Unal/crear-tablas.html#exportar-a-tablas-a-word",
@@ -1083,5 +1657,138 @@
     "title": "Taller Introducción a Machine Learning en el 14° Seminario Internacional de Investigación sobre la Calidad de la Educación - SiiCE",
     "section": "Organizadores",
     "text": "Organizadores\nFrancisco Cardozo. Universidad de Miami. Eric C. Brown. Universidad de Miami."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html",
+    "href": "archive/2023-12-um/workshop_document.html",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "library(tidymodels)\nlibrary(gt)\nlibrary(dataUMworkshop)\ntidymodels_prefer()\n\n\n\nThere are many ways to estimate models in R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Load the tidymodels package into R.\ntidymodels_prefer(): Sets the tidymodels package as the preferred one for modeling functions in R.\nlm(): Fits a linear regression model to the data.\nstan_glm(): Fits a regression model using the stan package.\nglmnet(): Fits a regression model using Lasso or Ridge regularization.\n\n\n\nTidymodels provides a general syntax for estimating models\n\nSpecify the type of model\n\nlinear_reg(), logistic_reg(), decision_tree()\n\nSpecify the type of outcome\n\nRegression for continuous outcomes\nClassification: multinomial, ordinal, binary\n\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\")\n\nlinear_reg() |&gt;\n  set_engine(\"glmnet\")\n\nlinear_reg() |&gt;\n  set_engine(\"stan\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlinear_reg(): Creates a linear regression model specification in the tidymodels framework.\nset_engine(): Sets the calculation engine for a model specification object. It is set to “lm” for the first call to linear_reg(), “glmnet” for the second call, and “stan” for the third.\n\n\n\nTo estimate a model:\n\n\n\n\nlm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")\n\nSpecify a logistic regression model. Additionally, the modeling mode is set to “classification” to indicate that it is a categorical variable. The result is stored in the lm_model object.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ndata(dataUMworkshop)\n# The outcome variable is specified as a factor\nthe_data &lt;- dataUMworkshop |&gt;\n  select(-outcome_count) |&gt;\n  mutate(outcome = factor(outcome)) |&gt;\n  rename(P200 = P2)\n\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = the_data)\n\nHere the model is fitted-estimated using the fit() function. The response variable (outcome) and the predictors (.) are specified and the the_data object is used as a database.\n\n\n\n\nlm_results |&gt; tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic    p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 (Intercept)  -0.851     1.10      -0.773 0.440     \n 2 P2001        -2.08      0.546     -3.81  0.000141  \n 3 P2002         0.754     0.272      2.77  0.00553   \n 4 P2003        -1.44      0.320     -4.49  0.00000707\n 5 P2004        -0.142     0.281     -0.507 0.612     \n 6 P2005        -0.0850    0.445     -0.191 0.849     \n 7 P3           -0.0153    0.0118    -1.30  0.192     \n 8 P4            0.0137    0.0205     0.670 0.503     \n 9 P13          -0.388     0.186     -2.08  0.0374    \n10 P142         -0.209     0.382     -0.546 0.585     \n# ℹ 31 more rows\n\nlm_results |&gt;\n  glance() |&gt;\n  gt()\n\n\n\n\n\n  \n    \n    \n      null.deviance\n      df.null\n      logLik\n      AIC\n      BIC\n      deviance\n      df.residual\n      nobs\n    \n  \n  \n    1356.908\n1375\n-573.3018\n1228.604\n1442.908\n1146.604\n1335\n1376\n  \n  \n  \n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ntidy(): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and p-values for each independent variable.\nglance(): This function is used to summarize the results of a model as global model statistics, for example, adjusted R-squared, the AIC, and the BIC.\n\n\nlm_results |&gt; tidy(exp = TRUE, conf.int = TRUE)\n\ntidy(exp=TRUE, conf.int=TRUE): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and t-values. p for each independent variable. The exp and conf.int arguments are used to include confidence intervals and exponents in the results\n\n\n\n\n\n\nAccuracy: This is how often the model makes correct predictions. It’s a simple ratio of the number of correct predictions to the total number of predictions.\nSensitivity: Also known as “True Positive Rate.” It measures how well the model identifies positive outcomes. In other words, it’s the percentage of actual positives that the model correctly predicts.\nSpecificity: Also known as “True Negative Rate.” This is about how well the model identifies negative outcomes. It tells us the percentage of actual negatives that the model correctly predicts.\nPrecision: This tells us how many of the model’s positive predictions are actually correct. It’s a ratio of true positive predictions to all positive predictions (including false positives).\nRecall: This is the same as sensitivity. It’s about how many of the actual positive cases the model can correctly identify.\nF-measure: This score combines precision and recall into a single number. It helps balance the trade-off between these two metrics. A higher F-measure means better model performance.\nKappa Coefficient: Kappa is about how much better the model is than random guessing. It compares the model’s accuracy with what would be expected by chance. A higher Kappa means the model is much better than just guessing.\n\n\naugmented_results &lt;- lm_results |&gt;\n  augment(the_data)\n\naccuracy(augmented_results,\n  truth = outcome,\n  estimate = .pred_class\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Accuracy\n0.818\n  \n  \n  \n\n\n\nsens(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Sensitivity\n0.179\n  \n  \n  \n\n\n\nspec(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Specificity\n0.972\n  \n  \n  \n\n\n\nf_meas(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    F1\n0.277"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#estimating-a-model-in-r",
+    "href": "archive/2023-12-um/workshop_document.html#estimating-a-model-in-r",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "There are many ways to estimate models in R\n\nlm(formula, data, ...)\nstan_glm(formula, data, family= \"gaussian\",...)\nglmnet(x=matrix, y=vector, family=\"gaussian\",...)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(): Load the tidymodels package into R.\ntidymodels_prefer(): Sets the tidymodels package as the preferred one for modeling functions in R.\nlm(): Fits a linear regression model to the data.\nstan_glm(): Fits a regression model using the stan package.\nglmnet(): Fits a regression model using Lasso or Ridge regularization.\n\n\n\nTidymodels provides a general syntax for estimating models\n\nSpecify the type of model\n\nlinear_reg(), logistic_reg(), decision_tree()\n\nSpecify the type of outcome\n\nRegression for continuous outcomes\nClassification: multinomial, ordinal, binary\n\n\n\nlinear_reg() |&gt;\n  set_engine(\"lm\")\n\nlinear_reg() |&gt;\n  set_engine(\"glmnet\")\n\nlinear_reg() |&gt;\n  set_engine(\"stan\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlinear_reg(): Creates a linear regression model specification in the tidymodels framework.\nset_engine(): Sets the calculation engine for a model specification object. It is set to “lm” for the first call to linear_reg(), “glmnet” for the second call, and “stan” for the third.\n\n\n\nTo estimate a model:"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#specify-the-model",
+    "href": "archive/2023-12-um/workshop_document.html#specify-the-model",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "lm_model &lt;-\n  logistic_reg() %&gt;%\n  set_engine(\"glm\", family = \"binomial\") |&gt;\n  set_mode(\"classification\")\n\nSpecify a logistic regression model. Additionally, the modeling mode is set to “classification” to indicate that it is a categorical variable. The result is stored in the lm_model object."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#estimate-the-model",
+    "href": "archive/2023-12-um/workshop_document.html#estimate-the-model",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "Tip\n\n\n\n\n\n\ndata(dataUMworkshop)\n# The outcome variable is specified as a factor\nthe_data &lt;- dataUMworkshop |&gt;\n  select(-outcome_count) |&gt;\n  mutate(outcome = factor(outcome)) |&gt;\n  rename(P200 = P2)\n\n\n\n\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = the_data)\n\nHere the model is fitted-estimated using the fit() function. The response variable (outcome) and the predictors (.) are specified and the the_data object is used as a database."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#check-the-model-results",
+    "href": "archive/2023-12-um/workshop_document.html#check-the-model-results",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "lm_results |&gt; tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic    p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 (Intercept)  -0.851     1.10      -0.773 0.440     \n 2 P2001        -2.08      0.546     -3.81  0.000141  \n 3 P2002         0.754     0.272      2.77  0.00553   \n 4 P2003        -1.44      0.320     -4.49  0.00000707\n 5 P2004        -0.142     0.281     -0.507 0.612     \n 6 P2005        -0.0850    0.445     -0.191 0.849     \n 7 P3           -0.0153    0.0118    -1.30  0.192     \n 8 P4            0.0137    0.0205     0.670 0.503     \n 9 P13          -0.388     0.186     -2.08  0.0374    \n10 P142         -0.209     0.382     -0.546 0.585     \n# ℹ 31 more rows\n\nlm_results |&gt;\n  glance() |&gt;\n  gt()\n\n\n\n\n\n  \n    \n    \n      null.deviance\n      df.null\n      logLik\n      AIC\n      BIC\n      deviance\n      df.residual\n      nobs\n    \n  \n  \n    1356.908\n1375\n-573.3018\n1228.604\n1442.908\n1146.604\n1335\n1376\n  \n  \n  \n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\ntidy(): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and p-values for each independent variable.\nglance(): This function is used to summarize the results of a model as global model statistics, for example, adjusted R-squared, the AIC, and the BIC.\n\n\nlm_results |&gt; tidy(exp = TRUE, conf.int = TRUE)\n\ntidy(exp=TRUE, conf.int=TRUE): This function is used to convert the results of a model into a “tidy” data frame that displays the model coefficients, standard errors, t-values, and t-values. p for each independent variable. The exp and conf.int arguments are used to include confidence intervals and exponents in the results"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#metrics-to-evaluate-the-model",
+    "href": "archive/2023-12-um/workshop_document.html#metrics-to-evaluate-the-model",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "",
+    "text": "Accuracy: This is how often the model makes correct predictions. It’s a simple ratio of the number of correct predictions to the total number of predictions.\nSensitivity: Also known as “True Positive Rate.” It measures how well the model identifies positive outcomes. In other words, it’s the percentage of actual positives that the model correctly predicts.\nSpecificity: Also known as “True Negative Rate.” This is about how well the model identifies negative outcomes. It tells us the percentage of actual negatives that the model correctly predicts.\nPrecision: This tells us how many of the model’s positive predictions are actually correct. It’s a ratio of true positive predictions to all positive predictions (including false positives).\nRecall: This is the same as sensitivity. It’s about how many of the actual positive cases the model can correctly identify.\nF-measure: This score combines precision and recall into a single number. It helps balance the trade-off between these two metrics. A higher F-measure means better model performance.\nKappa Coefficient: Kappa is about how much better the model is than random guessing. It compares the model’s accuracy with what would be expected by chance. A higher Kappa means the model is much better than just guessing.\n\n\naugmented_results &lt;- lm_results |&gt;\n  augment(the_data)\n\naccuracy(augmented_results,\n  truth = outcome,\n  estimate = .pred_class\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Accuracy\n0.818\n  \n  \n  \n\n\n\nsens(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Sensitivity\n0.179\n  \n  \n  \n\n\n\nspec(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Specificity\n0.972\n  \n  \n  \n\n\n\nf_meas(augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    F1\n0.277"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#split-the-data",
+    "href": "archive/2023-12-um/workshop_document.html#split-the-data",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Split the data",
+    "text": "Split the data\n\nSplit the data into two sets\n\nTraining\n\nMost of the data (70%, 80%?)\nHere the model is adjusted\n\nTest\n\nA small data set\nHere the final model will be evaluated\n\n\n\nTest data is used only once, if it is used more than once it becomes part of the training process.\n\n\n\n\n\n\nWarning\n\n\n\nThe division of the data is done at the level of the independent unit of observation.\nAvoid contamination of test data (information leakage) at all costs, that is, information cannot be leaked from one database to the other.\n\n\nSo, one can create two databases with for example 80% and 20% of the data. But how do you do this in R?\n\nset.seed(193945)\n\nsplit_data &lt;- initial_split(the_data, prop = 0.8, strata = \"outcome\")\n\ntraining_data &lt;- training(split_data)\ntest_data &lt;- testing(split_data)\n\nThe strata option is so that the training and test data have the same distribution of the variable score\nSometimes random sample selection is not simple, for example when there is a time component to the data.\n\n\n\n\n\n\nTip\n\n\n\n\n\nset.seed() - Used to set a seed for random number generation in R. In this case, it is used to set the seed to 193945, ensuring that the results are reproducible. This is especially important when working with machine learning models, as results can vary depending on the seed used for random number generation.\ninitial_split(): This function is used to split a data frame into training and test sets. In this case, it is used to split the “the_data” object into training and test sets in an 80/20 ratio, and stratifying by the “outcome” column.\ntraining(): This function is used to extract the training set from an object created with the initial_split() function. In this case, it is used to extract the training set from the “split_data” object.\ntesting(): This function is used to extract the test set from an object created with the initial_split() function. In this case, it is used to extract the test set from the “split_data” object.\n\n\n\nNow, we can repeat the previous model estimation steps, but we will use the training data."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#estimate-the-model-1",
+    "href": "archive/2023-12-um/workshop_document.html#estimate-the-model-1",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "2. Estimate the model",
+    "text": "2. Estimate the model\nModel Estimation: The lm_model() and fit() function is used to fit a linear regression model. The outcome ~ . indicates that the score variable is being modeled as a function of all the other variables in the “training_data” dataframe.\n\nlm_results &lt;- lm_model |&gt;\n  fit(outcome ~ ., data = training_data)"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#model-results",
+    "href": "archive/2023-12-um/workshop_document.html#model-results",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "3. Model results",
+    "text": "3. Model results\nView model results: The tidy function is used to obtain a clean and tidy summary of the model results.\n\nlm_results |&gt;\n  tidy()\n\n# A tibble: 41 × 5\n   term        estimate std.error statistic     p.value\n   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n 1 (Intercept) -0.244      1.22      -0.199 0.842      \n 2 P2001       -1.98       0.555     -3.56  0.000368   \n 3 P2002        0.696      0.300      2.32  0.0204     \n 4 P2003       -2.02       0.390     -5.19  0.000000208\n 5 P2004       -0.189      0.308     -0.613 0.540      \n 6 P2005       -0.378      0.502     -0.752 0.452      \n 7 P3          -0.0243     0.0132    -1.84  0.0664     \n 8 P4           0.00650    0.0228     0.285 0.776      \n 9 P13         -0.257      0.210     -1.22  0.221      \n10 P142        -0.482      0.449     -1.07  0.283      \n# ℹ 31 more rows\n\n\nPredictions: The augment function is used to obtain the predictions of the model on the training data.\n\nlm_augmented_results &lt;- lm_results |&gt;\n  augment(training_data)\n\nMetrics: The custom_metrics function is used to calculate the accuracy, sensitivity, specificity, and F-measure of the model on the training data. The results are stored in the “lm_metrics” object.\n\ncustom_metrics &lt;- metric_set(accuracy, sens, spec, f_meas)\n\ncustom_metrics(lm_augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Estimate\n    \n  \n  \n    Accuracy\n0.817\n    Sensitivity\n0.168\n    Specificity\n0.974\n    F1\n0.264\n  \n  \n  \n\n\n\n\nWe can save them on a table. The results are stored in the “lm_results” object.\n\nlm_metrics_training &lt;- custom_metrics(lm_augmented_results,\n  truth = outcome,\n  estimate = .pred_class,\n  event_level = \"second\"\n) |&gt;\n  mutate(model = \"lm\")\n\nCan we improve the model?"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#decision-trees",
+    "href": "archive/2023-12-um/workshop_document.html#decision-trees",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Decision trees",
+    "text": "Decision trees\nDecision trees are a type of machine learning model used to solve classification and regression problems. The goal is to make decisions based on questions and answers asked of the data to reach a conclusion or prediction. In a decision tree, each point or “node” represents a characteristic of the data we are studying. Each “branch” of the tree shows a possible response to that characteristic.\n\nModel specification: A decision tree model is specified. The rpart package is used and the mode is set to classification.\n\n\ntree_spec &lt;-\n  decision_tree() |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\n\nModel fitting: The decision tree model is fitted using the formula outcome ~ ., which means that score is being modeled as a function of all the other variables in the training_data dataframe.\n\n\ntree_results &lt;- tree_spec |&gt;\n  fit(outcome ~ ., data = training_data)\n\n\nDecision tree display: The fitted model is extracted from the fitting result and displayed using the tree_diagram() function of the treemisc package.\n\n\ncart_tree_fit &lt;- tree_results$fit\n\ntreemisc::tree_diagram(cart_tree_fit, roundint = FALSE)\n\n\n\n\nHow do you decide where to cut data in a decision tree? see this\nLet’s calculate the metrics\n\ntree_metrics_training &lt;- tree_results |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"tree\")\n\nrbind(tree_metrics_training, lm_metrics_training) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate) |&gt;\n  pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Tree\n      Lm\n    \n  \n  \n    Accuracy\n0.843\n0.817\n    Sensitivity\n0.290\n0.168\n    Specificity\n0.976\n0.974\n    F1\n0.418\n0.264"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#cart-with-hyperparameters",
+    "href": "archive/2023-12-um/workshop_document.html#cart-with-hyperparameters",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "CART with hyperparameters",
+    "text": "CART with hyperparameters\nHyperparameters are model-specific values that can be adjusted and that allow you to control the training process of a model.\n\ntree_spec_hyp_manual &lt;-\n  decision_tree(min_n = 5, cost_complexity = 0.001) |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"rpart\")\n\nIn this case, two hyperparameters are being indicated for the decision tree:\n\nmin_n: It is the minimum number of observations required to divide a node in a decision tree. A higher value of min_n implies that the tree will be shallower, since more samples will be required to perform a split at each node.\ncost_complexity: It is a regularization parameter. It is a measure of the penalty that is applied to the tree based on its complexity. A higher value of cost_complexity implies a stronger penalty on the complexity of the tree, leading to a smaller and shallower tree.\n\nNow to estimate the model\n\ntree_spec_hyp_manual_results &lt;- tree_spec_hyp_manual |&gt;\n  fit(outcome ~ ., data = training_data)\n\nWe can get the predictions\n\ntree_spec_hyp_manual_training &lt;- tree_spec_hyp_manual_results |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(,\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"Tree hyp manual\")\n\nAnd finally, we can compare the models\n\nrbind(\n  lm_metrics_training,\n  tree_metrics_training,\n  tree_spec_hyp_manual_training\n) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate) |&gt;\n  pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm\n      Tree\n      Tree_hyp_manual\n    \n  \n  \n    Accuracy\n0.817\n0.843\n0.939\n    Sensitivity\n0.168\n0.290\n0.818\n    Specificity\n0.974\n0.976\n0.968\n    F1\n0.264\n0.418\n0.839"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#but-all-this-happens-in-the-training-data",
+    "href": "archive/2023-12-um/workshop_document.html#but-all-this-happens-in-the-training-data",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "But all this happens in the training data!",
+    "text": "But all this happens in the training data!"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#why-is-it-bad",
+    "href": "archive/2023-12-um/workshop_document.html#why-is-it-bad",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Why is it bad?",
+    "text": "Why is it bad?\nWe can create a model that has zero errors in the training data. But how do we know that the model is good?\nWe could evaluate the model in unseen data, but we only have one test data set.\n\n# Use the test data to predict the score using the logistic regression model\nlm_predictions_test &lt;- lm_model |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"lm\")\n\n# Use the test data to predict the score using the decision tree model\ntree_prediction_test &lt;- tree_spec |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree\")\n\n\n# Use the test data to predict the score using the hyperparameter decision tree model\ntree_hyp_predictions_test &lt;- tree_spec_hyp_manual |&gt;\n  last_fit(outcome ~ ., split_data,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree Hype\")\n\n# Join the results\nall_models_test &lt;-\n  rbind(lm_predictions_test, tree_prediction_test, tree_hyp_predictions_test) |&gt;\n  pivot_wider(names_from = model, values_from = .estimate)\n\nall_models_test |&gt;\n  pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm\n      Tree\n      Tree_hype\n    \n  \n  \n    Accuracy\n0.815\n0.801\n0.674\n    Sensitivity\n0.222\n0.167\n0.259\n    Specificity\n0.959\n0.955\n0.775\n    F1\n0.320\n0.247\n0.237"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#cross-validation",
+    "href": "archive/2023-12-um/workshop_document.html#cross-validation",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Cross Validation",
+    "text": "Cross Validation\nSuppose we are working on a classification problem and we have a data set with 1000 observations. We want to evaluate the performance of a logistic regression model using k-fold cross-validation.\nStep-by-step k-fold cross-validation process:\nDivide the data set: First, we divide the data set into k subsets (folds) of equal size. In this example, we choose k=10, which means we divide the data set into 10 subsets of 100 records each.\nTrain and evaluate the model: Then, we do the following for each of the k subsets:\nto. We take one subset as the test (validation) set and the remaining k-1 subsets as the training set. For example, in the first iteration, we use the first subset as the test set and subsets 2 to 10 as the training set.\n\nWe train the logistic regression model using the training set.\nWe evaluate the performance of the model on the test set using an appropriate metric, such as precision, completeness, or F1-score. We write down the result of the metric for this iteration.\n\nAveraging results: After completing k iterations, we average the metric results for all iterations. This means providing us with a more robust estimate of the model’s performance since the model has been evaluated on different subsets of the data set.\nMore information here and here"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#first-path-cross-validation-object-to-estimate-performance",
+    "href": "archive/2023-12-um/workshop_document.html#first-path-cross-validation-object-to-estimate-performance",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "First path: cross-validation object to estimate performance",
+    "text": "First path: cross-validation object to estimate performance\nThe first thing we are going to need is to create an object in R that contains the data organized in such a way that we can implement cross-validation. For this, we are going to use the vfold_cv() function from the rsample package.\n\ncrossvalidation &lt;-\n  vfold_cv(training_data,\n    v = 5, # number of boxes\n    strata = \"outcome\"\n  ) # variable to stratify\n\n\nlm_model_resamples &lt;- lm_model |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"lm_resamples\")\n\ntree_spec_resamples &lt;- tree_spec |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"tree_resamples\")\n\ntree_spec_hyp_resamples &lt;- tree_spec_hyp_manual |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"tree_hyp_resamples\")\n\nall_models_resamples &lt;-\n  rbind(lm_model_resamples, tree_spec_resamples, tree_spec_hyp_resamples) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt;\n  pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm_resamples\n      Tree_resamples\n      Tree_hyp_resamples\n    \n  \n  \n    Accuracy\n0.795\n0.776\n0.736\n    F1\n0.219\n0.202\n0.298\n    Sensitivity\n0.150\n0.145\n0.289\n    Specificity\n0.951\n0.929\n0.844"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#second-path-cross-validation-object-to-identify-the-best-model",
+    "href": "archive/2023-12-um/workshop_document.html#second-path-cross-validation-object-to-identify-the-best-model",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Second path: cross-validation object to identify the best model",
+    "text": "Second path: cross-validation object to identify the best model\nWhen specifying a decision tree model, we will indicate that we want different values of the “min_n” and “cost_complexity” hyperparameters to be tested. For that, we are going to use the tune package.\n\ntree_spe_tune &lt;-\n  decision_tree(\n    cost_complexity = tune(),\n    tree_depth = tune(),\n    min_n = tune()\n  ) |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"rpart\")\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nCost_complexity: Cost_complexity is a regularization parameter. It is a measure of the penalty that is applied to the tree based on its complexity. A higher value of cost_complexity implies a stronger penalty on the complexity of the tree, leading to a smaller and shallower tree. The idea is to find an optimal value of cost_complexity that balances the precision and complexity of the tree, reducing both bias and variance.\nTree_depth (tree depth): Tree_depth refers to the maximum length of the longest path from the root to a leaf in a decision tree. A deeper tree is more complex and can capture more complicated relationships in the data.\n\n\n\nNow, let’s specify the search grid. The lookup grid is a table that contains the values to test for each combination of hyperparameters.\n\ntree_grid &lt;- grid_regular(\n  cost_complexity(range = c(-3, -2)),\n  tree_depth(range = c(4L, 10L)),\n  min_n(range = c(10L, 40L))\n)\n\nThe next step is to estimate the performance of the models on the validation data, using the models created with the different combinations of hyperparameters. For this, we are going to use the tune_grid() function from the tune package.\n\ndoParallel::registerDoParallel()\n\nset.seed(345)\ntree_rs &lt;-\n  tune_grid(\n    tree_spe_tune,\n    outcome ~ .,\n    resamples = crossvalidation,\n    control = control_resamples(event_level = \"second\"),\n    grid = tree_grid,\n    metrics = custom_metrics\n  )\n\ndoParallel::stopImplicitCluster()\n\n\n\n\n\n\n\nTip\n\n\n\n\n\ndoParallel is an excellent package created to facilitate parallel programming in R. Using R in “parallel” allows you to take advantage of the power of computers to save time.\n\n\n\nThis will give us a table with the results of each model, and we can ask it to show us the combination of hyperparameters that had the best performance.\n\nautoplot(tree_rs)\n\n\n\n\n\nshow_best(tree_rs, metric = \"sens\")\n\n# A tibble: 5 × 9\n  cost_complexity tree_depth min_n .metric .estimator  mean     n std_err\n            &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;\n1         0.001           10    10 sens    binary     0.294     5  0.0471\n2         0.00316         10    10 sens    binary     0.285     5  0.0422\n3         0.00316         10    25 sens    binary     0.238     5  0.0482\n4         0.001            7    10 sens    binary     0.233     5  0.0325\n5         0.001           10    25 sens    binary     0.233     5  0.0474\n# ℹ 1 more variable: .config &lt;chr&gt;\n\n\nFinally, we can select the best model and estimate it with the training data.\n\nbest_hyp_tree &lt;- select_best(tree_rs, min_n, metric = \"sens\")\n\ntree_tuned_final &lt;- finalize_model(tree_spe_tune, best_hyp_tree)\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nThe finalize_model function allows updating the model specification with the selected hyperparameters.\n\n\n\nNow, we go back to doing what we have been doing: estimating the model with the training data.\nWe already know how to evaluate the model, so let’s do it. For that, we’re going to use the fit_resamples() function, which is going to do a lot of work for us. This function will estimate the model with the training data and calculate the evaluation metrics on the validation data.\n\n# We will need this later to compare the models in the table metrics from training, which is not very useful, but fun.\ntree_tuned_training &lt;- tree_tuned_final |&gt;\n  fit(outcome ~ ., data = training_data) |&gt;\n  augment(training_data) |&gt;\n  custom_metrics(,\n    truth = outcome,\n    estimate = .pred_class,\n    event_level = \"second\"\n  ) |&gt;\n  mutate(model = \"Tree tunned\")\n\n\ntree_tuned_resample &lt;- tree_tuned_final |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Tree tunned\")\n\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm_resamples\n      Tree_resamples\n      Tree_hyp_resamples\n      Tree_tunned\n    \n  \n  \n    Accuracy\n0.795\n0.776\n0.736\n0.752\n    F1\n0.219\n0.202\n0.298\n0.314\n    Sensitivity\n0.150\n0.145\n0.289\n0.294\n    Specificity\n0.951\n0.929\n0.844\n0.862\n  \n  \n  \n\n\n\n\n\nSecret ring: trees are very good at learning the distribution of training data, but sometimes, they tend to over-specialize on the data they are trained on. One way to solve this is to make many trees, which we can then average."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#random-forest",
+    "href": "archive/2023-12-um/workshop_document.html#random-forest",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Random Forest",
+    "text": "Random Forest\nWe already know why it is Forest, but why is it random?\n\nNumber of predictors used for each tree (mtry)\nNumber of observations per tree\n\nThe steps are the same, only the model specification changes.\n\nrf_spec &lt;-\n  rand_forest() |&gt;\n  set_mode(\"classification\") |&gt;\n  set_engine(\"ranger\", importance = \"permutation\")\n\nThere are some methods to try to identify which variables were most relevant when making the best predictions.\n\nrf_results_training &lt;- rf_spec |&gt;\n  fit(outcome ~ ., data = training_data)\n\nlibrary(vip)\nimportance_plot_rf &lt;-\n  rf_results_training |&gt;\n  vip() +\n  ggtitle(\"Random Forest\") +\n  theme_minimal() +\n  geom_bar(\n    stat = \"identity\",\n    color = \"green\", fill = \"green\", alpha = 0.2\n  )\nimportance_plot_rf\n\n\n\n\nNow, fit in resamples and collect metrics.\n\nrf_spec_resamples &lt;- rf_spec |&gt;\n  fit_resamples(outcome ~ ., crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  ) |&gt;\n  collect_metrics() |&gt;\n  mutate(model = \"Random Forest\")\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample,\n    rf_spec_resamples\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric) |&gt;\n  pretty_table()\n\nall_models_resamples\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm_resamples\n      Tree_resamples\n      Tree_hyp_resamples\n      Tree_tunned\n      Random_forest\n    \n  \n  \n    Accuracy\n0.795\n0.776\n0.736\n0.752\n0.803\n    F1\n0.219\n0.202\n0.298\n0.314\n0.055\n    Sensitivity\n0.150\n0.145\n0.289\n0.294\n0.023\n    Specificity\n0.951\n0.929\n0.844\n0.862\n0.991"
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#bias-and-variance",
+    "href": "archive/2023-12-um/workshop_document.html#bias-and-variance",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Bias and variance",
+    "text": "Bias and variance\nThese two concepts are crucial to understanding the balance between model complexity and its ability to generalize to new data.\nBias: Bias is the difference between the average prediction of our model and the true value we are trying to predict. Bias, in statistical terms, refers to the systematic difference between the expectation (or average) of the estimates produced by an estimator and the real value of the parameter to be estimated.\n\nExample: A linear regression model could have high bias if the actual data has a nonlinear relationship.\nImplications: A model with high bias is too simple and does not capture the underlying structure of the data. This leads to poor performance on the training and test set.\n\nVariance: Variance is the amount of variability in the model’s predictions for a piece of data. A model with high variance is very sensitive to small variations in the training data, which can result in overfitting. That is, the model fits the training data very well but performs poorly on unseen or test data.\n\nExample: A very deep decision tree model could have high variance since it is very sensitive to small variations in the training data.\nImplications: A model with high variance tends to overfit the training data, resulting in good performance on the training set but poor performance on the test set."
+  },
+  {
+    "objectID": "archive/2023-12-um/workshop_document.html#upsampling",
+    "href": "archive/2023-12-um/workshop_document.html#upsampling",
+    "title": "Imbalanced data in Machine Learning Modeling",
+    "section": "Upsampling",
+    "text": "Upsampling\nUpsampling is a method that consists of increasing the number of observations in the minority class to match the number of observations in the majority class. This is done by randomly selecting observations from the minority class with replacement. This method is used when the data set is small and the minority class is very small.\n\nupsampling_rec &lt;-\n  recipe(outcome ~ ., training_data) |&gt;\n  step_upsample(outcome)\n\nupsampling_rec |&gt;\n  prep(retain = TRUE) |&gt;\n  bake(new_data = NULL) |&gt;\n  count(outcome)\n\n# A tibble: 2 × 2\n  outcome     n\n  &lt;fct&gt;   &lt;int&gt;\n1 0         886\n2 1         886\n\nupsampling_workflow &lt;-\n  workflow() |&gt;\n  add_recipe(upsampling_rec) |&gt;\n  add_model(lm_model)\n\nlet’s fit the model\n\nupsample_fit &lt;- upsampling_workflow |&gt;\n  fit(data = training_data)\n\nFinally, let’s evaluate the model in the validation data\n\nupsample_fit_resamples &lt;- upsampling_workflow |&gt;\n  fit_resamples(\n    resamples = crossvalidation,\n    metrics = custom_metrics,\n    control = control_resamples(event_level = \"second\")\n  )\n\nupsample_resamples &lt;- collect_metrics(upsample_fit_resamples) |&gt;\n  mutate(model = \"upsampling\")\n\n\nall_models_resamples &lt;-\n  rbind(\n    lm_model_resamples,\n    downsample_resamples,\n    upsample_resamples,\n    tree_spec_resamples,\n    tree_spec_hyp_resamples,\n    tree_tuned_resample,\n    rf_spec_resamples\n  ) |&gt;\n  pivot_wider(names_from = model, values_from = mean, id_cols = .metric)\n\nall_models_resamples |&gt; pretty_table()\n\n\n\n\n\n  \n    \n    \n      Metric\n      Lm_resamples\n      Downsample\n      Upsampling\n      Tree_resamples\n      Tree_hyp_resamples\n      Tree_tunned\n      Random_forest\n    \n  \n  \n    Accuracy\n0.795\n0.631\n0.658\n0.776\n0.736\n0.752\n0.803\n    F1\n0.219\n0.409\n0.419\n0.202\n0.298\n0.314\n0.055\n    Sensitivity\n0.150\n0.654\n0.626\n0.145\n0.289\n0.294\n0.023\n    Specificity\n0.951\n0.625\n0.666\n0.929\n0.844\n0.862\n0.991"
   }
 ]
