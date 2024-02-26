@@ -1117,7 +1117,7 @@
     "href": "slides/4-arboles.html#por-qué-es-malo",
     "title": "4. Árboles de decisión",
     "section": "¿Por qué es malo?",
-    "text": "¿Por qué es malo?\nEl objetivo es encontrar un modelo que no solo sea buena en los datos de prueba, sino que también sea bueno en datos futuros. Si solo evaluamos el modelo en los datos de prueba, no sabemos si el modelo es bueno en datos futuros.\n\ndatos_prueba_out &lt;- \n  datos_prueba |&gt; \n    select(PYALC) \n\nlm_predicciones &lt;- cbind(predict(lm_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"lm\")\n\ntree_predicciones &lt;- cbind(predict(tree_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"Árbol\")\n\ntree_h_predicciones &lt;- cbind(predict(tree_h_results, datos_prueba), datos_prueba_out) |&gt;  mutate(model=\"Árbol hiperparámetros\")"
+    "text": "¿Por qué es malo?\nEl objetivo es encontrar un modelo que no solo sea buena en los datos de entrenamiento, sino que también sea bueno en datos futuros. Si solo evaluamos el modelo en los datos de entrenamiento, no sabemos si el modelo es bueno en datos futuros.\n\ndatos_prueba_out &lt;- \n  datos_prueba |&gt; \n    select(PYALC) \n\nlm_predicciones &lt;- cbind(predict(lm_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"lm\")\n\ntree_predicciones &lt;- cbind(predict(tree_results, datos_prueba), datos_prueba_out)|&gt; mutate(model=\"Árbol\")\n\ntree_h_predicciones &lt;- cbind(predict(tree_h_results, datos_prueba), datos_prueba_out) |&gt;  mutate(model=\"Árbol hiperparámetros\")"
   },
   {
     "objectID": "slides/4-arboles.html#desempeño-de-los-modelos",
