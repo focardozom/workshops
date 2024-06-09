@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
+
+  <meta name="author" content="">
+  <title>Workshops - 3. Estimar un modelo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="custom.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DK5ELGRTKP"></script>
+
+  <script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DK5ELGRTKP', { 'anonymize_ip': true});
+  </script>
+  
+  <script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    });
+  });
+  </script> 
+    
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  
+  <link href="../../site_libs/table1-1.0/table1_defaults.css" rel="stylesheet">
+<meta name="twitter:title" content="Workshops - 3. Estimar un modelo">
+<meta name="twitter:description" content="Dive into our wide range of workshops designed to boost your skills and knowledge.">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">3. Estimar un modelo</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="parte-i">Parte I</h3>
+<ul>
+<li>Especificar un modelo</li>
+<li>Estimar un modelo</li>
+<li>Ver los resultados del modelo</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="parte-ii">Parte II</h3>
+<ul>
+<li>Dividir los datos</li>
+<li>Especificar un modelo</li>
+<li>Estimar un modelo</li>
+<li>Evaluar el modelo</li>
+<li>Estimar un modelo mejor</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="estimar-un-modelo" class="slide level2">
+<h2>Estimar un modelo</h2>
+<div class="r-fit-text">
+<p>Hay muchas formas de estimar modelos en R</p>
+<ul>
+<li><code>lm(formula, data, ...)</code></li>
+<li><code>stan_glm(formula, data, family= "gaussian",...)</code></li>
+<li><code>glmnet(x=matrix, y=vector, family="gaussian",...)</code></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>lm()</code>: Estimar un modelo de regresión lineal.</p>
+<p><code>stan_glm()</code>: Estimar un modelo de regresión utilizando el paquete Stan.</p>
+<p><code>glmnet()</code>: Estimar un modelo de regresión utilizando la regularización Lasso o Ridge.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="especificar-el-modelo-en-tidymodels" class="slide level2">
+<h2>Especificar el modelo en <code>tidymodels</code></h2>
+<p><code>Tidymodels</code> ofrece una sintaxis general para estimar los modelos</p>
+<p><a href="https://www.tidymodels.org/">https://www.tidymodels.org/</a></p>
+<ul>
+<li>Especificar el tipo de modelo
+<ul>
+<li>linear_reg(), logistic_reg(), decision_tree()</li>
+</ul></li>
+<li>Especificar el tipo de outcome
+<ul>
+<li><em>Regresión:</em> variables continuas</li>
+<li><em>Clasificación:</em> categórica,multinomial, ordinal</li>
+</ul></li>
+</ul>
+</section>
+<section id="especificar-el-modelo-en-tidymodels-1" class="slide level2">
+<h2>Especificar el modelo en <code>tidymodels</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.5     ✔ recipes      1.0.9
+✔ dials        1.2.0     ✔ rsample      1.2.0
+✔ dplyr        1.1.4     ✔ tibble       3.2.1
+✔ ggplot2      3.4.4     ✔ tidyr        1.3.1
+✔ infer        1.0.5     ✔ tune         1.1.2
+✔ modeldata    1.2.0     ✔ workflows    1.1.3
+✔ parsnip      1.1.1     ✔ workflowsets 1.0.1
+✔ purrr        1.0.2     ✔ yardstick    1.2.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ recipes::step()  masks stats::step()
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">tidymodels_prefer</span>()</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression Model Specification (regression)
+
+Computational engine: lm </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Logistic Regression Model Specification (classification)
+
+Computational engine: glmnet </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="fu">set_engine</span>(<span class="st">"stan"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression Model Specification (regression)
+
+Computational engine: stan </code></pre>
+</div>
+</div>
+</section>
+<section id="especificar-el-modelo-en-tidymodels-2" class="slide level2">
+<h2>Especificar el modelo en <code>tidymodels</code></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>library()</code>: cargar el paquete <code>tidymodels</code>.</p>
+<p><code>tidymodels_prefer()</code>: establecer el paquete tidymodels como el preferido.</p>
+<p><code>linear_reg()</code>: Crear una especificación de modelo de regresión lineal en el marco de <code>tidymodels</code>.</p>
+<p><code>logistic_reg()</code> : Crear una especificación de modelo de regresión logística en el marco de <code>tidymodels</code>.</p>
+<p><code>set_engine()</code>: establecer el motor (paquete) de cálculo del modelo. Se utilizará “lm” para el primer modelo, “glmnet” para el segundo y “stan” para el tercero.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="estimar-un-modelo-1" class="slide level2">
+<h2>Estimar un modelo</h2>
+<blockquote>
+<p>Estimar un modelo de regresión logística para evaluar la asociación entre el consumo de alcohol y los factores de riesgo</p>
+</blockquote>
+</section>
+<section id="descriptivos" class="slide level2">
+<h2>Descriptivos</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ lubridate 1.9.3     ✔ stringr   1.5.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ readr::col_factor() masks scales::col_factor()
+✖ purrr::discard()    masks scales::discard()
+✖ dplyr::filter()     masks stats::filter()
+✖ stringr::fixed()    masks recipes::fixed()
+✖ dplyr::lag()        masks stats::lag()
+✖ readr::spec()       masks yardstick::spec()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p><br> Calcular la tabla de descriptivos</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>mini_datos <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="fu">select</span>(PYALC,factores_de_riesgo) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>    table1<span class="sc">::</span><span class="fu">table1</span>( <span class="sc">~</span> ., <span class="at">data=</span>_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using an external vector in selections was deprecated in tidyselect 1.1.0.
+ℹ Please use `all_of()` or `any_of()` instead.
+  # Was:
+  data %&gt;% select(factores_de_riesgo)
+
+  # Now:
+  data %&gt;% select(all_of(factores_de_riesgo))
+
+See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.</code></pre>
+</div>
+<div class="cell-output-display">
+
+<div class="Rtable1">
+<table class="Rtable1" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=12507)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow">PYALC</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">No ha consumido</td>
+<td>3647 (29.2%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Sí ha consumido</td>
+<td class="lastrow">8860 (70.8%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">CRPAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.13 (0.855)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.00 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">CRLNFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.18 (0.536)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.17 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">FRPFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.37 (0.484)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.33 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">FRPFM</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.73 (0.534)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.75 [0.875, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">SRLCS</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.19 (0.446)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.14 [1.00, 4.86]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">PRFAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.72 (0.677)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">PRATA</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.53 (0.583)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.40 [1.00, 4.00]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Calcular la tabla de descriptivos por grupo (Sí y No ha consumido)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>mini_datos <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="fu">select</span>(PYALC,factores_de_riesgo) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(PYALC)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>    table1<span class="sc">::</span><span class="fu">table1</span>( <span class="sc">~</span> . <span class="sc">|</span> PYALC, <span class="at">data=</span>_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="Rtable1">
+<table class="Rtable1" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">No ha consumido<br>
+<span class="stratn">(N=3647)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Sí ha consumido<br>
+<span class="stratn">(N=8860)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=12507)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow">CRPAD</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.79 (0.810)</td>
+<td>2.27 (0.833)</td>
+<td>2.13 (0.855)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+<td class="lastrow">2.25 [1.00, 4.00]</td>
+<td class="lastrow">2.00 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">CRLNFD</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.00 (0.569)</td>
+<td>2.26 (0.503)</td>
+<td>2.18 (0.536)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.00 [1.00, 4.00]</td>
+<td class="lastrow">2.20 [1.00, 4.00]</td>
+<td class="lastrow">2.17 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">FRPFD</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.16 (0.394)</td>
+<td>1.46 (0.491)</td>
+<td>1.37 (0.484)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.00 [1.00, 4.00]</td>
+<td class="lastrow">1.33 [1.00, 4.00]</td>
+<td class="lastrow">1.33 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">FRPFM</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.58 (0.554)</td>
+<td>1.79 (0.513)</td>
+<td>1.73 (0.534)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+<td class="lastrow">1.75 [0.875, 4.00]</td>
+<td class="lastrow">1.75 [0.875, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">SRLCS</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.08 (0.431)</td>
+<td>2.24 (0.443)</td>
+<td>2.19 (0.446)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.00 [1.00, 4.86]</td>
+<td class="lastrow">2.17 [1.00, 4.57]</td>
+<td class="lastrow">2.14 [1.00, 4.86]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">PRFAD</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.37 (0.551)</td>
+<td>1.87 (0.672)</td>
+<td>1.72 (0.677)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.00 [1.00, 4.00]</td>
+<td class="lastrow">1.75 [1.00, 4.00]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">PRATA</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.37 (0.515)</td>
+<td>1.60 (0.596)</td>
+<td>1.53 (0.583)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.20 [1.00, 4.00]</td>
+<td class="lastrow">1.40 [1.00, 4.00]</td>
+<td class="lastrow">1.40 [1.00, 4.00]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="explorar-los-datos-visualmente" class="slide level2">
+<h2>Explorar los datos visualmente</h2>
+<p>Hacer un gráfico para ver tendencias en los factores de riesgo</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>mini_datos <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a> <span class="fu">select</span>(PYALC,factores_de_riesgo) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>PYALC) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value, <span class="fu">fct_reorder</span>(name, value), <span class="at">fill =</span> PYALC)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="3-modelos_files/figure-html/unnamed-chunk-4-1.png" width="672" class="r-stretch"></section>
+<section>
+<section id="especificar-el-modelo" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Especificar el modelo</h1>
+
+</section>
+<section id="especificar-el-modelo-1" class="slide level2">
+<h2>1. Especificar el modelo</h2>
+<p>Especificar un modelo de regresión logística. Se establece el “paquete”, en este caso “glm” y opciones del paquete (la distribución de la variable de respuesta). Además, se especifica que es un problema de “classification”, debido a que la variable dependiente es categórica. Todo esto se almacena en el objeto <em>lm_model</em>.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>lm_model <span class="ot">&lt;-</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>    <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="fu">set_engine</span>(<span class="st">"glm"</span>, <span class="at">family=</span><span class="st">"binomial"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="estimar-el-modelo" class="slide level2">
+<h2>2. Estimar el modelo</h2>
+<p>Aquí se estima el modelo con la función <code>fit()</code>. Se especifica la variable de resultado (PYALC) y los predictores (.). Se utiliza el objeto <em>mini_datos</em> como base de datos.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>lm_results <span class="ot">&lt;-</span> lm_model <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="fu">fit</span>(PYALC <span class="sc">~</span> ., <span class="at">data =</span> mini_datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="obtener-los-resultados-del-modelo" class="slide level2">
+<h2>3. Obtener los resultados del modelo</h2>
+<p>Obtener los coeficientes (betas) del modelo</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>lm_results <span class="sc">|&gt;</span> <span class="fu">tidy</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 5
+   term           estimate std.error statistic   p.value
+   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept)    -5.28      0.177    -29.8    9.45e-196
+ 2 CRPAD           0.182     0.0305     5.98   2.24e-  9
+ 3 CRLNFD          0.230     0.0463     4.96   6.98e-  7
+ 4 FRPFD           1.01      0.0695    14.5    8.78e- 48
+ 5 FRPFM           0.132     0.0466     2.83   4.68e-  3
+ 6 SRLCS           0.241     0.0553     4.37   1.26e-  5
+ 7 PRFAD           0.907     0.0558    16.3    1.88e- 59
+ 8 PRATA          -0.288     0.0559    -5.15   2.67e-  7
+ 9 YEAR2014       -0.00523   0.0550    -0.0951 9.24e-  1
+10 YEAR2015       -0.354     0.0872    -4.06   4.93e-  5
+11 YEAR2016       -0.154     0.0970    -1.59   1.13e-  1
+12 YEAR2017       -0.341     0.0706    -4.84   1.32e-  6
+13 GRADE           0.299     0.0162    18.4    1.04e- 75
+14 GENDERFemenino -0.0302    0.0448    -0.675  5.00e-  1
+15 AGE            -0.00150   0.00456   -0.329  7.42e-  1</code></pre>
+</div>
+</div>
+<p>Obtener los índices de ajuste del modelo</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>lm_results <span class="sc">|&gt;</span> <span class="fu">glance</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 8
+  null.deviance df.null logLik    AIC    BIC deviance df.residual  nobs
+          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
+1        15098.   12506 -6141. 12313. 12424.   12283.       12492 12507</code></pre>
+</div>
+</div>
+</section>
+<section id="obtener-los-resultados-del-modelo-1" class="slide level2">
+<h2>3. Obtener los resultados del modelo</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>tidy():</code> Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente.</p>
+<p><code>glance():</code> Esta función se utiliza para resumir los resultados de un modelo como estadísticas globales del modelo, por ejemplo, R-cuadrado ajustado, el AIC y el BIC.</p>
+<p><code>tidy(exp=TRUE, conf.int=TRUE)</code>: Esta función se utiliza para convertir los resultados de un modelo en un marco de datos “ordenado” que muestra los coeficientes del modelo, los errores estándar, los valores t y los valores p para cada variable independiente. Los argumentos exp y conf.int se utilizan para incluir los intervalos de confianza y los exponentes en los resultados</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>lm_results <span class="sc">|&gt;</span> <span class="fu">tidy</span>(<span class="at">exp=</span><span class="cn">TRUE</span>, <span class="at">conf.int=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 7
+   term           estimate std.error statistic   p.value conf.low conf.high
+   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept)     0.00511   0.177    -29.8    9.45e-196  0.00360   0.00721
+ 2 CRPAD           1.20      0.0305     5.98   2.24e-  9  1.13      1.27   
+ 3 CRLNFD          1.26      0.0463     4.96   6.98e-  7  1.15      1.38   
+ 4 FRPFD           2.74      0.0695    14.5    8.78e- 48  2.40      3.15   
+ 5 FRPFM           1.14      0.0466     2.83   4.68e-  3  1.04      1.25   
+ 6 SRLCS           1.27      0.0553     4.37   1.26e-  5  1.14      1.42   
+ 7 PRFAD           2.48      0.0558    16.3    1.88e- 59  2.22      2.77   
+ 8 PRATA           0.750     0.0559    -5.15   2.67e-  7  0.672     0.837  
+ 9 YEAR2014        0.995     0.0550    -0.0951 9.24e-  1  0.893     1.11   
+10 YEAR2015        0.702     0.0872    -4.06   4.93e-  5  0.592     0.833  
+11 YEAR2016        0.857     0.0970    -1.59   1.13e-  1  0.709     1.04   
+12 YEAR2017        0.711     0.0706    -4.84   1.32e-  6  0.619     0.816  
+13 GRADE           1.35      0.0162    18.4    1.04e- 75  1.31      1.39   
+14 GENDERFemenino  0.970     0.0448    -0.675  5.00e-  1  0.889     1.06   
+15 AGE             0.999     0.00456   -0.329  7.42e-  1  0.990     1.01   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section id="práctica" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Práctica</h1>
+<ol type="1">
+<li>Estime la asociación entre el consumo de marihuana en los últimos 30 días (MAR30DY), a partir de los factores de riesgo.</li>
+</ol>
+</section>
+
+<section>
+<section id="parte-ii-1" class="title-slide slide level1 center">
+<h1>Parte II</h1>
+
+</section>
+<section id="para-qué-necesitamos-los-datos" class="slide level2">
+<h2>Para qué necesitamos los datos?</h2>
+<p>Necesitamos:</p>
+<pre><code>- Estimar parametros
+- Seleccionar modelos
+- Sintonizar los modelos (tunning)
+- Evaluar los modelos</code></pre>
+<p>¿Cómo gastarnos los datos de una forma que sea eficiente para todos estos pasos? (validación empírica)</p>
+</section></section>
+<section>
+<section id="primera-idea" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Primera idea</h1>
+<p><code>Dividir los datos en dos conjuntos. Uno para entrenar el modelo y otro para evaluarlo.</code></p>
+</section>
+<section id="dividir-los-datos" class="slide level2">
+<h2>Dividir los datos</h2>
+<p>Dividir los datos en dos conjuntos</p>
+<p><strong>Entrenamiento:</strong></p>
+<ul>
+<li>La mayoría de los datos (¿70%, 80%?)</li>
+<li>Aquí se ajusta el modelo</li>
+</ul>
+<p><strong>Prueba:</strong></p>
+<ul>
+<li>Un pequeño conjunto de datos</li>
+<li>Aquí se evaluará el modelo final</li>
+</ul>
+<blockquote>
+<p>Los datos de prueba se utilizan una sola vez, si se utilizan más de una vez, se convierten en parte del proceso de entrenamiento.</p>
+</blockquote>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>La división de los datos se hace al nivel de unidad independiente de observación.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="esto-no-puede-pasar-contaminación-de-los-datos-de-prueba-information-leakage" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Esto no puede pasar: contaminación de los datos de prueba (information leakage)</h1>
+
+</section>
+<section id="dividir-los-datos-1" class="slide level2">
+<h2>Dividir los datos</h2>
+<p>Crear dos bases: entrenamiento 80% y prueba 20%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a>datos_divididos <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(mini_datos, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> <span class="st">"PYALC"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a>datos_entrenamiento <span class="ot">&lt;-</span> <span class="fu">training</span>(datos_divididos)</span>
+<span id="cb25-6"><a href="#cb25-6"></a>datos_prueba <span class="ot">&lt;-</span> <span class="fu">testing</span>(datos_divididos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>La opción <em>strata</em> es para que los datos de entrenamiento y prueba tengan la misma distribución de la variable <strong>PYALC</strong></li>
+</ul>
+<p>A veces la selección aleatoria de la muestra es problemática, por ejemplo cuando hay una componente de tiempo en los datos. En este caso, se puede usar la función <code>initial_time_split()</code>.</p>
+</section>
+<section id="dividir-los-datos-2" class="slide level2">
+<h2>Dividir los datos</h2>
+<p><code>set.seed()</code>: establecer una semilla para la generación de números aleatorios en R. En este caso, se utiliza para establecer la semilla en 1234, lo que garantiza que los resultados sean reproducibles. Esto es especialmente importante cuando se trabaja con modelos de aprendizaje automático, ya que los resultados pueden variar según la semilla utilizada para la generación de números aleatorios.</p>
+<p><code>initial_split()</code>: dividir los datos en conjuntos de entrenamiento y prueba. Divide el objeto “mini_datos” en conjuntos de entrenamiento y prueba en una proporción de 80/20, y estratificando por la columna “PYALC”.</p>
+<p><code>training()</code>: extraer el conjunto de entrenamiento de un objeto creado con la función <code>initial_split()</code>. Se utiliza para extraer el conjunto de entrenamiento del objeto “datos_divididos”.</p>
+<p><code>testing()</code>: extraer el conjunto de prueba de un objeto creado con la función <code>initial_split()</code>. Se utiliza para extraer el conjunto de prueba del objeto “datos_divididos”.</p>
+</section>
+<section id="dividir-los-datos-3" class="slide level2">
+<h2>Dividir los datos</h2>
+<p>Descripivos de los datos de entrenamiento</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>datos_entrenamiento <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>    <span class="fu">select</span>(PYALC,factores_de_riesgo) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>    table1<span class="sc">::</span><span class="fu">table1</span>( <span class="sc">~</span> ., <span class="at">data=</span>_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="Rtable1">
+<table class="Rtable1" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=10005)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow">PYALC</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">No ha consumido</td>
+<td>2917 (29.2%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Sí ha consumido</td>
+<td class="lastrow">7088 (70.8%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">CRPAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.13 (0.855)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.00 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">CRLNFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.18 (0.535)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.17 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">FRPFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.37 (0.477)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.33 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">FRPFM</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.73 (0.533)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.75 [0.875, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">SRLCS</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.19 (0.446)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.14 [1.00, 4.86]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">PRFAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.73 (0.676)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">PRATA</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.53 (0.582)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.40 [1.00, 4.00]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>datos_prueba <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="fu">select</span>(PYALC,factores_de_riesgo) <span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>    table1<span class="sc">::</span><span class="fu">table1</span>( <span class="sc">~</span> ., <span class="at">data=</span>_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="Rtable1">
+<table class="Rtable1" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=2502)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow">PYALC</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">No ha consumido</td>
+<td>730 (29.2%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Sí ha consumido</td>
+<td class="lastrow">1772 (70.8%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">CRPAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.13 (0.857)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.00 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">CRLNFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.19 (0.542)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.17 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">FRPFD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.38 (0.509)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.33 [1.00, 4.00]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">FRPFM</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.73 (0.539)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.63 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">SRLCS</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.19 (0.445)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">2.14 [1.00, 4.14]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">PRFAD</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.71 (0.682)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.50 [1.00, 4.00]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">PRATA</td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>1.52 (0.586)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.40 [1.00, 4.00]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="especificar-el-modelo-2" class="slide level2">
+<h2>1. Especificar el modelo</h2>
+<p>No es necesario volver a especificar el modelo, ya que ya lo hicimos en la parte I. Pero si lo hiciéramos, sería de la siguiente manera:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>lm_model <span class="ot">&lt;-</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>, <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="estimar-el-modelo-1" class="slide level2">
+<h2>2. Estimar el modelo</h2>
+<p>Estimar el modelo con la función <code>fit()</code>. Se especifica la variable de resultado (PYALC) y los predictores (.). Se utiliza el objeto <em>datos_entrenamiento</em> como base de datos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>lm_results <span class="ot">&lt;-</span> lm_model <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>    <span class="fu">fit</span>(PYALC <span class="sc">~</span> ., <span class="at">data =</span> datos_entrenamiento)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="obtener-los-resultados-del-modelo-2" class="slide level2">
+<h2>3. Obtener los resultados del modelo</h2>
+<p>Obtener los coeficientes (betas) del modelo en OR con sus intervalos de confianza.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>lm_results <span class="sc">|&gt;</span> <span class="fu">tidy</span>(<span class="at">exp=</span><span class="cn">TRUE</span>, <span class="at">conf.int=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 7
+   term           estimate std.error statistic   p.value conf.low conf.high
+   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept)     0.00472   0.198     -27.0   4.20e-161  0.00319   0.00694
+ 2 CRPAD           1.20      0.0340      5.43  5.71e-  8  1.13      1.29   
+ 3 CRLNFD          1.25      0.0519      4.34  1.43e-  5  1.13      1.39   
+ 4 FRPFD           2.82      0.0785     13.2   6.81e- 40  2.42      3.30   
+ 5 FRPFM           1.14      0.0523      2.44  1.46e-  2  1.03      1.26   
+ 6 SRLCS           1.28      0.0617      3.94  8.09e-  5  1.13      1.44   
+ 7 PRFAD           2.52      0.0625     14.8   1.87e- 49  2.23      2.85   
+ 8 PRATA           0.746     0.0623     -4.71  2.47e-  6  0.660     0.843  
+ 9 YEAR2014        0.983     0.0616     -0.270 7.87e-  1  0.871     1.11   
+10 YEAR2015        0.685     0.0973     -3.89  9.97e-  5  0.566     0.829  
+11 YEAR2016        0.844     0.110      -1.53  1.25e-  1  0.681     1.05   
+12 YEAR2017        0.717     0.0791     -4.21  2.53e-  5  0.614     0.837  
+13 GRADE           1.35      0.0182     16.4   9.64e- 61  1.30      1.40   
+14 GENDERFemenino  0.971     0.0503     -0.579 5.63e-  1  0.880     1.07   
+15 AGE             1.00      0.00558     0.172 8.64e-  1  0.991     1.01   </code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="evaluar-el-modelo" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>4. Evaluar el modelo</h1>
+
+</section>
+<section id="evaluar-el-modelo-1" class="slide level2">
+<h2>4. Evaluar el modelo</h2>
+<p>Hay varias formas de evaluar un modelo. Algunas de las más comunes son: - Métricas de ajuste - Área bajo la curva (AUC) - Sensibilidad y especificidad - Matrices de confusión …</p>
+<p>Dado que nuestro objevito es predecir el consumo de alcohol, vamos a utilizar las métricas que evaluen el modelo según su desempeño en la clasificación de observaciones (accuracy o exactitud).</p>
+</section>
+<section id="evaluar-el-modelo-2" class="slide level2">
+<h2>4. Evaluar el modelo</h2>
+<p>Utilizar el modelo para predecir los valores de la variable dependiente en los datos de entrenamiento.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>predecir_estos_valores <span class="ot">&lt;-</span> datos_entrenamiento  <span class="sc">|&gt;</span>  </span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="fu">select</span>(<span class="sc">-</span>PYALC)  <span class="sc">|&gt;</span> </span>
+<span id="cb32-3"><a href="#cb32-3"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb32-4"><a href="#cb32-4"></a></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="fu">predict</span>(lm_results, predecir_estos_valores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 1
+   .pred_class    
+   &lt;fct&gt;          
+ 1 Sí ha consumido
+ 2 No ha consumido
+ 3 No ha consumido
+ 4 Sí ha consumido
+ 5 Sí ha consumido
+ 6 Sí ha consumido
+ 7 Sí ha consumido
+ 8 No ha consumido
+ 9 Sí ha consumido
+10 Sí ha consumido</code></pre>
+</div>
+</div>
+<p>Obtener las predicciones en forma de probabilidades</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">predict</span>(lm_results, predecir_estos_valores, <span class="at">type=</span><span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   `.pred_No ha consumido` `.pred_Sí ha consumido`
+                     &lt;dbl&gt;                   &lt;dbl&gt;
+ 1                  0.437                    0.563
+ 2                  0.635                    0.365
+ 3                  0.745                    0.255
+ 4                  0.328                    0.672
+ 5                  0.275                    0.725
+ 6                  0.313                    0.687
+ 7                  0.0875                   0.912
+ 8                  0.583                    0.417
+ 9                  0.493                    0.507
+10                  0.325                    0.675</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluar-el-modelo-3" class="slide level2">
+<h2>4. Evaluar el modelo</h2>
+<p>Obtener las predicciones y los valores observadods para calcular algunas métricas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>entrenamiento <span class="ot">&lt;-</span> datos_entrenamiento <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2"></a>    <span class="fu">select</span>(<span class="sc">-</span>PYALC)</span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a>prediccion <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_results, entrenamiento)</span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a>resultados_prueba <span class="ot">&lt;-</span> <span class="fu">cbind</span>(prediccion, datos_entrenamiento) <span class="sc">|&gt;</span> </span>
+<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">select</span>(.pred_class, PYALC, <span class="fu">everything</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">tibble</span>()</span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a>resultados_prueba</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10,005 × 13
+   .pred_class     PYALC  CRPAD CRLNFD FRPFD FRPFM SRLCS PRFAD PRATA YEAR  GRADE
+   &lt;fct&gt;           &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;
+ 1 Sí ha consumido No ha…  4      2     1     1.62  1.86  1      1   2014      7
+ 2 No ha consumido No ha…  1      2     1     2     2.17  1      1.2 2017      7
+ 3 No ha consumido No ha…  1      2.2   1     1.25  1.6   1      1.2 2017      6
+ 4 Sí ha consumido No ha…  1      1.67  1     1.12  2.43  1.5    1.2 2012…     9
+ 5 Sí ha consumido No ha…  3.75   2.33  1     2     2.43  1.25   1   2014      8
+ 6 Sí ha consumido No ha…  3.25   1.67  1.33  1.62  1.86  1.5    1.2 2014      7
+ 7 Sí ha consumido No ha…  1.75   1.8   2     2     1.67  2      2   2017     11
+ 8 No ha consumido No ha…  1      3.4   1     4     1.83  1      1   2017      6
+ 9 Sí ha consumido No ha…  2.75   2.17  1     1.5   3.29  1      1.2 2014      6
+10 Sí ha consumido No ha…  1      1.8   1     2.29  1.86  1.75   1   2014      8
+# ℹ 9,995 more rows
+# ℹ 2 more variables: GENDER &lt;fct&gt;, AGE &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="métricas" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Métricas</h1>
+
+</section>
+<section id="métricas-1" class="slide level2">
+<h2>Métricas</h2>
+<p><strong>Exactitud (accuracy):</strong> Es una métrica que mide la proporción de predicciones correctas realizadas por un modelo en comparación con el total de predicciones realizadas. Es decir, la cantidad de veces que el modelo acertó sobre el total de datos que se le presentaron.</p>
+<p><strong>Sensibilidad (sensitivity/recall):</strong> Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos negativos (FN). La sensibilidad mide la capacidad del modelo para detectar correctamente los casos positivos.</p>
+<p><strong>Especificidad (Specificity):</strong> Es la proporción de verdaderos negativos (TN) que son identificados correctamente por el modelo en relación con el total de verdaderos negativos y falsos positivos (FP). La especificidad mide la capacidad del modelo para detectar correctamente los casos negativos.</p>
+</section>
+<section id="métricas-2" class="slide level2">
+<h2>Métricas</h2>
+<p><strong>Precision (Precisión):</strong> Es la proporción de verdaderos positivos (TP) que son identificados correctamente por el modelo en relación con el total de verdaderos positivos y falsos positivos (FP). La precisión mide la capacidad del modelo para no identificar falsamente un caso como positivo.</p>
+<p><strong>F-measure (Puntuación F):</strong> Es una métrica que combina la precisión y el recall en una sola puntuación. El valor de la F-measure oscila entre 0 y 1, siendo 1 el valor óptimo.</p>
+<p><strong>Kappa (Coeficiente Kappa):</strong> Es una medida de concordancia que compara la cantidad de acuerdos observados entre el modelo y las observaciones reales con la cantidad de acuerdos que se esperarían por casualidad. Un valor de kappa cercano a 1 indica una concordancia casi perfecta entre el modelo y las observaciones reales.</p>
+</section>
+<section id="métricas-3" class="slide level2">
+<h2>Métricas</h2>
+
+<img data-src="img/metrics.jpeg" class="r-stretch"></section>
+<section id="calcular-las-métricas" class="slide level2">
+<h2>Calcular las métricas</h2>
+<p>Con los datos observados y los predichos, se pueden calcular las métricas del modelo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">conf_mat</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb38-2"><a href="#cb38-2"></a>         <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Truth
+Prediction        No ha consumido Sí ha consumido
+  No ha consumido            1394             730
+  Sí ha consumido            1523            6358</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">accuracy</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb40-2"><a href="#cb40-2"></a>         <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric  .estimator .estimate
+  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+1 accuracy binary         0.775</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">sens</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="at">estimate =</span> .pred_class, <span class="at">event_level =</span> <span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 sens    binary         0.897</code></pre>
+</div>
+</div>
+</section>
+<section id="calcular-las-métricas-1" class="slide level2">
+<h2>Calcular las métricas</h2>
+<p>Más métricas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">spec</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb44-2"><a href="#cb44-2"></a>    <span class="at">estimate =</span> .pred_class, <span class="at">event_level =</span> <span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 spec    binary         0.478</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">precision</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb46-2"><a href="#cb46-2"></a>    <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric   .estimator .estimate
+  &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;
+1 precision binary         0.656</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">recall</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb48-2"><a href="#cb48-2"></a>    <span class="at">estimate =</span> .pred_class, <span class="at">event_level=</span><span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 recall  binary         0.897</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">kap</span>(resultados_prueba, <span class="at">truth =</span> PYALC,</span>
+<span id="cb50-2"><a href="#cb50-2"></a>    <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 kap     binary         0.407</code></pre>
+</div>
+</div>
+</section>
+<section id="calcular-las-métricas-2" class="slide level2">
+<h2>Calcular las métricas</h2>
+<p>Calcular todas las métricas y guardarlas en una base de datos</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>custom_metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(accuracy, sens, spec, precision, recall, f_meas, kap, mcc)</span>
+<span id="cb52-2"><a href="#cb52-2"></a></span>
+<span id="cb52-3"><a href="#cb52-3"></a>lm_metrics  <span class="ot">&lt;-</span> <span class="fu">custom_metrics</span>(resultados_prueba,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>  <span class="at">truth =</span> PYALC,</span>
+<span id="cb52-5"><a href="#cb52-5"></a>  <span class="at">estimate =</span> .pred_class, </span>
+<span id="cb52-6"><a href="#cb52-6"></a>  <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>)  <span class="sc">|&gt;</span> </span>
+<span id="cb52-8"><a href="#cb52-8"></a><span class="fu">mutate</span>(<span class="at">model=</span> <span class="st">"Regresión Logística"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tabla-de-métricas" class="slide level2">
+<h2>Tabla de Métricas</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb53-2"><a href="#cb53-2"></a></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="fu">custom_metrics</span>(resultados_prueba,</span>
+<span id="cb53-4"><a href="#cb53-4"></a>  <span class="at">truth =</span> PYALC,</span>
+<span id="cb53-5"><a href="#cb53-5"></a>  <span class="at">estimate =</span> .pred_class</span>
+<span id="cb53-6"><a href="#cb53-6"></a>) <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="fobucbmnyt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fobucbmnyt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fobucbmnyt thead, #fobucbmnyt tbody, #fobucbmnyt tfoot, #fobucbmnyt tr, #fobucbmnyt td, #fobucbmnyt th {
+  border-style: none;
+}
+
+#fobucbmnyt p {
+  margin: 0;
+  padding: 0;
+}
+
+#fobucbmnyt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fobucbmnyt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fobucbmnyt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fobucbmnyt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fobucbmnyt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fobucbmnyt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fobucbmnyt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fobucbmnyt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fobucbmnyt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fobucbmnyt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fobucbmnyt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fobucbmnyt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fobucbmnyt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fobucbmnyt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fobucbmnyt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fobucbmnyt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fobucbmnyt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fobucbmnyt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fobucbmnyt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fobucbmnyt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fobucbmnyt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fobucbmnyt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fobucbmnyt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fobucbmnyt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fobucbmnyt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fobucbmnyt .gt_left {
+  text-align: left;
+}
+
+#fobucbmnyt .gt_center {
+  text-align: center;
+}
+
+#fobucbmnyt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fobucbmnyt .gt_font_normal {
+  font-weight: normal;
+}
+
+#fobucbmnyt .gt_font_bold {
+  font-weight: bold;
+}
+
+#fobucbmnyt .gt_font_italic {
+  font-style: italic;
+}
+
+#fobucbmnyt .gt_super {
+  font-size: 65%;
+}
+
+#fobucbmnyt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fobucbmnyt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fobucbmnyt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fobucbmnyt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fobucbmnyt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fobucbmnyt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fobucbmnyt .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=".metric">.metric</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=".estimator">.estimator</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id=".estimate">.estimate</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers=".metric" class="gt_row gt_left">accuracy</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.7748126</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">sens</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.4778882</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">spec</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.8970090</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">precision</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.6563089</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">recall</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.4778882</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">f_meas</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.5530649</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">kap</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.4074916</td></tr>
+    <tr><td headers=".metric" class="gt_row gt_left">mcc</td>
+<td headers=".estimator" class="gt_row gt_left">binary</td>
+<td headers=".estimate" class="gt_row gt_right">0.4166529</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="área-bajo-la-curva" class="slide level2">
+<h2>Área bajo la curva</h2>
+<p>El área bajo la curva (AUC) es una métrica que mide la capacidad de un modelo para distinguir entre dos clases. En el caso de un modelo de regresión logística, el AUC mide la capacidad del modelo para distinguir entre los que han consumido alcohol y los que no.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>prediccion_auc <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_results, entrenamiento, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
+<span id="cb54-2"><a href="#cb54-2"></a></span>
+<span id="cb54-3"><a href="#cb54-3"></a>resultados_prueba_auc <span class="ot">&lt;-</span> <span class="fu">cbind</span>(prediccion_auc, datos_entrenamiento) <span class="sc">|&gt;</span></span>
+<span id="cb54-4"><a href="#cb54-4"></a>  <span class="fu">tibble</span>()</span>
+<span id="cb54-5"><a href="#cb54-5"></a></span>
+<span id="cb54-6"><a href="#cb54-6"></a><span class="fu">roc_auc</span>(resultados_prueba_auc,</span>
+<span id="cb54-7"><a href="#cb54-7"></a>  <span class="at">truth =</span> PYALC,</span>
+<span id="cb54-8"><a href="#cb54-8"></a>  <span class="st">`</span><span class="at">.pred_Sí ha consumido</span><span class="st">`</span>,</span>
+<span id="cb54-9"><a href="#cb54-9"></a>  <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb54-10"><a href="#cb54-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc binary         0.795</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">roc_curve</span>(resultados_prueba_auc,</span>
+<span id="cb56-2"><a href="#cb56-2"></a>  <span class="at">truth =</span> PYALC,</span>
+<span id="cb56-3"><a href="#cb56-3"></a>   <span class="st">`</span><span class="at">.pred_Sí ha consumido</span><span class="st">`</span>,</span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="at">event_level =</span> <span class="st">"second"</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>) <span class="sc">|&gt;</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="3-modelos_files/figure-html/tablas-2-1.png" width="672" class="r-stretch"></section></section>
+<section id="práctica-1" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Práctica</h1>
+<p>¿Cuál es la exactitud y la sensibilidad del modelo que estimaron en la práctica anterior?</p>
+</section>
+
+<section id="podemos-encontrar-un-modelo-que-sea-mejor-que-el-anterior" class="title-slide slide level1 center">
+<h1>¿Podemos encontrar un modelo que sea mejor que el anterior?</h1>
+
+
+<img src="./img/logo_um.svg" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Machine Learning</p>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

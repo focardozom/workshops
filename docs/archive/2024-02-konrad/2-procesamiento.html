@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
+
+  <meta name="author" content="">
+  <title>Workshops - 2. Procesamiento de datos con tidyverse</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="custom.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DK5ELGRTKP"></script>
+
+  <script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DK5ELGRTKP', { 'anonymize_ip': true});
+  </script>
+  
+  <script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    });
+  });
+  </script> 
+    
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta name="twitter:title" content="Workshops - 2. Procesamiento de datos con tidyverse">
+<meta name="twitter:description" content="Dive into our wide range of workshops designed to boost your skills and knowledge.">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">2. Procesamiento de datos con <code>tidyverse</code></h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ul>
+<li>Base de datos de La Corporación Nuevos Rumbos</li>
+<li><code>Tidyverse</code></li>
+<li>Explorar los datos</li>
+<li>Estimar un modelo</li>
+<li>Práctica</li>
+</ul>
+</section>
+<section id="base-de-datos-corporación-nuevos-rumbos" class="slide level2">
+<h2>Base de datos Corporación Nuevos Rumbos</h2>
+<div class="r-fit-text">
+<ul>
+<li><strong>Organización sin ánimo de lucro</strong>: Enfocada en la investigación y prevención de problemas sociales.</li>
+<li><strong>Áreas de Interés</strong>: Consumo de sustancias, delincuencia, y violencia.</li>
+<li><strong>Alcance Geográfico</strong>: Colombia y América Latina.</li>
+</ul>
+<h4 id="fundación-y-trayectoria">Fundación y Trayectoria</h4>
+<ul>
+<li><strong>Establecida en Bogotá</strong>: Octubre de 2002.</li>
+<li><strong>Trayectoria</strong>: Más de dos décadas comprometidas con la prevención y la investigación.</li>
+</ul>
+<h4 id="colaboraciones-y-alianzas">Colaboraciones y Alianzas</h4>
+<ul>
+<li><strong>Organizaciones Locales</strong>: Alcaldías y gobernaciones, Ministerios de Salud y de Justicia, Instituto Colombiano de Bienestar Familiar.</li>
+<li><strong>Organizaciones Internacionales</strong>: Organización Panamericana de la Salud, Comisión Europea, CICAD/OEA.</li>
+<li><strong>Instituciones Académicas</strong>: Universidades de New Jersey, Washington, y Miami.</li>
+</ul>
+<p><a href="https://nuevosrumbos.org/index">Más información aquí</a></p>
+</div>
+</section>
+<section id="base-de-datos" class="slide level2">
+<h2>Base de datos</h2>
+<ul>
+<li>Factores de riesgo y de protección
+<ul>
+<li>Disponibilidad percibida de drogas</li>
+<li>Actitudes de la comunidad frente al consumo de drogas</li>
+<li>Actitudes de los padres frente al consumo de drogas</li>
+<li>Involucramiento en actividades comunitarias</li>
+</ul></li>
+<li>Consumo de alcohol y otras drogas
+<ul>
+<li>Consumo de alcohol en la vida, 12 meses últimos 30 días</li>
+<li>Haber estado en una pelea</li>
+</ul></li>
+<li>Características demográficas
+<ul>
+<li>Edad</li>
+<li>Sexo</li>
+<li>Grado</li>
+</ul></li>
+</ul>
+</section>
+<section id="importar-la-base-de-datos" class="slide level2">
+<h2>Importar la base de datos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(DataWorkshopKL)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>los_datos <span class="ot">&lt;-</span> DataWorkshopKL<span class="sc">::</span>base_NR</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>los_datos  <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 23,220
+Columns: 529
+$ YEAR                   &lt;fct&gt; 2014, 2012-2013, 2012-2013, 2014, 2014, 2014, 2…
+$ GRADE                  &lt;dbl&gt; 9, 8, 11, 6, 7, 7, 9, 10, 10, 8, 7, 9, 7, 9, 6,…
+$ GENDER                 &lt;fct&gt; Femenino, Masculino, Femenino, Femenino, Mascul…
+$ AGE                    &lt;dbl&gt; 16, 12, 17, 11, 13, 12, 14, 16, 16, 15, 13, 14,…
+$ EDAALC                 &lt;fct&gt; 10, NA, 15, 10, NA, 10, 14, 14, -9, 10, 10, 13,…
+$ EDACIG                 &lt;fct&gt; 14, NA, NA, NA, NA, NA, NA, 15, NA, NA, NA, NA,…
+$ EDAMAR                 &lt;fct&gt; 14, NA, NA, NA, NA, NA, NA, 15, NA, NA, NA, NA,…
+$ EDACOC                 &lt;fct&gt; 15, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDABAS                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAINH                 &lt;fct&gt; 15, NA, NA, NA, NA, NA, NA, NA, -9, NA, NA, NA,…
+$ EDAEXT                 &lt;fct&gt; 11, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAVIT                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAHON                 &lt;fct&gt; 15, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAACD                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDATRAN                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAPOP                 &lt;fct&gt; 12, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAANF                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDAHER                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ EDADIC                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRAALC                 &lt;fct&gt; 2, 0, 4, 4, 0, 2, 1, 4, 1, 1, 2, 2, 0, 0, 0, 0,…
+$ FRACIG                 &lt;fct&gt; 3, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRAMAR                 &lt;fct&gt; 4, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRACOC                 &lt;fct&gt; 4, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRABAS                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAINH                 &lt;fct&gt; 2, 0, NA, 0, 0, 0, 0, 0, 2, 0, NA, NA, NA, 0, N…
+$ FRAEXT                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAVIT                 &lt;fct&gt; NA, 0, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, N…
+$ FRAHON                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAACI                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRATRA                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAPOP                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAANF                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRAHER                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ FRADIC                 &lt;fct&gt; 0, 0, NA, 0, 0, 0, 0, 0, NA, 0, NA, NA, NA, 0, …
+$ ALC30DY                &lt;fct&gt; Sí ha consumido, No ha consumido, Sí ha consumi…
+$ CIG30DY                &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ MAR30DY                &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ COKE30DY               &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ BASU30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ INHL30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ MDMA30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ FAKE30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ MUSH30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ LSD30DY                &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ TRAN30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ POP30DY                &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ AMPH30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ HERO30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ DICK30DY               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ EMBALG                 &lt;fct&gt; SI, NO, SI, NO, NO, NO, SI, SI, NA, SI, NA, NA,…
+$ EMBPRI                 &lt;dbl&gt; 11, NA, 15, NA, NA, NA, 14, 14, NA, 15, NA, NA,…
+$ EMBCOL                 &lt;fct&gt; NO, NO, NO, NO, NO, NO, NO, NO, NA, NO, NA, NA,…
+$ EMBDCO                 &lt;fct&gt; NO, NO, NO, NO, NO, NO, NO, NO, NA, SI, NA, NA,…
+$ GETALC                 &lt;fct&gt; Muy fácil, Fácil, Fácil, Fácil, Muy fácil, Un p…
+$ GETCIG                 &lt;fct&gt; Muy fácil, Fácil, Un poco difícil, Muy difìcil,…
+$ GETDRUG                &lt;fct&gt; Muy fácil, Un poco difícil, Muy difìcil, Muy di…
+$ GETMAR                 &lt;fct&gt; Muy fácil, Fácil, Fácil, Muy difìcil, Muy fácil…
+$ AWRMAR                 &lt;fct&gt; No tan mal, Muy mal, Muy mal, Muy mal, Muy mal,…
+$ AWRALC                 &lt;fct&gt; No tan mal, No tan mal, Mal, Muy mal, Muy mal, …
+$ AWRCIG                 &lt;fct&gt; Para nada mal, Mal, Muy mal, Muy mal, Muy mal, …
+$ WRPRALC                &lt;fct&gt; Muy mal, Muy mal, No tan mal, No tan mal, Muy m…
+$ WRPRCIG                &lt;fct&gt; Muy mal, Muy mal, Muy mal, Muy mal, Muy mal, Mu…
+$ WRPRMAR                &lt;fct&gt; Muy mal, Muy mal, Muy mal, Muy mal, Muy mal, Mu…
+$ WRPRDRW                &lt;fct&gt; Mal, Muy mal, Mal, Muy mal, Muy mal, Muy mal, N…
+$ WRPRSTL                &lt;fct&gt; Muy mal, Muy mal, Muy mal, Muy mal, Muy mal, Mu…
+$ WRPRFGT                &lt;fct&gt; Mal, Muy mal, Mal, Muy mal, Muy mal, Muy mal, M…
+$ POLMAR                 &lt;fct&gt; No, Definitivamente no, No, Si, Definitivamente…
+$ POLALC                 &lt;fct&gt; Definitivamente no, Definitivamente no, No, Def…
+$ POLGUN                 &lt;fct&gt; Si, Si, Definitivamente si, Si, Si, NA, No, Si,…
+$ POLCIG                 &lt;fct&gt; Definitivamente no, Definitivamente no, Definit…
+$ FAMRULE                &lt;fct&gt; Definitivamente si, Definitivamente si, Definit…
+$ HMWORK                 &lt;fct&gt; No, Si, Definitivamente si, No, Si, Definitivam…
+$ PARKNOW                &lt;fct&gt; Definitivamente no, Definitivamente si, Definit…
+$ CMHOME                 &lt;fct&gt; Definitivamente si, Definitivamente si, Definit…
+$ CATCHAL                &lt;fct&gt; Definitivamente si, Definitivamente si, Definit…
+$ CLRRULE                &lt;fct&gt; Definitivamente si, Definitivamente si, Definit…
+$ CATCHGN                &lt;fct&gt; Si, Definitivamente si, Si, Si, Definitivamente…
+$ CATCHSK                &lt;fct&gt; No, Si, Si, Si, Definitivamente si, Definitivam…
+$ SCHIMP                 &lt;fct&gt; Rara vez, Frecuentemente, Frecuentemente, Frecu…
+$ SCHINT                 &lt;fct&gt; Un poco aburridas, Bastante interesantes, Un po…
+$ SCHLRN                 &lt;fct&gt; Un poco interesantes, Muy interesantes y estimu…
+$ MISSC                  &lt;fct&gt; Ningún, Ningún, Ningún, Ningún, Ningún, Ningún,…
+$ ENJSCH                 &lt;fct&gt; Casi siempre, A veces, A veces, Casi siempre, A…
+$ HTSCH                  &lt;fct&gt; A veces, Nunca, A veces, Nunca, Nunca, A veces,…
+$ BWSCH                  &lt;fct&gt; Casi siempre, Nunca, A veces, Casi siempre, Cas…
+$ HMCIG                  &lt;fct&gt; Riesgo ligero, Riesgo moderado, Mucho riesgo, M…
+$ HMMARO                 &lt;fct&gt; Riesgo ligero, Mucho riesgo, Riesgo ligero, Rie…
+$ HMMARR                 &lt;fct&gt; Sin riesgo, Mucho riesgo, Mucho riesgo, Riesgo …
+$ HMALC                  &lt;fct&gt; Mucho riesgo, Riesgo moderado, Mucho riesgo, Si…
+$ P44E                   &lt;fct&gt; Riesgo moderado, Riesgo moderado, Mucho riesgo,…
+$ WRALC                  &lt;fct&gt; Mal, Muy mal, Muy mal, No tan mal, Muy mal, Muy…
+$ WRCIG                  &lt;fct&gt; No tan mal, Muy mal, Muy mal, Mal, Muy mal, Muy…
+$ WRMAR                  &lt;fct&gt; Para nada mal, Muy mal, Muy mal, NA, Muy mal, M…
+$ WRDRUG                 &lt;fct&gt; Para nada mal, Muy mal, Muy mal, Muy mal, Muy m…
+$ WRGUN                  &lt;fct&gt; No tan mal, Muy mal, Muy mal, Muy mal, Muy mal,…
+$ WRSTL                  &lt;fct&gt; Mal, Muy mal, Muy mal, Muy mal, Muy mal, Muy ma…
+$ WRFGT                  &lt;fct&gt; Mal, Mal, Muy mal, No tan mal, Muy mal, Muy mal…
+$ WRATT                  &lt;fct&gt; Muy mal, Muy mal, Muy mal, Muy mal, Muy mal, Mu…
+$ WRSKIP                 &lt;fct&gt; No tan mal, Mal, Mal, Muy mal, Muy mal, Muy mal…
+$ FRCIG                  &lt;dbl&gt; 5, 1, 4, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ FRALC                  &lt;fct&gt; 2 amigos, Ninguno de mis amigos, 2 amigos, 2 am…
+$ FRMAR                  &lt;fct&gt; 4 amigos, Ninguno de mis amigos, Ninguno de mis…
+$ FRDRUG                 &lt;fct&gt; 4 amigos, Ninguno de mis amigos, Ninguno de mis…
+$ FRSUS                  &lt;fct&gt; 4 amigos, Ninguno de mis amigos, Ninguno de mis…
+$ FRGUN                  &lt;fct&gt; 4 amigos, Ninguno de mis amigos, Ninguno de mis…
+$ FRSOLD                 &lt;fct&gt; 2 amigos, Ninguno de mis amigos, Ninguno de mis…
+$ FRSTL                  &lt;fct&gt; Ninguno de mis amigos, Ninguno de mis amigos, N…
+$ FRARST                 &lt;fct&gt; 1 amigo, Ninguno de mis amigos, Ninguno de mis …
+$ FRDROP                 &lt;fct&gt; 1 amigo, Ninguno de mis amigos, Ninguno de mis …
+$ FRGANG                 &lt;fct&gt; 1 amigo, 0, 0, Ninguno de mis amigos, 0, 0, 0, …
+$ TCHNOT                 &lt;fct&gt; Definitivamente no, Si, No, Definitivamente si,…
+$ SAFESCH                &lt;fct&gt; Definitivamente no, No, No, Si, No, Definitivam…
+$ SCHPAR                 &lt;fct&gt; Definitivamente no, Si, No, Definitivamente si,…
+$ TCHPRA                 &lt;fct&gt; Definitivamente no, No, No, No, No, No, Si, No,…
+$ ENJMOM                 &lt;fct&gt; Definitivamente si, Definitivamente si, Definit…
+$ ENJDAD                 &lt;fct&gt; Si, Definitivamente si, Definitivamente si, Def…
+$ ASKHELP                &lt;fct&gt; No, Definitivamente si, Definitivamente si, Def…
+$ FAMFUN                 &lt;fct&gt; Si, Si, Definitivamente si, Definitivamente si,…
+$ FAMDEC                 &lt;fct&gt; No, Definitivamente si, Definitivamente si, Def…
+$ PARNOT                 &lt;fct&gt; A veces, Con frecuencia, Con frecuencia, A vece…
+$ PROUD                  &lt;fct&gt; Nunca o casi nunca, Todo el tiempo, Con frecuen…
+$ VDORMB                 &lt;dbl&gt; 1, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, NA, N…
+$ VPROBD                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VPROBP                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VCOLEN                 &lt;dbl&gt; 1, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ VROBTR                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VPROCB                 &lt;dbl&gt; 1, NA, 1, NA, NA, NA, NA, 1, NA, NA, NA, NA, NA…
+$ VNCOT                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VPELET                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VSBDTM                 &lt;dbl&gt; NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ VCOLGB                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ VPELNOV                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, NA, …
+$ VPROFT                 &lt;fct&gt; NA, NO, NA, NA, NA, NA, NA, SI, NA, NA, NA, NA,…
+$ ALCLIFE                &lt;fct&gt; Sí ha consumido, No ha consumido, Sí ha consumi…
+$ CIGLIFE                &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ MARLIFE                &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ COKELIFE               &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ BASULIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ INHLLIFE               &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ MDMALIFE               &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ FAKELIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ MUSHLIFE               &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ LSDLIFE                &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ TRANLIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ POPLIFE                &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ AMPHLIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ HEROLIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ DICKLIFE               &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYALC                  &lt;fct&gt; Sí ha consumido, No ha consumido, Sí ha consumi…
+$ PYCIG                  &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ PYMAR                  &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ PYCOKE                 &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ PYBASU                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYINHL                 &lt;fct&gt; Sí ha consumido, No ha consumido, No ha consumi…
+$ PYMDMA                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYFAKE                 &lt;fct&gt; NA, No ha consumido, No ha consumido, No ha con…
+$ PYMUSH                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYLSD                  &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYTRAN                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYPOP                  &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYAMPH                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYHERO                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ PYDICK                 &lt;fct&gt; No ha consumido, No ha consumido, No ha consumi…
+$ AGEDRUNK               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 10, NA,…
+$ DRUNK                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NO, NA, SI, NO,…
+$ ARGUE                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, 3, 3, 2,…
+$ SERARG                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 3, 3, 2,…
+$ FAMYELL                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 2, 2, 2,…
+$ TIMESCH                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 2, 2, 5,…
+$ SPORT                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ SCOUT                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ RELIG                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ ARTS                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ SERCLUB                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ SIBALC                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, NA, 1, 1…
+$ SIBMAR                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBCIG                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBGUN                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBSUS                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ FAMPROB                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, NA, 5, 1…
+$ AGEALCR                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 10 o me…
+$ AGEATT                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Nunca l…
+$ AGESUS                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Nunca l…
+$ AGEARST                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Nunca l…
+$ NHCRIME                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ NHFIGHT                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHGARB                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHGRAFF                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHEMPTY                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ NHDARK                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHPARK                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ ADUDRUG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 2, 1, 1,…
+$ ADSTEAL                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, 2, 1, 1,…
+$ ADDRUNK                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, 2, 1, 1,…
+$ ADSDRUG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 1,…
+$ AGEGUN                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, nunca l…
+$ COOLMAR                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ COOLCIG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ COOLALC                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ COOLGUN                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ COOLKNF                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ AGEKNF                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Nunca l…
+$ TALKNEI                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHGJOB                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ NHPROUD                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ NHENC                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ SCHDISC                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ SCHACT                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ SCHPRO                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ SCHCLUB                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ TALKTCH                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ COOLSCH                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ COOLDEF                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ COOLVOL                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, …
+$ COOLCOM                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ FRCOM                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ FRCLUB                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, …
+$ FRSCH                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, …
+$ FRLKSCH                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, …
+$ FRREL                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, …
+$ SOLDDRUG               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ ARRESTED               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ ATTACKED               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ CARRYGUN               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ CARRYKNF               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ YRTAKE                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ YRCLUB                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 2, 2, 4,…
+$ YREXTRA                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 3, 1, 2,…
+$ YRVOL                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 2,…
+$ SAFENH                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, SÍ, NA,…
+$ GETGUN                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Difícil…
+$ GANG                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, 0, 0, 0,…
+$ GANGNM                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, 3, 3, 3,…
+$ AGEGANG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 1,…
+$ AERCIG                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 2…
+$ INSCH                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NO, NA, NA, NO,…
+$ BFSCH                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NO, NA, NA, NO,…
+$ RWSCH                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, NA, 1, 3…
+$ SEELP                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ POLICE                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ FIGTH                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ HANG                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ STOLEN                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ HOMPROB                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SKIPDRI                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ BAROUT                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 5, NA, NA, 1, 1…
+$ BOTTLE                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ POLOLO                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ POLMARr                &lt;dbl&gt; 3, 4, 3, 2, 4, 3, 4, 2, 3, 1, 3, 3, 2, 3, 2, 2,…
+$ POLALCr                &lt;dbl&gt; 4, 4, 3, 4, 3, 4, 4, 2, 1, 4, 3, 3, 2, 3, 4, 3,…
+$ POLGUNr                &lt;dbl&gt; 2, 2, 1, 2, 2, NA, 3, 2, 1, 1, 2, 2, 2, 3, 2, 1…
+$ POLCIGr                &lt;dbl&gt; 4, 4, 4, 3, 4, 1, 4, 4, 3, 4, 3, 3, 2, 3, 4, 4,…
+$ FAMRULEr               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, NA, 2, 2, 1, 1, 1…
+$ HMWORKr                &lt;dbl&gt; 3, 2, 1, 3, 2, 1, 2, 1, 1, 2, NA, 3, 2, 1, 2, 1…
+$ PARKNOWr               &lt;dbl&gt; 4, 1, 1, NA, 3, 1, 1, 2, 1, 2, NA, 1, 2, 1, 1, …
+$ CMHOMEr                &lt;dbl&gt; 1, 1, 1, 4, 2, 1, 1, 3, 1, 2, NA, 2, 2, 1, 1, 1…
+$ CATCHALr               &lt;dbl&gt; 1, 1, 1, 4, 2, 1, 3, 3, 3, 3, NA, 2, 2, 1, 1, 1…
+$ CLRRULEr               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, NA, 1, 2, 1, 1, 1…
+$ CATCHGNr               &lt;dbl&gt; 2, 1, 2, 2, 1, 1, 2, 1, 1, 1, NA, 1, 2, 1, 2, 1…
+$ CATCHSKr               &lt;dbl&gt; 3, 2, 2, 2, 1, 1, 3, 3, 1, 1, NA, 2, 2, 1, 1, 2…
+$ SCHIMPr                &lt;dbl&gt; 4, 2, 2, 2, 3, 4, 3, 2, 4, 2, 4, 3, 3, 3, 2, 1,…
+$ MISSCr                 &lt;dbl&gt; 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00,…
+$ ENJSCHr                &lt;dbl&gt; 1, 3, 3, 1, 3, 1, 2, 2, 2, 1, 3, 5, 2, 3, NA, 2…
+$ BWSCHr                 &lt;dbl&gt; 1, 5, 3, 1, 1, 2, 2, 2, NA, 1, 1, NA, NA, 2, NA…
+$ HMCIGr                 &lt;dbl&gt; 2, 1, NA, NA, NA, NA, NA, 3, NA, 3, NA, 2, 1, N…
+$ HMMAROr                &lt;dbl&gt; 2, NA, 2, 1, NA, NA, 2, 3, 2, 3, NA, 3, 2, 1, N…
+$ HMMARRr                &lt;dbl&gt; 3, NA, NA, 1, NA, NA, 1, 3, NA, 3, NA, 1, 1, NA…
+$ HMALCr                 &lt;dbl&gt; NA, 1, NA, 3, NA, NA, NA, 2, NA, 1, NA, NA, 1, …
+$ FRCIGr                 &lt;dbl&gt; 4, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRALCr                 &lt;dbl&gt; 2, 0, 2, 2, 0, 0, 2, 4, 1, 4, 0, 2, 0, 4, 0, 0,…
+$ FRMARr                 &lt;dbl&gt; 4, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRDRUGr                &lt;dbl&gt; 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRSUSr                 &lt;dbl&gt; 4, 0, 0, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0,…
+$ FRGUNr                 &lt;dbl&gt; 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRSOLDr                &lt;dbl&gt; 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRSTLr                 &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRARSTr                &lt;dbl&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ FRDROPr                &lt;dbl&gt; 1, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,…
+$ CATHAL                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, -9, NA, NA, NA,…
+$ SAFENHr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ FAMPROBr               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ sibling                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ SIBALCr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, …
+$ SIBMARr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBCIGr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBGUNr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ SIBSUSr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 1, 1…
+$ AGESUSr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ AGEARSTr               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ AGEGUNr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ AGEATTr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ GANGr                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, 0, 0, 0,…
+$ GANGNMr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, 0, 0, 0,…
+$ FRGANGr                &lt;dbl&gt; 4, 0, 0, 2, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0,…
+$ AGEGANGr               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, 0, 0, 0,…
+$ SPORTr                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ SCOUTr                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ ARTSr                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ RELIGr                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ SERCLUBr               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ FRCLUBr                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ FRCOMr                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ FRLKSCHr               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ FRRELr                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ FRSCHR                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, …
+$ OTHRYR                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, …
+$ OTHER1                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, …
+$ OTHER2                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ OTHER3                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, …
+$ OTHRMTH                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, NA, …
+$ OTHRLF                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CRPAD                  &lt;dbl&gt; 4.00, 2.75, 2.25, 1.50, 4.00, 2.00, 1.50, 3.25,…
+$ CRLNFD                 &lt;dbl&gt; 3.166667, 2.666667, 1.833333, 1.833333, 2.00000…
+$ FRPFD                  &lt;dbl&gt; 1.000000, 1.000000, 1.666667, 1.666667, 1.00000…
+$ FRPFM                  &lt;dbl&gt; 2.000000, 1.250000, 1.250000, 2.428571, 1.62500…
+$ SRLCS                  &lt;dbl&gt; 2.142857, 2.428571, 2.571429, 1.714286, 1.85714…
+$ PRPRD                  &lt;dbl&gt; 2.333333, NA, NA, 1.666667, NA, NA, NA, 2.75000…
+$ PRFAD                  &lt;dbl&gt; 3.25, 1.00, 1.00, 2.00, 1.00, 1.00, 1.25, 3.00,…
+$ PRATA                  &lt;dbl&gt; 2.2, 1.4, 1.2, 1.4, 1.0, 1.0, 2.4, 1.2, 2.0, NA…
+$ PRFUD                  &lt;dbl&gt; 3.50, 0.00, 1.25, 0.50, 0.00, 0.00, 0.50, 2.00,…
+$ CPOPI                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2.7, NA…
+$ CPRPI                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1.33333…
+$ SPOPI                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2.2, NA…
+$ PPPI                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2.00000…
+$ PPRPI                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3.25, N…
+$ PRIAP                  &lt;dbl&gt; 2.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0…
+$ FPOPI                  &lt;dbl&gt; 2.333333, 3.666667, 4.000000, 4.000000, 2.66666…
+$ FPRPI                  &lt;dbl&gt; 2.50, 3.75, 3.50, 2.75, 3.25, 3.25, 3.00, 3.75,…
+$ SPRPI                  &lt;dbl&gt; 1.00, 2.50, 2.00, 3.25, 2.25, 2.50, 3.00, 2.75,…
+$ CRCDO                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2.4, NA…
+$ CRPAG                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, …
+$ FRFAB                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1.750000, NA, N…
+$ PREAB                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ PRRAI                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1.00000…
+$ PPIPP                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3.2, NA…
+$ FRFC                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2.666667, NA, 2…
+$ FRPAB                  &lt;dbl&gt; 1.666667, 1.000000, 1.666667, 1.000000, 1.00000…
+$ PRGI                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 2, NA, 0, 0, 0,…
+$ P16A                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ P16A1                  &lt;chr&gt; "                                              …
+$ P16A10                 &lt;chr&gt; "                  ", "                  ", "  …
+$ P16B                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ P16B1                  &lt;chr&gt; "                                              …
+$ P16B10                 &lt;chr&gt; "                  ", "                  ", "  …
+$ POC                    &lt;dbl&gt; NA, NA, 0, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ P16C                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CSID                   &lt;chr&gt; "                                          ", "…
+$ ENCUES02               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, NA, …
+$ ENCUESTA               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 31, NA, 212207,…
+$ base                   &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, lanziano, NA, N…
+$ ETNIA                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CUESTION               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, 3, NA, B, 3, 3,…
+$ ELIMINAR               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA, NA, 0, NA,…
+$ crhdo_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ crpag_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ frfab_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, NA, …
+$ preip_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ prrai_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ cpopi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Below c…
+$ cprpi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Below c…
+$ spopi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Below c…
+$ pppi_ps                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Below c…
+$ pprpi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Above c…
+$ frfcn_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, NA, N…
+$ frpab_rs               &lt;dbl&gt; 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, NA, NA, 0, NA,…
+$ prgan_rs               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 0, NA, N…
+$ crpad_NRs              &lt;dbl&gt; 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, NA, NA, NA, 1, NA…
+$ crlnfd_NRs             &lt;dbl&gt; 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, NA, NA, 0, NA,…
+$ FRPFM_NRs              &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, NA, NA, NA, 0, NA…
+$ srlcs_NRs              &lt;dbl&gt; 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, NA, NA, 0, NA,…
+$ FRPFD_NRs              &lt;dbl&gt; 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, NA, NA, 0, NA,…
+$ PRPRD_NRs              &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, NA, NA, NA, 0, NA…
+$ prata_nrs              &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 1, 0, 1, NA, 0, NA, NA, 1, NA…
+$ PRFAD_NRS              &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, NA, NA, 0, NA,…
+$ prfud_nrs              &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, NA, NA, 0, NA,…
+$ priap_nrs              &lt;dbl&gt; 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, NA, NA, 0, NA,…
+$ FRPAB_NRS              &lt;dbl&gt; 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, NA, NA, 0, NA,…
+$ FPOPI_NRS              &lt;dbl&gt; 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, NA, NA, NA, 1, NA…
+$ SPRPI_NRS              &lt;dbl&gt; 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, NA, NA, 0, NA,…
+$ FPRPI_NRS              &lt;dbl&gt; 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, NA, NA, 1, NA,…
+$ crlnfd_rs              &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, NA, NA, 0, NA,…
+$ crpad_rs               &lt;dbl&gt; 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, NA, NA, NA, 1, NA…
+$ frpfm_rs               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, NA, NA, NA, 0, NA…
+$ frpfd_rs               &lt;dbl&gt; 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, NA, NA, 0, NA,…
+$ srlcs_rs               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, NA, NA, 0, NA,…
+$ prata_rs               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 1, 0, 1, NA, 0, NA, NA, 1, NA…
+$ PRFAD_RS               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, NA, NA, 0, NA,…
+$ prprd_rs               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, NA, NA, NA, 0, NA…
+$ priap_rs               &lt;dbl&gt; 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, NA, NA, 1, NA,…
+$ prfud_rs               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, NA, NA, 0, NA,…
+$ PPRPI_NRs2             &lt;dbl&gt; NA, 0, NA, NA, NA, NA, NA, NA, NA, 0, 1, NA, NA…
+$ PRRAI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ INSTITUCION            &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FREQALC30DY            &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2, …
+$ FREQSM30DY             &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, …
+$ FREQMAR30DY            &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, …
+$ CLARRULE               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SCHLRM                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ WRPACIG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FSOLD                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ ADSSTEAL               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ COLLCIG                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SAVESCH                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ AGEGUM                 &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CARRYIGU               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ JORNADA                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ ENJSCHI                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ WAPASTL                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ TRVOL                  &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ HONESTIDAD2            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ HONESTIDADedad         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ CONTROLEDADBRRA        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ HONESTIDADEMBORRACHADO &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ HONESTIDADficty        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ Honestidad             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 3, …
+$ HONESTIDAD3            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ HONESTIDAD4            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ NOHONS                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, …
+$ actmean                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CRLNFD_NRs2            &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0,…
+$ PRFAD_NRs2             &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0,…
+$ CRCDO_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ CRPAG_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ FRFAB_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, NA, 0, 0…
+$ FRFC_NRs2              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 0,…
+$ PREAB_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ CPOPI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FPOPI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FPRPI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SPOPI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ PPPI_NRs2              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ SPRPI_NRs2             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ GRUPO1                 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ DROGA                  &lt;dbl&gt; 6, 0, 0, 0, 0, 0, 0, 1, NA, 0, 0, 0, 0, 0, 0, 0…
+$ DROGMES                &lt;dbl&gt; 4, 0, 1, 0, 0, 1, 1, 1, 2, 1, 0, 3, 2, 0, 2, 0,…
+$ DROGMESI               &lt;dbl&gt; 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 2, 0, 2, 0,…
+$ DROGY                  &lt;dbl&gt; NA, 0, 1, 1, NA, 1, NA, 3, 2, 1, 1, 1, 0, NA, 0…
+$ ANYANTISO              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRGUNrD                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRSOLDrD               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRSTLrD                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRARSTrD               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FRDROPrD               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ JUICIO67               &lt;dbl&gt; NA, NA, NA, 1, 1, 1, NA, NA, NA, NA, 1, NA, 1, …
+$ JUICIO89               &lt;dbl&gt; 0, 1, NA, NA, NA, NA, 1, NA, NA, 1, NA, 1, NA, …
+$ PROBLEMA89             &lt;dbl&gt; 1, 0, NA, NA, NA, NA, 0, NA, NA, 0, NA, 0, NA, …
+$ JUICIO11               &lt;dbl&gt; NA, NA, 1, NA, NA, NA, NA, 0, NA, NA, NA, NA, N…
+$ PROBLEMA11             &lt;dbl&gt; NA, NA, 0, NA, NA, NA, NA, 1, NA, NA, NA, NA, N…
+$ GRUPO67                &lt;dbl&gt; NA, NA, NA, 0, 0, 0, NA, NA, NA, NA, 0, NA, 0, …
+$ GRUPO89                &lt;dbl&gt; 1, 0, NA, NA, NA, NA, 0, NA, NA, 0, NA, 0, NA, …
+$ GRUPO11                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fpopi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Bel…
+$ fprpi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Bel…
+$ sprpi_ps               &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Bel…
+$ protect                &lt;fct&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, Low…
+$ PROBLEMA67             &lt;dbl&gt; NA, NA, NA, 0, 0, 0, NA, NA, NA, NA, 0, NA, 0, …
+$ OTRO67                 &lt;dbl&gt; NA, NA, NA, 0, 0, 0, NA, NA, NA, NA, 0, NA, 0, …
+$ GRUPO1011              &lt;dbl&gt; NA, NA, 0, NA, NA, NA, NA, 1, NA, NA, NA, NA, N…
+$ PRRAI_BH               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ SRLCS_BH               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, NA, 0…
+$ CRLNFD_BH              &lt;dbl&gt; 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0,…
+$ PRATA_BH               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 1, 0, 1, NA, 0, 0, 0, 1, 0, 0…
+$ PRFAD_BH               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1,…
+$ FRPFD_BH               &lt;dbl&gt; 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,…
+$ CRPAD_BH               &lt;dbl&gt; 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, NA, 0, 0, 1, 0, 0…
+$ FRPAB_BH               &lt;dbl&gt; 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1,…
+$ FRPFM_BH               &lt;dbl&gt; 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NA, 0, 1, 0, 0, 0…
+$ CRPAG_BH               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ FRFAB_BH               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, NA, 0, 0…
+$ FRFC_BH                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 1, 1, 0,…
+$ PRPRD_BH               &lt;dbl&gt; 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, NA, 1, 1, 0, 1, 0…
+$ PRFUD_BH               &lt;dbl&gt; 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0,…
+$ PRGI_BH                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, 0, 0, 0,…
+$ CRCDO_BH               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ PREAB_BH               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, NA, …
+$ PRIAP_BH               &lt;dbl&gt; 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0,…
+$ SRLCS_MAD6             &lt;dbl&gt; NA, NA, NA, 0.2857286, NA, NA, NA, NA, NA, NA, …
+$ SRLCS_MAD7             &lt;dbl&gt; NA, NA, NA, NA, 4.285714e-05, 1.429000e-01, NA,…
+$ SRLCS_MAD8             &lt;dbl&gt; NA, 0.1428571, NA, NA, NA, NA, NA, NA, NA, 0.14…
+$ SRLCS_MAD9             &lt;dbl&gt; 0.4285714, NA, NA, NA, NA, NA, 0.2857143, NA, N…
+$ SRLCS_MAD10            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 0.1429000, 0.635433…
+$ SRLCS_MAD11            &lt;dbl&gt; NA, NA, 0.2857143, NA, NA, NA, NA, NA, NA, NA, …
+$ SRLCS_G6N              &lt;dbl&gt; NA, NA, NA, 1.8254, NA, NA, NA, NA, NA, NA, NA,…
+$ SRLCS_NRs3             &lt;dbl&gt; 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, NA, 0…
+$ SRLCS_G7N              &lt;dbl&gt; NA, NA, NA, NA, 1.971025, 1.971025, NA, NA, NA,…
+$ SRLCS_G8N              &lt;dbl&gt; NA, 2.1179, NA, NA, NA, NA, NA, NA, NA, 2.1179,…
+$ SRLCS_G9N              &lt;dbl&gt; 2.1137, NA, NA, NA, NA, NA, 2.1137, NA, NA, NA,…
+$ SRLCS_G10N             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2.2557, 2.2557, NA,…
+$ SRLCS_G11N             &lt;dbl&gt; NA, NA, 2.108425, NA, NA, NA, NA, NA, NA, NA, N…
+$ CPOPI_MAD6             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CPOPI_MAD7             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.2, NA…
+$ CPOPI_MAD8             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CPOPI_MAD9             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CPOPI_MAD10            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CPOPI_MAD11            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ CPOPI_G6N              &lt;dbl&gt; NA, NA, NA, 2.628175, NA, NA, NA, NA, NA, NA, N…
+$ CPOPI_G7N              &lt;dbl&gt; NA, NA, NA, NA, 2.62305, 2.62305, NA, NA, NA, N…
+$ CPOPI_G8N              &lt;dbl&gt; NA, 2.61985, NA, NA, NA, NA, NA, NA, NA, 2.6198…
+$ CPOPI_G9N              &lt;dbl&gt; 2.61255, NA, NA, NA, NA, NA, 2.61255, NA, NA, N…
+$ CPOPI_G10N             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 2.61495, 2.61495, N…
+$ CPOPI_G11N             &lt;dbl&gt; NA, NA, 2.712075, NA, NA, NA, NA, NA, NA, NA, N…
+$ CPOPI_NRs3             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, NA, …
+$ FPOPI_MAD6             &lt;dbl&gt; NA, NA, NA, 0.6667000, NA, NA, NA, NA, NA, NA, …
+$ FPOPI_MAD7             &lt;dbl&gt; NA, NA, NA, NA, 0.6666333, 0.6667000, NA, NA, N…
+$ FPOPI_MAD8             &lt;dbl&gt; NA, 0.6666667, NA, NA, NA, NA, NA, NA, NA, 0.66…
+$ FPOPI_MAD9             &lt;dbl&gt; 0.6666667, NA, NA, NA, NA, NA, 0.3333333, NA, N…
+$ FPOPI_MAD10            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 1.0000000, 0.333333…
+$ FPOPI_MAD11            &lt;dbl&gt; NA, NA, 1, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ FPOPI_G6N              &lt;dbl&gt; NA, NA, NA, 3.4741, NA, NA, NA, NA, NA, NA, NA,…
+$ FPOPI_G7N              &lt;dbl&gt; NA, NA, NA, NA, 3.473625, 3.473625, NA, NA, NA,…
+$ FPOPI_G8N              &lt;dbl&gt; NA, 3.143225, NA, NA, NA, NA, NA, NA, NA, 3.143…
+$ FPOPI_G9N              &lt;dbl&gt; 3.141725, NA, NA, NA, NA, NA, 3.141725, NA, NA,…
+$ FPOPI_G10N             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 3.146325, 3.146325,…
+$ FPOPI_G11N             &lt;dbl&gt; NA, NA, 3.1413, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FPOPI_NRs3             &lt;dbl&gt; 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, NA, 0, 0, 1, 0, 1…
+$ FPRPI_MAD6             &lt;dbl&gt; NA, NA, NA, 0.5, NA, NA, NA, NA, NA, NA, NA, NA…
+$ FPRPI_MAD7             &lt;dbl&gt; NA, NA, NA, NA, 0.00, 0.00, NA, NA, NA, NA, 1.2…
+$ FPRPI_MAD8             &lt;dbl&gt; NA, 0.75, NA, NA, NA, NA, NA, NA, NA, 1.00, NA,…
+$ FPRPI_MAD9             &lt;dbl&gt; 0.50, NA, NA, NA, NA, NA, 0.00, NA, NA, NA, NA,…
+$ FPRPI_MAD10            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 0.75, 0.00, NA, NA,…
+$ FPRPI_MAD11            &lt;dbl&gt; NA, NA, 0.5, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ FPRPI_G6N              &lt;dbl&gt; NA, NA, NA, 3.385175, NA, NA, NA, NA, NA, NA, N…
+$ FPRPI_G7N              &lt;dbl&gt; NA, NA, NA, NA, 3.383675, 3.383675, NA, NA, NA,…
+$ FPRPI_G8N              &lt;dbl&gt; NA, 3.1356, NA, NA, NA, NA, NA, NA, NA, 3.1356,…
+$ FPRPI_G9N              &lt;dbl&gt; 3.132525, NA, NA, NA, NA, NA, 3.132525, NA, NA,…
+$ FPRPI_G10N             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 3.1307, 3.1307, NA,…
+$ FPRPI_G11N             &lt;dbl&gt; NA, NA, 3.1307, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ FPRPI_NRs3             &lt;dbl&gt; 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1,…
+$ CRPAG_NRs              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p><code>|&gt;</code>: se puede leer como “siguiente”. Este operador se utiliza para encadenar varias operaciones juntas en una sola línea de código. En este caso, se utiliza para encadenar los datos <code>los_datos</code> a la función <code>glimpse()</code>.</p></li>
+<li><p><code>glimpse()</code>: imprimir una vista previa de los datos, incluyendo el tipo de datos de cada columna y algunos valores. En este caso, se utiliza para explorar los datos almacenados en el objeto “los_datos”.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="funciones-en-tidyverse-para-procesar-datos" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Funciones en <code>Tidyverse</code> para procesar datos</h1>
+
+</section>
+<section id="select" class="slide level2">
+<h2><code>select()</code></h2>
+<p>Esta función selecciona columnas de una base de datos.</p>
+<p>En este ejemplo, quiero una nueva base de datos que tenga la variable <strong>NHPROUD</strong> (<em>“Hay gente en mi barrio que se siente orgullosa de mí cuando hago algo bien”</em>)</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">select</span>(NHPROUD) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  NHPROUD
+  &lt;fct&gt;  
+1 &lt;NA&gt;   
+2 1      
+3 2      
+4 3      
+5 4      </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ol start="3" type="1">
+<li><p><code>select()</code>: seleccionar columnas específicas de un data frame. En este caso, se utiliza para seleccionar la columna “NHPROUD” del objeto “los_datos”.</p></li>
+<li><p><code>distinct()</code>: eliminar filas duplicadas de un data frame. En este caso, se utiliza para eliminar filas duplicadas de la columna “NHPROUD” del objeto “los_datos”.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="select-1" class="slide level2">
+<h2><code>select()</code></h2>
+<p>Seleccionar las variables GENDER, AWRMAR, AWRALC, AWRCIG</p>
+<ul>
+<li>GENDER: Sexo</li>
+</ul>
+<p><em>“Qué tan mal ven la mayoría de los adultos de tu barrio (aquellos más cercanos a ti) el que los jóvenes de tu edad…”</em></p>
+<ul>
+<li>AWRMAR = fumen marihuana</li>
+<li>AWRALC = Consuman alcohol</li>
+<li>AWRCIG = fumen cigarrillo</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">select</span>(GENDER, AWRMAR, AWRALC, AWRCIG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 23,220 × 4
+   GENDER    AWRMAR     AWRALC     AWRCIG       
+   &lt;fct&gt;     &lt;fct&gt;      &lt;fct&gt;      &lt;fct&gt;        
+ 1 Femenino  No tan mal No tan mal Para nada mal
+ 2 Masculino Muy mal    No tan mal Mal          
+ 3 Femenino  Muy mal    Mal        Muy mal      
+ 4 Femenino  Muy mal    Muy mal    Muy mal      
+ 5 Masculino Muy mal    Muy mal    Muy mal      
+ 6 Femenino  Muy mal    Muy mal    Muy mal      
+ 7 Femenino  Mal        No tan mal Para nada mal
+ 8 Femenino  Muy mal    Mal        Muy mal      
+ 9 Masculino Muy mal    No tan mal &lt;NA&gt;         
+10 Masculino Muy mal    No tan mal Muy mal      
+# ℹ 23,210 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="mutate" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p>Esta función crea una nueva variable -añade una nueva columna a la base de datos- o tranforma una variable que esté presente en la base de datos.</p>
+<p>Por ejemplo, si quiero transformar las tres variables del ejemplo anterior para asignar un puntaje de las percepciones de los estudiantes sobre las creencias de los adultos…</p>
+<p>¿Qué debo hacer?</p>
+<ol type="1">
+<li>Transformar el valor que hay en la base por los valores: 1, 2, 3 y 4.</li>
+<li>Crear una nueva variable que calcule la media de los puntajes.</li>
+</ol>
+</section>
+<section id="mutate-1" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p>Las funciones en R son sus mejores amigas y pueden hacer mucho por usted. En este caso, la función <code>transformar_respuesta</code> toma un argumento <code>x</code> y devuelve un valor numérico en función de la comparación de <code>x</code> con los valores de mi diccionario.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>transformar_respuesta <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">case_when</span>(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    x <span class="sc">==</span> <span class="st">"Muy mal"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    x <span class="sc">==</span> <span class="st">"Mal"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    x <span class="sc">==</span> <span class="st">"Notan mal"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    x <span class="sc">==</span> <span class="st">"Para nada mal"</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  )</span>
+<span id="cb9-9"><a href="#cb9-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mutate-2" class="slide level2">
+<h2><code>mutate()</code></h2>
+<p>Calcular el promedio de las tres variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">select</span>(AWRMAR, AWRALC, AWRCIG) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), transformar_respuesta)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">mutate</span>(<span class="at">TOTAL =</span> (AWRMAR <span class="sc">+</span> AWRALC <span class="sc">+</span> AWRCIG)<span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 23,220 × 4
+   AWRMAR AWRALC AWRCIG TOTAL
+    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1     NA     NA      4 NA   
+ 2      1     NA      2 NA   
+ 3      1      2      1  1.33
+ 4      1      1      1  1   
+ 5      1      1      1  1   
+ 6      1      1      1  1   
+ 7      2     NA      4 NA   
+ 8      1      2      1  1.33
+ 9      1     NA     NA NA   
+10      1     NA      1 NA   
+# ℹ 23,210 more rows</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ol start="5" type="1">
+<li><p><code>case_when()</code>: realizar una serie de comparaciones y asignar valores en función de las comparaciones. En este caso, se utiliza para asignar un valor numérico a la columna “AWRMAR” del objeto “los_datos” en función de los valores del diccionario.</p></li>
+<li><p><code>across():</code> aplicar una función a varias columnas de un data frame. En este caso, se utiliza para aplicar la función <code>transformar_respuesta()</code> a todas las columnas del objeto “los_datos”.</p></li>
+<li><p><code>everything():</code> seleccionar todas las columnas de un data frame o tibble. En este caso, se utiliza para aplicar la función <code>transformar_respuesta()</code> a todas las columnas del objeto “los_datos”.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="filter" class="slide level2">
+<h2><code>filter()</code></h2>
+<p>Permite seleccionar filas de la base de datos según una condición.</p>
+<p>Voy a utilizar un filtro para seleccionar solamente las filas en las que los adultos respondieron <em>“No tan mal”</em> cuando preguntaron por sus actitudes frente al consumo de marihuana (AWRMAR).</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">select</span>(GENDER, AWRMAR, AWRALC, AWRCIG) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">filter</span>(AWRMAR <span class="sc">==</span> <span class="st">"No tan mal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,501 × 4
+   GENDER    AWRMAR     AWRALC        AWRCIG       
+   &lt;fct&gt;     &lt;fct&gt;      &lt;fct&gt;         &lt;fct&gt;        
+ 1 Femenino  No tan mal No tan mal    Para nada mal
+ 2 Femenino  No tan mal No tan mal    No tan mal   
+ 3 Femenino  No tan mal No tan mal    Mal          
+ 4 Masculino No tan mal No tan mal    No tan mal   
+ 5 Femenino  No tan mal No tan mal    No tan mal   
+ 6 Femenino  No tan mal No tan mal    No tan mal   
+ 7 Femenino  No tan mal No tan mal    No tan mal   
+ 8 Masculino No tan mal No tan mal    Para nada mal
+ 9 Masculino No tan mal No tan mal    &lt;NA&gt;         
+10 Masculino No tan mal Para nada mal No tan mal   
+# ℹ 1,491 more rows</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Con este filtro puedo ver que en los primeros 10 casos, cuando un adulto seleccionó que no está tan mal fumar marihuana, sus respuestas sobre el consumo de alcohol y cigarrillo parecen seguir un patrón similar.</p>
+</section>
+<section id="filter-1" class="slide level2">
+<h2><code>filter()</code></h2>
+<p>Ahora, miremos qué pasa si filtro por la opción <em>“Muy mal”</em></p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">select</span>(GENDER, AWRMAR, AWRALC, AWRCIG) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">filter</span>(AWRMAR <span class="sc">==</span> <span class="st">"Muy mal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15,480 × 4
+   GENDER    AWRMAR  AWRALC     AWRCIG 
+   &lt;fct&gt;     &lt;fct&gt;   &lt;fct&gt;      &lt;fct&gt;  
+ 1 Masculino Muy mal No tan mal Mal    
+ 2 Femenino  Muy mal Mal        Muy mal
+ 3 Femenino  Muy mal Muy mal    Muy mal
+ 4 Masculino Muy mal Muy mal    Muy mal
+ 5 Femenino  Muy mal Muy mal    Muy mal
+ 6 Femenino  Muy mal Mal        Muy mal
+ 7 Masculino Muy mal No tan mal &lt;NA&gt;   
+ 8 Masculino Muy mal No tan mal Muy mal
+ 9 Femenino  Muy mal Muy mal    &lt;NA&gt;   
+10 &lt;NA&gt;      Muy mal Muy mal    Muy mal
+# ℹ 15,470 more rows</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Como en el ejemplo anterior, se observa que el patrón de respuestas es más o menos consistente.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ol start="8" type="1">
+<li><code>filter()</code>: seleccionar filas específicas de un data frame en función de una o varias condiciones. En este caso, se utiliza para seleccionar las filas del objeto “los_datos” en las que la columna “AWRMAR” es igual a “No tan mal”.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="summarize" class="slide level2">
+<h2><code>summarize()</code></h2>
+<p>Esta función permiten obtener medidas de resumen de la base de datos, como por ejemplo, la media, moda, frecuencias, desviación estándar, etc.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Para marihuana</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>los_datos <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">select</span>(GENDER, AWRMAR, AWRALC, AWRCIG) <span class="sc">|&gt;</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"A"</span>),transformar_respuesta)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">summarise</span>(<span class="at">mean_AWRMAR =</span> <span class="fu">mean</span>(AWRMAR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-7"><a href="#cb16-7"></a>            <span class="at">sd_AWRMAR =</span> <span class="fu">sd</span>(AWRMAR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb16-8"><a href="#cb16-8"></a>            <span class="at">max_AWRMAR =</span> <span class="fu">max</span>(AWRMAR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb16-9"><a href="#cb16-9"></a>            <span class="at">min_AWRMAR =</span> <span class="fu">min</span>(AWRMAR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  mean_AWRMAR sd_AWRMAR max_AWRMAR min_AWRMAR
+        &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1        1.39     0.792          4          1</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<ol start="11" type="1">
+<li><p><code>summarise()</code>: calcular medidas de resumen de un data frame. En este caso, se utiliza para obtener la media, la desviación estándar, el valor máximo y el valor mínimo de la columna “AWRMAR” del objeto “los_datos”.</p></li>
+<li><p><code>starts_with()</code>: seleccionar columnas que comienzan con un determinado prefijo. En este caso, se utiliza para seleccionar las columnas que comienzan con “A” del objeto “los_datos”.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section id="práctica" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Práctica</h1>
+<p>Cuál es la prevalencia de consumo de las siguientes drogas en los últimos 30 días.</p>
+<ul>
+<li>Alcohol: ALC30DY</li>
+<li>Cigarrillo: CIG30DY</li>
+<li>Marihuana: MAR30DY</li>
+</ul>
+<p>La prevalencia de consumo de una droga se define como el porcentaje de personas que consumieron la droga.</p>
+</section>
+
+<section>
+<section id="explorar-los-datos" class="title-slide slide level1 center" data-background-color="#005030">
+<h1>Explorar los datos</h1>
+
+</section>
+<section id="explorar-los-datos-1" class="slide level2">
+<h2>Explorar los datos 1</h2>
+<ol type="1">
+<li>Crear un subset con las variables de interés</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>factores_de_riesgo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"CRPAD"</span>, <span class="st">"CRLNFD"</span>, <span class="st">"FRPFD"</span>, <span class="st">"FRPFM"</span>, <span class="st">"SRLCS"</span>, <span class="st">"PRFAD"</span>, <span class="st">"PRATA"</span>, <span class="st">"PRFUD"</span>, <span class="st">"PRIAP"</span>, <span class="st">"FPOPI"</span>, <span class="st">"FPRPI"</span>, <span class="st">"SPRPI"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>demograficas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"YEAR"</span>, <span class="st">"GRADE"</span>, <span class="st">"GENDER"</span>, <span class="st">"AGE"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>consumo_alcohol <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PYALC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Observar las variables de interés</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>los_datos  <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(factores_de_riesgo), </span>
+<span id="cb19-3"><a href="#cb19-3"></a>         <span class="fu">all_of</span>(demograficas), </span>
+<span id="cb19-4"><a href="#cb19-4"></a>         <span class="fu">all_of</span>(consumo_alcohol))  <span class="sc">|&gt;</span> </span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 23,220
+Columns: 17
+$ CRPAD  &lt;dbl&gt; 4.00, 2.75, 2.25, 1.50, 4.00, 2.00, 1.50, 3.25, 2.50, 2.00, NA,…
+$ CRLNFD &lt;dbl&gt; 3.166667, 2.666667, 1.833333, 1.833333, 2.000000, 2.000000, 3.3…
+$ FRPFD  &lt;dbl&gt; 1.000000, 1.000000, 1.666667, 1.666667, 1.000000, 1.000000, 1.3…
+$ FRPFM  &lt;dbl&gt; 2.000000, 1.250000, 1.250000, 2.428571, 1.625000, 1.000000, 1.8…
+$ SRLCS  &lt;dbl&gt; 2.142857, 2.428571, 2.571429, 1.714286, 1.857143, 1.714286, 1.7…
+$ PRFAD  &lt;dbl&gt; 3.25, 1.00, 1.00, 2.00, 1.00, 1.00, 1.25, 3.00, 1.75, 1.50, 1.7…
+$ PRATA  &lt;dbl&gt; 2.2, 1.4, 1.2, 1.4, 1.0, 1.0, 2.4, 1.2, 2.0, NA, 1.0, 1.2, 1.2,…
+$ PRFUD  &lt;dbl&gt; 3.50, 0.00, 1.25, 0.50, 0.00, 0.00, 0.50, 2.00, 0.25, 1.00, 0.0…
+$ PRIAP  &lt;dbl&gt; 2.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0000000, 1.000000…
+$ FPOPI  &lt;dbl&gt; 2.333333, 3.666667, 4.000000, 4.000000, 2.666667, 4.000000, 2.6…
+$ FPRPI  &lt;dbl&gt; 2.50, 3.75, 3.50, 2.75, 3.25, 3.25, 3.00, 3.75, 3.00, 4.00, 2.0…
+$ SPRPI  &lt;dbl&gt; 1.00, 2.50, 2.00, 3.25, 2.25, 2.50, 3.00, 2.75, 2.50, 3.25, 2.0…
+$ YEAR   &lt;fct&gt; 2014, 2012-2013, 2012-2013, 2014, 2014, 2014, 2012-2013, 2012-2…
+$ GRADE  &lt;dbl&gt; 9, 8, 11, 6, 7, 7, 9, 10, 10, 8, 7, 9, 7, 9, 6, 9, 8, 8, 7, 6, …
+$ GENDER &lt;fct&gt; Femenino, Masculino, Femenino, Femenino, Masculino, Femenino, F…
+$ AGE    &lt;dbl&gt; 16, 12, 17, 11, 13, 12, 14, 16, 16, 15, 13, 14, 15, 14, 12, 13,…
+$ PYALC  &lt;fct&gt; Sí ha consumido, No ha consumido, Sí ha consumido, Sí ha consum…</code></pre>
+</div>
+</div>
+</section>
+<section id="explorar-los-datos-1-1" class="slide level2">
+<h2>Explorar los datos 1</h2>
+<ol start="3" type="1">
+<li>Guardo las variables de interés en un nuevo objeto</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>mini_datos <span class="ot">&lt;-</span> los_datos <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(factores_de_riesgo), </span>
+<span id="cb21-3"><a href="#cb21-3"></a>         <span class="fu">all_of</span>(demograficas), </span>
+<span id="cb21-4"><a href="#cb21-4"></a>         <span class="fu">all_of</span>(consumo_alcohol)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Doy una mirada más general de los datos</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>mini_datos <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">mini_datos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">23220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">YEAR</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">201: 7136, 201: 5842, 201: 4241, 201: 3237</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GENDER</td>
+<td style="text-align: right;">471</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Fem: 11739, Mas: 11010</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PYALC</td>
+<td style="text-align: right;">548</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Sí : 15615, No : 7057</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CRPAD</td>
+<td style="text-align: right;">5054</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">2.09</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▃▅▃▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CRLNFD</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">2.19</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.83</td>
+<td style="text-align: right;">2.17</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▃▇▆▂▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FRPFD</td>
+<td style="text-align: right;">1817</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FRPFM</td>
+<td style="text-align: right;">3972</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">1.73</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">1.71</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▁▇▇▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SRLCS</td>
+<td style="text-align: right;">514</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">2.18</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.86</td>
+<td style="text-align: right;">2.14</td>
+<td style="text-align: right;">2.43</td>
+<td style="text-align: right;">4.86</td>
+<td style="text-align: left;">▂▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRFAD</td>
+<td style="text-align: right;">294</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▅▂▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRATA</td>
+<td style="text-align: right;">4130</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.40</td>
+<td style="text-align: right;">1.80</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRFUD</td>
+<td style="text-align: right;">4135</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▃▂▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIAP</td>
+<td style="text-align: right;">1220</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">-0.2</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FPOPI</td>
+<td style="text-align: right;">5430</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">3.17</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.67</td>
+<td style="text-align: right;">3.33</td>
+<td style="text-align: right;">3.67</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▁▁▃▇▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FPRPI</td>
+<td style="text-align: right;">6169</td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">3.05</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.50</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▁▂▆▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SPRPI</td>
+<td style="text-align: right;">6647</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">2.78</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: left;">▁▂▇▆▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GRADE</td>
+<td style="text-align: right;">715</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">8.24</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: left;">▇▃▃▃▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AGE</td>
+<td style="text-align: right;">506</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">15.00</td>
+<td style="text-align: right;">8.63</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">13.00</td>
+<td style="text-align: right;">14.00</td>
+<td style="text-align: right;">16.00</td>
+<td style="text-align: right;">99.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<img src="./img/logo_um.svg" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Machine Learning</p>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
