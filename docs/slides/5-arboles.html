@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.23">
+
+  <meta name="author" content="">
+  <title>Workshops – 4. Árboles de decisión</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-00ac2f6af1389919a18f42df5b7c0002.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DK5ELGRTKP"></script>
+
+  <script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DK5ELGRTKP', { 'anonymize_ip': true});
+  </script>
+  
+  <script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script> 
+    
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta name="twitter:title" content="4. Árboles de decisión – Workshops">
+<meta name="twitter:description" content="Dive into our wide range of workshops designed to boost your skills and knowledge.">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">4. Árboles de decisión</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section>
+<section id="agenda" class="title-slide slide level1 center">
+<h1>Agenda</h1>
+<ul>
+<li>¿Qué es un árbol de decisión?</li>
+<li>¿Cómo se construye un árbol de decisión?</li>
+<li>¿Cómo se evalúa un árbol de decisión?</li>
+<li>¿Cómo se elige un árbol de decisión?</li>
+</ul>
+</section>
+<section id="árboles-de-decisión" class="slide level2">
+<h2>Árboles de decisión</h2>
+<p>El objetivo es tomar una serie de decisiones, basadas en las respuestas a cada pregunta, para llegar a una conclusión o predicción final. Cada nodo del árbol representa una característica de los datos que se están analizando y cada rama representa una posible respuesta a esa característica.</p>
+<p>Los árboles de decisión son útiles porque proporcionan una forma fácil de visualizar y entender cómo se toman las decisiones en un modelo</p>
+
+<img data-src="img/tree.png" class="r-stretch"></section>
+<section id="mi-primer-árbol" class="slide level2">
+<h2>Mi primer árbol</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.4.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.10         ✔ recipes      1.3.1     
+✔ dials        1.4.2          ✔ rsample      1.3.1     
+✔ dplyr        1.1.4          ✔ tailor       0.1.0     
+✔ ggplot2      4.0.0          ✔ tidyr        1.3.1     
+✔ infer        1.0.9          ✔ tune         2.0.0     
+✔ modeldata    1.5.1          ✔ workflows    1.3.0     
+✔ parsnip      1.3.3.9000     ✔ workflowsets 1.1.1     
+✔ purrr        1.2.0          ✔ yardstick    1.3.2     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ recipes::step()  masks stats::step()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>df_linear <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">read_parquet</span>(<span class="st">"data/df_linear.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>tree_spec <span class="ot">&lt;-</span></span>
+<span id="cb6-2"><a></a>    <span class="fu">decision_tree</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a></a>    <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a></a>    <span class="fu">set_engine</span>(<span class="st">"rpart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>tree_results <span class="ot">&lt;-</span> tree_spec <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>    <span class="fu">fit</span>(Y <span class="sc">~</span> ., <span class="at">data =</span> df_linear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(rpart.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: rpart</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rpart'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dials':
+
+    prune</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tree_fit <span class="ot">&lt;-</span> tree_results<span class="sc">$</span>fit</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="fu">rpart.plot</span>(tree_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Cannot retrieve the data used to build the model (so cannot determine roundint and is.binary for the variables).
+To silence this warning:
+    Call rpart.plot with roundint=FALSE,
+    or rebuild the rpart model with model=TRUE.</code></pre>
+</div>
+
+</div>
+<img data-src="5-arboles_files/figure-html/unnamed-chunk-4-1.png" width="672" class="r-stretch"><p>https://mlu-explain.github.io/decision-tree/</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">predict</span>(tree_results, df_linear <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 500 × 1
+    .pred
+    &lt;dbl&gt;
+ 1  0.893
+ 2 -0.852
+ 3 -0.543
+ 4  0.236
+ 5  0.236
+ 6  0.310
+ 7  0.236
+ 8 -0.273
+ 9 -0.273
+10 -0.242
+# ℹ 490 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>entrenamiento <span class="ot">&lt;-</span> df_linear <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a></a>    <span class="fu">select</span>(<span class="sc">-</span>Y)</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a>prediccion_tree <span class="ot">&lt;-</span> <span class="fu">predict</span>(tree_results, entrenamiento)</span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a>resultados_prueba_tree <span class="ot">&lt;-</span> <span class="fu">cbind</span>(prediccion_tree, df_linear) <span class="sc">|&gt;</span></span>
+<span id="cb16-7"><a></a>    <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>custom_metrics <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, mae)</span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a><span class="fu">custom_metrics</span>(resultados_prueba_tree,</span>
+<span id="cb17-4"><a></a>    <span class="at">truth =</span> Y,</span>
+<span id="cb17-5"><a></a>    <span class="at">estimate =</span> .pred</span>
+<span id="cb17-6"><a></a>) <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a></a>    <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  .metric .estimator .estimate model
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+1 rmse    standard       0.895 tree 
+2 rsq     standard       0.319 tree 
+3 mae     standard       0.715 tree </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>tree_metrics <span class="ot">&lt;-</span> <span class="fu">custom_metrics</span>(resultados_prueba_tree,</span>
+<span id="cb19-2"><a></a>    <span class="at">truth =</span> Y,</span>
+<span id="cb19-3"><a></a>    <span class="at">estimate =</span> .pred</span>
+<span id="cb19-4"><a></a>) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a></a>    <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section id="reto-de-código-4" class="title-slide slide level1 center scrollable">
+<h1>Reto de código # 4</h1>
+<ol type="1">
+<li>Estime este modelo utilizando la base de datos <code>df_interaction</code>.</li>
+<li>Cuál es el rsquared de este modelo?</li>
+<li>Compare los valores entre ambos modelos.</li>
+<li>¿Los valores son diferentes? ¿Por qué?</li>
+</ol>
+</section>
+
+<section id="cart-con-hiperparametros" class="title-slide slide level1 center">
+<h1>CART con hiperparametros</h1>
+<p>Los hiperparámetros son valores para los modelos que se pueden ajustar y que permiten controlar el proceso de entrenamiento de un modelo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>tree_spec <span class="ot">&lt;-</span></span>
+<span id="cb20-2"><a></a>    <span class="fu">decision_tree</span>(<span class="at">min_n =</span> <span class="dv">5</span>, <span class="at">cost_complexity =</span> <span class="fl">0.001</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>    <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a></a>    <span class="fu">set_engine</span>(<span class="st">"rpart"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>tree2_results <span class="ot">&lt;-</span> tree_spec <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a></a>    <span class="fu">fit</span>(Y <span class="sc">~</span> ., <span class="at">data =</span> df_linear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>tree2_predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(tree2_results, df_linear <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Y))</span>
+<span id="cb22-2"><a></a></span>
+<span id="cb22-3"><a></a>resultados_prueba_tree2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(tree2_predicciones, df_linear) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a></a>    <span class="fu">tibble</span>()</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a>tree2_metrics <span class="ot">&lt;-</span> <span class="fu">custom_metrics</span>(resultados_prueba_tree2,</span>
+<span id="cb22-7"><a></a>    <span class="at">truth =</span> Y,</span>
+<span id="cb22-8"><a></a>    <span class="at">estimate =</span> .pred</span>
+<span id="cb22-9"><a></a>) <span class="sc">|&gt;</span></span>
+<span id="cb22-10"><a></a>    <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"tree2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+
+<section>
+<section id="pero-todo-esto-pasa-en-los-datos-de-prueba" class="title-slide slide level1 center">
+<h1>¡Pero todo esto pasa en los datos de prueba!</h1>
+
+</section>
+<section id="por-qué-es-malo" class="slide level2">
+<h2>¿Por qué es malo?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>datos_prueba2_out <span class="ot">&lt;-</span></span>
+<span id="cb23-2"><a></a>    df_linear <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a></a>    <span class="fu">select</span>(Y)</span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a>lm_model <span class="ot">&lt;-</span></span>
+<span id="cb23-6"><a></a>    <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a></a>    <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb23-9"><a></a></span>
+<span id="cb23-10"><a></a>lm_results <span class="ot">&lt;-</span> lm_model <span class="sc">|&gt;</span></span>
+<span id="cb23-11"><a></a>    <span class="fu">fit</span>(Y <span class="sc">~</span> ., <span class="at">data =</span> df_linear)</span>
+<span id="cb23-12"><a></a></span>
+<span id="cb23-13"><a></a>lm_predicciones <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">predict</span>(lm_results, df_linear <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Y)), datos_prueba2_out) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"lm"</span>)</span>
+<span id="cb23-14"><a></a></span>
+<span id="cb23-15"><a></a>tree_predicciones <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">predict</span>(tree_results, df_linear <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Y)), datos_prueba2_out) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"tree"</span>)</span>
+<span id="cb23-16"><a></a></span>
+<span id="cb23-17"><a></a>tree2_predicciones <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">predict</span>(tree2_results, df_linear <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Y)), datos_prueba2_out) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"tree2"</span>)</span>
+<span id="cb23-18"><a></a></span>
+<span id="cb23-19"><a></a>all_models <span class="ot">&lt;-</span></span>
+<span id="cb23-20"><a></a>    <span class="fu">rbind</span>(lm_predicciones, tree_predicciones, tree2_predicciones)</span>
+<span id="cb23-21"><a></a></span>
+<span id="cb23-22"><a></a>all_models</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            .pred             Y model
+1     0.994994977  1.0520981013    lm
+2    -0.927994220 -0.3126804475    lm
+3    -0.189975349 -1.2908876450    lm
+4     0.096169474  0.8649916300    lm
+5    -0.321729533  0.8324658365    lm
+6    -0.352305574  0.0732036964    lm
+7     0.305270878  0.4830547820    lm
+8     0.389197951  0.9022459767    lm
+9     0.029672470 -1.3811539079    lm
+10    0.178103263 -1.3679194688    lm
+11   -0.228194575 -0.3178483296    lm
+12   -0.520205878 -0.6175489681    lm
+13   -0.446689058 -2.7964179324    lm
+14   -0.108204269  0.6936627327    lm
+15   -0.101842572  1.0632047140    lm
+16    0.063222054  0.8558795191    lm
+17    0.436917873  1.2725386274    lm
+18    0.319139943  0.3584009131    lm
+19   -0.023767271  0.2902597651    lm
+20   -0.127702057  0.2911599276    lm
+21    0.428842171 -0.8261399966    lm
+22    1.056136917  0.8845677428    lm
+23    1.097740420  1.4789586241    lm
+24    0.188658204  1.0987568563    lm
+25   -0.412649438 -1.1688225283    lm
+26   -0.152325044  0.7171427193    lm
+27   -0.208123355 -0.0305224226    lm
+28   -0.171101470 -0.9115191043    lm
+29   -0.515698124 -0.4510421325    lm
+30    1.189269073  1.9915172085    lm
+31   -0.220889614  1.2017460799    lm
+32    0.806982768 -0.4466915730    lm
+33    0.246559879 -1.1085862827    lm
+34    0.006234927 -0.4313163236    lm
+35   -0.550508948 -1.5903616676    lm
+36   -0.468993577 -0.4617870349    lm
+37    0.084583504  0.1326104537    lm
+38   -1.212595030 -1.0759655470    lm
+39    0.200976826  0.5297551298    lm
+40    0.406969889  0.2059757032    lm
+41    1.347615823  2.4141931230    lm
+42    0.105519502  0.0761651307    lm
+43   -0.047748543 -0.1441374853    lm
+44   -0.358802846 -1.2736693707    lm
+45   -0.335334889  0.3171014488    lm
+46   -0.268221635  0.7659902725    lm
+47   -0.101242375 -0.7859893433    lm
+48    0.571417338  0.7158693183    lm
+49    0.366971599  0.3574887611    lm
+50    0.137416730  0.2418271458    lm
+51   -0.222603784  0.1907123984    lm
+52    0.271148125  0.8318359793    lm
+53   -0.097175952  0.2797822885    lm
+54    0.122771020  0.6739719769    lm
+55    0.299243211  0.3338337031    lm
+56    0.606353286  0.9447194694    lm
+57    0.181417419  0.5392336543    lm
+58   -0.388647008  0.5996850044    lm
+59   -0.190655543  1.0204746311    lm
+60   -0.488584704 -0.9502146576    lm
+61    0.973668740  0.2889054015    lm
+62    0.812041834  2.0589732396    lm
+63    0.399622610  0.2977998780    lm
+64    0.806419445  0.6686194458    lm
+65   -0.452059666 -0.1902057173    lm
+66   -0.513575424 -0.3029793102    lm
+67    0.224634144 -0.2943223352    lm
+68   -0.361400243 -0.6576277183    lm
+69    1.028329888  1.3198623532    lm
+70    0.178647288 -0.8295764309    lm
+71   -0.431419924 -1.4748784634    lm
+72    0.253219733  1.5846808261    lm
+73    0.038133713 -0.6331755530    lm
+74   -0.082078085 -0.8546358292    lm
+75    0.547822398  1.0646425393    lm
+76    0.577556095  0.1302755444    lm
+77   -0.156539413  0.3344821604    lm
+78    0.096408800 -1.2635843601    lm
+79   -0.109625489 -0.9064138365    lm
+80    0.401580255 -1.3819364153    lm
+81   -0.113691561 -0.0486895552    lm
+82    0.332107333  1.2318805266    lm
+83   -0.276482165 -0.5093773207    lm
+84   -1.064931537 -1.2681944028    lm
+85   -0.522833436 -0.6925790548    lm
+86   -0.799951528 -1.1035464393    lm
+87    0.894616687 -0.7276799954    lm
+88    0.222934939  1.1242725061    lm
+89   -0.307116912 -1.8332995680    lm
+90    0.399422264  0.6605037626    lm
+91   -0.591064018  0.0420227095    lm
+92    0.292657262  0.3582303569    lm
+93    0.261533024  1.1056805490    lm
+94   -0.443960332  0.0669900297    lm
+95    0.164968423  2.7651458852    lm
+96   -0.216206861  0.1823778128    lm
+97   -0.949132314 -1.7212385923    lm
+98   -0.308063560  0.8960603580    lm
+99   -0.892425358 -0.4598319246    lm
+100   0.857567687 -0.3600904491    lm
+101   0.103271329 -1.7551605047    lm
+102  -0.050446476 -0.8246144081    lm
+103  -0.087643742 -0.1041605394    lm
+104  -0.046670430 -0.3670677454    lm
+105   0.006708544 -0.7445106192    lm
+106  -0.080760278  0.3093194000    lm
+107  -0.280454218 -0.1814757179    lm
+108   0.937676810  2.0558591166    lm
+109  -0.072451743  1.9450780726    lm
+110   0.503623715  0.3029814701    lm
+111  -0.368671578  2.0184650205    lm
+112  -0.806575150 -1.0067657627    lm
+113   0.077309423  0.2155102731    lm
+114   0.236189685 -1.0637838972    lm
+115   0.112862728 -0.4184896207    lm
+116   0.355827796  0.9510703312    lm
+117  -0.731062194 -1.6910970840    lm
+118  -0.131371693 -0.4677267233    lm
+119  -0.357125945  1.4438212192    lm
+120  -0.224426457  0.9433652293    lm
+121   0.454768150  0.3988351424    lm
+122  -0.203187291  0.2448310183    lm
+123  -0.048559935 -0.8707973175    lm
+124  -0.387723658  0.5026005966    lm
+125  -0.159570280 -1.7435498212    lm
+126  -0.633011587 -0.9170665388    lm
+127   0.097853844 -0.6999146814    lm
+128  -0.318340780  0.1248969864    lm
+129  -0.677566433  0.1977181294    lm
+130  -0.031141627 -0.6156990032    lm
+131   0.526866226 -1.5941283220    lm
+132   0.739114173  1.2579240082    lm
+133   0.092492465 -0.1570036455    lm
+134  -0.733549615  0.9189348827    lm
+135  -0.237121164  1.1862338817    lm
+136   0.022557506  0.1352826390    lm
+137  -0.984802835 -0.7281247828    lm
+138  -0.155376706 -0.6795092353    lm
+139  -0.290105811 -0.1340149848    lm
+140  -0.192676771  0.3016597775    lm
+141  -0.667247175 -1.5554238999    lm
+142  -0.396275477 -0.3521746083    lm
+143   0.999902284  1.9080692142    lm
+144   0.156730205  0.6087533915    lm
+145   0.423640799  0.1244916996    lm
+146   0.199966886 -0.3592350718    lm
+147  -0.478399219 -0.4190671122    lm
+148   0.592757043  0.4966227722    lm
+149   0.066907615 -0.0577724579    lm
+150   0.013592020  0.9075560674    lm
+151   0.101908329 -0.1396291003    lm
+152  -0.162828480  0.4702918041    lm
+153   0.086541412  0.2103655147    lm
+154  -0.664309519 -0.8551548927    lm
+155   0.292314273  0.5651531577    lm
+156   0.024993927  1.0846072431    lm
+157   1.057566269 -0.5099013465    lm
+158   1.086344083  0.8981633862    lm
+159   0.615007067  0.3539788361    lm
+160  -0.158808954 -1.4129930943    lm
+161   0.200138817  0.4975503042    lm
+162  -0.172944347  2.7454147245    lm
+163   0.032888407  0.1349817621    lm
+164  -0.701285699 -2.7193758722    lm
+165   0.249831664  0.8953333195    lm
+166   0.391722459 -2.2775627681    lm
+167  -0.655641637  0.1061324617    lm
+168  -0.172024441  1.1725051141    lm
+169  -0.502383687 -1.3832176269    lm
+170   0.458410471 -0.5014257116    lm
+171   0.871802066  0.6953165504    lm
+172   0.065447491 -1.0257399845    lm
+173   0.583197317  1.0841184481    lm
+174  -0.259650918  0.3207386339    lm
+175   0.398082550 -0.3089863483    lm
+176  -0.111020474 -0.3388189567    lm
+177  -0.155920486  1.2994887101    lm
+178   0.366012327  2.1204403896    lm
+179   0.049736069 -0.6954751816    lm
+180  -0.392010015  0.6218102813    lm
+181   0.877426589  1.6032586545    lm
+182   0.714866945  0.5208105961    lm
+183   0.365582804  0.2887649274    lm
+184  -0.129753891 -1.5841897525    lm
+185  -0.350686910 -1.4368066513    lm
+186  -0.359992463  0.9927404178    lm
+187   0.556681129  0.2983755037    lm
+188  -0.271302790 -0.1690588118    lm
+189   0.413056784  2.1893458653    lm
+190  -0.158339136  0.4449202226    lm
+191  -0.161326624  0.4214210458    lm
+192   0.134536592  2.1211010790    lm
+193   0.557015656  0.1228082591    lm
+194  -0.115366614  0.4427287003    lm
+195   0.358135973  0.1427010632    lm
+196  -0.264626301  1.5712247720    lm
+197   0.735127811 -0.0568842987    lm
+198   1.351941528  4.0391219213    lm
+199   0.254991534  0.4595761651    lm
+200  -0.074019854  0.1085590695    lm
+201  -0.009070088 -1.6372650772    lm
+202  -0.432341848  0.5790619672    lm
+203  -0.010335680 -0.1562867989    lm
+204  -0.435253086  0.0930572420    lm
+205   0.097370158  0.5642500759    lm
+206  -0.573799231 -0.5173393930    lm
+207  -0.141711003  0.6585141302    lm
+208  -0.382562156 -1.1098385279    lm
+209  -0.629540932 -0.6616521148    lm
+210   0.864884603  1.2301100612    lm
+211   0.762723794  1.2554334827    lm
+212   0.473746253  0.3104170765    lm
+213   0.961429020  1.4162272637    lm
+214   0.415612256  0.2089318547    lm
+215  -0.217542937 -0.4618306844    lm
+216  -0.192574082 -0.2707867819    lm
+217   1.088352600  2.6434818481    lm
+218   0.612884934  1.3494724406    lm
+219   0.259183311  0.8001104087    lm
+220   0.325027731 -0.6218445063    lm
+221  -0.186977270 -1.2391488491    lm
+222  -0.232010655 -0.2756068419    lm
+223   0.431180908 -1.5237105176    lm
+224  -0.133812977 -2.1042491012    lm
+225   0.115879392  0.3227160511    lm
+226   0.237769806 -1.7669685273    lm
+227  -0.530752967  0.7143823633    lm
+228  -0.286718002 -1.5825951331    lm
+229  -0.479747652 -0.9311282853    lm
+230  -0.258717665 -0.6893514606    lm
+231   0.824363512  0.6943382994    lm
+232   0.568017977  2.9146037603    lm
+233   0.204355727  0.9797490455    lm
+234   0.298629332  1.3730115016    lm
+235  -0.639256330  0.8208522170    lm
+236  -0.386623561 -1.6202986797    lm
+237  -0.308096809 -0.1819348916    lm
+238   0.384300287  0.5656535546    lm
+239   0.101888801  0.8911707305    lm
+240   0.532743754 -0.1704669179    lm
+241   0.391993486  1.8659453947    lm
+242   0.318303791 -0.9066966179    lm
+243   0.710453142  1.8213740955    lm
+244  -0.103482693  1.5975649181    lm
+245  -0.597099402 -0.6108587859    lm
+246  -0.205989413 -1.0228577772    lm
+247   0.563064765  0.3474944145    lm
+248   0.084876655  1.4516470277    lm
+249  -0.210600683 -0.8315693746    lm
+250   0.352273518 -1.7462598563    lm
+251   0.734311190  0.1412940206    lm
+252  -0.402223937  2.5423908769    lm
+253   0.258915612 -1.0090633473    lm
+254  -0.627337451 -0.2298924335    lm
+255   0.158074258  0.1716505558    lm
+256   0.185965772 -0.4779102190    lm
+257   0.124710535  2.0187043014    lm
+258  -0.164881195 -0.1441442436    lm
+259  -0.066536114 -3.1965861427    lm
+260   0.608215479  0.9838079524    lm
+261  -0.020929647 -0.1191081434    lm
+262  -0.545386597 -1.3650844217    lm
+263  -0.003246968 -0.9536666176    lm
+264  -0.137304349  2.8080849738    lm
+265  -0.850641133 -0.3040786002    lm
+266   1.044225689  3.5098664093    lm
+267   0.536126538  1.4135407286    lm
+268  -0.653794631 -0.1613087717    lm
+269   0.234665057 -0.6673276118    lm
+270   0.334428848 -0.2829979187    lm
+271  -0.518685949  0.8987503237    lm
+272   0.050957958  0.0641968079    lm
+273  -0.318912678 -0.4187789597    lm
+274  -0.169914786 -0.6627863267    lm
+275   0.663226581  1.4694377079    lm
+276  -0.102676890  0.0608657538    lm
+277  -0.029942442 -0.5968452784    lm
+278   0.264495829  3.6584152038    lm
+279   0.661153056  0.1959227348    lm
+280   0.093940369 -0.3034834886    lm
+281  -0.205895389 -0.7334207636    lm
+282   0.176671937  2.3442657572    lm
+283   0.805353294  2.9019395686    lm
+284   0.363597760  1.0015098533    lm
+285  -0.599576065 -1.0931439264    lm
+286   0.883159857  1.0795927692    lm
+287  -1.144075060 -0.9485728152    lm
+288   0.485602774  1.2041185972    lm
+289  -0.207054567 -0.5579396244    lm
+290  -0.219974961 -1.0995355855    lm
+291   0.345081332 -0.0621958113    lm
+292  -0.463510297 -0.5827645223    lm
+293  -0.031395883 -0.2376706625    lm
+294   0.240020823  1.2624106366    lm
+295   0.220744330  0.6003458535    lm
+296   0.365188661  0.8005459679    lm
+297  -0.138434737  1.3771023686    lm
+298  -0.550391382  0.4182342542    lm
+299   0.452123195  0.1518893121    lm
+300  -0.161796627  0.9291038270    lm
+301  -0.645191247 -2.1663623152    lm
+302  -0.392806769  0.3609528939    lm
+303  -0.237062860 -0.0217619787    lm
+304  -0.253197688 -0.6828144412    lm
+305  -0.514662977 -1.3548503509    lm
+306   0.059446711 -1.3710278714    lm
+307  -0.491605801 -1.2805129931    lm
+308  -0.361253879 -1.4123136666    lm
+309   0.587387697 -1.3983919875    lm
+310  -0.399911670  0.2565964160    lm
+311   0.020691469 -1.0834634115    lm
+312  -0.234727496  0.5423047815    lm
+313   0.062066502 -0.6779732158    lm
+314   0.918287412  0.2801398285    lm
+315   0.033318831  0.2681167729    lm
+316  -0.402722425 -0.6166715851    lm
+317   0.063953345  0.4135593050    lm
+318  -0.060171733  0.3751248182    lm
+319  -0.221760270 -0.4781970120    lm
+320   1.543487738 -0.6429295437    lm
+321   0.075727449 -0.3287014787    lm
+322   0.695318083  1.6712887407    lm
+323  -0.663718846 -0.1616539437    lm
+324   0.377049663  0.4915388541    lm
+325  -0.008048319 -1.1321569436    lm
+326   0.463058902 -0.6088001205    lm
+327  -0.784768402 -1.1731182738    lm
+328   0.817283163  1.4083579171    lm
+329  -0.330836378  0.0256191406    lm
+330  -0.696586523  0.0096010421    lm
+331  -0.482290679 -1.8260416096    lm
+332  -0.088353161 -1.4430898122    lm
+333   0.086757997  0.4918900032    lm
+334  -0.411391549 -1.3666256245    lm
+335   0.890070249  1.3990486956    lm
+336   0.512147748  1.9348770617    lm
+337   0.049042482 -0.2965595553    lm
+338  -0.605500670 -1.6926431566    lm
+339   0.518710973  1.5268707665    lm
+340   0.034602530  0.8446176521    lm
+341  -0.030634021 -0.5235918440    lm
+342   0.465913691  1.6344197358    lm
+343   0.493413614  0.6165454452    lm
+344  -0.009529538  0.3633077264    lm
+345  -0.179196865 -1.7446223036    lm
+346   0.713953436  0.5739537511    lm
+347  -0.381974015 -0.6632922124    lm
+348  -0.148233310 -1.1517374714    lm
+349  -0.834949486 -1.7486796338    lm
+350   0.036890731 -1.5935151203    lm
+351   0.455954520  0.1473532378    lm
+352   0.700314556 -0.1060879070    lm
+353  -0.230522959 -1.0607017305    lm
+354  -0.203114404  0.3016518969    lm
+355  -0.351339325 -0.4516450471    lm
+356  -0.025469524  0.4128936993    lm
+357   0.836712616  0.5287442116    lm
+358   0.672352996  0.2687491101    lm
+359   1.140636073  0.4249224820    lm
+360   0.248573045  0.1770438937    lm
+361   0.007607540 -0.0386340897    lm
+362  -0.226738773 -0.8705922822    lm
+363  -0.689423463  0.2280351799    lm
+364  -0.236259706  0.5588763762    lm
+365  -0.207738315  0.4086397680    lm
+366  -0.440284522  0.5755943825    lm
+367  -0.439977992  0.2665319546    lm
+368   0.104382928 -0.3130273518    lm
+369  -0.220943122 -1.4558099634    lm
+370  -0.565431768 -0.8865843439    lm
+371   0.539709811  0.6362088459    lm
+372   0.042236462 -0.7285178264    lm
+373  -0.416175214 -1.4576007364    lm
+374   0.174359555  1.5091734418    lm
+375   1.001860904 -0.2585673735    lm
+376   0.512788393  2.3436599502    lm
+377   0.142867404 -0.2178019604    lm
+378   0.181042658 -0.1653310455    lm
+379  -0.601083488 -1.7286044808    lm
+380   0.392310066  1.4428867919    lm
+381  -0.676577653 -0.2693484020    lm
+382  -0.250930266 -0.9989994306    lm
+383  -0.241021138  0.6884685921    lm
+384   0.619077370  1.0082568876    lm
+385  -0.086335741 -0.2588812965    lm
+386   0.033042885  0.3099365062    lm
+387   0.185171770 -1.6108478910    lm
+388   0.290976660  0.4077446608    lm
+389   0.417908327 -0.5577829626    lm
+390   0.253874449 -0.6556842601    lm
+391   0.472775655 -1.0850439796    lm
+392   0.939582948  0.4192797401    lm
+393   0.762214177  1.4239764078    lm
+394   0.095642945 -0.0040724832    lm
+395  -0.520534394 -1.4031393632    lm
+396  -0.027405795 -0.8180623924    lm
+397  -0.621177465  0.3709198456    lm
+398   0.019671619  0.6475140775    lm
+399  -0.406944990 -1.7760250662    lm
+400  -0.852688983 -1.2569092472    lm
+401   0.690013301 -0.2775855957    lm
+402   0.644506184 -0.0009738236    lm
+403   0.085501990  0.7261451015    lm
+404   0.179859578 -0.4331835381    lm
+405   0.293493378  0.7548775671    lm
+406  -0.054728573 -0.7082887042    lm
+407   0.017138483  0.4267575859    lm
+408  -0.087392777 -0.2401651566    lm
+409   0.874849515  2.8197789875    lm
+410   0.154407948 -0.3593714480    lm
+411   0.089834498 -0.3997567671    lm
+412  -0.248125792  0.7887846279    lm
+413  -0.445199383 -0.0518076765    lm
+414  -1.067492588 -1.6252526855    lm
+415   0.086783996 -1.3662321043    lm
+416  -0.415535504 -0.3486286759    lm
+417   0.743971970  2.1670229675    lm
+418   0.487733903  2.6473694261    lm
+419  -0.076591177  0.2570070329    lm
+420  -0.210224554 -1.2078041191    lm
+421   0.056076333 -1.3540566684    lm
+422  -0.499494496  0.5589643751    lm
+423  -0.203769901 -0.9852077387    lm
+424   0.240452799 -0.4358267220    lm
+425   0.464401157 -0.7377487205    lm
+426   0.258139169  1.1075679137    lm
+427   0.370748202 -0.6059933371    lm
+428  -0.349508819 -0.8263872746    lm
+429   0.337613518 -2.5786045141    lm
+430   0.037978173 -0.6544702324    lm
+431  -1.429726067 -0.7469884215    lm
+432   0.487560443  1.2568385611    lm
+433   0.197324882 -0.4221932802    lm
+434   0.478914168  0.9328262681    lm
+435   0.784480640 -0.9216795100    lm
+436  -0.381399852 -0.4442076318    lm
+437  -0.068113381  0.3334880396    lm
+438  -0.214946705  0.3863325389    lm
+439  -0.422211970  0.4984788632    lm
+440  -0.436288940 -1.4030731247    lm
+441   0.491880653  0.8247035626    lm
+442   0.445663571  0.1831853587    lm
+443  -0.285960636  0.2415675246    lm
+444   0.708978667  0.3202221654    lm
+445  -0.519731889  0.2366882201    lm
+446  -0.175772747 -2.1777187878    lm
+447   0.050907120  1.8615315257    lm
+448   0.025329201 -0.1270468296    lm
+449  -0.516825762 -0.9056289926    lm
+450   0.431855466  0.1104490241    lm
+451   0.015271080 -0.4741911437    lm
+452   0.115446516 -0.7843299922    lm
+453  -0.225895319  1.2024042501    lm
+454   0.201906261  1.0227525872    lm
+455  -0.110424744  0.6484153608    lm
+456   0.285864235 -1.0013601009    lm
+457  -0.216851638 -1.4189299548    lm
+458   0.023077989 -0.7797353011    lm
+459  -0.338762863 -0.6815427099    lm
+460   1.043857150 -0.4829883431    lm
+461   0.288064930  0.0640815009    lm
+462  -0.070128853 -0.8367663968    lm
+463  -0.429900868  0.5686449993    lm
+464   0.502341965 -0.1955082598    lm
+465   0.509898612 -0.3732546051    lm
+466   0.308471549 -0.1478228158    lm
+467   0.609711151  0.2047099059    lm
+468  -0.030148283  1.2108988878    lm
+469   0.265509435 -0.0663242343    lm
+470   0.592541832  1.6035234018    lm
+471   0.057040623 -0.1232732155    lm
+472   0.839781708  1.3951994888    lm
+473  -0.577891939 -1.2027544294    lm
+474   0.154372602 -0.5445662953    lm
+475  -0.465988748 -0.3253120759    lm
+476   0.915826369 -0.2159254941    lm
+477  -0.336436515 -1.9706129762    lm
+478  -0.477825870  0.1495764861    lm
+479   0.013393669 -0.7943985063    lm
+480   0.033895735 -0.1976536000    lm
+481  -0.285047561  1.2844323793    lm
+482   0.035825794 -1.6542793260    lm
+483   0.759113240  1.3256818337    lm
+484  -1.031061293 -1.5529904059    lm
+485  -0.518177180 -0.0410677478    lm
+486   0.302598232  1.1285859283    lm
+487  -0.206611566  0.1062212291    lm
+488   0.026714608  0.7765234570    lm
+489   0.473312125 -0.1219134618    lm
+490  -0.101498413  0.8881976931    lm
+491   0.020803851 -0.8059748319    lm
+492   0.169368930  0.6576635280    lm
+493  -0.679537886 -1.0425448464    lm
+494   0.009577553  1.1921536962    lm
+495  -0.209867484  1.6628249253    lm
+496   0.393539151  1.0183389883    lm
+497   0.139169647 -0.2410992822    lm
+498   0.508470644  0.4132594922    lm
+499  -0.155371739  0.0915807453    lm
+500  -0.487438279 -0.7398111065    lm
+501   0.892791180  1.0520981013  tree
+502  -0.852250012 -0.3126804475  tree
+503  -0.542571182 -1.2908876450  tree
+504   0.236132329  0.8649916300  tree
+505   0.236132329  0.8324658365  tree
+506   0.310200311  0.0732036964  tree
+507   0.236132329  0.4830547820  tree
+508  -0.273072159  0.9022459767  tree
+509  -0.273072159 -1.3811539079  tree
+510  -0.241642687 -1.3679194688  tree
+511  -0.852250012 -0.3178483296  tree
+512  -0.477382267 -0.6175489681  tree
+513  -0.852250012 -2.7964179324  tree
+514  -0.241642687  0.6936627327  tree
+515   0.236132329  1.0632047140  tree
+516  -0.273072159  0.8558795191  tree
+517   0.482449404  1.2725386274  tree
+518   0.482449404  0.3584009131  tree
+519  -0.273072159  0.2902597651  tree
+520   0.236132329  0.2911599276  tree
+521  -0.273072159 -0.8261399966  tree
+522   0.803161910  0.8845677428  tree
+523   0.967221811  1.4789586241  tree
+524   0.500515505  1.0987568563  tree
+525   0.280466776 -1.1688225283  tree
+526  -0.477382267  0.7171427193  tree
+527  -0.273072159 -0.0305224226  tree
+528  -0.852250012 -0.9115191043  tree
+529  -0.852250012 -0.4510421325  tree
+530   0.892791180  1.9915172085  tree
+531   0.280466776  1.2017460799  tree
+532   0.800478329 -0.4466915730  tree
+533  -0.241642687 -1.1085862827  tree
+534   0.482449404 -0.4313163236  tree
+535  -0.852250012 -1.5903616676  tree
+536  -0.241642687 -0.4617870349  tree
+537   0.482449404  0.1326104537  tree
+538  -0.852250012 -1.0759655470  tree
+539  -0.295216355  0.5297551298  tree
+540   0.800478329  0.2059757032  tree
+541   0.800478329  2.4141931230  tree
+542  -0.295216355  0.0761651307  tree
+543  -0.273072159 -0.1441374853  tree
+544  -0.273072159 -1.2736693707  tree
+545   0.280466776  0.3171014488  tree
+546   0.236132329  0.7659902725  tree
+547  -0.273072159 -0.7859893433  tree
+548   0.892791180  0.7158693183  tree
+549   0.500515505  0.3574887611  tree
+550  -0.241642687  0.2418271458  tree
+551  -0.273072159  0.1907123984  tree
+552   0.482449404  0.8318359793  tree
+553  -0.273072159  0.2797822885  tree
+554   0.500515505  0.6739719769  tree
+555  -0.627178145  0.3338337031  tree
+556   0.967221811  0.9447194694  tree
+557   0.500515505  0.5392336543  tree
+558  -0.477382267  0.5996850044  tree
+559  -0.273072159  1.0204746311  tree
+560  -0.852250012 -0.9502146576  tree
+561  -0.627178145  0.2889054015  tree
+562   0.892791180  2.0589732396  tree
+563  -0.241642687  0.2977998780  tree
+564   0.800478329  0.6686194458  tree
+565  -0.273072159 -0.1902057173  tree
+566  -0.273072159 -0.3029793102  tree
+567   0.892791180 -0.2943223352  tree
+568  -0.273072159 -0.6576277183  tree
+569   1.875741298  1.3198623532  tree
+570  -0.273072159 -0.8295764309  tree
+571  -0.852250012 -1.4748784634  tree
+572  -0.241642687  1.5846808261  tree
+573   0.280466776 -0.6331755530  tree
+574  -0.273072159 -0.8546358292  tree
+575   0.892791180  1.0646425393  tree
+576   0.800478329  0.1302755444  tree
+577  -0.273072159  0.3344821604  tree
+578   0.236132329 -1.2635843601  tree
+579  -0.273072159 -0.9064138365  tree
+580  -0.273072159 -1.3819364153  tree
+581   0.280466776 -0.0486895552  tree
+582   0.236132329  1.2318805266  tree
+583  -0.477382267 -0.5093773207  tree
+584  -0.852250012 -1.2681944028  tree
+585  -0.477382267 -0.6925790548  tree
+586  -0.477382267 -1.1035464393  tree
+587   0.967221811 -0.7276799954  tree
+588  -0.273072159  1.1242725061  tree
+589  -0.477382267 -1.8332995680  tree
+590   1.875741298  0.6605037626  tree
+591  -0.295216355  0.0420227095  tree
+592   0.803161910  0.3582303569  tree
+593   0.236132329  1.1056805490  tree
+594  -0.852250012  0.0669900297  tree
+595   0.892791180  2.7651458852  tree
+596   0.482449404  0.1823778128  tree
+597  -0.852250012 -1.7212385923  tree
+598   0.803161910  0.8960603580  tree
+599  -0.852250012 -0.4598319246  tree
+600   0.892791180 -0.3600904491  tree
+601  -0.542571182 -1.7551605047  tree
+602  -0.477382267 -0.8246144081  tree
+603  -0.542571182 -0.1041605394  tree
+604   0.482449404 -0.3670677454  tree
+605  -0.241642687 -0.7445106192  tree
+606  -0.273072159  0.3093194000  tree
+607   0.482449404 -0.1814757179  tree
+608   0.800478329  2.0558591166  tree
+609  -0.273072159  1.9450780726  tree
+610   0.800478329  0.3029814701  tree
+611   0.280466776  2.0184650205  tree
+612  -0.852250012 -1.0067657627  tree
+613  -0.273072159  0.2155102731  tree
+614   0.803161910 -1.0637838972  tree
+615  -0.241642687 -0.4184896207  tree
+616   0.500515505  0.9510703312  tree
+617  -0.273072159 -1.6910970840  tree
+618  -0.241642687 -0.4677267233  tree
+619   0.310200311  1.4438212192  tree
+620   0.310200311  0.9433652293  tree
+621  -0.273072159  0.3988351424  tree
+622  -0.273072159  0.2448310183  tree
+623  -0.241642687 -0.8707973175  tree
+624   0.482449404  0.5026005966  tree
+625  -0.477382267 -1.7435498212  tree
+626  -0.852250012 -0.9170665388  tree
+627   0.280466776 -0.6999146814  tree
+628  -0.852250012  0.1248969864  tree
+629  -0.852250012  0.1977181294  tree
+630  -0.273072159 -0.6156990032  tree
+631  -0.627178145 -1.5941283220  tree
+632   0.892791180  1.2579240082  tree
+633   0.482449404 -0.1570036455  tree
+634  -0.852250012  0.9189348827  tree
+635  -0.241642687  1.1862338817  tree
+636   0.236132329  0.1352826390  tree
+637  -0.852250012 -0.7281247828  tree
+638   0.310200311 -0.6795092353  tree
+639  -0.273072159 -0.1340149848  tree
+640   0.236132329  0.3016597775  tree
+641  -0.852250012 -1.5554238999  tree
+642   0.892791180 -0.3521746083  tree
+643   1.875741298  1.9080692142  tree
+644   0.500515505  0.6087533915  tree
+645   0.482449404  0.1244916996  tree
+646  -0.273072159 -0.3592350718  tree
+647  -0.273072159 -0.4190671122  tree
+648   0.967221811  0.4966227722  tree
+649  -0.241642687 -0.0577724579  tree
+650  -0.477382267  0.9075560674  tree
+651   0.280466776 -0.1396291003  tree
+652  -0.273072159  0.4702918041  tree
+653  -0.477382267  0.2103655147  tree
+654  -0.852250012 -0.8551548927  tree
+655   0.310200311  0.5651531577  tree
+656   0.500515505  1.0846072431  tree
+657  -0.627178145 -0.5099013465  tree
+658   0.800478329  0.8981633862  tree
+659   0.967221811  0.3539788361  tree
+660  -0.295216355 -1.4129930943  tree
+661  -0.273072159  0.4975503042  tree
+662   0.236132329  2.7454147245  tree
+663  -0.477382267  0.1349817621  tree
+664  -0.852250012 -2.7193758722  tree
+665   0.892791180  0.8953333195  tree
+666  -0.627178145 -2.2775627681  tree
+667  -0.273072159  0.1061324617  tree
+668   0.280466776  1.1725051141  tree
+669  -0.273072159 -1.3832176269  tree
+670   0.482449404 -0.5014257116  tree
+671   1.875741298  0.6953165504  tree
+672  -0.542571182 -1.0257399845  tree
+673   0.892791180  1.0841184481  tree
+674   0.236132329  0.3207386339  tree
+675  -0.295216355 -0.3089863483  tree
+676   0.500515505 -0.3388189567  tree
+677   0.482449404  1.2994887101  tree
+678   0.500515505  2.1204403896  tree
+679  -0.627178145 -0.6954751816  tree
+680  -0.477382267  0.6218102813  tree
+681   0.892791180  1.6032586545  tree
+682   0.892791180  0.5208105961  tree
+683   0.500515505  0.2887649274  tree
+684   0.500515505 -1.5841897525  tree
+685  -0.273072159 -1.4368066513  tree
+686  -0.273072159  0.9927404178  tree
+687   0.803161910  0.2983755037  tree
+688  -0.542571182 -0.1690588118  tree
+689   0.500515505  2.1893458653  tree
+690  -0.273072159  0.4449202226  tree
+691   0.280466776  0.4214210458  tree
+692   0.967221811  2.1211010790  tree
+693   1.875741298  0.1228082591  tree
+694   0.280466776  0.4427287003  tree
+695   0.892791180  0.1427010632  tree
+696   0.280466776  1.5712247720  tree
+697   0.500515505 -0.0568842987  tree
+698   1.875741298  4.0391219213  tree
+699   0.280466776  0.4595761651  tree
+700   0.280466776  0.1085590695  tree
+701  -0.273072159 -1.6372650772  tree
+702   0.892791180  0.5790619672  tree
+703  -0.273072159 -0.1562867989  tree
+704   0.280466776  0.0930572420  tree
+705  -0.273072159  0.5642500759  tree
+706  -0.477382267 -0.5173393930  tree
+707   0.892791180  0.6585141302  tree
+708  -0.542571182 -1.1098385279  tree
+709  -0.273072159 -0.6616521148  tree
+710   0.803161910  1.2301100612  tree
+711   0.967221811  1.2554334827  tree
+712   0.892791180  0.3104170765  tree
+713   0.800478329  1.4162272637  tree
+714   0.892791180  0.2089318547  tree
+715  -0.273072159 -0.4618306844  tree
+716  -0.542571182 -0.2707867819  tree
+717   0.892791180  2.6434818481  tree
+718   0.500515505  1.3494724406  tree
+719  -0.273072159  0.8001104087  tree
+720   0.500515505 -0.6218445063  tree
+721  -0.477382267 -1.2391488491  tree
+722  -0.852250012 -0.2756068419  tree
+723  -0.273072159 -1.5237105176  tree
+724  -0.477382267 -2.1042491012  tree
+725  -0.273072159  0.3227160511  tree
+726  -0.273072159 -1.7669685273  tree
+727   0.280466776  0.7143823633  tree
+728  -0.852250012 -1.5825951331  tree
+729  -0.852250012 -0.9311282853  tree
+730   0.280466776 -0.6893514606  tree
+731   0.967221811  0.6943382994  tree
+732   0.803161910  2.9146037603  tree
+733   0.482449404  0.9797490455  tree
+734   0.892791180  1.3730115016  tree
+735  -0.477382267  0.8208522170  tree
+736  -0.273072159 -1.6202986797  tree
+737  -0.273072159 -0.1819348916  tree
+738   0.236132329  0.5656535546  tree
+739   0.482449404  0.8911707305  tree
+740  -0.241642687 -0.1704669179  tree
+741   0.482449404  1.8659453947  tree
+742   0.482449404 -0.9066966179  tree
+743   0.967221811  1.8213740955  tree
+744  -0.273072159  1.5975649181  tree
+745  -0.477382267 -0.6108587859  tree
+746  -0.852250012 -1.0228577772  tree
+747   0.500515505  0.3474944145  tree
+748   0.482449404  1.4516470277  tree
+749  -0.273072159 -0.8315693746  tree
+750   0.236132329 -1.7462598563  tree
+751  -0.241642687  0.1412940206  tree
+752   0.236132329  2.5423908769  tree
+753  -0.273072159 -1.0090633473  tree
+754  -0.542571182 -0.2298924335  tree
+755  -0.273072159  0.1716505558  tree
+756   0.500515505 -0.4779102190  tree
+757   0.892791180  2.0187043014  tree
+758  -0.542571182 -0.1441442436  tree
+759  -0.273072159 -3.1965861427  tree
+760   0.800478329  0.9838079524  tree
+761   0.280466776 -0.1191081434  tree
+762  -0.852250012 -1.3650844217  tree
+763   0.280466776 -0.9536666176  tree
+764   0.280466776  2.8080849738  tree
+765  -0.852250012 -0.3040786002  tree
+766   1.875741298  3.5098664093  tree
+767   0.967221811  1.4135407286  tree
+768  -0.273072159 -0.1613087717  tree
+769   0.500515505 -0.6673276118  tree
+770  -0.273072159 -0.2829979187  tree
+771  -0.852250012  0.8987503237  tree
+772  -0.273072159  0.0641968079  tree
+773  -0.477382267 -0.4187789597  tree
+774   0.236132329 -0.6627863267  tree
+775   0.892791180  1.4694377079  tree
+776  -0.273072159  0.0608657538  tree
+777   0.280466776 -0.5968452784  tree
+778   0.800478329  3.6584152038  tree
+779   0.800478329  0.1959227348  tree
+780  -0.273072159 -0.3034834886  tree
+781  -0.477382267 -0.7334207636  tree
+782   0.892791180  2.3442657572  tree
+783   1.875741298  2.9019395686  tree
+784  -0.273072159  1.0015098533  tree
+785  -0.477382267 -1.0931439264  tree
+786   0.967221811  1.0795927692  tree
+787  -0.852250012 -0.9485728152  tree
+788  -0.273072159  1.2041185972  tree
+789  -0.477382267 -0.5579396244  tree
+790  -0.273072159 -1.0995355855  tree
+791   0.310200311 -0.0621958113  tree
+792  -0.477382267 -0.5827645223  tree
+793  -0.295216355 -0.2376706625  tree
+794   0.482449404  1.2624106366  tree
+795   0.892791180  0.6003458535  tree
+796   0.967221811  0.8005459679  tree
+797   0.236132329  1.3771023686  tree
+798  -0.852250012  0.4182342542  tree
+799   0.892791180  0.1518893121  tree
+800   0.500515505  0.9291038270  tree
+801  -0.852250012 -2.1663623152  tree
+802  -0.477382267  0.3609528939  tree
+803  -0.273072159 -0.0217619787  tree
+804  -0.273072159 -0.6828144412  tree
+805  -0.852250012 -1.3548503509  tree
+806  -0.273072159 -1.3710278714  tree
+807  -0.542571182 -1.2805129931  tree
+808  -0.273072159 -1.4123136666  tree
+809  -0.273072159 -1.3983919875  tree
+810  -0.542571182  0.2565964160  tree
+811  -0.542571182 -1.0834634115  tree
+812   0.280466776  0.5423047815  tree
+813   0.236132329 -0.6779732158  tree
+814   0.892791180  0.2801398285  tree
+815   0.482449404  0.2681167729  tree
+816  -0.542571182 -0.6166715851  tree
+817   0.236132329  0.4135593050  tree
+818  -0.241642687  0.3751248182  tree
+819  -0.273072159 -0.4781970120  tree
+820   0.800478329 -0.6429295437  tree
+821   0.236132329 -0.3287014787  tree
+822   0.482449404  1.6712887407  tree
+823  -0.852250012 -0.1616539437  tree
+824   0.892791180  0.4915388541  tree
+825  -0.241642687 -1.1321569436  tree
+826  -0.273072159 -0.6088001205  tree
+827  -0.477382267 -1.1731182738  tree
+828   0.803161910  1.4083579171  tree
+829   0.236132329  0.0256191406  tree
+830   0.310200311  0.0096010421  tree
+831  -0.273072159 -1.8260416096  tree
+832  -0.241642687 -1.4430898122  tree
+833  -0.273072159  0.4918900032  tree
+834  -0.477382267 -1.3666256245  tree
+835   1.875741298  1.3990486956  tree
+836   0.892791180  1.9348770617  tree
+837  -0.273072159 -0.2965595553  tree
+838  -0.852250012 -1.6926431566  tree
+839   0.482449404  1.5268707665  tree
+840  -0.273072159  0.8446176521  tree
+841   0.280466776 -0.5235918440  tree
+842   0.500515505  1.6344197358  tree
+843   0.803161910  0.6165454452  tree
+844   0.482449404  0.3633077264  tree
+845  -0.273072159 -1.7446223036  tree
+846   0.482449404  0.5739537511  tree
+847   0.236132329 -0.6632922124  tree
+848  -0.241642687 -1.1517374714  tree
+849  -0.852250012 -1.7486796338  tree
+850  -0.295216355 -1.5935151203  tree
+851  -0.241642687  0.1473532378  tree
+852  -0.273072159 -0.1060879070  tree
+853  -0.273072159 -1.0607017305  tree
+854  -0.542571182  0.3016518969  tree
+855  -0.852250012 -0.4516450471  tree
+856  -0.273072159  0.4128936993  tree
+857   0.892791180  0.5287442116  tree
+858  -0.273072159  0.2687491101  tree
+859   0.800478329  0.4249224820  tree
+860  -0.241642687  0.1770438937  tree
+861  -0.542571182 -0.0386340897  tree
+862  -0.477382267 -0.8705922822  tree
+863  -0.852250012  0.2280351799  tree
+864   0.482449404  0.5588763762  tree
+865  -0.241642687  0.4086397680  tree
+866   0.236132329  0.5755943825  tree
+867  -0.852250012  0.2665319546  tree
+868   0.482449404 -0.3130273518  tree
+869  -0.273072159 -1.4558099634  tree
+870   0.236132329 -0.8865843439  tree
+871  -0.273072159  0.6362088459  tree
+872  -0.477382267 -0.7285178264  tree
+873  -0.852250012 -1.4576007364  tree
+874  -0.295216355  1.5091734418  tree
+875   0.800478329 -0.2585673735  tree
+876  -0.273072159  2.3436599502  tree
+877   0.500515505 -0.2178019604  tree
+878  -0.241642687 -0.1653310455  tree
+879  -0.852250012 -1.7286044808  tree
+880   0.892791180  1.4428867919  tree
+881  -0.477382267 -0.2693484020  tree
+882  -0.273072159 -0.9989994306  tree
+883  -0.273072159  0.6884685921  tree
+884   0.892791180  1.0082568876  tree
+885  -0.542571182 -0.2588812965  tree
+886   0.482449404  0.3099365062  tree
+887  -0.295216355 -1.6108478910  tree
+888  -0.273072159  0.4077446608  tree
+889  -0.241642687 -0.5577829626  tree
+890  -0.273072159 -0.6556842601  tree
+891   0.803161910 -1.0850439796  tree
+892   0.892791180  0.4192797401  tree
+893   0.892791180  1.4239764078  tree
+894  -0.241642687 -0.0040724832  tree
+895  -0.852250012 -1.4031393632  tree
+896  -0.852250012 -0.8180623924  tree
+897  -0.852250012  0.3709198456  tree
+898   0.236132329  0.6475140775  tree
+899  -0.852250012 -1.7760250662  tree
+900  -0.852250012 -1.2569092472  tree
+901   0.892791180 -0.2775855957  tree
+902   0.892791180 -0.0009738236  tree
+903  -0.273072159  0.7261451015  tree
+904   0.500515505 -0.4331835381  tree
+905   0.500515505  0.7548775671  tree
+906   0.236132329 -0.7082887042  tree
+907   0.280466776  0.4267575859  tree
+908  -0.273072159 -0.2401651566  tree
+909   1.875741298  2.8197789875  tree
+910  -0.241642687 -0.3593714480  tree
+911  -0.273072159 -0.3997567671  tree
+912  -0.852250012  0.7887846279  tree
+913   0.310200311 -0.0518076765  tree
+914  -0.852250012 -1.6252526855  tree
+915  -0.273072159 -1.3662321043  tree
+916  -0.852250012 -0.3486286759  tree
+917   0.967221811  2.1670229675  tree
+918   0.803161910  2.6473694261  tree
+919  -0.477382267  0.2570070329  tree
+920  -0.852250012 -1.2078041191  tree
+921  -0.295216355 -1.3540566684  tree
+922  -0.273072159  0.5589643751  tree
+923  -0.477382267 -0.9852077387  tree
+924  -0.273072159 -0.4358267220  tree
+925  -0.273072159 -0.7377487205  tree
+926  -0.273072159  1.1075679137  tree
+927  -0.273072159 -0.6059933371  tree
+928  -0.477382267 -0.8263872746  tree
+929  -0.273072159 -2.5786045141  tree
+930  -0.852250012 -0.6544702324  tree
+931  -0.477382267 -0.7469884215  tree
+932   1.875741298  1.2568385611  tree
+933  -0.273072159 -0.4221932802  tree
+934  -0.241642687  0.9328262681  tree
+935  -0.295216355 -0.9216795100  tree
+936   0.310200311 -0.4442076318  tree
+937  -0.241642687  0.3334880396  tree
+938   0.280466776  0.3863325389  tree
+939   0.482449404  0.4984788632  tree
+940   0.236132329 -1.4030731247  tree
+941   0.967221811  0.8247035626  tree
+942  -0.241642687  0.1831853587  tree
+943  -0.477382267  0.2415675246  tree
+944   0.500515505  0.3202221654  tree
+945  -0.273072159  0.2366882201  tree
+946  -0.241642687 -2.1777187878  tree
+947   0.280466776  1.8615315257  tree
+948  -0.241642687 -0.1270468296  tree
+949  -0.542571182 -0.9056289926  tree
+950  -0.295216355  0.1104490241  tree
+951   0.310200311 -0.4741911437  tree
+952  -0.273072159 -0.7843299922  tree
+953   0.482449404  1.2024042501  tree
+954   0.236132329  1.0227525872  tree
+955   0.310200311  0.6484153608  tree
+956  -0.241642687 -1.0013601009  tree
+957  -0.273072159 -1.4189299548  tree
+958  -0.273072159 -0.7797353011  tree
+959   0.280466776 -0.6815427099  tree
+960   0.803161910 -0.4829883431  tree
+961  -0.627178145  0.0640815009  tree
+962  -0.273072159 -0.8367663968  tree
+963  -0.477382267  0.5686449993  tree
+964   0.892791180 -0.1955082598  tree
+965  -0.295216355 -0.3732546051  tree
+966  -0.295216355 -0.1478228158  tree
+967   0.280466776  0.2047099059  tree
+968  -0.295216355  1.2108988878  tree
+969   0.892791180 -0.0663242343  tree
+970   0.803161910  1.6035234018  tree
+971   0.236132329 -0.1232732155  tree
+972  -0.273072159  1.3951994888  tree
+973   0.482449404 -1.2027544294  tree
+974   0.236132329 -0.5445662953  tree
+975  -0.241642687 -0.3253120759  tree
+976   0.967221811 -0.2159254941  tree
+977  -0.852250012 -1.9706129762  tree
+978   0.236132329  0.1495764861  tree
+979  -0.273072159 -0.7943985063  tree
+980  -0.273072159 -0.1976536000  tree
+981   0.310200311  1.2844323793  tree
+982  -0.273072159 -1.6542793260  tree
+983   0.892791180  1.3256818337  tree
+984   0.236132329 -1.5529904059  tree
+985  -0.542571182 -0.0410677478  tree
+986   0.236132329  1.1285859283  tree
+987  -0.852250012  0.1062212291  tree
+988   0.310200311  0.7765234570  tree
+989  -0.273072159 -0.1219134618  tree
+990   0.482449404  0.8881976931  tree
+991  -0.241642687 -0.8059748319  tree
+992   0.280466776  0.6576635280  tree
+993  -0.852250012 -1.0425448464  tree
+994  -0.273072159  1.1921536962  tree
+995   0.500515505  1.6628249253  tree
+996   0.803161910  1.0183389883  tree
+997  -0.295216355 -0.2410992822  tree
+998  -0.273072159  0.4132594922  tree
+999  -0.273072159  0.0915807453  tree
+1000  0.280466776 -0.7398111065  tree
+1001  1.592907559  1.0520981013 tree2
+1002 -0.994417980 -0.3126804475 tree2
+1003 -0.319987050 -1.2908876450 tree2
+1004  0.437364446  0.8649916300 tree2
+1005  0.882675687  0.8324658365 tree2
+1006 -0.275580212  0.0732036964 tree2
+1007  0.882675687  0.4830547820 tree2
+1008  0.220682520  0.9022459767 tree2
+1009 -1.015903335 -1.3811539079 tree2
+1010 -0.703672391 -1.3679194688 tree2
+1011 -0.068762016 -0.3178483296 tree2
+1012 -0.567444181 -0.6175489681 tree2
+1013 -2.127009334 -2.7964179324 tree2
+1014  0.187667648  0.6936627327 tree2
+1015  0.882675687  1.0632047140 tree2
+1016  0.964008656  0.8558795191 tree2
+1017  1.088278048  1.2725386274 tree2
+1018  0.584459486  0.3584009131 tree2
+1019 -0.352569456  0.2902597651 tree2
+1020 -0.148615977  0.2911599276 tree2
+1021 -1.216060688 -0.8261399966 tree2
+1022  1.658201242  0.8845677428 tree2
+1023  1.650166360  1.4789586241 tree2
+1024  1.468398197  1.0987568563 tree2
+1025 -1.411550927 -1.1688225283 tree2
+1026  0.753549001  0.7171427193 tree2
+1027  0.207131232 -0.0305224226 tree2
+1028 -0.858317633 -0.9115191043 tree2
+1029 -1.308804284 -0.4510421325 tree2
+1030  2.100810305  1.9915172085 tree2
+1031  0.544947859  1.2017460799 tree2
+1032 -0.099511288 -0.4466915730 tree2
+1033 -0.387549122 -1.1085862827 tree2
+1034 -0.667046166 -0.4313163236 tree2
+1035 -1.308804284 -1.5903616676 tree2
+1036 -0.827892349 -0.4617870349 tree2
+1037  0.584459486  0.1326104537 tree2
+1038 -0.994417980 -1.0759655470 tree2
+1039  0.870327009  0.5297551298 tree2
+1040  0.540346143  0.2059757032 tree2
+1041  1.656178255  2.4141931230 tree2
+1042 -0.162399457  0.0761651307 tree2
+1043 -0.194388396 -0.1441374853 tree2
+1044 -1.510411043 -1.2736693707 tree2
+1045  0.362423055  0.3171014488 tree2
+1046  0.882675687  0.7659902725 tree2
+1047 -0.700844173 -0.7859893433 tree2
+1048  0.422449514  0.7158693183 tree2
+1049  1.372556629  0.3574887611 tree2
+1050  0.187667648  0.2418271458 tree2
+1051  0.155011967  0.1907123984 tree2
+1052  0.290657940  0.8318359793 tree2
+1053  0.155011967  0.2797822885 tree2
+1054  0.167576510  0.6739719769 tree2
+1055  0.311369552  0.3338337031 tree2
+1056  0.766647943  0.9447194694 tree2
+1057  0.792906155  0.5392336543 tree2
+1058  0.094704298  0.5996850044 tree2
+1059  0.794759628  1.0204746311 tree2
+1060 -0.858317633 -0.9502146576 tree2
+1061  0.311369552  0.2889054015 tree2
+1062  1.592907559  2.0589732396 tree2
+1063  0.012915308  0.2977998780 tree2
+1064  0.540346143  0.6686194458 tree2
+1065  0.207131232 -0.1902057173 tree2
+1066 -0.662982082 -0.3029793102 tree2
+1067  0.035374220 -0.2943223352 tree2
+1068 -0.576241509 -0.6576277183 tree2
+1069  2.076259153  1.3198623532 tree2
+1070 -1.704090473 -0.8295764309 tree2
+1071 -1.308804284 -1.4748784634 tree2
+1072  0.879041446  1.5846808261 tree2
+1073 -0.533736915 -0.6331755530 tree2
+1074 -0.662982082 -0.8546358292 tree2
+1075  0.976397632  1.0646425393 tree2
+1076 -0.099511288  0.1302755444 tree2
+1077  0.218653766  0.3344821604 tree2
+1078 -0.823814289 -1.2635843601 tree2
+1079 -1.015903335 -0.9064138365 tree2
+1080 -1.376482143 -1.3819364153 tree2
+1081  0.207131232 -0.0486895552 tree2
+1082  0.429190629  1.2318805266 tree2
+1083 -0.586632000 -0.5093773207 tree2
+1084 -0.994417980 -1.2681944028 tree2
+1085 -0.586632000 -0.6925790548 tree2
+1086 -0.828448764 -1.1035464393 tree2
+1087 -0.471802745 -0.7276799954 tree2
+1088  1.378492648  1.1242725061 tree2
+1089 -1.217139808 -1.8332995680 tree2
+1090  0.683866783  0.6605037626 tree2
+1091  0.775598076  0.0420227095 tree2
+1092  0.312094545  0.3582303569 tree2
+1093  1.925547637  1.1056805490 tree2
+1094 -0.812386606  0.0669900297 tree2
+1095  2.391925093  2.7651458852 tree2
+1096  0.584459486  0.1823778128 tree2
+1097 -1.314793076 -1.7212385923 tree2
+1098  0.238785369  0.8960603580 tree2
+1099 -0.605600797 -0.4598319246 tree2
+1100 -0.138027742 -0.3600904491 tree2
+1101 -1.193390736 -1.7551605047 tree2
+1102 -0.847603345 -0.8246144081 tree2
+1103 -0.319987050 -0.1041605394 tree2
+1104 -0.667046166 -0.3670677454 tree2
+1105 -0.827892349 -0.7445106192 tree2
+1106  0.218653766  0.3093194000 tree2
+1107  0.160562439 -0.1814757179 tree2
+1108  1.736043190  2.0558591166 tree2
+1109  1.259777070  1.9450780726 tree2
+1110  0.540346143  0.3029814701 tree2
+1111  1.378492648  2.0184650205 tree2
+1112 -1.314793076 -1.0067657627 tree2
+1113  0.155011967  0.2155102731 tree2
+1114 -1.090533481 -1.0637838972 tree2
+1115  0.238785369 -0.4184896207 tree2
+1116  1.468398197  0.9510703312 tree2
+1117 -1.479572940 -1.6910970840 tree2
+1118 -0.827892349 -0.4677267233 tree2
+1119  1.019311529  1.4438212192 tree2
+1120  1.019311529  0.9433652293 tree2
+1121  0.484077371  0.3988351424 tree2
+1122  0.207131232  0.2448310183 tree2
+1123 -0.827892349 -0.8707973175 tree2
+1124  0.160562439  0.5026005966 tree2
+1125 -1.923899461 -1.7435498212 tree2
+1126 -0.858317633 -0.9170665388 tree2
+1127 -0.662982082 -0.6999146814 tree2
+1128 -0.068762016  0.1248969864 tree2
+1129  0.701046991  0.1977181294 tree2
+1130 -0.700844173 -0.6156990032 tree2
+1131 -0.772110931 -1.5941283220 tree2
+1132  0.769031918  1.2579240082 tree2
+1133  0.290657940 -0.1570036455 tree2
+1134  0.701046991  0.9189348827 tree2
+1135  0.879041446  1.1862338817 tree2
+1136  0.429190629  0.1352826390 tree2
+1137 -0.812386606 -0.7281247828 tree2
+1138 -0.275580212 -0.6795092353 tree2
+1139  0.207131232 -0.1340149848 tree2
+1140  0.429190629  0.3016597775 tree2
+1141 -1.308804284 -1.5554238999 tree2
+1142  0.035374220 -0.3521746083 tree2
+1143  2.822807996  1.9080692142 tree2
+1144  0.478123903  0.6087533915 tree2
+1145  0.290657940  0.1244916996 tree2
+1146 -0.533736915 -0.3592350718 tree2
+1147 -0.352569456 -0.4190671122 tree2
+1148  0.766647943  0.4966227722 tree2
+1149  0.187667648 -0.0577724579 tree2
+1150  0.753549001  0.9075560674 tree2
+1151  0.097870238 -0.1396291003 tree2
+1152  0.097870238  0.4702918041 tree2
+1153  0.094704298  0.2103655147 tree2
+1154 -1.308804284 -0.8551548927 tree2
+1155  0.009591811  0.5651531577 tree2
+1156  0.792906155  1.0846072431 tree2
+1157 -0.772110931 -0.5099013465 tree2
+1158  1.656178255  0.8981633862 tree2
+1159  0.845835847  0.3539788361 tree2
+1160 -1.191294730 -1.4129930943 tree2
+1161  0.220682520  0.4975503042 tree2
+1162  1.925547637  2.7454147245 tree2
+1163  0.094704298  0.1349817621 tree2
+1164 -1.994856772 -2.7193758722 tree2
+1165  0.324799272  0.8953333195 tree2
+1166 -1.090533481 -2.2775627681 tree2
+1167 -0.239731028  0.1061324617 tree2
+1168  0.484077371  1.1725051141 tree2
+1169 -1.479572940 -1.3832176269 tree2
+1170 -0.772110931 -0.5014257116 tree2
+1171  0.683866783  0.6953165504 tree2
+1172 -1.193390736 -1.0257399845 tree2
+1173  0.988635467  1.0841184481 tree2
+1174  0.429190629  0.3207386339 tree2
+1175 -0.162399457 -0.3089863483 tree2
+1176  0.167576510 -0.3388189567 tree2
+1177  1.254767866  1.2994887101 tree2
+1178  1.372556629  2.1204403896 tree2
+1179 -1.090533481 -0.6954751816 tree2
+1180  0.176230940  0.6218102813 tree2
+1181  1.066001433  1.6032586545 tree2
+1182  0.422449514  0.5208105961 tree2
+1183 -0.264322872  0.2887649274 tree2
+1184 -0.678271367 -1.5841897525 tree2
+1185 -1.479572940 -1.4368066513 tree2
+1186  1.378492648  0.9927404178 tree2
+1187  0.584459486  0.2983755037 tree2
+1188 -0.073205502 -0.1690588118 tree2
+1189  1.468398197  2.1893458653 tree2
+1190  0.218653766  0.4449202226 tree2
+1191  0.256500896  0.4214210458 tree2
+1192  1.900554925  2.1211010790 tree2
+1193  0.683866783  0.1228082591 tree2
+1194  0.544947859  0.4427287003 tree2
+1195  0.422449514  0.1427010632 tree2
+1196  1.716378149  1.5712247720 tree2
+1197 -0.264322872 -0.0568842987 tree2
+1198  3.429450454  4.0391219213 tree2
+1199  0.218653766  0.4595761651 tree2
+1200  0.544947859  0.1085590695 tree2
+1201 -1.510411043 -1.6372650772 tree2
+1202  0.035374220  0.5790619672 tree2
+1203  0.155011967 -0.1562867989 tree2
+1204 -0.404094705  0.0930572420 tree2
+1205 -0.377920227  0.5642500759 tree2
+1206 -0.567444181 -0.5173393930 tree2
+1207  1.063975919  0.6585141302 tree2
+1208 -1.193390736 -1.1098385279 tree2
+1209 -0.576241509 -0.6616521148 tree2
+1210  1.658201242  1.2301100612 tree2
+1211  0.845835847  1.2554334827 tree2
+1212  0.422449514  0.3104170765 tree2
+1213  1.736043190  1.4162272637 tree2
+1214  0.035374220  0.2089318547 tree2
+1215 -0.404094705 -0.4618306844 tree2
+1216 -0.073205502 -0.2707867819 tree2
+1217  2.100810305  2.6434818481 tree2
+1218  1.372556629  1.3494724406 tree2
+1219  0.155011967  0.8001104087 tree2
+1220 -0.264322872 -0.6218445063 tree2
+1221 -1.217139808 -1.2391488491 tree2
+1222 -0.605600797 -0.2756068419 tree2
+1223 -1.238688568 -1.5237105176 tree2
+1224 -1.923899461 -2.1042491012 tree2
+1225  0.218653766  0.3227160511 tree2
+1226 -1.582680257 -1.7669685273 tree2
+1227  0.207131232  0.7143823633 tree2
+1228 -1.314793076 -1.5825951331 tree2
+1229 -1.308804284 -0.9311282853 tree2
+1230 -0.404094705 -0.6893514606 tree2
+1231  0.845835847  0.6943382994 tree2
+1232  1.658201242  2.9146037603 tree2
+1233  1.088278048  0.9797490455 tree2
+1234  0.976397632  1.3730115016 tree2
+1235  0.753549001  0.8208522170 tree2
+1236 -1.510411043 -1.6202986797 tree2
+1237 -0.352569456 -0.1819348916 tree2
+1238  0.437364446  0.5656535546 tree2
+1239  0.584459486  0.8911707305 tree2
+1240  0.012915308 -0.1704669179 tree2
+1241  1.768617068  1.8659453947 tree2
+1242 -0.609861985 -0.9066966179 tree2
+1243  1.650166360  1.8213740955 tree2
+1244  1.259777070  1.5975649181 tree2
+1245 -0.828448764 -0.6108587859 tree2
+1246 -0.605600797 -1.0228577772 tree2
+1247  0.478123903  0.3474944145 tree2
+1248  0.584459486  1.4516470277 tree2
+1249 -1.121941521 -0.8315693746 tree2
+1250 -1.044173925 -1.7462598563 tree2
+1251  0.012915308  0.1412940206 tree2
+1252  1.959746623  2.5423908769 tree2
+1253 -2.102824745 -1.0090633473 tree2
+1254 -0.319987050 -0.2298924335 tree2
+1255  0.794759628  0.1716505558 tree2
+1256 -0.678271367 -0.4779102190 tree2
+1257  2.391925093  2.0187043014 tree2
+1258 -0.073205502 -0.1441442436 tree2
+1259 -2.102824745 -3.1965861427 tree2
+1260  0.540346143  0.9838079524 tree2
+1261  0.484077371 -0.1191081434 tree2
+1262 -1.994856772 -1.3650844217 tree2
+1263 -1.238688568 -0.9536666176 tree2
+1264  2.101642231  2.8080849738 tree2
+1265 -0.994417980 -0.3040786002 tree2
+1266  2.076259153  3.5098664093 tree2
+1267  1.900554925  1.4135407286 tree2
+1268 -0.404094705 -0.1613087717 tree2
+1269 -0.264322872 -0.6673276118 tree2
+1270  0.218653766 -0.2829979187 tree2
+1271  0.701046991  0.8987503237 tree2
+1272  0.218653766  0.0641968079 tree2
+1273 -0.828448764 -0.4187789597 tree2
+1274 -0.393029771 -0.6627863267 tree2
+1275  1.063975919  1.4694377079 tree2
+1276  0.218653766  0.0608657538 tree2
+1277  0.097870238 -0.5968452784 tree2
+1278  2.822807996  3.6584152038 tree2
+1279 -0.099511288  0.1959227348 tree2
+1280 -0.239731028 -0.3034834886 tree2
+1281 -0.828448764 -0.7334207636 tree2
+1282  2.100810305  2.3442657572 tree2
+1283  2.822807996  2.9019395686 tree2
+1284  1.672584902  1.0015098533 tree2
+1285 -1.217139808 -1.0931439264 tree2
+1286  0.845835847  1.0795927692 tree2
+1287 -1.314793076 -0.9485728152 tree2
+1288  0.964008656  1.2041185972 tree2
+1289 -0.586632000 -0.5579396244 tree2
+1290 -0.352569456 -1.0995355855 tree2
+1291  0.009591811 -0.0621958113 tree2
+1292 -0.828448764 -0.5827645223 tree2
+1293 -0.162399457 -0.2376706625 tree2
+1294  1.254767866  1.2624106366 tree2
+1295  0.324799272  0.6003458535 tree2
+1296  0.766647943  0.8005459679 tree2
+1297  1.959746623  1.3771023686 tree2
+1298 -0.558383558  0.4182342542 tree2
+1299 -0.138027742  0.1518893121 tree2
+1300  0.624662996  0.9291038270 tree2
+1301 -1.994856772 -2.1663623152 tree2
+1302  0.301260209  0.3609528939 tree2
+1303 -0.239731028 -0.0217619787 tree2
+1304 -1.015903335 -0.6828144412 tree2
+1305 -0.558383558 -1.3548503509 tree2
+1306 -1.376482143 -1.3710278714 tree2
+1307 -1.193390736 -1.2805129931 tree2
+1308 -1.121941521 -1.4123136666 tree2
+1309 -1.582680257 -1.3983919875 tree2
+1310 -0.073205502  0.2565964160 tree2
+1311 -1.193390736 -1.0834634115 tree2
+1312  0.207131232  0.5423047815 tree2
+1313 -1.044173925 -0.6779732158 tree2
+1314  0.769031918  0.2801398285 tree2
+1315  0.312094545  0.2681167729 tree2
+1316 -0.319987050 -0.6166715851 tree2
+1317  0.429190629  0.4135593050 tree2
+1318  0.879041446  0.3751248182 tree2
+1319  0.091162007 -0.4781970120 tree2
+1320 -0.099511288 -0.6429295437 tree2
+1321  0.437364446 -0.3287014787 tree2
+1322  1.768617068  1.6712887407 tree2
+1323  0.145767027 -0.1616539437 tree2
+1324  0.976397632  0.4915388541 tree2
+1325 -1.654937866 -1.1321569436 tree2
+1326 -0.533736915 -0.6088001205 tree2
+1327 -1.217139808 -1.1731182738 tree2
+1328  2.027863672  1.4083579171 tree2
+1329  0.429190629  0.0256191406 tree2
+1330  0.009591811  0.0096010421 tree2
+1331 -1.479572940 -1.8260416096 tree2
+1332 -0.827892349 -1.4430898122 tree2
+1333  0.192901048  0.4918900032 tree2
+1334 -0.828448764 -1.3666256245 tree2
+1335  2.076259153  1.3990486956 tree2
+1336  1.592907559  1.9348770617 tree2
+1337  0.091162007 -0.2965595553 tree2
+1338 -1.308804284 -1.6926431566 tree2
+1339  1.088278048  1.5268707665 tree2
+1340  0.547947963  0.8446176521 tree2
+1341 -0.404094705 -0.5235918440 tree2
+1342  1.468398197  1.6344197358 tree2
+1343  0.012915308  0.6165454452 tree2
+1344  0.290657940  0.3633077264 tree2
+1345 -1.015903335 -1.7446223036 tree2
+1346  1.088278048  0.5739537511 tree2
+1347 -0.823814289 -0.6632922124 tree2
+1348 -0.703672391 -1.1517374714 tree2
+1349 -0.994417980 -1.7486796338 tree2
+1350 -1.191294730 -1.5935151203 tree2
+1351  0.012915308  0.1473532378 tree2
+1352  0.192901048 -0.1060879070 tree2
+1353 -1.479572940 -1.0607017305 tree2
+1354 -0.319987050  0.3016518969 tree2
+1355 -0.605600797 -0.4516450471 tree2
+1356  0.547947963  0.4128936993 tree2
+1357  1.066001433  0.5287442116 tree2
+1358  0.218653766  0.2687491101 tree2
+1359 -0.099511288  0.4249224820 tree2
+1360  0.879041446  0.1770438937 tree2
+1361 -0.073205502 -0.0386340897 tree2
+1362 -0.847603345 -0.8705922822 tree2
+1363  0.145767027  0.2280351799 tree2
+1364  0.584459486  0.5588763762 tree2
+1365 -0.703672391  0.4086397680 tree2
+1366  0.429190629  0.5755943825 tree2
+1367 -0.068762016  0.2665319546 tree2
+1368 -0.609861985 -0.3130273518 tree2
+1369 -1.216060688 -1.4558099634 tree2
+1370 -0.148615977 -0.8865843439 tree2
+1371 -0.194388396  0.6362088459 tree2
+1372  0.094704298 -0.7285178264 tree2
+1373 -2.127009334 -1.4576007364 tree2
+1374  0.775598076  1.5091734418 tree2
+1375 -0.099511288 -0.2585673735 tree2
+1376  1.672584902  2.3436599502 tree2
+1377 -0.678271367 -0.2178019604 tree2
+1378  0.012915308 -0.1653310455 tree2
+1379 -1.994856772 -1.7286044808 tree2
+1380  0.988635467  1.4428867919 tree2
+1381  0.176230940 -0.2693484020 tree2
+1382 -0.377920227 -0.9989994306 tree2
+1383  0.964008656  0.6884685921 tree2
+1384  0.988635467  1.0082568876 tree2
+1385 -0.319987050 -0.2588812965 tree2
+1386  0.312094545  0.3099365062 tree2
+1387 -1.191294730 -1.6108478910 tree2
+1388  0.362423055  0.4077446608 tree2
+1389  0.012915308 -0.5577829626 tree2
+1390 -0.576241509 -0.6556842601 tree2
+1391 -0.510481239 -1.0850439796 tree2
+1392  0.988635467  0.4192797401 tree2
+1393  2.100810305  1.4239764078 tree2
+1394  0.012915308 -0.0040724832 tree2
+1395 -0.558383558 -1.4031393632 tree2
+1396 -0.605600797 -0.8180623924 tree2
+1397  0.145767027  0.3709198456 tree2
+1398  0.437364446  0.6475140775 tree2
+1399 -0.812386606 -1.7760250662 tree2
+1400 -0.994417980 -1.2569092472 tree2
+1401 -0.138027742 -0.2775855957 tree2
+1402  0.324799272 -0.0009738236 tree2
+1403  0.091162007  0.7261451015 tree2
+1404 -0.678271367 -0.4331835381 tree2
+1405  0.792906155  0.7548775671 tree2
+1406 -1.044173925 -0.7082887042 tree2
+1407  0.544947859  0.4267575859 tree2
+1408 -0.377920227 -0.2401651566 tree2
+1409  3.429450454  2.8197789875 tree2
+1410  0.012915308 -0.3593714480 tree2
+1411  0.155011967 -0.3997567671 tree2
+1412  0.701046991  0.7887846279 tree2
+1413 -0.275580212 -0.0518076765 tree2
+1414 -1.308804284 -1.6252526855 tree2
+1415 -1.216060688 -1.3662321043 tree2
+1416 -0.068762016 -0.3486286759 tree2
+1417  1.900554925  2.1670229675 tree2
+1418  2.027863672  2.6473694261 tree2
+1419  0.094704298  0.2570070329 tree2
+1420 -1.308804284 -1.2078041191 tree2
+1421 -1.137868089 -1.3540566684 tree2
+1422  0.207131232  0.5589643751 tree2
+1423 -0.828448764 -0.9852077387 tree2
+1424 -0.194388396 -0.4358267220 tree2
+1425  0.220682520 -0.7377487205 tree2
+1426  0.964008656  1.1075679137 tree2
+1427 -0.194388396 -0.6059933371 tree2
+1428 -0.828448764 -0.8263872746 tree2
+1429 -1.704090473 -2.5786045141 tree2
+1430 -0.858317633 -0.6544702324 tree2
+1431 -1.217139808 -0.7469884215 tree2
+1432  0.683866783  1.2568385611 tree2
+1433 -0.194388396 -0.4221932802 tree2
+1434  0.879041446  0.9328262681 tree2
+1435 -1.137868089 -0.9216795100 tree2
+1436 -0.275580212 -0.4442076318 tree2
+1437 -0.387549122  0.3334880396 tree2
+1438  0.547947963  0.3863325389 tree2
+1439  0.584459486  0.4984788632 tree2
+1440 -1.478031765 -1.4030731247 tree2
+1441  0.766647943  0.8247035626 tree2
+1442  0.012915308  0.1831853587 tree2
+1443  0.301260209  0.2415675246 tree2
+1444  0.624662996  0.3202221654 tree2
+1445  1.259777070  0.2366882201 tree2
+1446 -1.654937866 -2.1777187878 tree2
+1447  1.716378149  1.8615315257 tree2
+1448  0.187667648 -0.1270468296 tree2
+1449 -1.193390736 -0.9056289926 tree2
+1450 -0.162399457  0.1104490241 tree2
+1451  0.009591811 -0.4741911437 tree2
+1452 -0.576241509 -0.7843299922 tree2
+1453  1.254767866  1.2024042501 tree2
+1454  0.882675687  1.0227525872 tree2
+1455  1.019311529  0.6484153608 tree2
+1456 -0.827892349 -1.0013601009 tree2
+1457 -1.015903335 -1.4189299548 tree2
+1458 -1.015903335 -0.7797353011 tree2
+1459 -0.404094705 -0.6815427099 tree2
+1460 -0.772110931 -0.4829883431 tree2
+1461 -0.510481239  0.0640815009 tree2
+1462 -0.377920227 -0.8367663968 tree2
+1463  0.753549001  0.5686449993 tree2
+1464  0.324799272 -0.1955082598 tree2
+1465 -0.162399457 -0.3732546051 tree2
+1466 -1.191294730 -0.1478228158 tree2
+1467  0.218653766  0.2047099059 tree2
+1468  0.870327009  1.2108988878 tree2
+1469 -0.138027742 -0.0663242343 tree2
+1470  1.658201242  1.6035234018 tree2
+1471 -0.393029771 -0.1232732155 tree2
+1472  2.101642231  1.3951994888 tree2
+1473 -0.667046166 -1.2027544294 tree2
+1474 -0.823814289 -0.5445662953 tree2
+1475 -1.090533481 -0.3253120759 tree2
+1476 -0.471802745 -0.2159254941 tree2
+1477 -1.308804284 -1.9706129762 tree2
+1478 -0.148615977  0.1495764861 tree2
+1479 -0.662982082 -0.7943985063 tree2
+1480 -1.015903335 -0.1976536000 tree2
+1481  1.019311529  1.2844323793 tree2
+1482 -1.411550927 -1.6542793260 tree2
+1483  1.592907559  1.3256818337 tree2
+1484 -1.478031765 -1.5529904059 tree2
+1485 -0.319987050 -0.0410677478 tree2
+1486  0.882675687  1.1285859283 tree2
+1487 -0.558383558  0.1062212291 tree2
+1488  1.019311529  0.7765234570 tree2
+1489 -0.576241509 -0.1219134618 tree2
+1490  0.584459486  0.8881976931 tree2
+1491 -0.827892349 -0.8059748319 tree2
+1492  0.097870238  0.6576635280 tree2
+1493 -1.308804284 -1.0425448464 tree2
+1494  0.794759628  1.1921536962 tree2
+1495  1.372556629  1.6628249253 tree2
+1496  0.879041446  1.0183389883 tree2
+1497 -0.162399457 -0.2410992822 tree2
+1498  0.091162007  0.4132594922 tree2
+1499  0.256500896  0.0915807453 tree2
+1500 -0.239731028 -0.7398111065 tree2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>all_models2 <span class="ot">&lt;-</span> all_models <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>    <span class="fu">group_split</span>(model) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a></a>    <span class="fu">setNames</span>(<span class="fu">unique</span>(all_models<span class="sc">$</span>model)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a></a>    <span class="fu">map_dfr</span>(., <span class="sc">~</span> <span class="fu">custom_metrics</span>(.x,</span>
+<span id="cb25-5"><a></a>        <span class="at">truth =</span> Y,</span>
+<span id="cb25-6"><a></a>        <span class="at">estimate =</span> .pred</span>
+<span id="cb25-7"><a></a>    ), <span class="at">.id =</span> <span class="st">"names"</span>)</span>
+<span id="cb25-8"><a></a></span>
+<span id="cb25-9"><a></a>all_models2 <span class="sc">|&gt;</span></span>
+<span id="cb25-10"><a></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> names, <span class="at">values_from =</span> .estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  .metric .estimator    lm  tree tree2
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 rmse    standard   0.975 0.895 0.425
+2 rsq     standard   0.191 0.319 0.846
+3 mae     standard   0.770 0.715 0.340</code></pre>
+</div>
+</div>
+</section></section>
+<section id="cómo-vamos-a-elegir-el-mejor-modelo-si-solo-evaluamos-el-modelo-en-los-datos-de-prueba" class="title-slide slide level1 center">
+<h1>¿Cómo vamos a elegir el mejor modelo si solo evaluamos el modelo en los datos de prueba?</h1>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="um_logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Machine Learning</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
