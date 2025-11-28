@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Francisco Cardozo">
+<meta name="author" content="Edgar Ruiz">
 
-<title>por-que-tidymodels – Workshops</title>
+<title>2 - ¿Por qué tidymodels? – Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -97,7 +134,7 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta name="twitter:title" content="Workshops">
+<meta name="twitter:title" content="2 - ¿Por qué tidymodels? – Workshops">
 <meta name="twitter:description" content="Dive into our wide range of workshops designed to boost your skills and knowledge.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -145,17 +182,224 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#motivación" id="toc-motivación" class="nav-link active" data-scroll-target="#motivación"><span class="header-section-number">1</span> Motivación</a></li>
+  <li><a href="#problemas-de-los-pipelines-tradicionales" id="toc-problemas-de-los-pipelines-tradicionales" class="nav-link" data-scroll-target="#problemas-de-los-pipelines-tradicionales"><span class="header-section-number">2</span> Problemas de los pipelines tradicionales</a></li>
+  <li><a href="#principios-de-tidymodels" id="toc-principios-de-tidymodels" class="nav-link" data-scroll-target="#principios-de-tidymodels"><span class="header-section-number">3</span> Principios de tidymodels</a></li>
+  <li><a href="#algunos-paquetes-del-ecosistema-tidymodels" id="toc-algunos-paquetes-del-ecosistema-tidymodels" class="nav-link" data-scroll-target="#algunos-paquetes-del-ecosistema-tidymodels"><span class="header-section-number">4</span> Algunos Paquetes del ecosistema tidymodels</a></li>
+  <li><a href="#caso-práctico-de-código-artesanal-a-workflow" id="toc-caso-práctico-de-código-artesanal-a-workflow" class="nav-link" data-scroll-target="#caso-práctico-de-código-artesanal-a-workflow"><span class="header-section-number">5</span> Caso práctico: de código artesanal a <code>workflow</code></a></li>
+  <li><a href="#qué-aporta-frente-a-otras-alternativas" id="toc-qué-aporta-frente-a-otras-alternativas" class="nav-link" data-scroll-target="#qué-aporta-frente-a-otras-alternativas"><span class="header-section-number">6</span> ¿Qué aporta frente a otras alternativas?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">2 - ¿Por qué tidymodels?</h1>
+</div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Francisco Cardozo <a href="mailto:focardozom@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Universidad de Miami
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Edgar Ruiz <a href="mailto:edgararuiz@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="motivación" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivación"><span class="header-section-number">1</span> Motivación</h2>
+<p><code>tidymodels</code> resuelve un problema recurrente: cada paquete de machine learning en R trae su propia sintaxis, estructuras de datos e interfaces de evaluación. Cuando combinamos múltiples algoritmos dentro del mismo proyecto, la fricción aumenta y el código se vuelve difícil de mantener.</p>
+</section>
+<section id="problemas-de-los-pipelines-tradicionales" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="problemas-de-los-pipelines-tradicionales"><span class="header-section-number">2</span> Problemas de los pipelines tradicionales</h2>
+<ol type="1">
+<li><strong>Interfaces heterogéneas</strong>: cada función (<code>lm()</code>, <code>randomForest()</code>, <code>glmnet()</code>, etc.) exige argumentos distintos y produce salidas no compatibles.</li>
+<li><strong>Preprocesamiento ad hoc</strong>: transformaciones como imputaciones o creación de variables suelen vivir en scripts separados, lo que dificulta reproducir los pasos exactos.</li>
+<li><strong>Evaluación inconsistente</strong>: las métricas pueden variar entre paquetes.</li>
+<li><strong>Acoplamiento fuerte</strong>: cambiar de algoritmo implica reescribir gran parte del código.</li>
+</ol>
+<p>Estos problemas crecen cuando se combinan múltiples modelos, se repite el proceso para distintos conjuntos de datos o se trabaja en equipo.</p>
+</section>
+<section id="principios-de-tidymodels" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="principios-de-tidymodels"><span class="header-section-number">3</span> Principios de tidymodels</h2>
+<p>El ecosistema propone una gramática coherente basada en:</p>
+<ul>
+<li><strong>Tidy data</strong>: todas las estructuras están bien definidas.</li>
+<li><strong>Separación de responsabilidades</strong>: especificar el modelo (qué) es independiente del motor (cómo).</li>
+<li><strong>Flujos reproducibles</strong>: recetas (<code>recipes</code>) encapsulan el preprocesamiento y workflows lo combinan con el modelo.</li>
+<li><strong>Remuestreo y tuning integrado</strong>: paquetes como <code>rsample</code>, <code>tune</code> y <code>yardstick</code> comparten una API consistente.</li>
+</ul>
+<p>El resultado es un código más declarativo, fácil de versionar y portable a distintos motores.</p>
+</section>
+<section id="algunos-paquetes-del-ecosistema-tidymodels" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="algunos-paquetes-del-ecosistema-tidymodels"><span class="header-section-number">4</span> Algunos Paquetes del ecosistema tidymodels</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Paquete</th>
+<th>Rol en el workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>parsnip</code></td>
+<td>Define el modelo de forma abstracta.</td>
+</tr>
+<tr class="even">
+<td><code>recipes</code></td>
+<td>Describe el preprocesamiento paso a paso.</td>
+</tr>
+<tr class="odd">
+<td><code>workflows</code></td>
+<td>Combina receta y modelo en un objeto.</td>
+</tr>
+<tr class="even">
+<td><code>rsample</code></td>
+<td>Maneja divisiones de datos y esquemas de validación cruzada.</td>
+</tr>
+<tr class="odd">
+<td><code>tune</code></td>
+<td>Automatiza la búsqueda de hiperparámetros.</td>
+</tr>
+<tr class="even">
+<td><code>yardstick</code></td>
+<td>Calcula métricas.</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>Suma a esto <code>vetiver</code> para despliegue, <code>stacks</code> para ensamblados y <code>tidypredict</code> para puntuación en bases externas.</p>
+</blockquote>
+</section>
+<section id="caso-práctico-de-código-artesanal-a-workflow" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="caso-práctico-de-código-artesanal-a-workflow"><span class="header-section-number">5</span> Caso práctico: de código artesanal a <code>workflow</code></h2>
+<p>El siguiente ejemplo estima un modelo de regresión y agrega preprocesamiento. Primero, un enfoque manual:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enfoque tradicional</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> ., <span class="at">data =</span> iris)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> <span class="fu">summary</span>(modelo_lm)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_lm, iris)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rmse_trad <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((predicciones <span class="sc">-</span> iris<span class="sc">$</span>Sepal.Length)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Con tidymodels logramos mayor organización y extensibilidad:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.4.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.10         ✔ recipes      1.3.1     
+✔ dials        1.4.2          ✔ rsample      1.3.1     
+✔ dplyr        1.1.4          ✔ tailor       0.1.0     
+✔ ggplot2      4.0.0          ✔ tidyr        1.3.1     
+✔ infer        1.0.9          ✔ tune         2.0.0     
+✔ modeldata    1.5.1          ✔ workflows    1.3.0     
+✔ parsnip      1.3.3.9000     ✔ workflowsets 1.1.1     
+✔ purrr        1.2.0          ✔ yardstick    1.3.2     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ recipes::step()  masks stats::step()</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidymodels_prefer</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Dividir datos</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>datos_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(iris, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> <span class="st">"Species"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>datos_train <span class="ot">&lt;-</span> <span class="fu">training</span>(datos_split)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>datos_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(datos_split)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Receta de preprocesamiento</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>receta <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sepal.Length <span class="sc">~</span> ., <span class="at">data =</span> datos_train) <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>())</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Modelo y motor</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Workflow completo</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>flujo <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_recipe</span>(receta) <span class="sc">|&gt;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_model</span>(modelo)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">fit</span>(flujo, <span class="at">data =</span> datos_train)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Evaluación coherente</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(ajuste, datos_test) <span class="sc">|&gt;</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(datos_test)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>metricas <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">metricas</span>(predicciones, <span class="at">truth =</span> Sepal.Length, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 rmse    standard       0.330
+2 rsq     standard       0.870</code></pre>
+</div>
+</div>
+<p>Observa cómo cada paso queda encapsulado y se puede reutilizar en nuevos conjuntos de datos o motores (<code>set_engine("glmnet")</code>, <code>set_engine("stan")</code>, etc.) sin reescribir el resto del pipeline.</p>
+</section>
+<section id="qué-aporta-frente-a-otras-alternativas" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="qué-aporta-frente-a-otras-alternativas"><span class="header-section-number">6</span> ¿Qué aporta frente a otras alternativas?</h2>
+<ul>
+<li><strong>Coherencia</strong>: una vez que aprendes la sintaxis de <code>parsnip</code> y <code>recipes</code>, puedes aplicarla a cualquier modelo soportado.</li>
+<li><strong>Extensión</strong>: permite integrar motores propios o paquetes externos mediante <code>set_engine()</code>.</li>
+<li><strong>Reproducibilidad</strong>: los objetos <code>workflow</code> y <code>last_fit()</code> guardan metadatos, recetas y métricas, lo que facilita auditorías o reportes.</li>
+<li><strong>Colaboración</strong>: el código es declarativo; resulta sencillo compartirlo en notebooks, APIs o pipelines.</li>
+</ul>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
